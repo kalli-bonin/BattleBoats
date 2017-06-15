@@ -1,0 +1,9 @@
+c:\users\kelli\documents\visual studio 2017\Projects\KB_Battleship\KB_Battleship\bin\Debug\KB_Battleship.exe.config
+c:\users\kelli\documents\visual studio 2017\Projects\KB_Battleship\KB_Battleship\bin\Debug\KB_Battleship.exe
+c:\users\kelli\documents\visual studio 2017\Projects\KB_Battleship\KB_Battleship\bin\Debug\KB_Battleship.pdb
+c:\users\kelli\documents\visual studio 2017\Projects\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.csprojResolveAssemblyReference.cache
+c:\users\kelli\documents\visual studio 2017\Projects\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.Form1.resources
+c:\users\kelli\documents\visual studio 2017\Projects\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.Properties.Resources.resources
+c:\users\kelli\documents\visual studio 2017\Projects\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.csproj.GenerateResource.Cache
+c:\users\kelli\documents\visual studio 2017\Projects\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.exe
+c:\users\kelli\documents\visual studio 2017\Projects\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.pdb
