@@ -7,3 +7,6 @@ c:\users\kelli\documents\visual studio 2017\Projects\KB_Battleship\KB_Battleship
 c:\users\kelli\documents\visual studio 2017\Projects\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.csproj.GenerateResource.Cache
 c:\users\kelli\documents\visual studio 2017\Projects\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.exe
 c:\users\kelli\documents\visual studio 2017\Projects\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.pdb
+C:\Users\sabri\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\bin\Debug\KB_Battleship.exe.config
+C:\Users\sabri\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.exe
+C:\Users\sabri\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.pdb

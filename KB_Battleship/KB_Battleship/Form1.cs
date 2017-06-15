@@ -74,10 +74,6 @@ namespace KB_Battleship
             protected bool DirectionVertical;
             protected bool Placed;      //is it placed when placing all ships
             protected bool DeathMessage = false; //did we give a message yet or not
-            protected bool TargetModeHR;
-            protected bool TargetModeHL;
-            protected bool TargetModeVU;
-            protected bool TargetModeVD;
             protected bool Hunt;
 
             public Ships()
@@ -182,23 +178,23 @@ namespace KB_Battleship
             {
                 Placed = P;
             }
-            public bool IsDead()
+            public int IsDead()
             {
                 if ((HitCount == Size) && (DeathMessage == false))
                 {
                     MessageBox.Show("Your" + Name + "is dead.");
                     ResetHuntMode();
-                    return true;
+                    return 1;
                 }
                 else if ((HitCount == Size) && (DeathMessage == true))
                 {
                     ResetHuntMode();
-                    return true;
+                    return 2;
                 }
 
                 else
                 {
-                    return false;
+                    return 0;
                 }
 
             }
@@ -235,7 +231,7 @@ namespace KB_Battleship
                         {
                             while (i < Size)
                             {
-
+                                //checks if spots empty or not
                                 int EmptyChecker;
                                 EmptyChecker = PlayerArray[x + i, y];
                                 if (EmptyChecker == 0)
@@ -329,39 +325,7 @@ namespace KB_Battleship
                     }
                 }
             }
-
-            public void setTargetModeHR(bool b)
-            {
-                TargetModeHR = b;
-            }
-            public bool getTargetModeHR()
-            {
-                return TargetModeHR;
-            }
-            public void setTargetModeHL(bool b)
-            {
-                TargetModeHL = b;
-            }
-            public bool getTargetModeHL()
-            {
-                return TargetModeHL;
-            }
-            public void setTargetModeVU(bool b)
-            {
-                TargetModeVU = b;
-            }
-            public bool getTargetModeVU()
-            {
-                return TargetModeVU;
-            }
-            public void setTargetModeVD(bool b)
-            {
-                TargetModeVU = b;
-            }
-            public bool getTargetModeVD()
-            {
-                return TargetModeVD;
-            }
+            
             public void setHunt(bool b)
             {
                 Hunt = b;
@@ -536,6 +500,10 @@ namespace KB_Battleship
             protected int iHitCount;
             //stores player ship information 
             protected int[,] PlayerArray = new int[10, 10];
+            protected bool TargetModeHR;
+            protected bool TargetModeHL;
+            protected bool TargetModeVU;
+            protected bool TargetModeVD;
 
             protected Point FirstHit;
             protected Point LastHit;
@@ -575,6 +543,7 @@ namespace KB_Battleship
             {
                 ToHit.Clear();
             }
+
 
             public void setFirstHit(int x, int y)
             {
@@ -688,6 +657,39 @@ namespace KB_Battleship
             public int[,] getPlayerArrayAll()
             {
                 return PlayerArray;
+            }
+
+            public void setTargetModeHR(bool b)
+            {
+                TargetModeHR = b;
+            }
+            public bool getTargetModeHR()
+            {
+                return TargetModeHR;
+            }
+            public void setTargetModeHL(bool b)
+            {
+                TargetModeHL = b;
+            }
+            public bool getTargetModeHL()
+            {
+                return TargetModeHL;
+            }
+            public void setTargetModeVU(bool b)
+            {
+                TargetModeVU = b;
+            }
+            public bool getTargetModeVU()
+            {
+                return TargetModeVU;
+            }
+            public void setTargetModeVD(bool b)
+            {
+                TargetModeVU = b;
+            }
+            public bool getTargetModeVD()
+            {
+                return TargetModeVD;
             }
         }
 
@@ -1393,7 +1395,7 @@ namespace KB_Battleship
                 MessageBox.Show("TEMPORARY: SUBMITTED");
                 pg4_PlayerChoice.Visible = true;
                 P1.setTurn(true);
-                P2.setTurn(true);
+                P2.setTurn(false);
             }
 
             else
