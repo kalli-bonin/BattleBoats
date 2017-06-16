@@ -74,8 +74,8 @@ namespace KB_Battleship
                 topLeft.X = 0;
                 topLeft.Y = 0;
                 DirectionVertical = true;
-                Placed = false;
-                DeathMessage = false;
+                Placed = false;     //is the ship placed in the starting screen
+                DeathMessage = false;   //only one death message should be shown
             }
             public Ships(string N, int S, int HC, int Px, int Py, bool R, bool P, int I)
             {
@@ -135,7 +135,7 @@ namespace KB_Battleship
                     SetHitCount(GetHitCount() + 1);
                 }
             }
-
+          
             public string GetPosition()
             {
                 // return Position as a letter and number i.e A1
@@ -202,7 +202,7 @@ namespace KB_Battleship
                 else
                     DirectionVertical = true;
             }
-            public void Randomize(Random rnd, int[,] PlayerArray)
+            public void Randomize(Random rnd, int[,] PlayerArray
             {
                 int i, x, y, Orientation, EmptyCounter;
 
@@ -2003,6 +2003,38 @@ namespace KB_Battleship
                 //skips COM page
                 pg7_GameTime_COM.Visible = true;
                 pg7_GameTime_P1.Visible = true;
+
+                int avatar = P1.getAvatar();
+                int avatar2 = P2.getAvatar();
+                switch (avatar)
+                {
+                    case 1:
+                        pb_MA1_P1.Visible = true;
+                        break;
+                    case 2:
+                        pb_MA2_P1.Visible = true;
+                        break;
+                    case 3:
+                        pb_MA3_P1.Visible = true;
+                        break;
+                    default:
+                        break;
+                }
+                switch (avatar2)
+                {
+                    case 4:
+                        pb_MA4_P2.Visible = true;
+                        break;
+                    case 5:
+                        pb_MA4_P2.Visible = true;
+                        break;
+                    case 6:
+                        pb_MA6_P2.Visible = true;
+                        break;
+                    default:
+                        break;
+                }
+                
                 P1.setTurn(true);
                 P2.setTurn(false);
             }
