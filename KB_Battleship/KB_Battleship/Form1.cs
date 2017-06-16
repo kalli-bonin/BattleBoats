@@ -2244,6 +2244,11 @@ namespace KB_Battleship
                     
                     
                 }
+                PB.IsDead(P2);
+                SUB.IsDead(P2);
+                DES.IsDead(P2);
+                BAT.IsDead(P2);
+                AIR.IsDead(P2);
                 
             }
 
@@ -2257,9 +2262,7 @@ namespace KB_Battleship
             }
             else
             {
-                pb_P1_Grid.Enabled = false;
-                pb_COM_Grid.Enabled = false;
-                P1.setScore(P1.getScore() + 1);
+
             }
         }
 
