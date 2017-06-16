@@ -2351,7 +2351,7 @@ namespace KB_Battleship
                     case 1:
                         pb_MA1_P1onP2.Visible = true;
                         break;      
-                    case 2:         
+                    case 2:
                         pb_MA2_P1onP2.Visible = true;
                         break;      
                     case 3:         
@@ -2366,7 +2366,7 @@ namespace KB_Battleship
                         pb_MA4_P2onP2.Visible = true;
                         break;      
                     case 5:         
-                        pb_MA4_P2onP2.Visible = true;
+                        pb_MA5_P2onP2.Visible = true;
                         break;      
                     case 6:         
                         pb_MA6_P2onP2.Visible = true;
