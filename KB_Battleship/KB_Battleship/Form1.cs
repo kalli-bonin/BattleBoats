@@ -512,22 +512,37 @@ namespace KB_Battleship
 
         public class Player
         {
+            public Player()
+            {
+                iScore = 0;
+                iAvatar = 1;
+                iHitCount = 0;
+            }
+
             public Ships PB = new Ships("PatrolBoat", 2, 0, 0, 0, false, false, 1);
             public Ships SUB = new Ships("Submarine", 3, 0, 0, 0, false, false, 2);
             public Ships DES = new Ships("Destroyer", 3, 0, 0, 0, false, false, 3);
             public Ships BAT = new Ships("Battleship", 4, 0, 0, 0, false, false, 4);
             public Ships AIR = new Ships("Aircraft", 5, 0, 0, 0, false, false, 5);
-            protected string strName;
+
             protected int iScore;
             protected int iAvatar;
             protected int iHitCount;
-            //stores player ship information 
-            protected int[,] PlayerArray = new int[10, 10];
 
+            //stores player ship information///////////////
+            protected int[,] PlayerArray = new int[10, 10];
+            //--------------------------------------------//
+            
+
+            //confirming placing all ships and which ships are placed
+            public bool allPlaced = false;
             public int boatclick = 0;
+            //-----------------------------------------------------//
 
             protected Point FirstHit;
             protected Point LastHit;
+
+            //P1 turn or P2 turn?///////////////////
             protected bool Turn;
             public void SwitchTurn(Player other)
             {
@@ -542,7 +557,17 @@ namespace KB_Battleship
                     other.setTurn(true);
                 }
             }
-            //list of points for COM to hit
+            public void setTurn(bool b)
+            {
+                Turn = b;
+            }
+            public bool getTurn()
+            {
+                return Turn;
+            }
+            //------------------------------------//
+
+            //list of points for COM to hit//////////////////
             protected List<Point> ToHit = new List<Point>(4);
             public void AddToHit(int x, int y)
             {
@@ -564,7 +589,9 @@ namespace KB_Battleship
             {
                 ToHit.Clear();
             }
+            //---------------------------------------------//
 
+            //setters and getters for //////////////////////
             public void setFirstHit(int x, int y)
             {
                 FirstHit.X = x;
@@ -583,33 +610,8 @@ namespace KB_Battleship
             {
                 return LastHit;
             }
-
-            public Player()
-            {
-                strName = ("Butthead");
-                iScore = 0;
-                iAvatar = 1;
-                iHitCount = 0;
-            }
             
-            public void setTurn(bool b)
-            {
-                Turn = b;
-            }
-            public bool getTurn()
-            {
-                return Turn;
-            }
-            public void setName(string name)
-            {
-                strName = name;
-
-            }
-            public string getName()
-            {
-                return strName;
-            }
-
+            //score
             public void setScore(int score)
             {
                 iScore = score;
@@ -619,6 +621,7 @@ namespace KB_Battleship
                 return iScore;
             }
 
+            //avatar
             public void setAvatar(int avatar)
             {
                 iAvatar = avatar;
@@ -628,6 +631,7 @@ namespace KB_Battleship
                 return iAvatar;
             }
 
+            //hitcount
             public void setHitCount(int hit)
             {
                 iHitCount = hit;
@@ -637,6 +641,34 @@ namespace KB_Battleship
                 return iHitCount;
             }
 
+            //playerArray
+            public int getPlayerArray(int x, int y)
+            {
+                return PlayerArray[x, y];
+            }
+            public int getPlayerArray(Point p)
+            {
+                int x, y;
+                x = p.X;
+                y = p.Y;
+                return PlayerArray[x, y];
+            }
+            public void setPlayerArray(int x, int y, int i)
+            {
+                PlayerArray[x, y] = i;
+            }
+            public void setPlayerArray(Point p, int i)
+            {
+                int x, y;
+                x = p.X;
+                y = p.Y;
+                PlayerArray[x, y] = i;
+            }
+            public int[,] getPlayerArrayAll()
+            {
+                return PlayerArray;
+            }
+            //-------------------------------------------------//
             public bool isWinner()
             {
                 //needs win condition 
@@ -667,33 +699,7 @@ namespace KB_Battleship
                     return;
                 }
             }
-
-            public int getPlayerArray(int x, int y)
-            {
-                return PlayerArray[x, y];
-            }
-            public int getPlayerArray(Point p)
-            {
-                int x, y;
-                x = p.X;
-                y = p.Y;
-                return PlayerArray[x, y];
-            }
-            public void setPlayerArray(int x, int y, int i)
-            {
-                PlayerArray[x, y] = i;
-            }
-            public void setPlayerArray(Point p, int i)
-            {
-                int x, y;
-                x = p.X;
-                y = p.Y;
-                PlayerArray[x, y] = i;
-            }
-            public int[,] getPlayerArrayAll()
-            {
-                return PlayerArray;
-            }
+            
         }
 
         public void DrawShipPlacement(int x, int y, Ships S, Player P, Control PIC)
@@ -859,7 +865,7 @@ namespace KB_Battleship
                         g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
                     }
                     //placing ships
-                    else if (P.getPlayerArray(i, j) > 0 && ((P.PB.GetPlaced() == false) || (P.SUB.GetPlaced() == true) || (P.DES.GetPlaced() == true) || (P.BAT.GetPlaced() == true) || (P.AIR.GetPlaced() == true)))
+                    else if (P.getPlayerArray(i, j) > 0 && P.allPlaced != true)
                     {
                         SolidBrush myBrush = new SolidBrush(Color.RoyalBlue);
                         g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
@@ -1410,6 +1416,7 @@ namespace KB_Battleship
                 pg4_PlayerChoice.Visible = true;
                 P1.setTurn(true);
                 P2.setTurn(false);
+                P1.allPlaced = true;
             }
 
             else
@@ -1964,6 +1971,7 @@ namespace KB_Battleship
                 pg7_GameTime_P1.Visible = true;
                 P1.setTurn(true);
                 P2.setTurn(false);
+                P2.allPlaced = true;
             }
 
             else
