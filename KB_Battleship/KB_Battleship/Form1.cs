@@ -326,7 +326,7 @@ namespace KB_Battleship
             protected string strName;
             protected int iScore;
             protected int iAvatar;
-            protected int iHitCount;
+            protected int HitCount;
             //stores player ship information 
             protected int[,] PlayerArray = new int[10, 10];
             protected bool TargetModeHR;
@@ -416,7 +416,7 @@ namespace KB_Battleship
                 strName = ("Butthead");
                 iScore = 0;
                 iAvatar = 1;
-                iHitCount = 0;
+                HitCount = 0;
             }
 
 
@@ -458,11 +458,11 @@ namespace KB_Battleship
 
             public void setHitCount(int hit)
             {
-                iHitCount = hit;
+                HitCount = hit;
             }
             public int getHitCount()
             {
-                return iHitCount;
+                return HitCount;
             }
             
             public bool isWinner()
@@ -530,7 +530,7 @@ namespace KB_Battleship
             }
             public void setTargetModeVD(bool b)
             {
-                TargetModeVU = b;
+                TargetModeVD = b;
             }
             public bool getTargetModeVD()
             {
@@ -1919,8 +1919,8 @@ namespace KB_Battleship
             {
                 pb_P1_Grid.Enabled = false;
                 pb_COM_Grid.Enabled = false;
-                //do win stuff
                 P1.setScore(P1.getScore() + 1);
+                MessageBox.Show("You win!!!");
             }
             else
             {
@@ -2051,7 +2051,7 @@ namespace KB_Battleship
                             }
                             else if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1) == 0)
                             {
-                                P1.setPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y, -2);
+                                P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1, -2);
                                 //reverse direction to hit from first point 
                                 P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                                 P2.setTargetModeVU(false);
@@ -2129,7 +2129,6 @@ namespace KB_Battleship
                             //store first point hit of a ship
                             P2.setFirstHit(x, y);
                             P1.setPlayerArray(x, y, -1);
-                            P2.setHitCount(P2.getHitCount() + 1);
                             P1.SwitchTurn(P2);
                             //if surrounding points have not been hit, add to list of points to hit
                             //Left point
@@ -2166,46 +2165,85 @@ namespace KB_Battleship
 
                         }
                     }
+                    //Points in ToHit list, searching for hit direction i.e. 2 hits in a column/row
                     else
                     {
+                        //hit to right of first hit
                         if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X)
                         {
-                            //Future hits go right
-                            P2.setTargetModeHR(true);
-                            P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
-                            ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
-                            P1.setPlayerArray(P2.getToHitPoint(), -1);
-                            P2.ClearToHitPoints();
-
+                            if (P1.getPlayerArray(P2.getFirstHit().X + 1, P2.getFirstHit().Y) > 0)
+                            {
+                                //Future hits go right
+                                P2.setTargetModeHR(true);
+                                P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
+                                ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
+                                P1.setPlayerArray(P2.getToHitPoint(), -1);
+                                P2.ClearToHitPoints();
+                                P2.setHunt(true);
+                            }
+                            else
+                            {
+                                P1.setPlayerArray(P2.getToHitPoint(), -2);
+                                P2.RemoveToHitPoint();
+                            }
                         }
                         else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X)
                         {
-                            //Future hits go left
-                            P2.setTargetModeHL(true);
-                            P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
-                            ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
-                            P1.setPlayerArray(P2.getToHitPoint(), -1);
-                            P2.ClearToHitPoints();
+                            if (P1.getPlayerArray(P2.getFirstHit().X - 1, P2.getFirstHit().Y) > 0)
+                            {
+                                //Future hits go left
+                                P2.setTargetModeHL(true);
+                                P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
+                                ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
+                                P1.setPlayerArray(P2.getToHitPoint(), -1);
+                                P2.ClearToHitPoints();
+                                P2.setHunt(true);
+                            }
+                            else
+                            {
+                                P1.setPlayerArray(P2.getToHitPoint(), -2);
+                                P2.RemoveToHitPoint();
+                            }
+                            
                         }
                         else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y)
                         {
-                            //Future hits go down
-                            P2.setTargetModeVD(true);
-                            P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
-                            ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
-                            P1.setPlayerArray(P2.getToHitPoint(), -1);
-                            P2.ClearToHitPoints();
+                            if (P1.getPlayerArray(P2.getFirstHit().X, P2.getFirstHit().Y + 1) > 0)
+                            {
+                                //Future hits go down
+                                P2.setTargetModeVD(true);
+                                P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
+                                ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
+                                P1.setPlayerArray(P2.getToHitPoint(), -1);
+                                P2.ClearToHitPoints();
+                                P2.setHunt(true);
+                            }
+                            else
+                            {
+                                P1.setPlayerArray(P2.getToHitPoint(), -2);
+                                P2.RemoveToHitPoint();
+                            }
+                            
                         }
                         else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y)
                         {
-                            //Future hits go up
-                            P2.setTargetModeVU(true);
-                            P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
-                            ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
-                            P1.setPlayerArray(P2.getToHitPoint(), -1);
-                            P2.ClearToHitPoints();
+                            if (P1.getPlayerArray(P2.getFirstHit().X, P2.getFirstHit().Y - 1) > 0)
+                            {
+                                //Future hits go up
+                                P2.setTargetModeVU(true);
+                                P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
+                                ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
+                                P1.setPlayerArray(P2.getToHitPoint(), -1);
+                                P2.ClearToHitPoints();
+                                P2.setHunt(true);
+                            }
+                            else
+                            {
+                                P1.setPlayerArray(P2.getToHitPoint(), -2);
+                                P2.RemoveToHitPoint();
+                            }
+                            
                         }
-                        P2.setHunt(true);
                         P1.SwitchTurn(P2);
                     } 
                     
@@ -2226,6 +2264,7 @@ namespace KB_Battleship
                 pb_P1_Grid.Enabled = false;
                 pb_COM_Grid.Enabled = false;
                 P2.setScore(P2.getScore() + 1);
+                MessageBox.Show("Player 2 wins!!!!");
             }
             else
             {
