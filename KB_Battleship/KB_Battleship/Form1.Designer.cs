@@ -42,7 +42,7 @@
             this.pg8_GameTime_P2 = new System.Windows.Forms.Panel();
             this.btnNext_8 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pb_MA4_P2_P2 = new System.Windows.Forms.PictureBox();
             this.label130 = new System.Windows.Forms.Label();
             this.label131 = new System.Windows.Forms.Label();
             this.label132 = new System.Windows.Forms.Label();
@@ -87,8 +87,8 @@
             this.label170 = new System.Windows.Forms.Label();
             this.pb_P2onP2 = new System.Windows.Forms.PictureBox();
             this.btnNext_7 = new System.Windows.Forms.Button();
-            this.pb_MA_P2 = new System.Windows.Forms.PictureBox();
-            this.pb_MA_P1 = new System.Windows.Forms.PictureBox();
+            this.pb_MA4_P2 = new System.Windows.Forms.PictureBox();
+            this.pb_MA1_P1 = new System.Windows.Forms.PictureBox();
             this.lblTurn = new System.Windows.Forms.Label();
             this.label90 = new System.Windows.Forms.Label();
             this.label91 = new System.Windows.Forms.Label();
@@ -273,6 +273,10 @@
             this.btnNext_1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pb_MA2_P1 = new System.Windows.Forms.PictureBox();
+            this.pb_MA3_P1 = new System.Windows.Forms.PictureBox();
+            this.pb_MA5_P2 = new System.Windows.Forms.PictureBox();
+            this.pb_MA6_P2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHomescreen)).BeginInit();
             this.pg1_Instructions.SuspendLayout();
             this.pg2_Avatar_P1.SuspendLayout();
@@ -284,11 +288,11 @@
             this.pg7_GameTime_P1.SuspendLayout();
             this.pg8_GameTime_P2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2_P2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P1onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P2onP2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA_P2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA_P1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA1_P1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P2onP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P1onP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Mini_P2)).BeginInit();
@@ -313,6 +317,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_A3_P1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_A2_P1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_A1_P1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2)).BeginInit();
             this.SuspendLayout();
             // 
             // pbHomescreen
@@ -546,10 +554,14 @@
             // 
             // pg7_GameTime_P1
             // 
+            this.pg7_GameTime_P1.Controls.Add(this.pb_MA6_P2);
+            this.pg7_GameTime_P1.Controls.Add(this.pb_MA5_P2);
+            this.pg7_GameTime_P1.Controls.Add(this.pb_MA3_P1);
+            this.pg7_GameTime_P1.Controls.Add(this.pb_MA2_P1);
             this.pg7_GameTime_P1.Controls.Add(this.pg8_GameTime_P2);
             this.pg7_GameTime_P1.Controls.Add(this.btnNext_7);
-            this.pg7_GameTime_P1.Controls.Add(this.pb_MA_P2);
-            this.pg7_GameTime_P1.Controls.Add(this.pb_MA_P1);
+            this.pg7_GameTime_P1.Controls.Add(this.pb_MA4_P2);
+            this.pg7_GameTime_P1.Controls.Add(this.pb_MA1_P1);
             this.pg7_GameTime_P1.Controls.Add(this.lblTurn);
             this.pg7_GameTime_P1.Controls.Add(this.label90);
             this.pg7_GameTime_P1.Controls.Add(this.label91);
@@ -603,7 +615,7 @@
             // 
             this.pg8_GameTime_P2.Controls.Add(this.btnNext_8);
             this.pg8_GameTime_P2.Controls.Add(this.pictureBox1);
-            this.pg8_GameTime_P2.Controls.Add(this.pictureBox2);
+            this.pg8_GameTime_P2.Controls.Add(this.pb_MA4_P2_P2);
             this.pg8_GameTime_P2.Controls.Add(this.label130);
             this.pg8_GameTime_P2.Controls.Add(this.label131);
             this.pg8_GameTime_P2.Controls.Add(this.label132);
@@ -661,7 +673,7 @@
             this.btnNext_8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext_8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNext_8.Location = new System.Drawing.Point(685, 18);
+            this.btnNext_8.Location = new System.Drawing.Point(371, 19);
             this.btnNext_8.Name = "btnNext_8";
             this.btnNext_8.Size = new System.Drawing.Size(87, 32);
             this.btnNext_8.TabIndex = 113;
@@ -677,13 +689,13 @@
             this.pictureBox1.TabIndex = 112;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // pb_MA4_P2_P2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(57, 18);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(89, 89);
-            this.pictureBox2.TabIndex = 111;
-            this.pictureBox2.TabStop = false;
+            this.pb_MA4_P2_P2.Location = new System.Drawing.Point(57, 18);
+            this.pb_MA4_P2_P2.Name = "pb_MA4_P2_P2";
+            this.pb_MA4_P2_P2.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA4_P2_P2.TabIndex = 111;
+            this.pb_MA4_P2_P2.TabStop = false;
             // 
             // label130
             // 
@@ -1081,7 +1093,7 @@
             this.btnNext_7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext_7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNext_7.Location = new System.Drawing.Point(685, 18);
+            this.btnNext_7.Location = new System.Drawing.Point(371, 19);
             this.btnNext_7.Name = "btnNext_7";
             this.btnNext_7.Size = new System.Drawing.Size(87, 32);
             this.btnNext_7.TabIndex = 113;
@@ -1089,21 +1101,24 @@
             this.btnNext_7.UseVisualStyleBackColor = false;
             this.btnNext_7.Click += new System.EventHandler(this.btnNext_7_Click);
             // 
-            // pb_MA_P2
+            // pb_MA4_P2
             // 
-            this.pb_MA_P2.Location = new System.Drawing.Point(472, 18);
-            this.pb_MA_P2.Name = "pb_MA_P2";
-            this.pb_MA_P2.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA_P2.TabIndex = 112;
-            this.pb_MA_P2.TabStop = false;
+            this.pb_MA4_P2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA4_P2.Image")));
+            this.pb_MA4_P2.Location = new System.Drawing.Point(472, 18);
+            this.pb_MA4_P2.Name = "pb_MA4_P2";
+            this.pb_MA4_P2.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA4_P2.TabIndex = 112;
+            this.pb_MA4_P2.TabStop = false;
+            this.pb_MA4_P2.Visible = false;
             // 
-            // pb_MA_P1
+            // pb_MA1_P1
             // 
-            this.pb_MA_P1.Location = new System.Drawing.Point(57, 18);
-            this.pb_MA_P1.Name = "pb_MA_P1";
-            this.pb_MA_P1.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA_P1.TabIndex = 111;
-            this.pb_MA_P1.TabStop = false;
+            this.pb_MA1_P1.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA1_P1.Image")));
+            this.pb_MA1_P1.Location = new System.Drawing.Point(57, 18);
+            this.pb_MA1_P1.Name = "pb_MA1_P1";
+            this.pb_MA1_P1.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA1_P1.TabIndex = 111;
+            this.pb_MA1_P1.TabStop = false;
             // 
             // lblTurn
             // 
@@ -2918,6 +2933,46 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "INSTRUCTIONS";
             // 
+            // pb_MA2_P1
+            // 
+            this.pb_MA2_P1.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA2_P1.Image")));
+            this.pb_MA2_P1.Location = new System.Drawing.Point(57, 18);
+            this.pb_MA2_P1.Name = "pb_MA2_P1";
+            this.pb_MA2_P1.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA2_P1.TabIndex = 115;
+            this.pb_MA2_P1.TabStop = false;
+            this.pb_MA2_P1.Visible = false;
+            // 
+            // pb_MA3_P1
+            // 
+            this.pb_MA3_P1.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA3_P1.Image")));
+            this.pb_MA3_P1.Location = new System.Drawing.Point(57, 18);
+            this.pb_MA3_P1.Name = "pb_MA3_P1";
+            this.pb_MA3_P1.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA3_P1.TabIndex = 116;
+            this.pb_MA3_P1.TabStop = false;
+            this.pb_MA3_P1.Visible = false;
+            // 
+            // pb_MA5_P2
+            // 
+            this.pb_MA5_P2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA5_P2.Image")));
+            this.pb_MA5_P2.Location = new System.Drawing.Point(472, 18);
+            this.pb_MA5_P2.Name = "pb_MA5_P2";
+            this.pb_MA5_P2.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA5_P2.TabIndex = 117;
+            this.pb_MA5_P2.TabStop = false;
+            this.pb_MA5_P2.Visible = false;
+            // 
+            // pb_MA6_P2
+            // 
+            this.pb_MA6_P2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA6_P2.Image")));
+            this.pb_MA6_P2.Location = new System.Drawing.Point(471, 18);
+            this.pb_MA6_P2.Name = "pb_MA6_P2";
+            this.pb_MA6_P2.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA6_P2.TabIndex = 118;
+            this.pb_MA6_P2.TabStop = false;
+            this.pb_MA6_P2.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2950,11 +3005,11 @@
             this.pg8_GameTime_P2.ResumeLayout(false);
             this.pg8_GameTime_P2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2_P2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P1onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P2onP2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA_P2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA_P1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA1_P1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P2onP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P1onP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Mini_P2)).EndInit();
@@ -2979,6 +3034,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_A3_P1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_A2_P1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_A1_P1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3137,8 +3196,8 @@
         private System.Windows.Forms.PictureBox pb_P1_Grid;
         private System.Windows.Forms.Panel pg7_GameTime_P1;
         private System.Windows.Forms.Button btnNext_7;
-        private System.Windows.Forms.PictureBox pb_MA_P2;
-        private System.Windows.Forms.PictureBox pb_MA_P1;
+        private System.Windows.Forms.PictureBox pb_MA4_P2;
+        private System.Windows.Forms.PictureBox pb_MA1_P1;
         private System.Windows.Forms.Label lblTurn;
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.Label label91;
@@ -3185,7 +3244,7 @@
         private System.Windows.Forms.Panel pg8_GameTime_P2;
         private System.Windows.Forms.Button btnNext_8;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pb_MA4_P2_P2;
         private System.Windows.Forms.Label label130;
         private System.Windows.Forms.Label label131;
         private System.Windows.Forms.Label label132;
@@ -3229,6 +3288,10 @@
         private System.Windows.Forms.Label label169;
         private System.Windows.Forms.Label label170;
         private System.Windows.Forms.PictureBox pb_P2onP2;
+        private System.Windows.Forms.PictureBox pb_MA2_P1;
+        private System.Windows.Forms.PictureBox pb_MA3_P1;
+        private System.Windows.Forms.PictureBox pb_MA6_P2;
+        private System.Windows.Forms.PictureBox pb_MA5_P2;
     }
 }
 
