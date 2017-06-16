@@ -655,7 +655,7 @@ namespace KB_Battleship
 
 
         }
-        public void UndoShipPlacement(int ship, Player P)
+        public void UndoShipPlacement(int ship, Player P, Control PIC)
         {
 
             for (int i = 0; i < 10; i++)
@@ -663,24 +663,65 @@ namespace KB_Battleship
                 for (int j = 0; j < 10; j++)
                 {
                     if (P.getPlayerArray(i, j) == ship)
-                        P.setPlayerArray(i, j, 0);
-                    //if (P1Array[i, j] == ship)
-                    //    P1Array[i, j] = 0;
-
+                        P.setPlayerArray(i, j, 0); 
                 }
             }
-            pb_PlaceShips_P1.Invalidate();
+
+            PIC.Invalidate();
+
+            switch (P.boatclick)
+            {
+                case 1:
+                    P.PB.SetPlaced(false);
+                    P.allPlaced = false;
+                    break;
+                case 2:
+                    P.SUB.SetPlaced(false);
+                    P.allPlaced = false;
+                    break;
+                case 3:
+                    P.DES.SetPlaced(false);
+                    P.allPlaced = false;
+                    break;
+                case 4:
+                    P.BAT.SetPlaced(false);
+                    P.allPlaced = false;
+                    break;
+                case 5:
+                    P.AIR.SetPlaced(false);
+                    P.allPlaced = false;
+                    break;
+                default:
+                    break;
+
+            }
         }
-        public void randomizeGrid()
+        public void randomizeGrid(Player P)
         {
             Random rnd = new Random();
             //puts the random number into r
 
-            P2.PB.Randomize (rnd, P2.getPlayerArrayAll());
-            P2.SUB.Randomize(rnd, P2.getPlayerArrayAll());
-            P2.DES.Randomize(rnd, P2.getPlayerArrayAll());
-            P2.BAT.Randomize(rnd, P2.getPlayerArrayAll());
-            P2.AIR.Randomize(rnd, P2.getPlayerArrayAll());
+            P.PB.Randomize (rnd, P.getPlayerArrayAll());
+            P.SUB.Randomize(rnd, P.getPlayerArrayAll());
+            P.DES.Randomize(rnd, P.getPlayerArrayAll());
+            P.BAT.Randomize(rnd, P.getPlayerArrayAll());
+            P.AIR.Randomize(rnd, P.getPlayerArrayAll());
+
+            P.allPlaced = true;
+        }
+        public void randomizeGrid(Player P, Control PIC)
+        {
+            Random rnd = new Random();
+            //puts the random number into r
+
+            P.PB. Randomize(rnd, P.getPlayerArrayAll());
+            P.SUB.Randomize(rnd, P.getPlayerArrayAll());
+            P.DES.Randomize(rnd, P.getPlayerArrayAll());
+            P.BAT.Randomize(rnd, P.getPlayerArrayAll());
+            P.AIR.Randomize(rnd, P.getPlayerArrayAll());
+
+            P.allPlaced = true;
+            PIC.Invalidate();
         }
         public void PaintGrid(Player P, Graphics g, Control pb)
         {
@@ -1220,40 +1261,33 @@ namespace KB_Battleship
             }
             pb_AIR_P1.Invalidate();
         }
-#endregion
+        #endregion
+
+        private void btnRandomize_3_Click(object sender, EventArgs e)
+        {
+            randomizeGrid(P1, pb_PlaceShips_P1);
+        }
 
         //place ships undo btn
         private void btnUndo_3_Click(object sender, EventArgs e)
         {
-            UndoShipPlacement(P1.boatclick, P1);
+            UndoShipPlacement(P1.boatclick, P1, pb_PlaceShips_P1);
 
-            switch (P1.boatclick)
-            {
-                case 1:
-                    P1.PB.SetPlaced(false);
-                    break;
-                case 2:
-                    P1.SUB.SetPlaced(false);
-                    break;
-                case 3:
-                    P1.DES.SetPlaced(false);
-                    break;
-                case 4:
-                    P1.BAT.SetPlaced(false);
-                    break;
-                case 5:
-                    P1.AIR.SetPlaced(false);
-                    break;
-                default:
-                    break;
-
-            }
         }
         
         private void btnSubmit_3_Click(object sender, EventArgs e)
         {
             //when all ships placed, can submit and move onto game
             if ((P1.PB.GetPlaced() == true) && (P1.SUB.GetPlaced() == true) && (P1.DES.GetPlaced() == true) && (P1.BAT.GetPlaced() == true) && (P1.AIR.GetPlaced() == true))
+            {
+                MessageBox.Show("TEMPORARY: SUBMITTED");
+                pg4_PlayerChoice.Visible = true;
+                P1.setTurn(true);
+                P2.setTurn(false);
+                P1.allPlaced = true;
+            }
+
+            else if (P1.allPlaced == true)
             {
                 MessageBox.Show("TEMPORARY: SUBMITTED");
                 pg4_PlayerChoice.Visible = true;
@@ -1338,7 +1372,7 @@ namespace KB_Battleship
             pg5_Avatar_P2.Visible = true;
             pg6_SetBoard_P2.Visible = true;
             pg7_GameTime_COM.Visible = true;
-            randomizeGrid();
+            randomizeGrid(P2);
         }
 
         private void btn2Player_Click(object sender, EventArgs e)
@@ -1777,31 +1811,14 @@ namespace KB_Battleship
         }
         #endregion
 
+        private void btnRandomize_6_Click(object sender, EventArgs e)
+        {
+            randomizeGrid(P2, pb_PlaceShips_P2);
+        }
+
         private void btnUndo_6_Click(object sender, EventArgs e)
         {
-            UndoShipPlacement(P2.boatclick, P2);
-
-            switch (P2.boatclick)
-            {
-                case 1:
-                    P2.PB.SetPlaced(false);
-                    break;
-                case 2:
-                    P2.SUB.SetPlaced(false);
-                    break;
-                case 3:
-                    P2.DES.SetPlaced(false);
-                    break;
-                case 4:
-                    P2.BAT.SetPlaced(false);
-                    break;
-                case 5:
-                    P2.AIR.SetPlaced(false);
-                    break;
-                default:
-                    break;
-
-            }
+            UndoShipPlacement(P2.boatclick, P2, pb_PlaceShips_P2);
         }
 
         private void btnSubmit_6_Click(object sender, EventArgs e)
@@ -2389,8 +2406,8 @@ namespace KB_Battleship
                 pg8_GameTime_P2.Visible = false;
         }
 
+
         #endregion
-
-
+        
     }
 }

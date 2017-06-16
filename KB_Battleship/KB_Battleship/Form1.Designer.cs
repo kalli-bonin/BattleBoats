@@ -41,7 +41,6 @@
             this.pg7_GameTime_P1 = new System.Windows.Forms.Panel();
             this.pg8_GameTime_P2 = new System.Windows.Forms.Panel();
             this.btnNext_8 = new System.Windows.Forms.Button();
-            this.pb_MA3_P1onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA2_P1onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA1_P1onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA4_P2onP2 = new System.Windows.Forms.PictureBox();
@@ -90,6 +89,7 @@
             this.pb_P2onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA6_P2onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA5_P2onP2 = new System.Windows.Forms.PictureBox();
+            this.pb_MA3_P1onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA6_P2onP1 = new System.Windows.Forms.PictureBox();
             this.pb_MA5_P2onP1 = new System.Windows.Forms.PictureBox();
             this.pb_MA3_P1onP1 = new System.Windows.Forms.PictureBox();
@@ -281,6 +281,8 @@
             this.btnNext_1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnRandomize_6 = new System.Windows.Forms.Button();
+            this.btnRandomize_3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbHomescreen)).BeginInit();
             this.pg1_Instructions.SuspendLayout();
             this.pg2_Avatar_P1.SuspendLayout();
@@ -291,7 +293,6 @@
             this.pg7_GameTime_COM.SuspendLayout();
             this.pg7_GameTime_P1.SuspendLayout();
             this.pg8_GameTime_P2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA1_P1onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2onP2)).BeginInit();
@@ -299,6 +300,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_P2onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP1)).BeginInit();
@@ -390,6 +392,7 @@
             // pg3_SetBoard_P1
             // 
             this.pg3_SetBoard_P1.Controls.Add(this.pg4_PlayerChoice);
+            this.pg3_SetBoard_P1.Controls.Add(this.btnRandomize_3);
             this.pg3_SetBoard_P1.Controls.Add(this.btnBack_3);
             this.pg3_SetBoard_P1.Controls.Add(this.btnSubmit_3);
             this.pg3_SetBoard_P1.Controls.Add(this.btnUndo_3);
@@ -465,6 +468,7 @@
             // pg6_SetBoard_P2
             // 
             this.pg6_SetBoard_P2.Controls.Add(this.pg7_GameTime_COM);
+            this.pg6_SetBoard_P2.Controls.Add(this.btnRandomize_6);
             this.pg6_SetBoard_P2.Controls.Add(this.btnBack_6);
             this.pg6_SetBoard_P2.Controls.Add(this.btnSubmit_6);
             this.pg6_SetBoard_P2.Controls.Add(this.btnUndo_6);
@@ -692,16 +696,6 @@
             this.btnNext_8.Text = "NEXT";
             this.btnNext_8.UseVisualStyleBackColor = false;
             this.btnNext_8.Click += new System.EventHandler(this.btnNext_8_Click_1);
-            // 
-            // pb_MA3_P1onP2
-            // 
-            this.pb_MA3_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA3_P1onP2.Image")));
-            this.pb_MA3_P1onP2.Location = new System.Drawing.Point(472, 18);
-            this.pb_MA3_P1onP2.Name = "pb_MA3_P1onP2";
-            this.pb_MA3_P1onP2.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA3_P1onP2.TabIndex = 112;
-            this.pb_MA3_P1onP2.TabStop = false;
-            this.pb_MA3_P1onP2.Visible = false;
             // 
             // pb_MA2_P1onP2
             // 
@@ -1139,6 +1133,16 @@
             this.pb_MA5_P2onP2.Size = new System.Drawing.Size(89, 89);
             this.pb_MA5_P2onP2.TabIndex = 114;
             this.pb_MA5_P2onP2.TabStop = false;
+            // 
+            // pb_MA3_P1onP2
+            // 
+            this.pb_MA3_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA3_P1onP2.Image")));
+            this.pb_MA3_P1onP2.Location = new System.Drawing.Point(472, 18);
+            this.pb_MA3_P1onP2.Name = "pb_MA3_P1onP2";
+            this.pb_MA3_P1onP2.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA3_P1onP2.TabIndex = 112;
+            this.pb_MA3_P1onP2.TabStop = false;
+            this.pb_MA3_P1onP2.Visible = false;
             // 
             // pb_MA6_P2onP1
             // 
@@ -3028,6 +3032,35 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "INSTRUCTIONS";
             // 
+            // btnRandomize_6
+            // 
+            this.btnRandomize_6.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnRandomize_6.FlatAppearance.BorderSize = 0;
+            this.btnRandomize_6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.btnRandomize_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRandomize_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRandomize_6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRandomize_6.Location = new System.Drawing.Point(388, 406);
+            this.btnRandomize_6.Name = "btnRandomize_6";
+            this.btnRandomize_6.Size = new System.Drawing.Size(126, 32);
+            this.btnRandomize_6.TabIndex = 114;
+            this.btnRandomize_6.Text = "RANDOMIZE";
+            this.btnRandomize_6.UseVisualStyleBackColor = false;
+            this.btnRandomize_6.Click += new System.EventHandler(this.btnRandomize_6_Click);
+            // 
+            // btnRandomize_3
+            // 
+            this.btnRandomize_3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnRandomize_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRandomize_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnRandomize_3.Location = new System.Drawing.Point(388, 406);
+            this.btnRandomize_3.Name = "btnRandomize_3";
+            this.btnRandomize_3.Size = new System.Drawing.Size(130, 32);
+            this.btnRandomize_3.TabIndex = 38;
+            this.btnRandomize_3.Text = "RANDOMIZE";
+            this.btnRandomize_3.UseVisualStyleBackColor = false;
+            this.btnRandomize_3.Click += new System.EventHandler(this.btnRandomize_3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3059,7 +3092,6 @@
             this.pg7_GameTime_P1.PerformLayout();
             this.pg8_GameTime_P2.ResumeLayout(false);
             this.pg8_GameTime_P2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA1_P1onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2onP2)).EndInit();
@@ -3067,6 +3099,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_P2onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP1)).EndInit();
@@ -3355,6 +3388,8 @@
         private System.Windows.Forms.PictureBox pb_P2onP2;
         private System.Windows.Forms.PictureBox pb_MA6_P2onP2;
         private System.Windows.Forms.PictureBox pb_MA5_P2onP2;
+        private System.Windows.Forms.Button btnRandomize_6;
+        private System.Windows.Forms.Button btnRandomize_3;
     }
 }
 
