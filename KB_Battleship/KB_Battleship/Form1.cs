@@ -1968,13 +1968,13 @@ namespace KB_Battleship
                 switch (avatar)
                 {
                     case 1:
-                        pb_MA1_P1.Visible = true;
+                        pb_MA1_P1onP1.Visible = true;
                         break;
                     case 2:
-                        pb_MA2_P1.Visible = true;
+                        pb_MA2_P1onP1.Visible = true;
                         break;
                     case 3:
-                        pb_MA3_P1.Visible = true;
+                        pb_MA3_P1onP1.Visible = true;
                         break;
                     default:
                         break;
@@ -1982,13 +1982,13 @@ namespace KB_Battleship
                 switch (avatar2)
                 {
                     case 4:
-                        pb_MA4_P2.Visible = true;
+                        pb_MA4_P2onP1.Visible = true;
                         break;
                     case 5:
-                        pb_MA4_P2.Visible = true;
+                        pb_MA4_P2onP1.Visible = true;
                         break;
                     case 6:
-                        pb_MA6_P2.Visible = true;
+                        pb_MA6_P2onP1.Visible = true;
                         break;
                     default:
                         break;
