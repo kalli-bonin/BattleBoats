@@ -60,11 +60,7 @@ namespace KB_Battleship
             protected bool DirectionVertical;
             protected bool Placed;      //is it placed when placing all ships
             protected bool DeathMessage = false; //did we give a message yet or not
-            protected bool TargetModeHR;
-            protected bool TargetModeHL;
-            protected bool TargetModeVU;
-            protected bool TargetModeVD;
-            protected bool Hunt;
+            
 
             public Ships()
             {
@@ -128,13 +124,6 @@ namespace KB_Battleship
                 }
 
             }
-            public void IncreaseHitCount(int i)
-            {
-                if (Index == i)
-                {
-                    SetHitCount(GetHitCount() + 1);
-                }
-            }
 
             public string GetPosition()
             {
@@ -168,17 +157,17 @@ namespace KB_Battleship
             {
                 Placed = P;
             }
-            public bool IsDead()
+            public bool IsDead(Player P)
             {
                 if ((HitCount == Size) && (DeathMessage == false))
                 {
                     MessageBox.Show("Your" + Name + "is dead.");
-                    ResetHuntMode();
+                    DeathMessage = true;
+                    P.ResetHuntMode();
                     return true;
                 }
                 else if ((HitCount == Size) && (DeathMessage == true))
                 {
-                    ResetHuntMode();
                     return true;
                 }
 
@@ -221,7 +210,7 @@ namespace KB_Battleship
                         {
                             while (i < Size)
                             {
-
+                                //checks if spots empty or not
                                 int EmptyChecker;
                                 EmptyChecker = PlayerArray[x + i, y];
                                 if (EmptyChecker == 0)
@@ -315,203 +304,7 @@ namespace KB_Battleship
                     }
                 }
             }
-
-            public void setTargetModeHR(bool b)
-            {
-                TargetModeHR = b;
-            }
-            public bool getTargetModeHR()
-            {
-                return TargetModeHR;
-            }
-            public void setTargetModeHL(bool b)
-            {
-                TargetModeHL = b;
-            }
-            public bool getTargetModeHL()
-            {
-                return TargetModeHL;
-            }
-            public void setTargetModeVU(bool b)
-            {
-                TargetModeVU = b;
-            }
-            public bool getTargetModeVU()
-            {
-                return TargetModeVU;
-            }
-            public void setTargetModeVD(bool b)
-            {
-                TargetModeVU = b;
-            }
-            public bool getTargetModeVD()
-            {
-                return TargetModeVD;
-            }
-            public void setHunt(bool b)
-            {
-                Hunt = b;
-            }
-            public bool getHunt()
-            {
-                return Hunt;
-            }
-            public void ResetHuntMode()
-            {
-                setTargetModeHR(false);
-                setTargetModeHL(false);
-                setTargetModeVU(false);
-                setTargetModeVD(false);
-                setHunt(false);
-            }
-
-            public void HuntMode(Player P1, Player P2)
-            {
-                if (getTargetModeHR() == true)
-                {
-                    if (P2.getLastHit().X + 1 <= 9)
-                    {
-                        if (P1.getPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y) > 0)
-                        {
-                            P1.setPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y, -1);
-                            P2.setLastHit(P2.getLastHit().X + 1, P2.getLastHit().Y);
-                            SetHitCount(GetHitCount() + 1);
-                            P1.SwitchTurn(P2);
-                        }
-                        else if (P1.getPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y) == 0)
-                        {
-                            P1.setPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y, -2);
-                            //reverse direction to hit from first point 
-                            P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
-                            setTargetModeHR(false);
-                            setTargetModeHL(true);
-                            P1.SwitchTurn(P2);
-                        }
-                        else //if 
-                        {
-                            P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
-                            setTargetModeHR(false);
-                            setTargetModeHL(true);
-                        }
-                    }
-                    else //if hit will be out of bounds 
-                    {
-                        P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
-                        setTargetModeHR(false);
-                        setTargetModeHL(true);
-                    }
-
-                }
-                else if (getTargetModeHL() == true)
-                {
-                    if (P2.getLastHit().X - 1 >= 0)
-                    {
-                        if (P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y) > 0)
-                        {
-                            P1.setPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y, -1);
-                            P2.setLastHit(P2.getLastHit().X - 1, P2.getLastHit().Y);
-                            SetHitCount(GetHitCount() + 1);
-                            P1.SwitchTurn(P2);
-                        }
-                        else if (P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y) == 0)
-                        {
-                            P1.setPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y, -2);
-                            //reverse direction to hit from first point 
-                            P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
-                            setTargetModeHR(true);
-                            setTargetModeHL(false);
-                            P1.SwitchTurn(P2);
-                        }
-                        else
-                        {
-                            //reverse direction to hit from first point 
-                            P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
-                            setTargetModeHR(true);
-                            setTargetModeHL(false);
-                        }
-                    }
-                    else
-                    {
-                        //reverse direction to hit from first point 
-                        P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
-                        setTargetModeHR(true);
-                        setTargetModeHL(false);
-                    }
-                }
-                else if (getTargetModeVU() == true)
-                {
-                    if (P2.getLastHit().Y - 1 >= 0)
-                    {
-                        if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1) > 0)
-                        {
-                            P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1, -1);
-                            P2.setLastHit(P2.getLastHit().X, P2.getLastHit().Y - 1);
-                            SetHitCount(GetHitCount() + 1);
-                            P1.SwitchTurn(P2);
-                        }
-                        else if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1) == 0)
-                        {
-                            P1.setPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y, -2);
-                            //reverse direction to hit from first point 
-                            P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
-                            setTargetModeVU(false);
-                            setTargetModeVD(true);
-                            P1.SwitchTurn(P2);
-                        }
-                        else
-                        {
-                            //reverse direction to hit from first point 
-                            P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
-                            setTargetModeVU(false);
-                            setTargetModeVD(true);
-                        }
-                    }
-                    else
-                    {
-                        //reverse direction to hit from first point 
-                        P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
-                        setTargetModeVU(false);
-                        setTargetModeVD(true);
-                    }
-                }
-                else if (getTargetModeVD() == true)
-                {
-                    if (P2.getLastHit().Y + 1 <= 9)
-                    {
-                        if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1) > 0)
-                        {
-                            P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1, -1);
-                            P2.setLastHit(P2.getLastHit().X, P2.getLastHit().Y + 1);
-                            SetHitCount(GetHitCount() + 1);
-                            P1.SwitchTurn(P2);
-                        }
-                        else if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1) == 0)
-                        {
-                            P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1, -2);
-                            //reverse direction to hit from first point 
-                            P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
-                            setTargetModeVU(true);
-                            setTargetModeVD(false);
-                            P1.SwitchTurn(P2);
-                        }
-                        else
-                        {
-                            //reverse direction to hit from first point 
-                            P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
-                            setTargetModeVU(true);
-                            setTargetModeVD(false);
-                        }
-                    }
-                    else
-                    {
-                        //reverse direction to hit from first point 
-                        P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
-                        setTargetModeVU(true);
-                        setTargetModeVD(false);
-                    }
-                }
-                IsDead();
-            }
+            
         }
 
         public class Player
@@ -524,10 +317,22 @@ namespace KB_Battleship
             protected string strName;
             protected int iScore;
             protected int iAvatar;
-            protected int iHitCount;
+            protected int HitCount;
             //stores player ship information 
             protected int[,] PlayerArray = new int[10, 10];
-
+            protected bool TargetModeHR;
+            protected bool TargetModeHL;
+            protected bool TargetModeVU;
+            protected bool TargetModeVD;
+            protected bool Hunt;
+            public void ResetHuntMode()
+            {
+                setTargetModeHL(false);
+                setTargetModeHR(false);
+                setTargetModeVD(false);
+                setTargetModeVU(false);
+                setHunt(false);
+            }
             protected Point FirstHit;
             protected Point LastHit;
             protected bool Turn;
@@ -567,6 +372,7 @@ namespace KB_Battleship
                 ToHit.Clear();
             }
 
+
             public void setFirstHit(int x, int y)
             {
                 FirstHit.X = x;
@@ -586,12 +392,21 @@ namespace KB_Battleship
                 return LastHit;
             }
 
+            public void setHunt(bool b)
+            {
+                Hunt = b;
+            }
+            public bool getHunt()
+            {
+                return Hunt;
+            }
+
             public Player()
             {
                 strName = ("Butthead");
                 iScore = 0;
                 iAvatar = 1;
-                iHitCount = 0;
+                HitCount = 0;
             }
             
             public void setTurn(bool b)
@@ -632,18 +447,16 @@ namespace KB_Battleship
 
             public void setHitCount(int hit)
             {
-                iHitCount = hit;
+                HitCount = hit;
             }
             public int getHitCount()
             {
-                return iHitCount;
+                return HitCount;
             }
-
+            
             public bool isWinner()
             {
-                //needs win condition 
-                if (iHitCount == 17)
-                //I THINK ITS 17????
+                if (getHitCount() == 17)
                 {
                     return true;
                 }
@@ -695,6 +508,39 @@ namespace KB_Battleship
             public int[,] getPlayerArrayAll()
             {
                 return PlayerArray;
+            }
+
+            public void setTargetModeHR(bool b)
+            {
+                TargetModeHR = b;
+            }
+            public bool getTargetModeHR()
+            {
+                return TargetModeHR;
+            }
+            public void setTargetModeHL(bool b)
+            {
+                TargetModeHL = b;
+            }
+            public bool getTargetModeHL()
+            {
+                return TargetModeHL;
+            }
+            public void setTargetModeVU(bool b)
+            {
+                TargetModeVU = b;
+            }
+            public bool getTargetModeVU()
+            {
+                return TargetModeVU;
+            }
+            public void setTargetModeVD(bool b)
+            {
+                TargetModeVD = b;
+            }
+            public bool getTargetModeVD()
+            {
+                return TargetModeVD;
             }
         }
 
@@ -2021,8 +1867,8 @@ namespace KB_Battleship
             {
                 pb_P1_Grid.Enabled = false;
                 pb_COM_Grid.Enabled = false;
-                //do win stuff
                 P1.setScore(P1.getScore() + 1);
+                MessageBox.Show("You win!!!");
             }
             else
             {
@@ -2030,210 +1876,334 @@ namespace KB_Battleship
             }
         }
 
+        private void ShipHitCounter(int index)
+        {
+            if (index == 1)
+            {
+                PB.SetHitCount(PB.GetHitCount() + 1);
+            }
+            else if (index == 2)
+            {
+                SUB.SetHitCount(SUB.GetHitCount() + 1);
+            }
+            else if (index == 3)
+            {
+                DES.SetHitCount(DES.GetHitCount() + 1);
+            }
+            else if (index == 4)
+            {
+                BAT.SetHitCount(BAT.GetHitCount() + 1);
+            }
+            else if (index == 5)
+            {
+                AIR.SetHitCount(AIR.GetHitCount() + 1);
+            }
+            else
+            {
+
+            }
+            P2.setHitCount(P2.getHitCount() + 1);
+        }
+
         private void TurnCOM()
         {
             while (P2.getTurn() == true)
             {
-                //Check if currently hunting specific ship
-                if (P1.PB.getHunt() == true)
+                //COM targeting direction 
+                if (P2.getHunt() == true)
                 {
-                    P1.PB.HuntMode(P1, P2);
-                }
-                else if (P1.SUB.getHunt() == true)
-                {
-                    P1.SUB.HuntMode(P1, P2);
-                }
-                else if (P1.DES.getHunt() == true)
-                {
-                    P1.DES.HuntMode(P1, P2);
-                }
-                else if (P1.BAT.getHunt() == true)
-                {
-                    P1.BAT.HuntMode(P1, P2);
-                }
-                else if (P1.AIR.getHunt() == true)
-                {
-                    P1.AIR.HuntMode(P1, P2);
-                }
-                //if points to hit in list 
-                else if (P2.getToHitLength() == 0)
-                {
-                    Random rnd = new Random();
-                    int x, y;
-                    x = rnd.Next(0, 10);
-                    y = rnd.Next(0, 10);
-                    if (P1.getPlayerArray(x, y) > 0)
+                    if (P2.getTargetModeHR() == true)
                     {
-                        P2.setFirstHit(x, y);
-                        P1.setPlayerArray(x, y, -1);
-                        P2.setHitCount(P2.getHitCount() + 1);
-                        //if surrounding points have not been hit, add to list of points to hit
-                        if (x - 1 >= 0 && P1.getPlayerArray(x - 1, y) >= 0)
+                        //checks if point is out of bounds 
+                        if (P2.getLastHit().X + 1 <= 9)
                         {
-                            P2.AddToHit(x - 1, y);
+                            if (P1.getPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y) > 0)
+                            {
+                                ShipHitCounter(P1.getPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y));
+                                P1.setPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y, -1);
+                                P2.setLastHit(P2.getLastHit().X + 1, P2.getLastHit().Y);
+                                P1.SwitchTurn(P2);
+                            }
+                            //miss 
+                            else if (P1.getPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y) == 0)
+                            {
+                                P1.setPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y, -2);
+                                //reverse direction to hit from first hit point 
+                                P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
+                                P2.setTargetModeHR(false);
+                                P2.setTargetModeHL(true);
+                                P1.SwitchTurn(P2);
+                            }
+                            //if spot has already been hit
+                            else
+                            {
+                                P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
+                                //reverse direction to hit from firsthit point
+                                P2.setTargetModeHR(false);
+                                P2.setTargetModeHL(true);
+                            }
                         }
-                        if (x + 1 <= 9 && P1.getPlayerArray(x + 1, y) >= 0)
+                        else //if hit will be out of bounds 
                         {
-                            P2.AddToHit(x + 1, y);
+                            P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
+                            P2.setTargetModeHR(false);
+                            P2.setTargetModeHL(true);
                         }
-                        if (y - 1 >= 0 && P1.getPlayerArray(x, y - 1) >= 0)
-                        {
-                            P2.AddToHit(x, y - 1);
-                        }
-                        if (y + 1 <= 9 && P1.getPlayerArray(x, y + 1) >= 0)
-                        {
-                            P2.AddToHit(x, y + 1);
-                        }
-                        P1.SwitchTurn(P2);
                     }
-                    else if (P1.getPlayerArray(x, y) == 0)
+                    else if (P2.getTargetModeHL() == true)
                     {
-                        P1.setPlayerArray(x, y, -2);
-                        P1.SwitchTurn(P2);
+                        if (P2.getLastHit().X - 1 >= 0)
+                        {
+                            if (P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y) > 0)
+                            {
+                                ShipHitCounter(P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y));
+                                P1.setPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y, -1);
+                                P2.setLastHit(P2.getLastHit().X - 1, P2.getLastHit().Y);
+                                P1.SwitchTurn(P2);
+                            }
+                            else if (P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y) == 0)
+                            {
+                                P1.setPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y, -2);
+                                //reverse direction to hit from first point 
+                                P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
+                                P2.setTargetModeHR(true);
+                                P2.setTargetModeHL(false);
+                                P1.SwitchTurn(P2);
+                            }
+                            else
+                            {
+                                //reverse direction to hit from first point 
+                                P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
+                                P2.setTargetModeHR(true);
+                                P2.setTargetModeHL(false);
+                            }
+                        }
+                        else
+                        {
+                            //reverse direction to hit from first point 
+                            P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
+                            P2.setTargetModeHR(true);
+                            P2.setTargetModeHL(false);
+                        }
                     }
-                    else
+                    else if (P2.getTargetModeVU() == true)
                     {
+                        if (P2.getLastHit().Y - 1 >= 0)
+                        {
+                            if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1) > 0)
+                            {
 
+                                ShipHitCounter(P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1));
+                                P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1, -1);
+                                P2.setLastHit(P2.getLastHit().X, P2.getLastHit().Y - 1);
+                                P1.SwitchTurn(P2);
+                            }
+                            else if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1) == 0)
+                            {
+                                P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1, -2);
+                                //reverse direction to hit from first point 
+                                P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
+                                P2.setTargetModeVU(false);
+                                P2.setTargetModeVD(true);
+                                P1.SwitchTurn(P2);
+                            }
+                            else
+                            {
+                                //reverse direction to hit from first point 
+                                P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
+                                P2.setTargetModeVU(false);
+                                P2.setTargetModeVD(true);
+                            }
+                        }
+                        else
+                        {
+                            //reverse direction to hit from first point 
+                            P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
+                            P2.setTargetModeVU(false);
+                            P2.setTargetModeVD(true);
+                        }
                     }
+                    else if (P2.getTargetModeVD() == true)
+                    {
+                        if (P2.getLastHit().Y + 1 <= 9)
+                        {
+                            if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1) > 0)
+                            {
+                                ShipHitCounter(P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1));
+                                P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1, -1);
+                                P2.setLastHit(P2.getLastHit().X, P2.getLastHit().Y + 1);
+                                P1.SwitchTurn(P2);
+                            }
+                            else if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1) == 0)
+                            {
+                                P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1, -2);
+                                //reverse direction to hit from first point 
+                                P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
+                                P2.setTargetModeVU(true);
+                                P2.setTargetModeVD(false);
+                                P1.SwitchTurn(P2);
+                            }
+                            else
+                            {
+                                //reverse direction to hit from first point 
+                                P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
+                                P2.setTargetModeVU(true);
+                                P2.setTargetModeVD(false);
+                            }
+                        }
+                        else
+                        {
+                            //reverse direction to hit from first point 
+                            P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
+                            P2.setTargetModeVU(true);
+                            P2.setTargetModeVD(false);
+                        }
+                    }
+                    
                 }
+                //COM not targetting direction 
                 else
                 {
-                    //if hit spot contains a ship 
-                    if (P1.getPlayerArray(P2.getToHitPoint()) > 0)
+                    //if no points in to hit list
+                    if (P2.getToHitLength() == 0)
                     {
-                        //sees which type of ship is being hit and enables corresponding direction 
-                        if (P1.getPlayerArray(P2.getToHitPoint()) == 1)
+                        Random rnd = new Random();
+                        int x, y;
+                        x = rnd.Next(0, 10);
+                        y = rnd.Next(0, 10);
+                        //if random hits ship 
+                        if (P1.getPlayerArray(x, y) > 0)
                         {
-                            P1.PB.setHunt(true);
-                            if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X + 1, P2.getToHitPoint().Y) > -1)
+                            ShipHitCounter(P1.getPlayerArray(x, y));
+                            //store first point hit of a ship
+                            P2.setFirstHit(x, y);
+                            P1.setPlayerArray(x, y, -1);
+                            P1.SwitchTurn(P2);
+                            //if surrounding points have not been hit, add to list of points to hit
+                            //Left point
+                            if (x - 1 >= 0 && P1.getPlayerArray(x - 1, y) >= 0)
                             {
-                                P1.PB.setTargetModeHR(true);
+                                P2.AddToHit(x - 1, y);
                             }
-                            else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X - 1, P2.getToHitPoint().Y) > -1)
+                            //Right point
+                            if (x + 1 <= 9 && P1.getPlayerArray(x + 1, y) >= 0)
                             {
-                                P1.PB.setTargetModeHL(true);
+                                P2.AddToHit(x + 1, y);
                             }
-                            else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y + 1) > -1)
+                            //Up point
+                            if (y - 1 >= 0 && P1.getPlayerArray(x, y - 1) >= 0)
                             {
-                                P1.PB.setTargetModeVD(true);
+                                P2.AddToHit(x, y - 1);
                             }
-                            else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y - 1) > -1)
+                            //Down point
+                            if (y + 1 <= 9 && P1.getPlayerArray(x, y + 1) >= 0)
                             {
-                                P1.PB.setTargetModeVU(true);
+                                P2.AddToHit(x, y + 1);
                             }
+                            
                         }
-                        else if (P1.getPlayerArray(P2.getToHitPoint()) == 2)
+                        //COM random hit misses
+                        else if (P1.getPlayerArray(x, y) == 0)
                         {
-                            P1.SUB.setHunt(true);
-                            if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X + 1, P2.getToHitPoint().Y) > -1)
-                            {
-                                P1.SUB.setTargetModeHR(true);
-                            }
-                            else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X - 1, P2.getToHitPoint().Y) > -1)
-                            {
-                                P1.SUB.setTargetModeHL(true);
-                            }
-                            else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y + 1) > -1)
-                            {
-                                P1.SUB.setTargetModeVD(true);
-                            }
-                            else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y - 1) > -1)
-                            {
-                                P1.SUB.setTargetModeVU(true);
-                            }
+                            P1.setPlayerArray(x, y, -2);
+                            P1.SwitchTurn(P2);
                         }
-                        else if (P1.getPlayerArray(P2.getToHitPoint()) == 3)
+                        //if spot has already been hit
+                        else
                         {
-                            P1.DES.setHunt(true);
-                            if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X + 1, P2.getToHitPoint().Y) > -1)
-                            {
-                                P1.DES.setTargetModeHR(true);
-                            }
-                            else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X - 1, P2.getToHitPoint().Y) > -1)
-                            {
-                                P1.DES.setTargetModeHL(true);
-                            }
-                            else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y + 1) > -1)
-                            {
-                                P1.DES.setTargetModeVD(true);
-                            }
-                            else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y - 1) > -1)
-                            {
-                                P1.DES.setTargetModeVU(true);
-                            }
-                        }
-                        else if (P1.getPlayerArray(P2.getToHitPoint()) == 4)
-                        {
-                            P1.BAT.setHunt(true);
-                            if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X + 1, P2.getToHitPoint().Y) > -1)
-                            {
-                                P1.BAT.setTargetModeHR(true);
-                            }
-                            else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X - 1, P2.getToHitPoint().Y) > -1)
-                            {
-                                P1.BAT.setTargetModeHL(true);
-                            }
-                            else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y + 1) > -1)
-                            {
-                                P1.BAT.setTargetModeVD(true);
-                            }
-                            else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y - 1) > -1)
-                            {
-                                P1.BAT.setTargetModeVU(true);
-                            }
-                        }
-                        else if (P1.getPlayerArray(P2.getToHitPoint()) == 5)
-                        {
-                            P1.AIR.setHunt(true);
-                            if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X + 1, P2.getToHitPoint().Y) > -1)
-                            {
-                                P1.AIR.setTargetModeHR(true);
-                            }
-                            else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X - 1, P2.getToHitPoint().Y) > -1)
-                            {
-                                P1.AIR.setTargetModeHL(true);
-                            }
-                            else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y + 1) > -1)
-                            {
-                                P1.AIR.setTargetModeVD(true);
-                            }
-                            else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y - 1) > -1)
-                            {
-                                P1.AIR.setTargetModeVU(true);
-                            }
 
                         }
-                        P1.setPlayerArray(P2.getToHitPoint(), -1);
-                        P2.ClearToHitPoints();
-
-                        //Check orientation and direction for next hits
-
-
-                        //if surrounding points have not been hit, add to list of points to hit
-                        //if (x - 1 >= 0 && P1.getPlayerArray(x - 1, y) >= 0)
-                        //{
-                        //    P2.AddToHit(x - 1, y);
-                        //}
-                        //if (x + 1 <= 9 && P1.getPlayerArray(x + 1, y) >= 0)
-                        //{
-                        //    P2.AddToHit(x + 1, y);
-                        //}
-                        //if (y - 1 >= 0 && P1.getPlayerArray(x, y - 1) >= 0)
-                        //{
-                        //    P2.AddToHit(x, y - 1);
-                        //}
-                        //if (y + 1 <= 9 && P1.getPlayerArray(x, y + 1) >= 0)
-                        //{
-                        //    P2.AddToHit(x, y + 1);
-                        //}
                     }
+                    //Points in ToHit list, searching for hit direction i.e. 2 hits in a column/row
                     else
                     {
-                        P1.setPlayerArray(P2.getToHitPoint(), -2);
-                        P2.RemoveToHitPoint();
-                    }
-                    P1.SwitchTurn(P2);
+                        //hit to right of first hit
+                        if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X)
+                        {
+                            if (P1.getPlayerArray(P2.getFirstHit().X + 1, P2.getFirstHit().Y) > 0)
+                            {
+                                //Future hits go right
+                                P2.setTargetModeHR(true);
+                                P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
+                                ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
+                                P1.setPlayerArray(P2.getToHitPoint(), -1);
+                                P2.ClearToHitPoints();
+                                P2.setHunt(true);
+                            }
+                            else
+                            {
+                                P1.setPlayerArray(P2.getToHitPoint(), -2);
+                                P2.RemoveToHitPoint();
+                            }
+                        }
+                        else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X)
+                        {
+                            if (P1.getPlayerArray(P2.getFirstHit().X - 1, P2.getFirstHit().Y) > 0)
+                            {
+                                //Future hits go left
+                                P2.setTargetModeHL(true);
+                                P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
+                                ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
+                                P1.setPlayerArray(P2.getToHitPoint(), -1);
+                                P2.ClearToHitPoints();
+                                P2.setHunt(true);
+                            }
+                            else
+                            {
+                                P1.setPlayerArray(P2.getToHitPoint(), -2);
+                                P2.RemoveToHitPoint();
+                            }
+                            
+                        }
+                        else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y)
+                        {
+                            if (P1.getPlayerArray(P2.getFirstHit().X, P2.getFirstHit().Y + 1) > 0)
+                            {
+                                //Future hits go down
+                                P2.setTargetModeVD(true);
+                                P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
+                                ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
+                                P1.setPlayerArray(P2.getToHitPoint(), -1);
+                                P2.ClearToHitPoints();
+                                P2.setHunt(true);
+                            }
+                            else
+                            {
+                                P1.setPlayerArray(P2.getToHitPoint(), -2);
+                                P2.RemoveToHitPoint();
+                            }
+                            
+                        }
+                        else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y)
+                        {
+                            if (P1.getPlayerArray(P2.getFirstHit().X, P2.getFirstHit().Y - 1) > 0)
+                            {
+                                //Future hits go up
+                                P2.setTargetModeVU(true);
+                                P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
+                                ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
+                                P1.setPlayerArray(P2.getToHitPoint(), -1);
+                                P2.ClearToHitPoints();
+                                P2.setHunt(true);
+                            }
+                            else
+                            {
+                                P1.setPlayerArray(P2.getToHitPoint(), -2);
+                                P2.RemoveToHitPoint();
+                            }
+                            
+                        }
+                        P1.SwitchTurn(P2);
+                    } 
+                    
+                    
                 }
+                PB.IsDead(P2);
+                SUB.IsDead(P2);
+                DES.IsDead(P2);
+                BAT.IsDead(P2);
+                AIR.IsDead(P2);
+                
             }
 
             pb_P1_Grid.Invalidate();
@@ -2243,12 +2213,15 @@ namespace KB_Battleship
                 pb_P1_Grid.Enabled = false;
                 pb_COM_Grid.Enabled = false;
                 P2.setScore(P2.getScore() + 1);
+                MessageBox.Show("Player 2 wins!!!!");
             }
             else
             {
 
             }
         }
+
+
 
         private void pb_P1_Grid_Paint(object sender, PaintEventArgs e)
         {
