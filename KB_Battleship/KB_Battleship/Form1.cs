@@ -1868,7 +1868,7 @@ namespace KB_Battleship
                 MessageBox.Show("TEMPORARY: SUBMITTED");
                 //pg7_GameTime_P1.Visible = true;
                 P1.setTurn(true);
-                P2.setTurn(true);
+                P2.setTurn(false);
             }
 
             else

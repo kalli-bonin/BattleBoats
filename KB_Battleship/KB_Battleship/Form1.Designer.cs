@@ -34,105 +34,9 @@
             this.pg1_Instructions = new System.Windows.Forms.Panel();
             this.pg2_Avatar_P1 = new System.Windows.Forms.Panel();
             this.pg3_SetBoard_P1 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pb_PlaceShips_P1 = new System.Windows.Forms.PictureBox();
-            this.pb_AIR_P1 = new System.Windows.Forms.PictureBox();
-            this.pb_BAT_P1 = new System.Windows.Forms.PictureBox();
-            this.pb_DES_P1 = new System.Windows.Forms.PictureBox();
-            this.pb_SUB_P1 = new System.Windows.Forms.PictureBox();
-            this.pb_PB_P1 = new System.Windows.Forms.PictureBox();
-            this.lb_AIR_P1 = new System.Windows.Forms.Label();
-            this.lb_BAT_P1 = new System.Windows.Forms.Label();
-            this.lb_DES_P1 = new System.Windows.Forms.Label();
-            this.lb_SUB_P1 = new System.Windows.Forms.Label();
-            this.lb_PB_P1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pb_A3_P1 = new System.Windows.Forms.PictureBox();
-            this.pb_A2_P1 = new System.Windows.Forms.PictureBox();
-            this.pb_A1_P1 = new System.Windows.Forms.PictureBox();
-            this.bkgd_A3_P1 = new System.Windows.Forms.Label();
-            this.bkgd_A2_P1 = new System.Windows.Forms.Label();
-            this.bkgd_A1_P1 = new System.Windows.Forms.Label();
-            this.btnBack_2 = new System.Windows.Forms.Button();
-            this.btnNext_2 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnNext_1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.btnUndo_3 = new System.Windows.Forms.Button();
-            this.btnSubmit_3 = new System.Windows.Forms.Button();
-            this.btnBack_3 = new System.Windows.Forms.Button();
             this.pg4_PlayerChoice = new System.Windows.Forms.Panel();
-            this.label26 = new System.Windows.Forms.Label();
-            this.btn2Player = new System.Windows.Forms.Button();
-            this.btnComputer = new System.Windows.Forms.Button();
             this.pg5_Avatar_P2 = new System.Windows.Forms.Panel();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.btnBack_5 = new System.Windows.Forms.Button();
-            this.btnNext_5 = new System.Windows.Forms.Button();
-            this.bkgd_A1_P2 = new System.Windows.Forms.Label();
-            this.bkgd_A2_P2 = new System.Windows.Forms.Label();
-            this.bkgd_A3_P2 = new System.Windows.Forms.Label();
-            this.pb_A1_P2 = new System.Windows.Forms.PictureBox();
-            this.pb_A2_P2 = new System.Windows.Forms.PictureBox();
-            this.pb_A3_P2 = new System.Windows.Forms.PictureBox();
             this.pg6_SetBoard_P2 = new System.Windows.Forms.Panel();
-            this.label29 = new System.Windows.Forms.Label();
-            this.pb_AIR_P2 = new System.Windows.Forms.PictureBox();
-            this.pb_BAT_P2 = new System.Windows.Forms.PictureBox();
-            this.pb_DES_P2 = new System.Windows.Forms.PictureBox();
-            this.pb_SUB_P2 = new System.Windows.Forms.PictureBox();
-            this.pb_PB_P2 = new System.Windows.Forms.PictureBox();
-            this.lb_AIR_P2 = new System.Windows.Forms.Label();
-            this.lb_BAT_P2 = new System.Windows.Forms.Label();
-            this.lb_DES_P2 = new System.Windows.Forms.Label();
-            this.lb_SUB_P2 = new System.Windows.Forms.Label();
-            this.lb_PB_P2 = new System.Windows.Forms.Label();
-            this.btnSubmit_6 = new System.Windows.Forms.Button();
-            this.btnUndo_6 = new System.Windows.Forms.Button();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.pb_PlaceShips_P2 = new System.Windows.Forms.PictureBox();
-            this.btnBack_6 = new System.Windows.Forms.Button();
             this.pg7_GameTime_COM = new System.Windows.Forms.Panel();
             this.pb_Mini_P2 = new System.Windows.Forms.PictureBox();
             this.pb_Mini_P1 = new System.Windows.Forms.PictureBox();
@@ -179,10 +83,123 @@
             this.label88 = new System.Windows.Forms.Label();
             this.label89 = new System.Windows.Forms.Label();
             this.pb_P1_Grid = new System.Windows.Forms.PictureBox();
+            this.btnBack_6 = new System.Windows.Forms.Button();
+            this.btnSubmit_6 = new System.Windows.Forms.Button();
+            this.btnUndo_6 = new System.Windows.Forms.Button();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.pb_PlaceShips_P2 = new System.Windows.Forms.PictureBox();
+            this.pb_AIR_P2 = new System.Windows.Forms.PictureBox();
+            this.pb_BAT_P2 = new System.Windows.Forms.PictureBox();
+            this.pb_DES_P2 = new System.Windows.Forms.PictureBox();
+            this.pb_SUB_P2 = new System.Windows.Forms.PictureBox();
+            this.pb_PB_P2 = new System.Windows.Forms.PictureBox();
+            this.lb_AIR_P2 = new System.Windows.Forms.Label();
+            this.lb_BAT_P2 = new System.Windows.Forms.Label();
+            this.lb_DES_P2 = new System.Windows.Forms.Label();
+            this.lb_SUB_P2 = new System.Windows.Forms.Label();
+            this.lb_PB_P2 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.pb_A3_P2 = new System.Windows.Forms.PictureBox();
+            this.pb_A2_P2 = new System.Windows.Forms.PictureBox();
+            this.pb_A1_P2 = new System.Windows.Forms.PictureBox();
+            this.bkgd_A3_P2 = new System.Windows.Forms.Label();
+            this.bkgd_A2_P2 = new System.Windows.Forms.Label();
+            this.bkgd_A1_P2 = new System.Windows.Forms.Label();
+            this.btnNext_5 = new System.Windows.Forms.Button();
+            this.btnBack_5 = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.btnComputer = new System.Windows.Forms.Button();
+            this.btn2Player = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.btnBack_3 = new System.Windows.Forms.Button();
+            this.btnSubmit_3 = new System.Windows.Forms.Button();
+            this.btnUndo_3 = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pb_PlaceShips_P1 = new System.Windows.Forms.PictureBox();
+            this.pb_AIR_P1 = new System.Windows.Forms.PictureBox();
+            this.pb_BAT_P1 = new System.Windows.Forms.PictureBox();
+            this.pb_DES_P1 = new System.Windows.Forms.PictureBox();
+            this.pb_SUB_P1 = new System.Windows.Forms.PictureBox();
+            this.pb_PB_P1 = new System.Windows.Forms.PictureBox();
+            this.lb_AIR_P1 = new System.Windows.Forms.Label();
+            this.lb_BAT_P1 = new System.Windows.Forms.Label();
+            this.lb_DES_P1 = new System.Windows.Forms.Label();
+            this.lb_SUB_P1 = new System.Windows.Forms.Label();
+            this.lb_PB_P1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pb_A3_P1 = new System.Windows.Forms.PictureBox();
+            this.pb_A2_P1 = new System.Windows.Forms.PictureBox();
+            this.pb_A1_P1 = new System.Windows.Forms.PictureBox();
+            this.bkgd_A3_P1 = new System.Windows.Forms.Label();
+            this.bkgd_A2_P1 = new System.Windows.Forms.Label();
+            this.bkgd_A1_P1 = new System.Windows.Forms.Label();
+            this.btnBack_2 = new System.Windows.Forms.Button();
+            this.btnNext_2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnNext_1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHomescreen)).BeginInit();
             this.pg1_Instructions.SuspendLayout();
             this.pg2_Avatar_P1.SuspendLayout();
             this.pg3_SetBoard_P1.SuspendLayout();
+            this.pg4_PlayerChoice.SuspendLayout();
+            this.pg5_Avatar_P2.SuspendLayout();
+            this.pg6_SetBoard_P2.SuspendLayout();
+            this.pg7_GameTime_COM.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Mini_P2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Mini_P1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_COM_Grid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_P1_Grid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_PlaceShips_P2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_AIR_P2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_BAT_P2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_DES_P2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_SUB_P2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_PB_P2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_A3_P2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_A2_P2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_A1_P2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PlaceShips_P1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_AIR_P1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_BAT_P1)).BeginInit();
@@ -192,23 +209,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_A3_P1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_A2_P1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_A1_P1)).BeginInit();
-            this.pg4_PlayerChoice.SuspendLayout();
-            this.pg5_Avatar_P2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_A1_P2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_A2_P2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_A3_P2)).BeginInit();
-            this.pg6_SetBoard_P2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_AIR_P2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_BAT_P2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_DES_P2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_SUB_P2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_PB_P2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_PlaceShips_P2)).BeginInit();
-            this.pg7_GameTime_COM.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Mini_P2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Mini_P1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_COM_Grid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_P1_Grid)).BeginInit();
             this.SuspendLayout();
             // 
             // pbHomescreen
@@ -311,506 +311,6 @@
             this.pg3_SetBoard_P1.Size = new System.Drawing.Size(796, 459);
             this.pg3_SetBoard_P1.TabIndex = 12;
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(663, 54);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(12, 13);
-            this.label15.TabIndex = 22;
-            this.label15.Text = "J";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(643, 54);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(10, 13);
-            this.label14.TabIndex = 21;
-            this.label14.Text = "I";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(613, 54);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(15, 13);
-            this.label13.TabIndex = 20;
-            this.label13.Text = "H";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(583, 54);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(15, 13);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "G";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(553, 54);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(13, 13);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "F";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(523, 54);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(14, 13);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "E";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(493, 54);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(15, 13);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "D";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(463, 54);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(14, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "C";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(433, 54);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(14, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "B";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(403, 54);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(14, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "A";
-            // 
-            // pb_PlaceShips_P1
-            // 
-            this.pb_PlaceShips_P1.Location = new System.Drawing.Point(388, 80);
-            this.pb_PlaceShips_P1.Name = "pb_PlaceShips_P1";
-            this.pb_PlaceShips_P1.Size = new System.Drawing.Size(301, 301);
-            this.pb_PlaceShips_P1.TabIndex = 11;
-            this.pb_PlaceShips_P1.TabStop = false;
-            this.pb_PlaceShips_P1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_PlaceShips_P1_Paint);
-            this.pb_PlaceShips_P1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pb_PlaceShips_P1_MouseClick);
-            // 
-            // pb_AIR_P1
-            // 
-            this.pb_AIR_P1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pb_AIR_P1.Location = new System.Drawing.Point(22, 313);
-            this.pb_AIR_P1.Name = "pb_AIR_P1";
-            this.pb_AIR_P1.Size = new System.Drawing.Size(100, 20);
-            this.pb_AIR_P1.TabIndex = 10;
-            this.pb_AIR_P1.TabStop = false;
-            this.pb_AIR_P1.Click += new System.EventHandler(this.pb_AIR_P1_Click);
-            this.pb_AIR_P1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_AIR_P1_Paint);
-            // 
-            // pb_BAT_P1
-            // 
-            this.pb_BAT_P1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pb_BAT_P1.Location = new System.Drawing.Point(156, 193);
-            this.pb_BAT_P1.Name = "pb_BAT_P1";
-            this.pb_BAT_P1.Size = new System.Drawing.Size(80, 20);
-            this.pb_BAT_P1.TabIndex = 9;
-            this.pb_BAT_P1.TabStop = false;
-            this.pb_BAT_P1.Click += new System.EventHandler(this.pb_BAT_P1_Click);
-            this.pb_BAT_P1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_BAT_P1_Paint);
-            // 
-            // pb_DES_P1
-            // 
-            this.pb_DES_P1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pb_DES_P1.Location = new System.Drawing.Point(22, 193);
-            this.pb_DES_P1.Name = "pb_DES_P1";
-            this.pb_DES_P1.Size = new System.Drawing.Size(60, 20);
-            this.pb_DES_P1.TabIndex = 8;
-            this.pb_DES_P1.TabStop = false;
-            this.pb_DES_P1.Click += new System.EventHandler(this.pb_DES_P1_Click);
-            this.pb_DES_P1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_DES_P1_Paint);
-            // 
-            // pb_SUB_P1
-            // 
-            this.pb_SUB_P1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pb_SUB_P1.Location = new System.Drawing.Point(156, 73);
-            this.pb_SUB_P1.Name = "pb_SUB_P1";
-            this.pb_SUB_P1.Size = new System.Drawing.Size(60, 20);
-            this.pb_SUB_P1.TabIndex = 7;
-            this.pb_SUB_P1.TabStop = false;
-            this.pb_SUB_P1.Click += new System.EventHandler(this.pb_SUB_P1_Click);
-            this.pb_SUB_P1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_SUB_P1_Paint);
-            // 
-            // pb_PB_P1
-            // 
-            this.pb_PB_P1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pb_PB_P1.Location = new System.Drawing.Point(22, 73);
-            this.pb_PB_P1.Name = "pb_PB_P1";
-            this.pb_PB_P1.Size = new System.Drawing.Size(40, 20);
-            this.pb_PB_P1.TabIndex = 6;
-            this.pb_PB_P1.TabStop = false;
-            this.pb_PB_P1.Click += new System.EventHandler(this.pb_PB_P1_Click);
-            this.pb_PB_P1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_PB_P1_Paint);
-            // 
-            // lb_AIR_P1
-            // 
-            this.lb_AIR_P1.AutoSize = true;
-            this.lb_AIR_P1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lb_AIR_P1.Location = new System.Drawing.Point(19, 294);
-            this.lb_AIR_P1.Name = "lb_AIR_P1";
-            this.lb_AIR_P1.Size = new System.Drawing.Size(138, 16);
-            this.lb_AIR_P1.TabIndex = 5;
-            this.lb_AIR_P1.Text = "AIRCRAFT CARRIER";
-            this.lb_AIR_P1.Click += new System.EventHandler(this.lb_AIR_P1_Click);
-            // 
-            // lb_BAT_P1
-            // 
-            this.lb_BAT_P1.AutoSize = true;
-            this.lb_BAT_P1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lb_BAT_P1.Location = new System.Drawing.Point(155, 174);
-            this.lb_BAT_P1.Name = "lb_BAT_P1";
-            this.lb_BAT_P1.Size = new System.Drawing.Size(91, 16);
-            this.lb_BAT_P1.TabIndex = 4;
-            this.lb_BAT_P1.Text = "BATTLESHIP";
-            this.lb_BAT_P1.Click += new System.EventHandler(this.lb_BAT_P1_Click);
-            // 
-            // lb_DES_P1
-            // 
-            this.lb_DES_P1.AutoSize = true;
-            this.lb_DES_P1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lb_DES_P1.Location = new System.Drawing.Point(19, 174);
-            this.lb_DES_P1.Name = "lb_DES_P1";
-            this.lb_DES_P1.Size = new System.Drawing.Size(93, 16);
-            this.lb_DES_P1.TabIndex = 3;
-            this.lb_DES_P1.Text = "DESTROYER";
-            this.lb_DES_P1.Click += new System.EventHandler(this.lb_DES_P1_Click);
-            // 
-            // lb_SUB_P1
-            // 
-            this.lb_SUB_P1.AutoSize = true;
-            this.lb_SUB_P1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lb_SUB_P1.Location = new System.Drawing.Point(153, 54);
-            this.lb_SUB_P1.Name = "lb_SUB_P1";
-            this.lb_SUB_P1.Size = new System.Drawing.Size(88, 16);
-            this.lb_SUB_P1.TabIndex = 2;
-            this.lb_SUB_P1.Text = "SUBMARINE";
-            this.lb_SUB_P1.Click += new System.EventHandler(this.lb_SUB_P1_Click);
-            // 
-            // lb_PB_P1
-            // 
-            this.lb_PB_P1.AutoSize = true;
-            this.lb_PB_P1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lb_PB_P1.Location = new System.Drawing.Point(19, 54);
-            this.lb_PB_P1.Name = "lb_PB_P1";
-            this.lb_PB_P1.Size = new System.Drawing.Size(102, 16);
-            this.lb_PB_P1.TabIndex = 1;
-            this.lb_PB_P1.Text = "PATROL BOAT";
-            this.lb_PB_P1.Click += new System.EventHandler(this.lb_PB_P1_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 18);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Place your ships.";
-            // 
-            // pb_A3_P1
-            // 
-            this.pb_A3_P1.Image = ((System.Drawing.Image)(resources.GetObject("pb_A3_P1.Image")));
-            this.pb_A3_P1.Location = new System.Drawing.Point(524, 114);
-            this.pb_A3_P1.Name = "pb_A3_P1";
-            this.pb_A3_P1.Size = new System.Drawing.Size(89, 196);
-            this.pb_A3_P1.TabIndex = 11;
-            this.pb_A3_P1.TabStop = false;
-            this.pb_A3_P1.Click += new System.EventHandler(this.pb_A3_P1_Click);
-            this.pb_A3_P1.MouseEnter += new System.EventHandler(this.pb_A3_P1_MouseEnter);
-            this.pb_A3_P1.MouseLeave += new System.EventHandler(this.pb_A3_P1_MouseLeave);
-            // 
-            // pb_A2_P1
-            // 
-            this.pb_A2_P1.Image = ((System.Drawing.Image)(resources.GetObject("pb_A2_P1.Image")));
-            this.pb_A2_P1.Location = new System.Drawing.Point(344, 114);
-            this.pb_A2_P1.Name = "pb_A2_P1";
-            this.pb_A2_P1.Size = new System.Drawing.Size(89, 196);
-            this.pb_A2_P1.TabIndex = 10;
-            this.pb_A2_P1.TabStop = false;
-            this.pb_A2_P1.Click += new System.EventHandler(this.pb_A2_P1_Click);
-            this.pb_A2_P1.MouseEnter += new System.EventHandler(this.pb_A2_P1_MouseEnter);
-            this.pb_A2_P1.MouseLeave += new System.EventHandler(this.pb_A2_P1_MouseLeave);
-            // 
-            // pb_A1_P1
-            // 
-            this.pb_A1_P1.Image = ((System.Drawing.Image)(resources.GetObject("pb_A1_P1.Image")));
-            this.pb_A1_P1.Location = new System.Drawing.Point(158, 114);
-            this.pb_A1_P1.Name = "pb_A1_P1";
-            this.pb_A1_P1.Size = new System.Drawing.Size(89, 196);
-            this.pb_A1_P1.TabIndex = 9;
-            this.pb_A1_P1.TabStop = false;
-            this.pb_A1_P1.Click += new System.EventHandler(this.pb_A1_P1_Click);
-            this.pb_A1_P1.MouseEnter += new System.EventHandler(this.pb_A1_P1_MouseEnter);
-            this.pb_A1_P1.MouseLeave += new System.EventHandler(this.pb_A1_P1_MouseLeave);
-            // 
-            // bkgd_A3_P1
-            // 
-            this.bkgd_A3_P1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.bkgd_A3_P1.Location = new System.Drawing.Point(519, 109);
-            this.bkgd_A3_P1.Name = "bkgd_A3_P1";
-            this.bkgd_A3_P1.Size = new System.Drawing.Size(100, 206);
-            this.bkgd_A3_P1.TabIndex = 2;
-            // 
-            // bkgd_A2_P1
-            // 
-            this.bkgd_A2_P1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.bkgd_A2_P1.Location = new System.Drawing.Point(339, 109);
-            this.bkgd_A2_P1.Name = "bkgd_A2_P1";
-            this.bkgd_A2_P1.Size = new System.Drawing.Size(100, 206);
-            this.bkgd_A2_P1.TabIndex = 1;
-            // 
-            // bkgd_A1_P1
-            // 
-            this.bkgd_A1_P1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.bkgd_A1_P1.Location = new System.Drawing.Point(153, 109);
-            this.bkgd_A1_P1.Name = "bkgd_A1_P1";
-            this.bkgd_A1_P1.Size = new System.Drawing.Size(100, 206);
-            this.bkgd_A1_P1.TabIndex = 0;
-            // 
-            // btnBack_2
-            // 
-            this.btnBack_2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnBack_2.FlatAppearance.BorderSize = 0;
-            this.btnBack_2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.btnBack_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold);
-            this.btnBack_2.Location = new System.Drawing.Point(12, 373);
-            this.btnBack_2.Name = "btnBack_2";
-            this.btnBack_2.Size = new System.Drawing.Size(171, 74);
-            this.btnBack_2.TabIndex = 4;
-            this.btnBack_2.Text = "BACK";
-            this.btnBack_2.UseVisualStyleBackColor = false;
-            this.btnBack_2.Click += new System.EventHandler(this.btnBack_2_Click);
-            this.btnBack_2.Paint += new System.Windows.Forms.PaintEventHandler(this.btnBack_2_Paint);
-            this.btnBack_2.MouseEnter += new System.EventHandler(this.btnBack_2_MouseEnter);
-            this.btnBack_2.MouseLeave += new System.EventHandler(this.btnBack_2_MouseLeave);
-            // 
-            // btnNext_2
-            // 
-            this.btnNext_2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnNext_2.FlatAppearance.BorderSize = 0;
-            this.btnNext_2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.btnNext_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold);
-            this.btnNext_2.Location = new System.Drawing.Point(613, 373);
-            this.btnNext_2.Name = "btnNext_2";
-            this.btnNext_2.Size = new System.Drawing.Size(171, 74);
-            this.btnNext_2.TabIndex = 3;
-            this.btnNext_2.Text = "NEXT";
-            this.btnNext_2.UseVisualStyleBackColor = false;
-            this.btnNext_2.Click += new System.EventHandler(this.btnNext_2_Click);
-            this.btnNext_2.Paint += new System.Windows.Forms.PaintEventHandler(this.btnNext_2_Paint);
-            this.btnNext_2.MouseEnter += new System.EventHandler(this.btnNext_2_MouseEnter);
-            this.btnNext_2.MouseLeave += new System.EventHandler(this.btnNext_2_MouseLeave);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 64);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(173, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Choose an avatar and click \"next\".";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(6, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(222, 55);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "AVATAR";
-            // 
-            // btnNext_1
-            // 
-            this.btnNext_1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnNext_1.FlatAppearance.BorderSize = 0;
-            this.btnNext_1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.btnNext_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold);
-            this.btnNext_1.Location = new System.Drawing.Point(613, 373);
-            this.btnNext_1.Name = "btnNext_1";
-            this.btnNext_1.Size = new System.Drawing.Size(171, 74);
-            this.btnNext_1.TabIndex = 2;
-            this.btnNext_1.Text = "NEXT";
-            this.btnNext_1.UseVisualStyleBackColor = false;
-            this.btnNext_1.Click += new System.EventHandler(this.btnNext_1_Click);
-            this.btnNext_1.Paint += new System.Windows.Forms.PaintEventHandler(this.btnNext_1_Paint);
-            this.btnNext_1.MouseEnter += new System.EventHandler(this.btnNext_1_MouseEnter);
-            this.btnNext_1.MouseLeave += new System.EventHandler(this.btnNext_1_MouseLeave);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(202, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "write out instructions here when complete";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(6, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(396, 55);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "INSTRUCTIONS";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(358, 365);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(19, 13);
-            this.label25.TabIndex = 32;
-            this.label25.Text = "10";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(362, 335);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(13, 13);
-            this.label24.TabIndex = 31;
-            this.label24.Text = "9";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(362, 305);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(13, 13);
-            this.label23.TabIndex = 30;
-            this.label23.Text = "8";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(362, 275);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(13, 13);
-            this.label22.TabIndex = 29;
-            this.label22.Text = "7";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(362, 245);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(13, 13);
-            this.label21.TabIndex = 28;
-            this.label21.Text = "6";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(362, 215);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(13, 13);
-            this.label20.TabIndex = 27;
-            this.label20.Text = "5";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(362, 185);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(13, 13);
-            this.label19.TabIndex = 26;
-            this.label19.Text = "4";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(362, 155);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(13, 13);
-            this.label18.TabIndex = 25;
-            this.label18.Text = "3";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(362, 125);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(13, 13);
-            this.label17.TabIndex = 24;
-            this.label17.Text = "2";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(362, 95);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(13, 13);
-            this.label16.TabIndex = 23;
-            this.label16.Text = "1";
-            // 
-            // btnUndo_3
-            // 
-            this.btnUndo_3.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnUndo_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUndo_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnUndo_3.Location = new System.Drawing.Point(280, 406);
-            this.btnUndo_3.Name = "btnUndo_3";
-            this.btnUndo_3.Size = new System.Drawing.Size(76, 32);
-            this.btnUndo_3.TabIndex = 33;
-            this.btnUndo_3.Text = "UNDO";
-            this.btnUndo_3.UseVisualStyleBackColor = false;
-            this.btnUndo_3.Click += new System.EventHandler(this.btnUndo_3_Click);
-            // 
-            // btnSubmit_3
-            // 
-            this.btnSubmit_3.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSubmit_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmit_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSubmit_3.Location = new System.Drawing.Point(685, 406);
-            this.btnSubmit_3.Name = "btnSubmit_3";
-            this.btnSubmit_3.Size = new System.Drawing.Size(87, 32);
-            this.btnSubmit_3.TabIndex = 34;
-            this.btnSubmit_3.Text = "SUBMIT";
-            this.btnSubmit_3.UseVisualStyleBackColor = false;
-            this.btnSubmit_3.Click += new System.EventHandler(this.btnSubmit_3_Click);
-            // 
-            // btnBack_3
-            // 
-            this.btnBack_3.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnBack_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnBack_3.Location = new System.Drawing.Point(22, 406);
-            this.btnBack_3.Name = "btnBack_3";
-            this.btnBack_3.Size = new System.Drawing.Size(71, 32);
-            this.btnBack_3.TabIndex = 35;
-            this.btnBack_3.Text = "BACK";
-            this.btnBack_3.UseVisualStyleBackColor = false;
-            this.btnBack_3.Click += new System.EventHandler(this.btnBack_3_Click);
-            // 
             // pg4_PlayerChoice
             // 
             this.pg4_PlayerChoice.Controls.Add(this.pg5_Avatar_P2);
@@ -822,54 +322,6 @@
             this.pg4_PlayerChoice.Name = "pg4_PlayerChoice";
             this.pg4_PlayerChoice.Size = new System.Drawing.Size(796, 459);
             this.pg4_PlayerChoice.TabIndex = 36;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(76, 79);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(117, 13);
-            this.label26.TabIndex = 0;
-            this.label26.Text = "Choose opponent type.";
-            // 
-            // btn2Player
-            // 
-            this.btn2Player.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btn2Player.Enabled = false;
-            this.btn2Player.FlatAppearance.BorderSize = 0;
-            this.btn2Player.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.btn2Player.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn2Player.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn2Player.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn2Player.Location = new System.Drawing.Point(83, 184);
-            this.btn2Player.Name = "btn2Player";
-            this.btn2Player.Size = new System.Drawing.Size(250, 74);
-            this.btn2Player.TabIndex = 6;
-            this.btn2Player.Text = "2-PLAYER";
-            this.btn2Player.UseVisualStyleBackColor = false;
-            this.btn2Player.Click += new System.EventHandler(this.btn2Player_Click);
-            this.btn2Player.Paint += new System.Windows.Forms.PaintEventHandler(this.btn2Player_Paint);
-            this.btn2Player.MouseEnter += new System.EventHandler(this.btn2Player_MouseEnter);
-            this.btn2Player.MouseLeave += new System.EventHandler(this.btn2Player_MouseLeave);
-            // 
-            // btnComputer
-            // 
-            this.btnComputer.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnComputer.FlatAppearance.BorderSize = 0;
-            this.btnComputer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.btnComputer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnComputer.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnComputer.Location = new System.Drawing.Point(445, 184);
-            this.btnComputer.Name = "btnComputer";
-            this.btnComputer.Size = new System.Drawing.Size(250, 74);
-            this.btnComputer.TabIndex = 7;
-            this.btnComputer.Text = "COMPUTER";
-            this.btnComputer.UseVisualStyleBackColor = false;
-            this.btnComputer.Click += new System.EventHandler(this.btnComputer_Click);
-            this.btnComputer.Paint += new System.Windows.Forms.PaintEventHandler(this.btnComputer_Paint);
-            this.btnComputer.MouseEnter += new System.EventHandler(this.btnComputer_MouseEnter);
-            this.btnComputer.MouseLeave += new System.EventHandler(this.btnComputer_MouseLeave);
             // 
             // pg5_Avatar_P2
             // 
@@ -889,123 +341,6 @@
             this.pg5_Avatar_P2.Name = "pg5_Avatar_P2";
             this.pg5_Avatar_P2.Size = new System.Drawing.Size(796, 459);
             this.pg5_Avatar_P2.TabIndex = 8;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(6, 9);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(222, 55);
-            this.label27.TabIndex = 2;
-            this.label27.Text = "AVATAR";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(46, 64);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(173, 13);
-            this.label28.TabIndex = 3;
-            this.label28.Text = "Choose an avatar and click \"next.\"";
-            // 
-            // btnBack_5
-            // 
-            this.btnBack_5.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnBack_5.FlatAppearance.BorderSize = 0;
-            this.btnBack_5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.btnBack_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack_5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnBack_5.Location = new System.Drawing.Point(12, 373);
-            this.btnBack_5.Name = "btnBack_5";
-            this.btnBack_5.Size = new System.Drawing.Size(171, 74);
-            this.btnBack_5.TabIndex = 11;
-            this.btnBack_5.Text = "BACK";
-            this.btnBack_5.UseVisualStyleBackColor = false;
-            this.btnBack_5.Click += new System.EventHandler(this.btnBack_5_Click);
-            this.btnBack_5.Paint += new System.Windows.Forms.PaintEventHandler(this.btnBack_5_Paint);
-            this.btnBack_5.MouseEnter += new System.EventHandler(this.btnBack_5_MouseEnter);
-            this.btnBack_5.MouseLeave += new System.EventHandler(this.btnBack_5_MouseLeave);
-            // 
-            // btnNext_5
-            // 
-            this.btnNext_5.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnNext_5.FlatAppearance.BorderSize = 0;
-            this.btnNext_5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.btnNext_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext_5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNext_5.Location = new System.Drawing.Point(613, 373);
-            this.btnNext_5.Name = "btnNext_5";
-            this.btnNext_5.Size = new System.Drawing.Size(171, 74);
-            this.btnNext_5.TabIndex = 12;
-            this.btnNext_5.Text = "NEXT";
-            this.btnNext_5.UseVisualStyleBackColor = false;
-            this.btnNext_5.Click += new System.EventHandler(this.btnNext_5_Click);
-            this.btnNext_5.Paint += new System.Windows.Forms.PaintEventHandler(this.btnNext_5_Paint);
-            this.btnNext_5.MouseEnter += new System.EventHandler(this.btnNext_5_MouseEnter);
-            this.btnNext_5.MouseLeave += new System.EventHandler(this.btnNext_5_MouseLeave);
-            // 
-            // bkgd_A1_P2
-            // 
-            this.bkgd_A1_P2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.bkgd_A1_P2.Location = new System.Drawing.Point(153, 109);
-            this.bkgd_A1_P2.Name = "bkgd_A1_P2";
-            this.bkgd_A1_P2.Size = new System.Drawing.Size(100, 206);
-            this.bkgd_A1_P2.TabIndex = 13;
-            // 
-            // bkgd_A2_P2
-            // 
-            this.bkgd_A2_P2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.bkgd_A2_P2.Location = new System.Drawing.Point(339, 109);
-            this.bkgd_A2_P2.Name = "bkgd_A2_P2";
-            this.bkgd_A2_P2.Size = new System.Drawing.Size(100, 206);
-            this.bkgd_A2_P2.TabIndex = 14;
-            // 
-            // bkgd_A3_P2
-            // 
-            this.bkgd_A3_P2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.bkgd_A3_P2.Location = new System.Drawing.Point(519, 109);
-            this.bkgd_A3_P2.Name = "bkgd_A3_P2";
-            this.bkgd_A3_P2.Size = new System.Drawing.Size(100, 206);
-            this.bkgd_A3_P2.TabIndex = 15;
-            // 
-            // pb_A1_P2
-            // 
-            this.pb_A1_P2.Image = ((System.Drawing.Image)(resources.GetObject("pb_A1_P2.Image")));
-            this.pb_A1_P2.Location = new System.Drawing.Point(158, 114);
-            this.pb_A1_P2.Name = "pb_A1_P2";
-            this.pb_A1_P2.Size = new System.Drawing.Size(89, 196);
-            this.pb_A1_P2.TabIndex = 16;
-            this.pb_A1_P2.TabStop = false;
-            this.pb_A1_P2.Click += new System.EventHandler(this.pb_A1_P2_Click);
-            this.pb_A1_P2.MouseEnter += new System.EventHandler(this.pb_A1_P2_MouseEnter);
-            this.pb_A1_P2.MouseLeave += new System.EventHandler(this.pb_A1_P2_MouseLeave);
-            // 
-            // pb_A2_P2
-            // 
-            this.pb_A2_P2.Image = ((System.Drawing.Image)(resources.GetObject("pb_A2_P2.Image")));
-            this.pb_A2_P2.Location = new System.Drawing.Point(344, 114);
-            this.pb_A2_P2.Name = "pb_A2_P2";
-            this.pb_A2_P2.Size = new System.Drawing.Size(89, 196);
-            this.pb_A2_P2.TabIndex = 17;
-            this.pb_A2_P2.TabStop = false;
-            this.pb_A2_P2.Click += new System.EventHandler(this.pb_A2_P2_Click);
-            this.pb_A2_P2.MouseEnter += new System.EventHandler(this.pb_A2_P2_MouseEnter);
-            this.pb_A2_P2.MouseLeave += new System.EventHandler(this.pb_A2_P2_MouseLeave);
-            // 
-            // pb_A3_P2
-            // 
-            this.pb_A3_P2.Image = ((System.Drawing.Image)(resources.GetObject("pb_A3_P2.Image")));
-            this.pb_A3_P2.Location = new System.Drawing.Point(524, 114);
-            this.pb_A3_P2.Name = "pb_A3_P2";
-            this.pb_A3_P2.Size = new System.Drawing.Size(89, 196);
-            this.pb_A3_P2.TabIndex = 18;
-            this.pb_A3_P2.TabStop = false;
-            this.pb_A3_P2.Click += new System.EventHandler(this.pb_A3_P2_Click);
-            this.pb_A3_P2.MouseEnter += new System.EventHandler(this.pb_A3_P2_MouseEnter);
-            this.pb_A3_P2.MouseLeave += new System.EventHandler(this.pb_A3_P2_MouseLeave);
             // 
             // pg6_SetBoard_P2
             // 
@@ -1050,363 +385,6 @@
             this.pg6_SetBoard_P2.Name = "pg6_SetBoard_P2";
             this.pg6_SetBoard_P2.Size = new System.Drawing.Size(796, 459);
             this.pg6_SetBoard_P2.TabIndex = 19;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(19, 18);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(87, 13);
-            this.label29.TabIndex = 2;
-            this.label29.Text = "Place your ships.";
-            // 
-            // pb_AIR_P2
-            // 
-            this.pb_AIR_P2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pb_AIR_P2.Location = new System.Drawing.Point(22, 313);
-            this.pb_AIR_P2.Name = "pb_AIR_P2";
-            this.pb_AIR_P2.Size = new System.Drawing.Size(100, 20);
-            this.pb_AIR_P2.TabIndex = 42;
-            this.pb_AIR_P2.TabStop = false;
-            this.pb_AIR_P2.Click += new System.EventHandler(this.pb_AIR_P2_Click);
-            this.pb_AIR_P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_AIR_P2_Paint);
-            // 
-            // pb_BAT_P2
-            // 
-            this.pb_BAT_P2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pb_BAT_P2.Location = new System.Drawing.Point(156, 193);
-            this.pb_BAT_P2.Name = "pb_BAT_P2";
-            this.pb_BAT_P2.Size = new System.Drawing.Size(80, 20);
-            this.pb_BAT_P2.TabIndex = 41;
-            this.pb_BAT_P2.TabStop = false;
-            this.pb_BAT_P2.Click += new System.EventHandler(this.pb_BAT_P2_Click);
-            this.pb_BAT_P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_BAT_P2_Paint);
-            // 
-            // pb_DES_P2
-            // 
-            this.pb_DES_P2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pb_DES_P2.Location = new System.Drawing.Point(22, 193);
-            this.pb_DES_P2.Name = "pb_DES_P2";
-            this.pb_DES_P2.Size = new System.Drawing.Size(60, 20);
-            this.pb_DES_P2.TabIndex = 40;
-            this.pb_DES_P2.TabStop = false;
-            this.pb_DES_P2.Click += new System.EventHandler(this.pb_DES_P2_Click);
-            this.pb_DES_P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_DES_P2_Paint);
-            // 
-            // pb_SUB_P2
-            // 
-            this.pb_SUB_P2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pb_SUB_P2.Location = new System.Drawing.Point(156, 73);
-            this.pb_SUB_P2.Name = "pb_SUB_P2";
-            this.pb_SUB_P2.Size = new System.Drawing.Size(60, 20);
-            this.pb_SUB_P2.TabIndex = 39;
-            this.pb_SUB_P2.TabStop = false;
-            this.pb_SUB_P2.Click += new System.EventHandler(this.pb_SUB_P2_Click);
-            this.pb_SUB_P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_SUB_P2_Paint);
-            // 
-            // pb_PB_P2
-            // 
-            this.pb_PB_P2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pb_PB_P2.Location = new System.Drawing.Point(22, 73);
-            this.pb_PB_P2.Name = "pb_PB_P2";
-            this.pb_PB_P2.Size = new System.Drawing.Size(40, 20);
-            this.pb_PB_P2.TabIndex = 38;
-            this.pb_PB_P2.TabStop = false;
-            this.pb_PB_P2.Click += new System.EventHandler(this.pb_PB_P2_Click);
-            this.pb_PB_P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_PB_P2_Paint);
-            // 
-            // lb_AIR_P2
-            // 
-            this.lb_AIR_P2.AutoSize = true;
-            this.lb_AIR_P2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_AIR_P2.Location = new System.Drawing.Point(19, 294);
-            this.lb_AIR_P2.Name = "lb_AIR_P2";
-            this.lb_AIR_P2.Size = new System.Drawing.Size(138, 16);
-            this.lb_AIR_P2.TabIndex = 37;
-            this.lb_AIR_P2.Text = "AIRCRAFT CARRIER";
-            this.lb_AIR_P2.Click += new System.EventHandler(this.lb_AIR_P2_Click);
-            // 
-            // lb_BAT_P2
-            // 
-            this.lb_BAT_P2.AutoSize = true;
-            this.lb_BAT_P2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_BAT_P2.Location = new System.Drawing.Point(155, 174);
-            this.lb_BAT_P2.Name = "lb_BAT_P2";
-            this.lb_BAT_P2.Size = new System.Drawing.Size(91, 16);
-            this.lb_BAT_P2.TabIndex = 36;
-            this.lb_BAT_P2.Text = "BATTLESHIP";
-            this.lb_BAT_P2.Click += new System.EventHandler(this.lb_BAT_P2_Click);
-            // 
-            // lb_DES_P2
-            // 
-            this.lb_DES_P2.AutoSize = true;
-            this.lb_DES_P2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_DES_P2.Location = new System.Drawing.Point(19, 174);
-            this.lb_DES_P2.Name = "lb_DES_P2";
-            this.lb_DES_P2.Size = new System.Drawing.Size(93, 16);
-            this.lb_DES_P2.TabIndex = 35;
-            this.lb_DES_P2.Text = "DESTROYER";
-            this.lb_DES_P2.Click += new System.EventHandler(this.lb_DES_P2_Click);
-            // 
-            // lb_SUB_P2
-            // 
-            this.lb_SUB_P2.AutoSize = true;
-            this.lb_SUB_P2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_SUB_P2.Location = new System.Drawing.Point(153, 54);
-            this.lb_SUB_P2.Name = "lb_SUB_P2";
-            this.lb_SUB_P2.Size = new System.Drawing.Size(88, 16);
-            this.lb_SUB_P2.TabIndex = 34;
-            this.lb_SUB_P2.Text = "SUBMARINE";
-            this.lb_SUB_P2.Click += new System.EventHandler(this.lb_SUB_P2_Click);
-            // 
-            // lb_PB_P2
-            // 
-            this.lb_PB_P2.AutoSize = true;
-            this.lb_PB_P2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_PB_P2.Location = new System.Drawing.Point(19, 54);
-            this.lb_PB_P2.Name = "lb_PB_P2";
-            this.lb_PB_P2.Size = new System.Drawing.Size(102, 16);
-            this.lb_PB_P2.TabIndex = 33;
-            this.lb_PB_P2.Text = "PATROL BOAT";
-            this.lb_PB_P2.Click += new System.EventHandler(this.lb_PB_P2_Click);
-            // 
-            // btnSubmit_6
-            // 
-            this.btnSubmit_6.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSubmit_6.FlatAppearance.BorderSize = 0;
-            this.btnSubmit_6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.btnSubmit_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmit_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit_6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSubmit_6.Location = new System.Drawing.Point(685, 406);
-            this.btnSubmit_6.Name = "btnSubmit_6";
-            this.btnSubmit_6.Size = new System.Drawing.Size(87, 32);
-            this.btnSubmit_6.TabIndex = 65;
-            this.btnSubmit_6.Text = "SUBMIT";
-            this.btnSubmit_6.UseVisualStyleBackColor = false;
-            this.btnSubmit_6.Click += new System.EventHandler(this.btnSubmit_6_Click);
-            // 
-            // btnUndo_6
-            // 
-            this.btnUndo_6.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnUndo_6.FlatAppearance.BorderSize = 0;
-            this.btnUndo_6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.btnUndo_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUndo_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUndo_6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnUndo_6.Location = new System.Drawing.Point(280, 406);
-            this.btnUndo_6.Name = "btnUndo_6";
-            this.btnUndo_6.Size = new System.Drawing.Size(76, 32);
-            this.btnUndo_6.TabIndex = 64;
-            this.btnUndo_6.Text = "UNDO";
-            this.btnUndo_6.UseVisualStyleBackColor = false;
-            this.btnUndo_6.Click += new System.EventHandler(this.btnUndo_6_Click);
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(358, 365);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(19, 13);
-            this.label30.TabIndex = 63;
-            this.label30.Text = "10";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(362, 335);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(13, 13);
-            this.label31.TabIndex = 62;
-            this.label31.Text = "9";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(362, 305);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(13, 13);
-            this.label32.TabIndex = 61;
-            this.label32.Text = "8";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(362, 275);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(13, 13);
-            this.label33.TabIndex = 60;
-            this.label33.Text = "7";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(362, 245);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(13, 13);
-            this.label34.TabIndex = 59;
-            this.label34.Text = "6";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(362, 215);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(13, 13);
-            this.label35.TabIndex = 58;
-            this.label35.Text = "5";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(362, 185);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(13, 13);
-            this.label36.TabIndex = 57;
-            this.label36.Text = "4";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(362, 155);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(13, 13);
-            this.label37.TabIndex = 56;
-            this.label37.Text = "3";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(362, 125);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(13, 13);
-            this.label38.TabIndex = 55;
-            this.label38.Text = "2";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(362, 95);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(13, 13);
-            this.label39.TabIndex = 54;
-            this.label39.Text = "1";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(663, 54);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(12, 13);
-            this.label40.TabIndex = 53;
-            this.label40.Text = "J";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(643, 54);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(10, 13);
-            this.label41.TabIndex = 52;
-            this.label41.Text = "I";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(613, 54);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(15, 13);
-            this.label42.TabIndex = 51;
-            this.label42.Text = "H";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(583, 54);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(15, 13);
-            this.label43.TabIndex = 50;
-            this.label43.Text = "G";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(553, 54);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(13, 13);
-            this.label44.TabIndex = 49;
-            this.label44.Text = "F";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(523, 54);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(14, 13);
-            this.label45.TabIndex = 48;
-            this.label45.Text = "E";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(493, 54);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(15, 13);
-            this.label46.TabIndex = 47;
-            this.label46.Text = "D";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(463, 54);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(14, 13);
-            this.label47.TabIndex = 46;
-            this.label47.Text = "C";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(433, 54);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(14, 13);
-            this.label48.TabIndex = 45;
-            this.label48.Text = "B";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(403, 54);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(14, 13);
-            this.label49.TabIndex = 44;
-            this.label49.Text = "A";
-            // 
-            // pb_PlaceShips_P2
-            // 
-            this.pb_PlaceShips_P2.Location = new System.Drawing.Point(388, 80);
-            this.pb_PlaceShips_P2.Name = "pb_PlaceShips_P2";
-            this.pb_PlaceShips_P2.Size = new System.Drawing.Size(301, 301);
-            this.pb_PlaceShips_P2.TabIndex = 43;
-            this.pb_PlaceShips_P2.TabStop = false;
-            this.pb_PlaceShips_P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_PlaceShips_P2_Paint);
-            this.pb_PlaceShips_P2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pb_PlaceShips_P2_MouseClick);
-            // 
-            // btnBack_6
-            // 
-            this.btnBack_6.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnBack_6.FlatAppearance.BorderSize = 0;
-            this.btnBack_6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.btnBack_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack_6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnBack_6.Location = new System.Drawing.Point(22, 406);
-            this.btnBack_6.Name = "btnBack_6";
-            this.btnBack_6.Size = new System.Drawing.Size(71, 32);
-            this.btnBack_6.TabIndex = 66;
-            this.btnBack_6.Text = "BACK";
-            this.btnBack_6.UseVisualStyleBackColor = false;
-            this.btnBack_6.Click += new System.EventHandler(this.btnBack_6_Click);
             // 
             // pg7_GameTime_COM
             // 
@@ -1865,6 +843,1028 @@
             this.pb_P1_Grid.TabStop = false;
             this.pb_P1_Grid.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_P1_Grid_Paint);
             // 
+            // btnBack_6
+            // 
+            this.btnBack_6.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnBack_6.FlatAppearance.BorderSize = 0;
+            this.btnBack_6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.btnBack_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack_6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnBack_6.Location = new System.Drawing.Point(22, 406);
+            this.btnBack_6.Name = "btnBack_6";
+            this.btnBack_6.Size = new System.Drawing.Size(71, 32);
+            this.btnBack_6.TabIndex = 66;
+            this.btnBack_6.Text = "BACK";
+            this.btnBack_6.UseVisualStyleBackColor = false;
+            this.btnBack_6.Click += new System.EventHandler(this.btnBack_6_Click);
+            // 
+            // btnSubmit_6
+            // 
+            this.btnSubmit_6.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSubmit_6.FlatAppearance.BorderSize = 0;
+            this.btnSubmit_6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.btnSubmit_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmit_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit_6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSubmit_6.Location = new System.Drawing.Point(685, 406);
+            this.btnSubmit_6.Name = "btnSubmit_6";
+            this.btnSubmit_6.Size = new System.Drawing.Size(87, 32);
+            this.btnSubmit_6.TabIndex = 65;
+            this.btnSubmit_6.Text = "SUBMIT";
+            this.btnSubmit_6.UseVisualStyleBackColor = false;
+            this.btnSubmit_6.Click += new System.EventHandler(this.btnSubmit_6_Click);
+            // 
+            // btnUndo_6
+            // 
+            this.btnUndo_6.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnUndo_6.FlatAppearance.BorderSize = 0;
+            this.btnUndo_6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.btnUndo_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUndo_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUndo_6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnUndo_6.Location = new System.Drawing.Point(280, 406);
+            this.btnUndo_6.Name = "btnUndo_6";
+            this.btnUndo_6.Size = new System.Drawing.Size(76, 32);
+            this.btnUndo_6.TabIndex = 64;
+            this.btnUndo_6.Text = "UNDO";
+            this.btnUndo_6.UseVisualStyleBackColor = false;
+            this.btnUndo_6.Click += new System.EventHandler(this.btnUndo_6_Click);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(358, 365);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(19, 13);
+            this.label30.TabIndex = 63;
+            this.label30.Text = "10";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(362, 335);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(13, 13);
+            this.label31.TabIndex = 62;
+            this.label31.Text = "9";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(362, 305);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(13, 13);
+            this.label32.TabIndex = 61;
+            this.label32.Text = "8";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(362, 275);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(13, 13);
+            this.label33.TabIndex = 60;
+            this.label33.Text = "7";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(362, 245);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(13, 13);
+            this.label34.TabIndex = 59;
+            this.label34.Text = "6";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(362, 215);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(13, 13);
+            this.label35.TabIndex = 58;
+            this.label35.Text = "5";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(362, 185);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(13, 13);
+            this.label36.TabIndex = 57;
+            this.label36.Text = "4";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(362, 155);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(13, 13);
+            this.label37.TabIndex = 56;
+            this.label37.Text = "3";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(362, 125);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(13, 13);
+            this.label38.TabIndex = 55;
+            this.label38.Text = "2";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(362, 95);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(13, 13);
+            this.label39.TabIndex = 54;
+            this.label39.Text = "1";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(663, 54);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(12, 13);
+            this.label40.TabIndex = 53;
+            this.label40.Text = "J";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(643, 54);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(10, 13);
+            this.label41.TabIndex = 52;
+            this.label41.Text = "I";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(613, 54);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(15, 13);
+            this.label42.TabIndex = 51;
+            this.label42.Text = "H";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(583, 54);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(15, 13);
+            this.label43.TabIndex = 50;
+            this.label43.Text = "G";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(553, 54);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(13, 13);
+            this.label44.TabIndex = 49;
+            this.label44.Text = "F";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(523, 54);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(14, 13);
+            this.label45.TabIndex = 48;
+            this.label45.Text = "E";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(493, 54);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(15, 13);
+            this.label46.TabIndex = 47;
+            this.label46.Text = "D";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(463, 54);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(14, 13);
+            this.label47.TabIndex = 46;
+            this.label47.Text = "C";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(433, 54);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(14, 13);
+            this.label48.TabIndex = 45;
+            this.label48.Text = "B";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(403, 54);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(14, 13);
+            this.label49.TabIndex = 44;
+            this.label49.Text = "A";
+            // 
+            // pb_PlaceShips_P2
+            // 
+            this.pb_PlaceShips_P2.Location = new System.Drawing.Point(388, 80);
+            this.pb_PlaceShips_P2.Name = "pb_PlaceShips_P2";
+            this.pb_PlaceShips_P2.Size = new System.Drawing.Size(301, 301);
+            this.pb_PlaceShips_P2.TabIndex = 43;
+            this.pb_PlaceShips_P2.TabStop = false;
+            this.pb_PlaceShips_P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_PlaceShips_P2_Paint);
+            this.pb_PlaceShips_P2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pb_PlaceShips_P2_MouseClick);
+            // 
+            // pb_AIR_P2
+            // 
+            this.pb_AIR_P2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pb_AIR_P2.Location = new System.Drawing.Point(22, 313);
+            this.pb_AIR_P2.Name = "pb_AIR_P2";
+            this.pb_AIR_P2.Size = new System.Drawing.Size(100, 20);
+            this.pb_AIR_P2.TabIndex = 42;
+            this.pb_AIR_P2.TabStop = false;
+            this.pb_AIR_P2.Click += new System.EventHandler(this.pb_AIR_P2_Click);
+            this.pb_AIR_P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_AIR_P2_Paint);
+            // 
+            // pb_BAT_P2
+            // 
+            this.pb_BAT_P2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pb_BAT_P2.Location = new System.Drawing.Point(156, 193);
+            this.pb_BAT_P2.Name = "pb_BAT_P2";
+            this.pb_BAT_P2.Size = new System.Drawing.Size(80, 20);
+            this.pb_BAT_P2.TabIndex = 41;
+            this.pb_BAT_P2.TabStop = false;
+            this.pb_BAT_P2.Click += new System.EventHandler(this.pb_BAT_P2_Click);
+            this.pb_BAT_P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_BAT_P2_Paint);
+            // 
+            // pb_DES_P2
+            // 
+            this.pb_DES_P2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pb_DES_P2.Location = new System.Drawing.Point(22, 193);
+            this.pb_DES_P2.Name = "pb_DES_P2";
+            this.pb_DES_P2.Size = new System.Drawing.Size(60, 20);
+            this.pb_DES_P2.TabIndex = 40;
+            this.pb_DES_P2.TabStop = false;
+            this.pb_DES_P2.Click += new System.EventHandler(this.pb_DES_P2_Click);
+            this.pb_DES_P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_DES_P2_Paint);
+            // 
+            // pb_SUB_P2
+            // 
+            this.pb_SUB_P2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pb_SUB_P2.Location = new System.Drawing.Point(156, 73);
+            this.pb_SUB_P2.Name = "pb_SUB_P2";
+            this.pb_SUB_P2.Size = new System.Drawing.Size(60, 20);
+            this.pb_SUB_P2.TabIndex = 39;
+            this.pb_SUB_P2.TabStop = false;
+            this.pb_SUB_P2.Click += new System.EventHandler(this.pb_SUB_P2_Click);
+            this.pb_SUB_P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_SUB_P2_Paint);
+            // 
+            // pb_PB_P2
+            // 
+            this.pb_PB_P2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pb_PB_P2.Location = new System.Drawing.Point(22, 73);
+            this.pb_PB_P2.Name = "pb_PB_P2";
+            this.pb_PB_P2.Size = new System.Drawing.Size(40, 20);
+            this.pb_PB_P2.TabIndex = 38;
+            this.pb_PB_P2.TabStop = false;
+            this.pb_PB_P2.Click += new System.EventHandler(this.pb_PB_P2_Click);
+            this.pb_PB_P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_PB_P2_Paint);
+            // 
+            // lb_AIR_P2
+            // 
+            this.lb_AIR_P2.AutoSize = true;
+            this.lb_AIR_P2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_AIR_P2.Location = new System.Drawing.Point(19, 294);
+            this.lb_AIR_P2.Name = "lb_AIR_P2";
+            this.lb_AIR_P2.Size = new System.Drawing.Size(138, 16);
+            this.lb_AIR_P2.TabIndex = 37;
+            this.lb_AIR_P2.Text = "AIRCRAFT CARRIER";
+            this.lb_AIR_P2.Click += new System.EventHandler(this.lb_AIR_P2_Click);
+            // 
+            // lb_BAT_P2
+            // 
+            this.lb_BAT_P2.AutoSize = true;
+            this.lb_BAT_P2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_BAT_P2.Location = new System.Drawing.Point(155, 174);
+            this.lb_BAT_P2.Name = "lb_BAT_P2";
+            this.lb_BAT_P2.Size = new System.Drawing.Size(91, 16);
+            this.lb_BAT_P2.TabIndex = 36;
+            this.lb_BAT_P2.Text = "BATTLESHIP";
+            this.lb_BAT_P2.Click += new System.EventHandler(this.lb_BAT_P2_Click);
+            // 
+            // lb_DES_P2
+            // 
+            this.lb_DES_P2.AutoSize = true;
+            this.lb_DES_P2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_DES_P2.Location = new System.Drawing.Point(19, 174);
+            this.lb_DES_P2.Name = "lb_DES_P2";
+            this.lb_DES_P2.Size = new System.Drawing.Size(93, 16);
+            this.lb_DES_P2.TabIndex = 35;
+            this.lb_DES_P2.Text = "DESTROYER";
+            this.lb_DES_P2.Click += new System.EventHandler(this.lb_DES_P2_Click);
+            // 
+            // lb_SUB_P2
+            // 
+            this.lb_SUB_P2.AutoSize = true;
+            this.lb_SUB_P2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_SUB_P2.Location = new System.Drawing.Point(153, 54);
+            this.lb_SUB_P2.Name = "lb_SUB_P2";
+            this.lb_SUB_P2.Size = new System.Drawing.Size(88, 16);
+            this.lb_SUB_P2.TabIndex = 34;
+            this.lb_SUB_P2.Text = "SUBMARINE";
+            this.lb_SUB_P2.Click += new System.EventHandler(this.lb_SUB_P2_Click);
+            // 
+            // lb_PB_P2
+            // 
+            this.lb_PB_P2.AutoSize = true;
+            this.lb_PB_P2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_PB_P2.Location = new System.Drawing.Point(19, 54);
+            this.lb_PB_P2.Name = "lb_PB_P2";
+            this.lb_PB_P2.Size = new System.Drawing.Size(102, 16);
+            this.lb_PB_P2.TabIndex = 33;
+            this.lb_PB_P2.Text = "PATROL BOAT";
+            this.lb_PB_P2.Click += new System.EventHandler(this.lb_PB_P2_Click);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(19, 18);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(87, 13);
+            this.label29.TabIndex = 2;
+            this.label29.Text = "Place your ships.";
+            // 
+            // pb_A3_P2
+            // 
+            this.pb_A3_P2.Image = ((System.Drawing.Image)(resources.GetObject("pb_A3_P2.Image")));
+            this.pb_A3_P2.Location = new System.Drawing.Point(524, 114);
+            this.pb_A3_P2.Name = "pb_A3_P2";
+            this.pb_A3_P2.Size = new System.Drawing.Size(89, 196);
+            this.pb_A3_P2.TabIndex = 18;
+            this.pb_A3_P2.TabStop = false;
+            this.pb_A3_P2.Click += new System.EventHandler(this.pb_A3_P2_Click);
+            this.pb_A3_P2.MouseEnter += new System.EventHandler(this.pb_A3_P2_MouseEnter);
+            this.pb_A3_P2.MouseLeave += new System.EventHandler(this.pb_A3_P2_MouseLeave);
+            // 
+            // pb_A2_P2
+            // 
+            this.pb_A2_P2.Image = ((System.Drawing.Image)(resources.GetObject("pb_A2_P2.Image")));
+            this.pb_A2_P2.Location = new System.Drawing.Point(344, 114);
+            this.pb_A2_P2.Name = "pb_A2_P2";
+            this.pb_A2_P2.Size = new System.Drawing.Size(89, 196);
+            this.pb_A2_P2.TabIndex = 17;
+            this.pb_A2_P2.TabStop = false;
+            this.pb_A2_P2.Click += new System.EventHandler(this.pb_A2_P2_Click);
+            this.pb_A2_P2.MouseEnter += new System.EventHandler(this.pb_A2_P2_MouseEnter);
+            this.pb_A2_P2.MouseLeave += new System.EventHandler(this.pb_A2_P2_MouseLeave);
+            // 
+            // pb_A1_P2
+            // 
+            this.pb_A1_P2.Image = ((System.Drawing.Image)(resources.GetObject("pb_A1_P2.Image")));
+            this.pb_A1_P2.Location = new System.Drawing.Point(158, 114);
+            this.pb_A1_P2.Name = "pb_A1_P2";
+            this.pb_A1_P2.Size = new System.Drawing.Size(89, 196);
+            this.pb_A1_P2.TabIndex = 16;
+            this.pb_A1_P2.TabStop = false;
+            this.pb_A1_P2.Click += new System.EventHandler(this.pb_A1_P2_Click);
+            this.pb_A1_P2.MouseEnter += new System.EventHandler(this.pb_A1_P2_MouseEnter);
+            this.pb_A1_P2.MouseLeave += new System.EventHandler(this.pb_A1_P2_MouseLeave);
+            // 
+            // bkgd_A3_P2
+            // 
+            this.bkgd_A3_P2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.bkgd_A3_P2.Location = new System.Drawing.Point(519, 109);
+            this.bkgd_A3_P2.Name = "bkgd_A3_P2";
+            this.bkgd_A3_P2.Size = new System.Drawing.Size(100, 206);
+            this.bkgd_A3_P2.TabIndex = 15;
+            // 
+            // bkgd_A2_P2
+            // 
+            this.bkgd_A2_P2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.bkgd_A2_P2.Location = new System.Drawing.Point(339, 109);
+            this.bkgd_A2_P2.Name = "bkgd_A2_P2";
+            this.bkgd_A2_P2.Size = new System.Drawing.Size(100, 206);
+            this.bkgd_A2_P2.TabIndex = 14;
+            // 
+            // bkgd_A1_P2
+            // 
+            this.bkgd_A1_P2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.bkgd_A1_P2.Location = new System.Drawing.Point(153, 109);
+            this.bkgd_A1_P2.Name = "bkgd_A1_P2";
+            this.bkgd_A1_P2.Size = new System.Drawing.Size(100, 206);
+            this.bkgd_A1_P2.TabIndex = 13;
+            // 
+            // btnNext_5
+            // 
+            this.btnNext_5.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnNext_5.FlatAppearance.BorderSize = 0;
+            this.btnNext_5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.btnNext_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext_5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnNext_5.Location = new System.Drawing.Point(613, 373);
+            this.btnNext_5.Name = "btnNext_5";
+            this.btnNext_5.Size = new System.Drawing.Size(171, 74);
+            this.btnNext_5.TabIndex = 12;
+            this.btnNext_5.Text = "NEXT";
+            this.btnNext_5.UseVisualStyleBackColor = false;
+            this.btnNext_5.Click += new System.EventHandler(this.btnNext_5_Click);
+            this.btnNext_5.Paint += new System.Windows.Forms.PaintEventHandler(this.btnNext_5_Paint);
+            this.btnNext_5.MouseEnter += new System.EventHandler(this.btnNext_5_MouseEnter);
+            this.btnNext_5.MouseLeave += new System.EventHandler(this.btnNext_5_MouseLeave);
+            // 
+            // btnBack_5
+            // 
+            this.btnBack_5.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnBack_5.FlatAppearance.BorderSize = 0;
+            this.btnBack_5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.btnBack_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack_5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnBack_5.Location = new System.Drawing.Point(12, 373);
+            this.btnBack_5.Name = "btnBack_5";
+            this.btnBack_5.Size = new System.Drawing.Size(171, 74);
+            this.btnBack_5.TabIndex = 11;
+            this.btnBack_5.Text = "BACK";
+            this.btnBack_5.UseVisualStyleBackColor = false;
+            this.btnBack_5.Click += new System.EventHandler(this.btnBack_5_Click);
+            this.btnBack_5.Paint += new System.Windows.Forms.PaintEventHandler(this.btnBack_5_Paint);
+            this.btnBack_5.MouseEnter += new System.EventHandler(this.btnBack_5_MouseEnter);
+            this.btnBack_5.MouseLeave += new System.EventHandler(this.btnBack_5_MouseLeave);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(46, 64);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(173, 13);
+            this.label28.TabIndex = 3;
+            this.label28.Text = "Choose an avatar and click \"next.\"";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(6, 9);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(222, 55);
+            this.label27.TabIndex = 2;
+            this.label27.Text = "AVATAR";
+            // 
+            // btnComputer
+            // 
+            this.btnComputer.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnComputer.FlatAppearance.BorderSize = 0;
+            this.btnComputer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.btnComputer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComputer.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnComputer.Location = new System.Drawing.Point(445, 184);
+            this.btnComputer.Name = "btnComputer";
+            this.btnComputer.Size = new System.Drawing.Size(250, 74);
+            this.btnComputer.TabIndex = 7;
+            this.btnComputer.Text = "COMPUTER";
+            this.btnComputer.UseVisualStyleBackColor = false;
+            this.btnComputer.Click += new System.EventHandler(this.btnComputer_Click);
+            this.btnComputer.Paint += new System.Windows.Forms.PaintEventHandler(this.btnComputer_Paint);
+            this.btnComputer.MouseEnter += new System.EventHandler(this.btnComputer_MouseEnter);
+            this.btnComputer.MouseLeave += new System.EventHandler(this.btnComputer_MouseLeave);
+            // 
+            // btn2Player
+            // 
+            this.btn2Player.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn2Player.Enabled = false;
+            this.btn2Player.FlatAppearance.BorderSize = 0;
+            this.btn2Player.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.btn2Player.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn2Player.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn2Player.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn2Player.Location = new System.Drawing.Point(83, 184);
+            this.btn2Player.Name = "btn2Player";
+            this.btn2Player.Size = new System.Drawing.Size(250, 74);
+            this.btn2Player.TabIndex = 6;
+            this.btn2Player.Text = "2-PLAYER";
+            this.btn2Player.UseVisualStyleBackColor = false;
+            this.btn2Player.Click += new System.EventHandler(this.btn2Player_Click);
+            this.btn2Player.Paint += new System.Windows.Forms.PaintEventHandler(this.btn2Player_Paint);
+            this.btn2Player.MouseEnter += new System.EventHandler(this.btn2Player_MouseEnter);
+            this.btn2Player.MouseLeave += new System.EventHandler(this.btn2Player_MouseLeave);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(76, 79);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(117, 13);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Choose opponent type.";
+            // 
+            // btnBack_3
+            // 
+            this.btnBack_3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnBack_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBack_3.Location = new System.Drawing.Point(22, 406);
+            this.btnBack_3.Name = "btnBack_3";
+            this.btnBack_3.Size = new System.Drawing.Size(71, 32);
+            this.btnBack_3.TabIndex = 35;
+            this.btnBack_3.Text = "BACK";
+            this.btnBack_3.UseVisualStyleBackColor = false;
+            this.btnBack_3.Click += new System.EventHandler(this.btnBack_3_Click);
+            // 
+            // btnSubmit_3
+            // 
+            this.btnSubmit_3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSubmit_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmit_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSubmit_3.Location = new System.Drawing.Point(685, 406);
+            this.btnSubmit_3.Name = "btnSubmit_3";
+            this.btnSubmit_3.Size = new System.Drawing.Size(87, 32);
+            this.btnSubmit_3.TabIndex = 34;
+            this.btnSubmit_3.Text = "SUBMIT";
+            this.btnSubmit_3.UseVisualStyleBackColor = false;
+            this.btnSubmit_3.Click += new System.EventHandler(this.btnSubmit_3_Click);
+            // 
+            // btnUndo_3
+            // 
+            this.btnUndo_3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnUndo_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUndo_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnUndo_3.Location = new System.Drawing.Point(280, 406);
+            this.btnUndo_3.Name = "btnUndo_3";
+            this.btnUndo_3.Size = new System.Drawing.Size(76, 32);
+            this.btnUndo_3.TabIndex = 33;
+            this.btnUndo_3.Text = "UNDO";
+            this.btnUndo_3.UseVisualStyleBackColor = false;
+            this.btnUndo_3.Click += new System.EventHandler(this.btnUndo_3_Click);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(358, 365);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(19, 13);
+            this.label25.TabIndex = 32;
+            this.label25.Text = "10";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(362, 335);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(13, 13);
+            this.label24.TabIndex = 31;
+            this.label24.Text = "9";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(362, 305);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(13, 13);
+            this.label23.TabIndex = 30;
+            this.label23.Text = "8";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(362, 275);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(13, 13);
+            this.label22.TabIndex = 29;
+            this.label22.Text = "7";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(362, 245);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(13, 13);
+            this.label21.TabIndex = 28;
+            this.label21.Text = "6";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(362, 215);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(13, 13);
+            this.label20.TabIndex = 27;
+            this.label20.Text = "5";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(362, 185);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(13, 13);
+            this.label19.TabIndex = 26;
+            this.label19.Text = "4";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(362, 155);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(13, 13);
+            this.label18.TabIndex = 25;
+            this.label18.Text = "3";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(362, 125);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(13, 13);
+            this.label17.TabIndex = 24;
+            this.label17.Text = "2";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(362, 95);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(13, 13);
+            this.label16.TabIndex = 23;
+            this.label16.Text = "1";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(663, 54);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(12, 13);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "J";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(643, 54);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(10, 13);
+            this.label14.TabIndex = 21;
+            this.label14.Text = "I";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(613, 54);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(15, 13);
+            this.label13.TabIndex = 20;
+            this.label13.Text = "H";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(583, 54);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(15, 13);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "G";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(553, 54);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(13, 13);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "F";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(523, 54);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(14, 13);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "E";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(493, 54);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(15, 13);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "D";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(463, 54);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(14, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "C";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(433, 54);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(14, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "B";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(403, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(14, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "A";
+            // 
+            // pb_PlaceShips_P1
+            // 
+            this.pb_PlaceShips_P1.Location = new System.Drawing.Point(388, 80);
+            this.pb_PlaceShips_P1.Name = "pb_PlaceShips_P1";
+            this.pb_PlaceShips_P1.Size = new System.Drawing.Size(301, 301);
+            this.pb_PlaceShips_P1.TabIndex = 11;
+            this.pb_PlaceShips_P1.TabStop = false;
+            this.pb_PlaceShips_P1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_PlaceShips_P1_Paint);
+            this.pb_PlaceShips_P1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pb_PlaceShips_P1_MouseClick);
+            // 
+            // pb_AIR_P1
+            // 
+            this.pb_AIR_P1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pb_AIR_P1.Location = new System.Drawing.Point(22, 313);
+            this.pb_AIR_P1.Name = "pb_AIR_P1";
+            this.pb_AIR_P1.Size = new System.Drawing.Size(100, 20);
+            this.pb_AIR_P1.TabIndex = 10;
+            this.pb_AIR_P1.TabStop = false;
+            this.pb_AIR_P1.Click += new System.EventHandler(this.pb_AIR_P1_Click);
+            this.pb_AIR_P1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_AIR_P1_Paint);
+            // 
+            // pb_BAT_P1
+            // 
+            this.pb_BAT_P1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pb_BAT_P1.Location = new System.Drawing.Point(156, 193);
+            this.pb_BAT_P1.Name = "pb_BAT_P1";
+            this.pb_BAT_P1.Size = new System.Drawing.Size(80, 20);
+            this.pb_BAT_P1.TabIndex = 9;
+            this.pb_BAT_P1.TabStop = false;
+            this.pb_BAT_P1.Click += new System.EventHandler(this.pb_BAT_P1_Click);
+            this.pb_BAT_P1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_BAT_P1_Paint);
+            // 
+            // pb_DES_P1
+            // 
+            this.pb_DES_P1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pb_DES_P1.Location = new System.Drawing.Point(22, 193);
+            this.pb_DES_P1.Name = "pb_DES_P1";
+            this.pb_DES_P1.Size = new System.Drawing.Size(60, 20);
+            this.pb_DES_P1.TabIndex = 8;
+            this.pb_DES_P1.TabStop = false;
+            this.pb_DES_P1.Click += new System.EventHandler(this.pb_DES_P1_Click);
+            this.pb_DES_P1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_DES_P1_Paint);
+            // 
+            // pb_SUB_P1
+            // 
+            this.pb_SUB_P1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pb_SUB_P1.Location = new System.Drawing.Point(156, 73);
+            this.pb_SUB_P1.Name = "pb_SUB_P1";
+            this.pb_SUB_P1.Size = new System.Drawing.Size(60, 20);
+            this.pb_SUB_P1.TabIndex = 7;
+            this.pb_SUB_P1.TabStop = false;
+            this.pb_SUB_P1.Click += new System.EventHandler(this.pb_SUB_P1_Click);
+            this.pb_SUB_P1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_SUB_P1_Paint);
+            // 
+            // pb_PB_P1
+            // 
+            this.pb_PB_P1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pb_PB_P1.Location = new System.Drawing.Point(22, 73);
+            this.pb_PB_P1.Name = "pb_PB_P1";
+            this.pb_PB_P1.Size = new System.Drawing.Size(40, 20);
+            this.pb_PB_P1.TabIndex = 6;
+            this.pb_PB_P1.TabStop = false;
+            this.pb_PB_P1.Click += new System.EventHandler(this.pb_PB_P1_Click);
+            this.pb_PB_P1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_PB_P1_Paint);
+            // 
+            // lb_AIR_P1
+            // 
+            this.lb_AIR_P1.AutoSize = true;
+            this.lb_AIR_P1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lb_AIR_P1.Location = new System.Drawing.Point(19, 294);
+            this.lb_AIR_P1.Name = "lb_AIR_P1";
+            this.lb_AIR_P1.Size = new System.Drawing.Size(138, 16);
+            this.lb_AIR_P1.TabIndex = 5;
+            this.lb_AIR_P1.Text = "AIRCRAFT CARRIER";
+            this.lb_AIR_P1.Click += new System.EventHandler(this.lb_AIR_P1_Click);
+            // 
+            // lb_BAT_P1
+            // 
+            this.lb_BAT_P1.AutoSize = true;
+            this.lb_BAT_P1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lb_BAT_P1.Location = new System.Drawing.Point(155, 174);
+            this.lb_BAT_P1.Name = "lb_BAT_P1";
+            this.lb_BAT_P1.Size = new System.Drawing.Size(91, 16);
+            this.lb_BAT_P1.TabIndex = 4;
+            this.lb_BAT_P1.Text = "BATTLESHIP";
+            this.lb_BAT_P1.Click += new System.EventHandler(this.lb_BAT_P1_Click);
+            // 
+            // lb_DES_P1
+            // 
+            this.lb_DES_P1.AutoSize = true;
+            this.lb_DES_P1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lb_DES_P1.Location = new System.Drawing.Point(19, 174);
+            this.lb_DES_P1.Name = "lb_DES_P1";
+            this.lb_DES_P1.Size = new System.Drawing.Size(93, 16);
+            this.lb_DES_P1.TabIndex = 3;
+            this.lb_DES_P1.Text = "DESTROYER";
+            this.lb_DES_P1.Click += new System.EventHandler(this.lb_DES_P1_Click);
+            // 
+            // lb_SUB_P1
+            // 
+            this.lb_SUB_P1.AutoSize = true;
+            this.lb_SUB_P1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lb_SUB_P1.Location = new System.Drawing.Point(153, 54);
+            this.lb_SUB_P1.Name = "lb_SUB_P1";
+            this.lb_SUB_P1.Size = new System.Drawing.Size(88, 16);
+            this.lb_SUB_P1.TabIndex = 2;
+            this.lb_SUB_P1.Text = "SUBMARINE";
+            this.lb_SUB_P1.Click += new System.EventHandler(this.lb_SUB_P1_Click);
+            // 
+            // lb_PB_P1
+            // 
+            this.lb_PB_P1.AutoSize = true;
+            this.lb_PB_P1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lb_PB_P1.Location = new System.Drawing.Point(19, 54);
+            this.lb_PB_P1.Name = "lb_PB_P1";
+            this.lb_PB_P1.Size = new System.Drawing.Size(102, 16);
+            this.lb_PB_P1.TabIndex = 1;
+            this.lb_PB_P1.Text = "PATROL BOAT";
+            this.lb_PB_P1.Click += new System.EventHandler(this.lb_PB_P1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(19, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Place your ships.";
+            // 
+            // pb_A3_P1
+            // 
+            this.pb_A3_P1.Image = ((System.Drawing.Image)(resources.GetObject("pb_A3_P1.Image")));
+            this.pb_A3_P1.Location = new System.Drawing.Point(524, 114);
+            this.pb_A3_P1.Name = "pb_A3_P1";
+            this.pb_A3_P1.Size = new System.Drawing.Size(89, 196);
+            this.pb_A3_P1.TabIndex = 11;
+            this.pb_A3_P1.TabStop = false;
+            this.pb_A3_P1.Click += new System.EventHandler(this.pb_A3_P1_Click);
+            this.pb_A3_P1.MouseEnter += new System.EventHandler(this.pb_A3_P1_MouseEnter);
+            this.pb_A3_P1.MouseLeave += new System.EventHandler(this.pb_A3_P1_MouseLeave);
+            // 
+            // pb_A2_P1
+            // 
+            this.pb_A2_P1.Image = ((System.Drawing.Image)(resources.GetObject("pb_A2_P1.Image")));
+            this.pb_A2_P1.Location = new System.Drawing.Point(344, 114);
+            this.pb_A2_P1.Name = "pb_A2_P1";
+            this.pb_A2_P1.Size = new System.Drawing.Size(89, 196);
+            this.pb_A2_P1.TabIndex = 10;
+            this.pb_A2_P1.TabStop = false;
+            this.pb_A2_P1.Click += new System.EventHandler(this.pb_A2_P1_Click);
+            this.pb_A2_P1.MouseEnter += new System.EventHandler(this.pb_A2_P1_MouseEnter);
+            this.pb_A2_P1.MouseLeave += new System.EventHandler(this.pb_A2_P1_MouseLeave);
+            // 
+            // pb_A1_P1
+            // 
+            this.pb_A1_P1.Image = ((System.Drawing.Image)(resources.GetObject("pb_A1_P1.Image")));
+            this.pb_A1_P1.Location = new System.Drawing.Point(158, 114);
+            this.pb_A1_P1.Name = "pb_A1_P1";
+            this.pb_A1_P1.Size = new System.Drawing.Size(89, 196);
+            this.pb_A1_P1.TabIndex = 9;
+            this.pb_A1_P1.TabStop = false;
+            this.pb_A1_P1.Click += new System.EventHandler(this.pb_A1_P1_Click);
+            this.pb_A1_P1.MouseEnter += new System.EventHandler(this.pb_A1_P1_MouseEnter);
+            this.pb_A1_P1.MouseLeave += new System.EventHandler(this.pb_A1_P1_MouseLeave);
+            // 
+            // bkgd_A3_P1
+            // 
+            this.bkgd_A3_P1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.bkgd_A3_P1.Location = new System.Drawing.Point(519, 109);
+            this.bkgd_A3_P1.Name = "bkgd_A3_P1";
+            this.bkgd_A3_P1.Size = new System.Drawing.Size(100, 206);
+            this.bkgd_A3_P1.TabIndex = 2;
+            // 
+            // bkgd_A2_P1
+            // 
+            this.bkgd_A2_P1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.bkgd_A2_P1.Location = new System.Drawing.Point(339, 109);
+            this.bkgd_A2_P1.Name = "bkgd_A2_P1";
+            this.bkgd_A2_P1.Size = new System.Drawing.Size(100, 206);
+            this.bkgd_A2_P1.TabIndex = 1;
+            // 
+            // bkgd_A1_P1
+            // 
+            this.bkgd_A1_P1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.bkgd_A1_P1.Location = new System.Drawing.Point(153, 109);
+            this.bkgd_A1_P1.Name = "bkgd_A1_P1";
+            this.bkgd_A1_P1.Size = new System.Drawing.Size(100, 206);
+            this.bkgd_A1_P1.TabIndex = 0;
+            // 
+            // btnBack_2
+            // 
+            this.btnBack_2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnBack_2.FlatAppearance.BorderSize = 0;
+            this.btnBack_2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.btnBack_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold);
+            this.btnBack_2.Location = new System.Drawing.Point(12, 373);
+            this.btnBack_2.Name = "btnBack_2";
+            this.btnBack_2.Size = new System.Drawing.Size(171, 74);
+            this.btnBack_2.TabIndex = 4;
+            this.btnBack_2.Text = "BACK";
+            this.btnBack_2.UseVisualStyleBackColor = false;
+            this.btnBack_2.Click += new System.EventHandler(this.btnBack_2_Click);
+            this.btnBack_2.Paint += new System.Windows.Forms.PaintEventHandler(this.btnBack_2_Paint);
+            this.btnBack_2.MouseEnter += new System.EventHandler(this.btnBack_2_MouseEnter);
+            this.btnBack_2.MouseLeave += new System.EventHandler(this.btnBack_2_MouseLeave);
+            // 
+            // btnNext_2
+            // 
+            this.btnNext_2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnNext_2.FlatAppearance.BorderSize = 0;
+            this.btnNext_2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.btnNext_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold);
+            this.btnNext_2.Location = new System.Drawing.Point(613, 373);
+            this.btnNext_2.Name = "btnNext_2";
+            this.btnNext_2.Size = new System.Drawing.Size(171, 74);
+            this.btnNext_2.TabIndex = 3;
+            this.btnNext_2.Text = "NEXT";
+            this.btnNext_2.UseVisualStyleBackColor = false;
+            this.btnNext_2.Click += new System.EventHandler(this.btnNext_2_Click);
+            this.btnNext_2.Paint += new System.Windows.Forms.PaintEventHandler(this.btnNext_2_Paint);
+            this.btnNext_2.MouseEnter += new System.EventHandler(this.btnNext_2_MouseEnter);
+            this.btnNext_2.MouseLeave += new System.EventHandler(this.btnNext_2_MouseLeave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(46, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(173, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Choose an avatar and click \"next\".";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(6, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(222, 55);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "AVATAR";
+            // 
+            // btnNext_1
+            // 
+            this.btnNext_1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnNext_1.FlatAppearance.BorderSize = 0;
+            this.btnNext_1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.btnNext_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold);
+            this.btnNext_1.Location = new System.Drawing.Point(613, 373);
+            this.btnNext_1.Name = "btnNext_1";
+            this.btnNext_1.Size = new System.Drawing.Size(171, 74);
+            this.btnNext_1.TabIndex = 2;
+            this.btnNext_1.Text = "NEXT";
+            this.btnNext_1.UseVisualStyleBackColor = false;
+            this.btnNext_1.Click += new System.EventHandler(this.btnNext_1_Click);
+            this.btnNext_1.Paint += new System.Windows.Forms.PaintEventHandler(this.btnNext_1_Paint);
+            this.btnNext_1.MouseEnter += new System.EventHandler(this.btnNext_1_MouseEnter);
+            this.btnNext_1.MouseLeave += new System.EventHandler(this.btnNext_1_MouseLeave);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(202, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "write out instructions here when complete";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(6, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(396, 55);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "INSTRUCTIONS";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1884,6 +1884,27 @@
             this.pg2_Avatar_P1.PerformLayout();
             this.pg3_SetBoard_P1.ResumeLayout(false);
             this.pg3_SetBoard_P1.PerformLayout();
+            this.pg4_PlayerChoice.ResumeLayout(false);
+            this.pg4_PlayerChoice.PerformLayout();
+            this.pg5_Avatar_P2.ResumeLayout(false);
+            this.pg5_Avatar_P2.PerformLayout();
+            this.pg6_SetBoard_P2.ResumeLayout(false);
+            this.pg6_SetBoard_P2.PerformLayout();
+            this.pg7_GameTime_COM.ResumeLayout(false);
+            this.pg7_GameTime_COM.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Mini_P2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Mini_P1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_COM_Grid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_P1_Grid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_PlaceShips_P2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_AIR_P2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_BAT_P2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_DES_P2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_SUB_P2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_PB_P2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_A3_P2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_A2_P2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_A1_P2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PlaceShips_P1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_AIR_P1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_BAT_P1)).EndInit();
@@ -1893,27 +1914,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_A3_P1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_A2_P1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_A1_P1)).EndInit();
-            this.pg4_PlayerChoice.ResumeLayout(false);
-            this.pg4_PlayerChoice.PerformLayout();
-            this.pg5_Avatar_P2.ResumeLayout(false);
-            this.pg5_Avatar_P2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_A1_P2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_A2_P2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_A3_P2)).EndInit();
-            this.pg6_SetBoard_P2.ResumeLayout(false);
-            this.pg6_SetBoard_P2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_AIR_P2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_BAT_P2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_DES_P2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_SUB_P2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_PB_P2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_PlaceShips_P2)).EndInit();
-            this.pg7_GameTime_COM.ResumeLayout(false);
-            this.pg7_GameTime_COM.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Mini_P2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Mini_P1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_COM_Grid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_P1_Grid)).EndInit();
             this.ResumeLayout(false);
 
         }
