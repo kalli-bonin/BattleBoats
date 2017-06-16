@@ -59,9 +59,9 @@ namespace KB_Battleship
             pg5_Avatar_P2.Visible    = false;
             pg6_SetBoard_P2.Visible  = false;
             pg7_GameTime_COM.Visible = false;
-            //pg8_GameTime_P1.Visible  = false;
-            //pg9_GameTime_P2.Visible  = false;
-            //pg10_GameOver.Visible    = false;
+            pg7_GameTime_P1.Visible  = false;
+            //pg8_GameTime_P2.Visible  = false;
+            //pg9_GameOver.Visible    = false;
         }
 
         public class Ships
@@ -602,8 +602,7 @@ namespace KB_Battleship
                 iAvatar = 1;
                 iHitCount = 0;
             }
-
-
+            
             public void setTurn(bool b)
             {
                 Turn = b;
@@ -660,6 +659,23 @@ namespace KB_Battleship
                 else
                 {
                     return false;
+                }
+            }
+
+            public void checkHit(Player other, int x, int y)
+            {
+                if (other.getPlayerArray(x - 1, y - 1) > 0)
+                {
+                    other.setPlayerArray(x - 1, y - 1, -1); //-1 = hit
+                    other.setHitCount(this.getHitCount() + 1);
+                }
+                else if (other.getPlayerArray(x - 1, y - 1) == 0)
+                {
+                    other.setPlayerArray(x - 1, y - 1, -2); //-2 = miss
+                }
+                else
+                {
+                    return;
                 }
             }
 
@@ -827,6 +843,34 @@ namespace KB_Battleship
             DES2.Randomize(rnd, P2.getPlayerArrayAll());
             BAT2.Randomize(rnd, P2.getPlayerArrayAll());
             AIR2.Randomize(rnd, P2.getPlayerArrayAll());
+        }
+        public void PaintGrid(Player P, Graphics g)
+        {
+            Pen myPen = new Pen(Color.Black, 1);
+            myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            //draw grid
+            for (int i = 0; i < 12; i++)
+            {
+                g.DrawLine(myPen, 0, 30 * i, 300, 30 * i);
+                g.DrawLine(myPen, 30 * i, 0, 30 * i, 300);
+            }
+            //fill in boxes
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (P.getPlayerArray(i, j) == -1) //if ship is hit 
+                    {
+                        SolidBrush myBrush = new SolidBrush(Color.Crimson);
+                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
+                    }
+                    else if (P.getPlayerArray(i, j) == -2)
+                    {
+                        SolidBrush myBrush = new SolidBrush(Color.Black);
+                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
+                    }
+                }
+            }
         }
 
         #region btnStart graphics
@@ -1384,7 +1428,6 @@ namespace KB_Battleship
             }
         }
         
-        //commented out next page visible
         private void btnSubmit_3_Click(object sender, EventArgs e)
         {
             //when all ships placed, can submit and move onto game
@@ -1393,7 +1436,7 @@ namespace KB_Battleship
                 MessageBox.Show("TEMPORARY: SUBMITTED");
                 pg4_PlayerChoice.Visible = true;
                 P1.setTurn(true);
-                P2.setTurn(true);
+                P2.setTurn(false);
             }
 
             else
@@ -1486,6 +1529,9 @@ namespace KB_Battleship
 
         private void btnComputer_Click(object sender, EventArgs e)
         {
+            //skips two pages
+            pg5_Avatar_P2.Visible = true;
+            pg6_SetBoard_P2.Visible = true;
             pg7_GameTime_COM.Visible = true;
             randomizeGrid();
         }
@@ -1990,16 +2036,17 @@ namespace KB_Battleship
             }
         }
 
-        //UNCOMMENT visible when page created
         private void btnSubmit_6_Click(object sender, EventArgs e)
         {
             //when all ships placed, can submit and move onto game
             if ((PB2.GetPlaced() == true) && (SUB2.GetPlaced() == true) && (DES2.GetPlaced() == true) && (BAT2.GetPlaced() == true) && (AIR2.GetPlaced() == true))
             {
                 MessageBox.Show("TEMPORARY: SUBMITTED");
-                //pg7_GameTime_P1.Visible = true;
+                //skips COM page
+                pg7_GameTime_COM.Visible = true;
+                pg7_GameTime_P1.Visible = true;
                 P1.setTurn(true);
-                P2.setTurn(true);
+                P2.setTurn(false);
             }
 
             else
@@ -2037,6 +2084,7 @@ namespace KB_Battleship
                 DrawShipPlacement(x, y, AIR2);
         }
 
+        #region vs Computer
         private void pb_COM_Grid_MouseClick(object sender, MouseEventArgs e)
         {
             int x = Convert.ToInt32(Math.Floor(e.X / 30.0)) + 1;
@@ -2044,28 +2092,12 @@ namespace KB_Battleship
 
             if (P1.getTurn() == true)
             {
-                if (P2.getPlayerArray(x - 1, y - 1) > 0)
-                {
-                    P2.setPlayerArray(x - 1, y - 1, -1); //-1 = hit
-                    P1.setHitCount(P1.getHitCount() + 1);
-                }
-                else if (P2.getPlayerArray(x - 1, y - 1) == 0)
-                {
-                    P2.setPlayerArray(x - 1, y - 1, -2); //-2 = miss
-                }
-                else
-                {
-                    return;
-                }
+                P1.checkHit(P2, x, y);
 
                 pb_COM_Grid.Invalidate();
                 P1.SwitchTurn(P2);
             }
-            else
-            {
-
-            }
-
+            
             if (P1.isWinner() == true)
             {
                 pb_P1_Grid.Enabled = false;
@@ -2301,60 +2333,105 @@ namespace KB_Battleship
 
         private void pb_P1_Grid_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            Pen myPen = new Pen(Color.Black, 1);
-            myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            for (int i = 0; i < 12; i++)
-            {
-                g.DrawLine(myPen, 0, 30 * i, 300, 30 * i);
-                g.DrawLine(myPen, 30 * i, 0, 30 * i, 300);
-            }
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    if (P1.getPlayerArray(i, j) == -1) //if ship is hit 
-                    {
-                        SolidBrush myBrush = new SolidBrush(Color.Crimson);
-                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
-                    }
-                    else if (P1.getPlayerArray(i, j) == -2)
-                    {
-                        SolidBrush myBrush = new SolidBrush(Color.Black);
-                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
-                    }
-                }
-            }
+            PaintGrid(P1, e.Graphics);
         }
 
         private void pb_COM_Grid_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            Pen myPen = new Pen(Color.Black, 1);
-            myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            for (int i = 0; i < 12; i++)
+            PaintGrid(P2, e.Graphics);
+        }
+        #endregion
+
+        #region 2Player
+        private void pb_P1onP1_Paint(object sender, PaintEventArgs e)
+        {
+            PaintGrid(P1, e.Graphics);
+        }
+
+        private void pb_P2onP1_Paint(object sender, PaintEventArgs e)
+        {
+            PaintGrid(P2, e.Graphics);
+        }
+
+        private void pb_P2onP1_MouseClick(object sender, MouseEventArgs e)
+        {
+            int x = Convert.ToInt32(Math.Floor(e.X / 30.0)) + 1;
+            int y = Convert.ToInt32(Math.Floor(e.Y / 30.0)) + 1;
+
+            if (P1.getTurn() == true)
             {
-                g.DrawLine(myPen, 0, 30 * i, 300, 30 * i);
-                g.DrawLine(myPen, 30 * i, 0, 30 * i, 300);
+                P1.checkHit(P2, x, y);
+
+                pb_P2onP1.Invalidate();
+                P1.SwitchTurn(P2);
             }
 
-
-            for (int i = 0; i < 10; i++)
+            if (P1.isWinner() == true)
             {
-                for (int j = 0; j < 10; j++)
-                {
-                    if (P2.getPlayerArray(i, j) == -1) //if ship is hit 
-                    {
-                        SolidBrush myBrush = new SolidBrush(Color.Crimson);
-                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
-                    }
-                    else if (P2.getPlayerArray(i, j) == -2)
-                    {
-                        SolidBrush myBrush = new SolidBrush(Color.Black);
-                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
-                    }
-                }
+                pb_P1onP1.Enabled = false;
+                pb_P2onP1.Enabled = false;
+                //do win stuff
+                P1.setScore(P1.getScore() + 1);
+            }
+            else
+            {
+                P1.SwitchTurn(P2);
             }
         }
+
+        private void btnNext_7_Click(object sender, EventArgs e)
+        {
+            if (P1.getTurn() == true)
+                MessageBox.Show("You have not completed your turn yet.");
+            else
+                pg8_GameTime_P2.Visible = true;
+            
+        }
+        
+        private void pb_P2onP2_Paint(object sender, PaintEventArgs e)
+        {
+            PaintGrid(P2, e.Graphics);
+        }
+
+        private void pb_P1onP2_Paint(object sender, PaintEventArgs e)
+        {
+            PaintGrid(P1, e.Graphics);
+        }
+
+        private void pb_P1onP2_MouseClick(object sender, MouseEventArgs e)
+        {
+            int x = Convert.ToInt32(Math.Floor(e.X / 30.0)) + 1;
+            int y = Convert.ToInt32(Math.Floor(e.Y / 30.0)) + 1;
+
+            if (P2.getTurn() == true)
+            {
+                P2.checkHit(P1, x, y);
+
+                pb_P1onP2.Invalidate();
+                P2.SwitchTurn(P1);
+            }
+
+            if (P2.isWinner() == true)
+            {
+                pb_P2onP2.Enabled = false;
+                pb_P1onP2.Enabled = false;
+                //do win stuff
+                P2.setScore(P2.getScore() + 1);
+            }
+            else
+            {
+                P2.SwitchTurn(P1);
+            }
+        }
+
+        private void btnNext_8_Click(object sender, EventArgs e)
+        {
+            if (P2.getTurn() == true)
+                MessageBox.Show("You have not completed your turn yet.");
+            else
+                pg8_GameTime_P2.Visible = false;
+        }
+#endregion
+
     }
 }
