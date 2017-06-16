@@ -486,11 +486,22 @@ namespace KB_Battleship
                 return iHitCount;
             }
 
-            public bool isWinner()
+            public bool isWinner(Player P1, Ships S1, Ships S2, Ships S3, Ships S4, Ships S5)
             {
                 //needs win condition 
-                if (iHitCount == 17)
+                if (S1.IsDead(P1) == true && S2.IsDead(P1) == true && S3.IsDead(P1) == true && S4.IsDead(P1) == true && S5.IsDead(P1) == true)
                 //I THINK ITS 17????
+                {
+                    return true;
+                }
+                else 
+                {
+                    return false;
+                }
+            }
+            public bool isWinner()
+            {
+                if (getHitCount() == 17)
                 {
                     return true;
                 }
@@ -1967,7 +1978,7 @@ namespace KB_Battleship
             }
             else if (index == 4)
             {
-                BAT.SetHitCount(DES.GetHitCount() + 1);
+                BAT.SetHitCount(BAT.GetHitCount() + 1);
             }
             else if (index == 5)
             {
@@ -1977,6 +1988,7 @@ namespace KB_Battleship
             {
 
             }
+            P2.setHitCount(P2.getHitCount() + 1);
         }
 
         private void TurnCOM()
@@ -1986,7 +1998,7 @@ namespace KB_Battleship
                 //COM targeting direction 
                 if (P2.getHunt() == true)
                 {
-                    if (P2.getTargetModeHL() == true)
+                    if (P2.getTargetModeHR() == true)
                     {
                         if (P2.getLastHit().X + 1 <= 9)
                         {
@@ -2023,7 +2035,7 @@ namespace KB_Battleship
                             P2.setTargetModeHL(true);
                         }
                     }
-                    else if (P2.getTargetModeHR() == true)
+                    else if (P2.getTargetModeHL() == true)
                     {
                         if (P2.getLastHit().X - 1 >= 0)
                         {
@@ -2132,11 +2144,7 @@ namespace KB_Battleship
                             P2.setTargetModeVD(false);
                         }
                     }
-                    PB.IsDead(P2);
-                    SUB.IsDead(P2);
-                    DES.IsDead(P2);
-                    BAT.IsDead(P2);
-                    AIR.IsDead(P2);
+                    
                 }
                 else
                 {
@@ -2147,13 +2155,15 @@ namespace KB_Battleship
                         int x, y;
                         x = rnd.Next(0, 10);
                         y = rnd.Next(0, 10);
+                        //if random hits ship 
                         if (P1.getPlayerArray(x, y) > 0)
                         {
-                            //store first point hit of a ship
                             ShipHitCounter(P1.getPlayerArray(x, y));
+                            //store first point hit of a ship
                             P2.setFirstHit(x, y);
                             P1.setPlayerArray(x, y, -1);
                             P2.setHitCount(P2.getHitCount() + 1);
+                            P1.SwitchTurn(P2);
                             //if surrounding points have not been hit, add to list of points to hit
                             //Left point
                             if (x - 1 >= 0 && P1.getPlayerArray(x - 1, y) >= 0)
@@ -2191,16 +2201,17 @@ namespace KB_Battleship
                     }
                     else
                     {
-                        if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X + 1, P2.getToHitPoint().Y) > -1)
+                        if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X)
                         {
                             //Future hits go right
                             P2.setTargetModeHR(true);
+                            P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
                             ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
                             P1.setPlayerArray(P2.getToHitPoint(), -1);
                             P2.ClearToHitPoints();
 
                         }
-                        else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X - 1, P2.getToHitPoint().Y) > -1)
+                        else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X)
                         {
                             //Future hits go left
                             P2.setTargetModeHL(true);
@@ -2209,7 +2220,7 @@ namespace KB_Battleship
                             P1.setPlayerArray(P2.getToHitPoint(), -1);
                             P2.ClearToHitPoints();
                         }
-                        else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y + 1) > -1)
+                        else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y)
                         {
                             //Future hits go down
                             P2.setTargetModeVD(true);
@@ -2218,7 +2229,7 @@ namespace KB_Battleship
                             P1.setPlayerArray(P2.getToHitPoint(), -1);
                             P2.ClearToHitPoints();
                         }
-                        else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y - 1) > -1)
+                        else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y)
                         {
                             //Future hits go up
                             P2.setTargetModeVU(true);
@@ -2228,10 +2239,12 @@ namespace KB_Battleship
                             P2.ClearToHitPoints();
                         }
                         P2.setHunt(true);
+                        P1.SwitchTurn(P2);
                     } 
                     
-                    P1.SwitchTurn(P2);
+                    
                 }
+                
             }
 
             pb_P1_Grid.Invalidate();
@@ -2244,7 +2257,9 @@ namespace KB_Battleship
             }
             else
             {
-
+                pb_P1_Grid.Enabled = false;
+                pb_COM_Grid.Enabled = false;
+                P1.setScore(P1.getScore() + 1);
             }
         }
 
