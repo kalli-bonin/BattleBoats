@@ -309,7 +309,7 @@ namespace KB_Battleship
             {
                 iScore = 0;
                 iAvatar = 1;
-                iHitCount = 0;
+                HitCount = 0;
             }
 
             public Ships PB = new Ships("PatrolBoat", 2, 0, 0, 0, false, false, 1);
@@ -320,7 +320,7 @@ namespace KB_Battleship
 
             protected int iScore;
             protected int iAvatar;
-            protected int iHitCount;
+            protected int HitCount;
 
             //stores player ship information///////////////
             protected int[,] PlayerArray = new int[10, 10];
@@ -424,32 +424,6 @@ namespace KB_Battleship
                 return Hunt;
             }
 
-            public Player()
-            {
-                strName = ("Butthead");
-                iScore = 0;
-                iAvatar = 1;
-                HitCount = 0;
-            }
-            
-            public void setTurn(bool b)
-            {
-                Turn = b;
-            }
-            public bool getTurn()
-            {
-                return Turn;
-            }
-            public void setName(string name)
-            {
-                strName = name;
-
-            }
-            public string getName()
-            {
-                return strName;
-            }
-
             public void setScore(int score)
             {
                 iScore = score;
@@ -535,33 +509,6 @@ namespace KB_Battleship
                 {
                     return;
                 }
-            }
-
-            public int getPlayerArray(int x, int y)
-            {
-                return PlayerArray[x, y];
-            }
-            public int getPlayerArray(Point p)
-            {
-                int x, y;
-                x = p.X;
-                y = p.Y;
-                return PlayerArray[x, y];
-            }
-            public void setPlayerArray(int x, int y, int i)
-            {
-                PlayerArray[x, y] = i;
-            }
-            public void setPlayerArray(Point p, int i)
-            {
-                int x, y;
-                x = p.X;
-                y = p.Y;
-                PlayerArray[x, y] = i;
-            }
-            public int[,] getPlayerArrayAll()
-            {
-                return PlayerArray;
             }
 
             public void setTargetModeHR(bool b)
