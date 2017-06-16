@@ -562,11 +562,11 @@
             // 
             // pg7_GameTime_P1
             // 
+            this.pg7_GameTime_P1.Controls.Add(this.pg8_GameTime_P2);
             this.pg7_GameTime_P1.Controls.Add(this.pb_MA6_P2onP1);
             this.pg7_GameTime_P1.Controls.Add(this.pb_MA5_P2onP1);
             this.pg7_GameTime_P1.Controls.Add(this.pb_MA3_P1onP1);
             this.pg7_GameTime_P1.Controls.Add(this.pb_MA2_P1onP1);
-            this.pg7_GameTime_P1.Controls.Add(this.pg8_GameTime_P2);
             this.pg7_GameTime_P1.Controls.Add(this.btnNext_7);
             this.pg7_GameTime_P1.Controls.Add(this.pb_MA4_P2onP1);
             this.pg7_GameTime_P1.Controls.Add(this.pb_MA1_P1onP1);

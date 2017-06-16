@@ -34,3 +34,12 @@ C:\Users\kalli\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\obj\Debug\KB
 C:\Users\kalli\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.Form1.resources
 C:\Users\kalli\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.Properties.Resources.resources
 C:\Users\kalli\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.csproj.GenerateResource.Cache
+C:\Users\Tanya\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\bin\Debug\KB_Battleship.exe.config
+C:\Users\Tanya\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\bin\Debug\KB_Battleship.exe
+C:\Users\Tanya\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\bin\Debug\KB_Battleship.pdb
+C:\Users\Tanya\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.csprojResolveAssemblyReference.cache
+C:\Users\Tanya\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.Form1.resources
+C:\Users\Tanya\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.Properties.Resources.resources
+C:\Users\Tanya\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.csproj.GenerateResource.Cache
+C:\Users\Tanya\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.exe
+C:\Users\Tanya\Source\Repos\BattleBoats\KB_Battleship\KB_Battleship\obj\Debug\KB_Battleship.pdb

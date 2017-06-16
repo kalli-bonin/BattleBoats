@@ -1531,7 +1531,7 @@ namespace KB_Battleship
             bkgd_A1_P2.Visible = true;
             bkgd_A2_P2.Visible = false;
             bkgd_A3_P2.Visible = false;
-                     
+
             slct_A1_P2 = true;
             slct_A2_P2 = false;
             slct_A3_P2 = false;
@@ -1583,6 +1583,7 @@ namespace KB_Battleship
             bkgd_A1_P2.Visible = false;
             bkgd_A2_P2.Visible = false;
             bkgd_A3_P2.Visible = true;
+           
 
             slct_A1_P2 = false;
             slct_A2_P2 = false;
@@ -1639,17 +1640,17 @@ namespace KB_Battleship
 
             if (slct_A1_P2 == true)
             {
-                P2.setAvatar(1);
+                P2.setAvatar(4);
                 pg6_SetBoard_P2.Visible = true;
             }
             else if (slct_A2_P2 == true)
             {
-                P2.setAvatar(2);
+                P2.setAvatar(5);
                 pg6_SetBoard_P2.Visible = true;
             }
             else if (slct_A3_P2 == true)
             {
-                P2.setAvatar(3);
+                P2.setAvatar(6);
                 pg6_SetBoard_P2.Visible = true;
             }
             else
@@ -1993,7 +1994,7 @@ namespace KB_Battleship
                         pb_MA4_P2onP1.Visible = true;
                         break;
                     case 5:
-                        pb_MA4_P2onP1.Visible = true;
+                        pb_MA5_P2onP1.Visible = true;
                         break;
                     case 6:
                         pb_MA6_P2onP1.Visible = true;
@@ -2342,8 +2343,44 @@ namespace KB_Battleship
             if (P1.getTurn() == true)
                 MessageBox.Show("You have not completed your turn yet.");
             else
+            {
                 pg8_GameTime_P2.Visible = true;
-            
+
+                int avatar = P1.getAvatar();
+                int avatar2 = P2.getAvatar();
+
+                switch (avatar)
+                {
+                    case 1:
+                        pb_MA1_P1onP2.Visible = true;
+                        break;      
+                    case 2:         
+                        pb_MA2_P1onP2.Visible = true;
+                        break;      
+                    case 3:         
+                        pb_MA3_P1onP2.Visible = true;
+                        break;      
+                    default:        
+                        break;      
+                }                   
+                switch (avatar2)    
+                {                   
+                    case 4:         
+                        pb_MA4_P2onP2.Visible = true;
+                        break;      
+                    case 5:         
+                        pb_MA4_P2onP2.Visible = true;
+                        break;      
+                    case 6:         
+                        pb_MA6_P2onP2.Visible = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+               
+
+
         }
         
         private void pb_P2onP2_Paint(object sender, PaintEventArgs e)
