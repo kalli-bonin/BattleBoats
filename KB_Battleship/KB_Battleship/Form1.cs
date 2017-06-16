@@ -342,7 +342,6 @@ namespace KB_Battleship
                 setTargetModeVU(false);
                 setHunt(false);
             }
-
             protected Point FirstHit;
             protected Point LastHit;
             protected bool Turn;
@@ -2273,6 +2272,8 @@ namespace KB_Battleship
             }
         }
 
+
+
         private void pb_P1_Grid_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -2311,8 +2312,6 @@ namespace KB_Battleship
                 g.DrawLine(myPen, 0, 30 * i, 300, 30 * i);
                 g.DrawLine(myPen, 30 * i, 0, 30 * i, 300);
             }
-
-
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
