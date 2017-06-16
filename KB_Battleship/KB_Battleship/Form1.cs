@@ -171,22 +171,23 @@ namespace KB_Battleship
             {
                 Placed = P;
             }
-            public int IsDead(Player P)
+            public bool IsDead(Player P)
             {
                 if ((HitCount == Size) && (DeathMessage == false))
                 {
                     MessageBox.Show("Your" + Name + "is dead.");
+                    DeathMessage = true;
                     P.ResetHuntMode();
-                    return 1;
+                    return true;
                 }
                 else if ((HitCount == Size) && (DeathMessage == true))
                 {
-                    return 2;
+                    return true;
                 }
 
                 else
                 {
-                    return 0;
+                    return false;
                 }
 
             }
@@ -1355,6 +1356,8 @@ namespace KB_Battleship
 
         private void btnComputer_Click(object sender, EventArgs e)
         {
+            pg5_Avatar_P2.Visible = true;
+            pg6_SetBoard_P2.Visible = true;
             pg7_GameTime_COM.Visible = true;
             randomizeGrid();
         }
@@ -2147,6 +2150,7 @@ namespace KB_Battleship
                         if (P1.getPlayerArray(x, y) > 0)
                         {
                             //store first point hit of a ship
+                            ShipHitCounter(P1.getPlayerArray(x, y));
                             P2.setFirstHit(x, y);
                             P1.setPlayerArray(x, y, -1);
                             P2.setHitCount(P2.getHitCount() + 1);
@@ -2171,7 +2175,7 @@ namespace KB_Battleship
                             {
                                 P2.AddToHit(x, y + 1);
                             }
-                            P1.SwitchTurn(P2);
+                            
                         }
                         //COM random hit misses
                         else if (P1.getPlayerArray(x, y) == 0)
@@ -2179,6 +2183,7 @@ namespace KB_Battleship
                             P1.setPlayerArray(x, y, -2);
                             P1.SwitchTurn(P2);
                         }
+                        //if spot has already been hit
                         else
                         {
 
@@ -2191,7 +2196,6 @@ namespace KB_Battleship
                             //Future hits go right
                             P2.setTargetModeHR(true);
                             ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
-
                             P1.setPlayerArray(P2.getToHitPoint(), -1);
                             P2.ClearToHitPoints();
 
@@ -2223,6 +2227,7 @@ namespace KB_Battleship
                             P1.setPlayerArray(P2.getToHitPoint(), -1);
                             P2.ClearToHitPoints();
                         }
+                        P2.setHunt(true);
                     } 
                     
                     P1.SwitchTurn(P2);

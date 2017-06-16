@@ -433,7 +433,6 @@
             this.pg7_GameTime_COM.Controls.Add(this.label88);
             this.pg7_GameTime_COM.Controls.Add(this.label89);
             this.pg7_GameTime_COM.Controls.Add(this.pb_P1_Grid);
-            this.pg7_GameTime_COM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pg7_GameTime_COM.Location = new System.Drawing.Point(0, 0);
             this.pg7_GameTime_COM.Name = "pg7_GameTime_COM";
             this.pg7_GameTime_COM.Size = new System.Drawing.Size(796, 459);
