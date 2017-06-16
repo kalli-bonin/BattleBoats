@@ -871,6 +871,30 @@ namespace KB_Battleship
             //pb.Invalidate();
         }
 
+        #region mouse graphics
+        public void PaintButton(Control btn, Graphics e)
+        {
+            ControlPaint.DrawBorder(e, btn.ClientRectangle,
+            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
+            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
+            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
+            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+        }
+        public void ButtonEnter(Control btn)
+        {
+            //btn.UseVisualStyleBackColor = false;
+            btn.BackColor = Color.Navy;
+            btn.ForeColor = Color.White;
+            btn.Invalidate();
+        }
+        public void ButtonLeave(Control btn)
+        {
+            btn.ForeColor = Color.Black;
+            btn.BackColor = Color.RoyalBlue;
+            btn.Invalidate();
+        }
+        #endregion
+
         #region btnStart graphics
         private void btnStart_Paint(object sender, PaintEventArgs e)
         {
@@ -904,26 +928,17 @@ namespace KB_Battleship
         #region btnNext_1 graphics
         private void btnNext_1_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btnNext_1.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btnNext_1, e.Graphics);
         }
 
         private void btnNext_1_MouseEnter(object sender, EventArgs e)
         {
-            btnNext_1.UseVisualStyleBackColor = false;
-            btnNext_1.BackColor = Color.Navy;
-            btnNext_1.ForeColor = Color.White;
-            btnNext_1.Invalidate();
+            ButtonEnter(btnNext_1);
         }
 
         private void btnNext_1_MouseLeave(object sender, EventArgs e)
         {
-            btnNext_1.ForeColor = Color.Black;
-            btnNext_1.BackColor = Color.RoyalBlue;
-            btnNext_1.Invalidate();
+            ButtonLeave(btnNext_1);
         }
 #endregion
 
@@ -1022,26 +1037,17 @@ namespace KB_Battleship
         #region btnBack_2 graphics
         private void btnBack_2_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btnBack_2.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btnBack_2, e.Graphics);
         }
 
         private void btnBack_2_MouseEnter(object sender, EventArgs e)
         {
-            btnBack_2.UseVisualStyleBackColor = false;
-            btnBack_2.BackColor = Color.Navy;
-            btnBack_2.ForeColor = Color.White;
-            btnBack_2.Invalidate();
+            ButtonEnter(btnBack_2);
         }
 
         private void btnBack_2_MouseLeave(object sender, EventArgs e)
         {
-            btnBack_2.ForeColor = Color.Black;
-            btnBack_2.BackColor = Color.RoyalBlue;
-            btnBack_2.Invalidate();
+            ButtonLeave(btnBack_2);
         }
         #endregion
 
@@ -1053,26 +1059,17 @@ namespace KB_Battleship
         #region btnNext_2 graphics
         private void btnNext_2_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btnNext_2.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btnNext_2, e.Graphics);
         }
 
         private void btnNext_2_MouseEnter(object sender, EventArgs e)
         {
-            btnNext_2.UseVisualStyleBackColor = false;
-            btnNext_2.BackColor = Color.Navy;
-            btnNext_2.ForeColor = Color.White;
-            btnNext_2.Invalidate();
+            ButtonEnter(btnNext_2);
         }
 
         private void btnNext_2_MouseLeave(object sender, EventArgs e)
         {
-            btnNext_2.ForeColor = Color.Black;
-            btnNext_2.BackColor = Color.RoyalBlue;
-            btnNext_2.Invalidate();
+            ButtonLeave(btnNext_2);
         }
         #endregion
 
@@ -1456,52 +1453,34 @@ namespace KB_Battleship
         #region btnComputer graphics
         private void btnComputer_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btnComputer.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btnComputer, e.Graphics);
         }
 
         private void btnComputer_MouseEnter(object sender, EventArgs e)
         {
-            btnComputer.UseVisualStyleBackColor = false;
-            btnComputer.ForeColor = Color.White;
-            btnComputer.BackColor = Color.Navy;
-            btnComputer.Invalidate();
+            ButtonEnter(btnComputer);
         }
 
         private void btnComputer_MouseLeave(object sender, EventArgs e)
         {
-            btnComputer.ForeColor = Color.Black;
-            btnComputer.BackColor = Color.RoyalBlue;
-            btnComputer.Invalidate();
+            ButtonLeave(btnComputer);
         }
         #endregion
 
         #region btn2Player graphics
         private void btn2Player_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btn2Player.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btn2Player, e.Graphics);
         }
 
         private void btn2Player_MouseEnter(object sender, EventArgs e)
         {
-            btn2Player.UseVisualStyleBackColor = false;
-            btn2Player.ForeColor = Color.White;
-            btn2Player.BackColor = Color.Navy;
-            btn2Player.Invalidate();
+            ButtonEnter(btn2Player);
         }
 
         private void btn2Player_MouseLeave(object sender, EventArgs e)
         {
-            btn2Player.ForeColor = Color.Black;
-            btn2Player.BackColor = Color.RoyalBlue;
-            btn2Player.Invalidate();
+            ButtonLeave(btn2Player);
         }
         #endregion
 
@@ -1610,26 +1589,17 @@ namespace KB_Battleship
         #region btnBack_5 graphics
         private void btnBack_5_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btnBack_5.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btnBack_5, e.Graphics);
         }
 
         private void btnBack_5_MouseEnter(object sender, EventArgs e)
         {
-            btnBack_5.UseVisualStyleBackColor = false;
-            btnBack_5.BackColor = Color.Navy;
-            btnBack_5.ForeColor = Color.White;
-            btnBack_5.Invalidate();
+            ButtonEnter(btnBack_5);
         }
 
         private void btnBack_5_MouseLeave(object sender, EventArgs e)
         {
-            btnBack_5.ForeColor = Color.Black;
-            btnBack_5.BackColor = Color.RoyalBlue;
-            btnBack_5.Invalidate();
+            ButtonLeave(btnBack_5);
         }
 #endregion
 
@@ -1641,26 +1611,17 @@ namespace KB_Battleship
         #region btnNext_5 graphics
         private void btnNext_5_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btnNext_5.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btnNext_5, e.Graphics);
         }
 
         private void btnNext_5_MouseEnter(object sender, EventArgs e)
         {
-            btnNext_5.UseVisualStyleBackColor = false;
-            btnNext_5.BackColor = Color.Navy;
-            btnNext_5.ForeColor = Color.White;
-            btnNext_5.Invalidate();
+            ButtonEnter(btnNext_5);
         }
 
         private void btnNext_5_MouseLeave(object sender, EventArgs e)
         {
-            btnNext_5.ForeColor = Color.Black;
-            btnNext_5.BackColor = Color.RoyalBlue;
-            btnNext_5.Invalidate();
+            ButtonLeave(btnNext_5);
         }
 #endregion
 
