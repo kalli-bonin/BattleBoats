@@ -7,16 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+
 
 namespace KB_Battleship
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent();
-            
+
+            //plays bgm
+            System.Media.SoundPlayer mymusic = new System.Media.SoundPlayer();
+            mymusic.SoundLocation = "BGM_1.wav";
+            mymusic.Play();
         }
+        
 
         #region declarations
         //mouse graphics for selected avatar - player 1
