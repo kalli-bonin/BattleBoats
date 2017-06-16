@@ -319,27 +319,6 @@ namespace KB_Battleship
                 }
             }
             
-            //public void HuntMode(Player P1, Player P2)
-            //{
-            //    if (getTargetModeHR() == true)
-            //    {
-                    
-
-            //    }
-            //    else if (getTargetModeHL() == true)
-            //    {
-                    
-            //    }
-            //    else if (getTargetModeVU() == true)
-            //    {
-                    
-            //    }
-            //    else if (getTargetModeVD() == true)
-            //    {
-                    
-            //    }
-            //    IsDead();
-            //}
         }
 
         public class Player
@@ -485,20 +464,7 @@ namespace KB_Battleship
             {
                 return iHitCount;
             }
-
-            public bool isWinner(Player P1, Ships S1, Ships S2, Ships S3, Ships S4, Ships S5)
-            {
-                //needs win condition 
-                if (S1.IsDead(P1) == true && S2.IsDead(P1) == true && S3.IsDead(P1) == true && S4.IsDead(P1) == true && S5.IsDead(P1) == true)
-                //I THINK ITS 17????
-                {
-                    return true;
-                }
-                else 
-                {
-                    return false;
-                }
-            }
+            
             public bool isWinner()
             {
                 if (getHitCount() == 17)
@@ -2146,6 +2112,7 @@ namespace KB_Battleship
                     }
                     
                 }
+                //COM not targetting direction 
                 else
                 {
                     //if no points in to hit list
