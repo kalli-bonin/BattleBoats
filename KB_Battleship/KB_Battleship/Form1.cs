@@ -32,20 +32,6 @@ namespace KB_Battleship
         int boatclick_P1 = 0;
         int boatclick_P2 = 0;
         
-        //P1 ship declaration
-        Ships PB  = new Ships("PatrolBoat", 2, 0, 0, 0, false, false, 1);
-        Ships SUB = new Ships("Submarine", 3, 0, 0, 0, false, false, 2);
-        Ships DES = new Ships("Destroyer", 3, 0, 0, 0, false, false, 3);
-        Ships BAT = new Ships("Battleship", 4, 0, 0, 0, false, false, 4);
-        Ships AIR = new Ships("Aircraft", 5, 0, 0, 0, false, false, 5);
-
-        //P2 ship declaration
-        Ships PB2  = new Ships("PatrolBoat", 2, 0, 0, 0, false, false, 1);
-        Ships SUB2 = new Ships("Submarine", 3, 0, 0, 0, false, false, 2);
-        Ships DES2 = new Ships("Destroyer", 3, 0, 0, 0, false, false, 3);
-        Ships BAT2 = new Ships("Battleship", 4, 0, 0, 0, false, false, 4);
-        Ships AIR2 = new Ships("Aircraft", 5, 0, 0, 0, false, false, 5);
-
         Player P1 = new Player();
         Player P2 = new Player();
         #endregion
@@ -59,9 +45,9 @@ namespace KB_Battleship
             pg5_Avatar_P2.Visible    = false;
             pg6_SetBoard_P2.Visible  = false;
             pg7_GameTime_COM.Visible = false;
-            //pg8_GameTime_P1.Visible  = false;
-            //pg9_GameTime_P2.Visible  = false;
-            //pg10_GameOver.Visible    = false;
+            pg7_GameTime_P1.Visible  = false;
+            //pg8_GameTime_P2.Visible  = false;
+            //pg9_GameOver.Visible    = false;
         }
 
         public class Ships
@@ -530,6 +516,11 @@ namespace KB_Battleship
 
         public class Player
         {
+            public Ships PB = new Ships("PatrolBoat", 2, 0, 0, 0, false, false, 1);
+            public Ships SUB = new Ships("Submarine", 3, 0, 0, 0, false, false, 2);
+            public Ships DES = new Ships("Destroyer", 3, 0, 0, 0, false, false, 3);
+            public Ships BAT = new Ships("Battleship", 4, 0, 0, 0, false, false, 4);
+            public Ships AIR = new Ships("Aircraft", 5, 0, 0, 0, false, false, 5);
             protected string strName;
             protected int iScore;
             protected int iAvatar;
@@ -602,8 +593,7 @@ namespace KB_Battleship
                 iAvatar = 1;
                 iHitCount = 0;
             }
-
-
+            
             public void setTurn(bool b)
             {
                 Turn = b;
@@ -660,6 +650,23 @@ namespace KB_Battleship
                 else
                 {
                     return false;
+                }
+            }
+
+            public void checkHit(Player other, int x, int y)
+            {
+                if (other.getPlayerArray(x - 1, y - 1) > 0)
+                {
+                    other.setPlayerArray(x - 1, y - 1, -1); //-1 = hit
+                    other.setHitCount(this.getHitCount() + 1);
+                }
+                else if (other.getPlayerArray(x - 1, y - 1) == 0)
+                {
+                    other.setPlayerArray(x - 1, y - 1, -2); //-2 = miss
+                }
+                else
+                {
+                    return;
                 }
             }
 
@@ -822,11 +829,46 @@ namespace KB_Battleship
             Random rnd = new Random();
             //puts the random number into r
 
-            PB2.Randomize (rnd, P2.getPlayerArrayAll());
-            SUB2.Randomize(rnd, P2.getPlayerArrayAll());
-            DES2.Randomize(rnd, P2.getPlayerArrayAll());
-            BAT2.Randomize(rnd, P2.getPlayerArrayAll());
-            AIR2.Randomize(rnd, P2.getPlayerArrayAll());
+            P2.PB.Randomize (rnd, P2.getPlayerArrayAll());
+            P2.SUB.Randomize(rnd, P2.getPlayerArrayAll());
+            P2.DES.Randomize(rnd, P2.getPlayerArrayAll());
+            P2.BAT.Randomize(rnd, P2.getPlayerArrayAll());
+            P2.AIR.Randomize(rnd, P2.getPlayerArrayAll());
+        }
+        public void PaintGrid(Player P, Graphics g, Control pb)
+        {
+            Pen myPen = new Pen(Color.Black, 1);
+            myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            //draw grid
+            for (int i = 0; i < 12; i++)
+            {
+                g.DrawLine(myPen, 0, 30 * i, 300, 30 * i);
+                g.DrawLine(myPen, 30 * i, 0, 30 * i, 300);
+            }
+            //fill in boxes
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (P.getPlayerArray(i, j) == -1) //if ship is hit 
+                    {
+                        SolidBrush myBrush = new SolidBrush(Color.Crimson);
+                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
+                    }
+                    else if (P.getPlayerArray(i, j) == -2)
+                    {
+                        SolidBrush myBrush = new SolidBrush(Color.Black);
+                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
+                    }
+                    //placing ships
+                    else if (P.getPlayerArray(i, j) > 0 && ((P.PB.GetPlaced() == false) || (P.SUB.GetPlaced() == true) || (P.DES.GetPlaced() == true) || (P.BAT.GetPlaced() == true) || (P.AIR.GetPlaced() == true)))
+                    {
+                        SolidBrush myBrush = new SolidBrush(Color.RoyalBlue);
+                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
+                    }
+                }
+            }
+            //pb.Invalidate();
         }
 
         #region btnStart graphics
@@ -1063,27 +1105,7 @@ namespace KB_Battleship
 
         private void pb_PlaceShips_P1_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            Pen myPen = new Pen(Color.Black, 1);
-            myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            for (int i = 0; i < 12; i++)
-            {
-                g.DrawLine(myPen, 0, 30 * i, 300, 30 * i);
-                g.DrawLine(myPen, 30 * i, 0, 30 * i, 300);
-            }
-
-
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    if (P1.getPlayerArray(i, j) != 0)
-                    {
-                        SolidBrush myBrush = new SolidBrush(Color.RoyalBlue);
-                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
-                    }
-                }
-            }
+            PaintGrid(P1, e.Graphics, pb_PlaceShips_P1);
         }
 
         #region PB_P1 click+paint
@@ -1102,7 +1124,7 @@ namespace KB_Battleship
             Graphics g = e.Graphics;
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            if (PB.GetDirection() == false)
+            if (P1.PB.GetDirection() == false)
             {
                 g.DrawLine(myPen, 20, 0, 20, 20);
                 g.DrawRectangle(myPen, 0, 0, 39, 19);
@@ -1123,17 +1145,17 @@ namespace KB_Battleship
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
             //if false it changes to width/height to if it were true, and then changes rotate to true
-            if (PB.GetDirection() == false)
+            if (P1.PB.GetDirection() == false)
             {
                 pb_PB_P1.Width = 20;
                 pb_PB_P1.Height = 40;
-                PB.Rotate();
+                P1.PB.Rotate();
             }
             else
             {
                 pb_PB_P1.Width = 40;
                 pb_PB_P1.Height = 20;
-                PB.Rotate();
+                P1.PB.Rotate();
             }
 
             pb_PB_P1.Invalidate();
@@ -1156,7 +1178,7 @@ namespace KB_Battleship
             Graphics g = e.Graphics;
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            if (SUB.GetDirection() == false)
+            if (P1.SUB.GetDirection() == false)
             {
                 g.DrawLine(myPen, 20, 0, 20, 20);
                 g.DrawLine(myPen, 40, 0, 40, 20);
@@ -1176,17 +1198,17 @@ namespace KB_Battleship
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
-            if (SUB.GetDirection() == false)
+            if (P1.SUB.GetDirection() == false)
             {
                 pb_SUB_P1.Width = 20;
                 pb_SUB_P1.Height = 60;
-                SUB.Rotate();
+                P1.SUB.Rotate();
             }
             else
             {
                 pb_SUB_P1.Width = 60;
                 pb_SUB_P1.Height = 20;
-                SUB.Rotate();
+                P1.SUB.Rotate();
             }
             pb_SUB_P1.Invalidate();
         }
@@ -1208,7 +1230,7 @@ namespace KB_Battleship
             Graphics g = e.Graphics;
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            if (DES.GetDirection() == false)
+            if (P1.DES.GetDirection() == false)
             {
                 g.DrawLine(myPen, 20, 0, 20, 20);
                 g.DrawLine(myPen, 40, 0, 40, 20);
@@ -1228,17 +1250,17 @@ namespace KB_Battleship
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
-            if (DES.GetDirection() == false)
+            if (P1.DES.GetDirection() == false)
             {
                 pb_DES_P1.Width = 20;
                 pb_DES_P1.Height = 60;
-                DES.Rotate();
+                P1.DES.Rotate();
             }
             else
             {
                 pb_DES_P1.Width = 60;
                 pb_DES_P1.Height = 20;
-                DES.Rotate();
+                P1.DES.Rotate();
             }
 
             pb_DES_P1.Invalidate();
@@ -1261,7 +1283,7 @@ namespace KB_Battleship
             Graphics g = e.Graphics;
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            if (BAT.GetDirection() == false)
+            if (P1.BAT.GetDirection() == false)
             {
                 g.DrawLine(myPen, 20, 0, 20, 20);
                 g.DrawLine(myPen, 40, 0, 40, 20);
@@ -1283,17 +1305,17 @@ namespace KB_Battleship
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             
-            if (BAT.GetDirection() == false)
+            if (P1.BAT.GetDirection() == false)
             {
                 pb_BAT_P1.Width = 20;
                 pb_BAT_P1.Height = 80;
-                BAT.Rotate();
+                P1.BAT.Rotate();
             }
             else
             {
                 pb_BAT_P1.Width = 80;
                 pb_BAT_P1.Height = 20;
-                BAT.Rotate();
+                P1.BAT.Rotate();
             }
 
             pb_BAT_P1.Invalidate();
@@ -1316,7 +1338,7 @@ namespace KB_Battleship
             Graphics g = e.Graphics;
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            if (AIR.GetDirection() == false)
+            if (P1.AIR.GetDirection() == false)
             {
                 g.DrawLine(myPen, 20, 0, 20, 20);
                 g.DrawLine(myPen, 40, 0, 40, 20);
@@ -1340,17 +1362,17 @@ namespace KB_Battleship
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             
-            if (AIR.GetDirection() == false)
+            if (P1.AIR.GetDirection() == false)
             {
                 pb_AIR_P1.Width = 20;
                 pb_AIR_P1.Height = 100;
-                AIR.Rotate();
+                P1.AIR.Rotate();
             }
             else
             {
                 pb_AIR_P1.Width = 100;
                 pb_AIR_P1.Height = 20;
-                AIR.Rotate();
+                P1.AIR.Rotate();
             }
             pb_AIR_P1.Invalidate();
         }
@@ -1364,19 +1386,19 @@ namespace KB_Battleship
             switch (boatclick_P1)
             {
                 case 1:
-                    PB.SetPlaced(false);
+                    P1.PB.SetPlaced(false);
                     break;
                 case 2:
-                    SUB.SetPlaced(false);
+                    P1.SUB.SetPlaced(false);
                     break;
                 case 3:
-                    DES.SetPlaced(false);
+                    P1.DES.SetPlaced(false);
                     break;
                 case 4:
-                    BAT.SetPlaced(false);
+                    P1.BAT.SetPlaced(false);
                     break;
                 case 5:
-                    AIR.SetPlaced(false);
+                    P1.AIR.SetPlaced(false);
                     break;
                 default:
                     break;
@@ -1384,16 +1406,15 @@ namespace KB_Battleship
             }
         }
         
-        //commented out next page visible
         private void btnSubmit_3_Click(object sender, EventArgs e)
         {
             //when all ships placed, can submit and move onto game
-            if ((PB.GetPlaced() == true) && (SUB.GetPlaced() == true) && (DES.GetPlaced() == true) && (BAT.GetPlaced() == true) && (AIR.GetPlaced() == true))
+            if ((P1.PB.GetPlaced() == true) && (P1.SUB.GetPlaced() == true) && (P1.DES.GetPlaced() == true) && (P1.BAT.GetPlaced() == true) && (P1.AIR.GetPlaced() == true))
             {
                 MessageBox.Show("TEMPORARY: SUBMITTED");
                 pg4_PlayerChoice.Visible = true;
                 P1.setTurn(true);
-                P2.setTurn(true);
+                P2.setTurn(false);
             }
 
             else
@@ -1418,17 +1439,17 @@ namespace KB_Battleship
             
             //for the Patrol Boat
             if (boatclick_P1 == 1)
-                DrawShipPlacement(x, y, PB);
+                DrawShipPlacement(x, y, P1.PB);
 
             //do it in a method that passes the Boat name
             else if (boatclick_P1 == 2)
-                DrawShipPlacement(x, y, SUB);
+                DrawShipPlacement(x, y, P1.SUB);
             else if (boatclick_P1 == 3)
-                DrawShipPlacement(x, y, DES);
+                DrawShipPlacement(x, y, P1.DES);
             else if (boatclick_P1 == 4)
-                DrawShipPlacement(x, y, BAT);
+                DrawShipPlacement(x, y, P1.BAT);
             else //boatclick_P1 == 5
-                DrawShipPlacement(x, y, AIR);
+                DrawShipPlacement(x, y, P1.AIR);
 
         }
 
@@ -1486,6 +1507,9 @@ namespace KB_Battleship
 
         private void btnComputer_Click(object sender, EventArgs e)
         {
+            //skips two pages
+            pg5_Avatar_P2.Visible = true;
+            pg6_SetBoard_P2.Visible = true;
             pg7_GameTime_COM.Visible = true;
             randomizeGrid();
         }
@@ -1669,27 +1693,7 @@ namespace KB_Battleship
 
         private void pb_PlaceShips_P2_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            Pen myPen = new Pen(Color.Black, 1);
-            myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            for (int i = 0; i < 12; i++)
-            {
-                g.DrawLine(myPen, 0, 30 * i, 300, 30 * i);
-                g.DrawLine(myPen, 30 * i, 0, 30 * i, 300);
-            }
-
-
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    if (P2.getPlayerArray(i, j) != 0)
-                    {
-                        SolidBrush myBrush = new SolidBrush(Color.RoyalBlue);
-                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
-                    }
-                }
-            }
+            PaintGrid(P2, e.Graphics, pb_PlaceShips_P2);
         }
 
         #region PB_P2 click+paint
@@ -1708,7 +1712,7 @@ namespace KB_Battleship
             Graphics g = e.Graphics;
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            if (PB2.GetDirection() == false)
+            if (P2.PB.GetDirection() == false)
             {
                 g.DrawLine(myPen, 20, 0, 20, 20);
                 g.DrawRectangle(myPen, 0, 0, 39, 19);
@@ -1729,17 +1733,17 @@ namespace KB_Battleship
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
             //if false it changes to width/height to if it were true, and then changes rotate to true
-            if (PB2.GetDirection() == false)
+            if (P2.PB.GetDirection() == false)
             {
                 pb_PB_P2.Width = 20;
                 pb_PB_P2.Height = 40;
-                PB2.Rotate();
+                P2.PB.Rotate();
             }
             else
             {
                 pb_PB_P2.Width = 40;
                 pb_PB_P2.Height = 20;
-                PB2.Rotate();
+                P2.PB.Rotate();
             }
 
             pb_PB_P2.Invalidate();
@@ -1762,7 +1766,7 @@ namespace KB_Battleship
             Graphics g = e.Graphics;
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            if (SUB2.GetDirection() == false)
+            if (P2.SUB.GetDirection() == false)
             {
                 g.DrawLine(myPen, 20, 0, 20, 20);
                 g.DrawLine(myPen, 40, 0, 40, 20);
@@ -1782,17 +1786,17 @@ namespace KB_Battleship
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
-            if (SUB2.GetDirection() == false)
+            if (P2.SUB.GetDirection() == false)
             {
                 pb_SUB_P2.Width = 20;
                 pb_SUB_P2.Height = 60;
-                SUB2.Rotate();
+                P2.SUB.Rotate();
             }
             else
             {
                 pb_SUB_P2.Width = 60;
                 pb_SUB_P2.Height = 20;
-                SUB2.Rotate();
+                P2.SUB.Rotate();
             }
             pb_SUB_P2.Invalidate();
         }
@@ -1815,7 +1819,7 @@ namespace KB_Battleship
             Graphics g = e.Graphics;
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            if (DES2.GetDirection() == false)
+            if (P2.DES.GetDirection() == false)
             {
                 g.DrawLine(myPen, 20, 0, 20, 20);
                 g.DrawLine(myPen, 40, 0, 40, 20);
@@ -1835,17 +1839,17 @@ namespace KB_Battleship
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
-            if (DES2.GetDirection() == false)
+            if (P2.DES.GetDirection() == false)
             {
                 pb_DES_P2.Width = 20;
                 pb_DES_P2.Height = 60;
-                DES2.Rotate();
+                P2.DES.Rotate();
             }
             else
             {
                 pb_DES_P2.Width = 60;
                 pb_DES_P2.Height = 20;
-                DES2.Rotate();
+                P2.DES.Rotate();
             }
 
             pb_DES_P2.Invalidate();
@@ -1868,7 +1872,7 @@ namespace KB_Battleship
             Graphics g = e.Graphics;
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            if (BAT2.GetDirection() == false)
+            if (P2.BAT.GetDirection() == false)
             {
                 g.DrawLine(myPen, 20, 0, 20, 20);
                 g.DrawLine(myPen, 40, 0, 40, 20);
@@ -1890,17 +1894,17 @@ namespace KB_Battleship
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
-            if (BAT2.GetDirection() == false)
+            if (P2.BAT.GetDirection() == false)
             {
                 pb_BAT_P2.Width = 20;
                 pb_BAT_P2.Height = 80;
-                BAT2.Rotate();
+                P2.BAT.Rotate();
             }
             else
             {
                 pb_BAT_P2.Width = 80;
                 pb_BAT_P2.Height = 20;
-                BAT2.Rotate();
+                P2.BAT.Rotate();
             }
 
             pb_BAT_P2.Invalidate();
@@ -1923,7 +1927,7 @@ namespace KB_Battleship
             Graphics g = e.Graphics;
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            if (AIR2.GetDirection() == false)
+            if (P2.AIR.GetDirection() == false)
             {
                 g.DrawLine(myPen, 20, 0, 20, 20);
                 g.DrawLine(myPen, 40, 0, 40, 20);
@@ -1947,17 +1951,17 @@ namespace KB_Battleship
             Pen myPen = new Pen(Color.Black, 1);
             myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
-            if (AIR2.GetDirection() == false)
+            if (P2.AIR.GetDirection() == false)
             {
                 pb_AIR_P2.Width = 20;
                 pb_AIR_P2.Height = 100;
-                AIR2.Rotate();
+                P2.AIR.Rotate();
             }
             else
             {
                 pb_AIR_P2.Width = 100;
                 pb_AIR_P2.Height = 20;
-                AIR2.Rotate();
+                P2.AIR.Rotate();
             }
             pb_AIR_P2.Invalidate();
         }
@@ -1970,19 +1974,19 @@ namespace KB_Battleship
             switch (boatclick_P2)
             {
                 case 1:
-                    PB2.SetPlaced(false);
+                    P2.PB.SetPlaced(false);
                     break;
                 case 2:
-                    SUB2.SetPlaced(false);
+                    P2.SUB.SetPlaced(false);
                     break;
                 case 3:
-                    DES2.SetPlaced(false);
+                    P2.DES.SetPlaced(false);
                     break;
                 case 4:
-                    BAT2.SetPlaced(false);
+                    P2.BAT.SetPlaced(false);
                     break;
                 case 5:
-                    AIR2.SetPlaced(false);
+                    P2.AIR.SetPlaced(false);
                     break;
                 default:
                     break;
@@ -1990,16 +1994,17 @@ namespace KB_Battleship
             }
         }
 
-        //UNCOMMENT visible when page created
         private void btnSubmit_6_Click(object sender, EventArgs e)
         {
             //when all ships placed, can submit and move onto game
-            if ((PB2.GetPlaced() == true) && (SUB2.GetPlaced() == true) && (DES2.GetPlaced() == true) && (BAT2.GetPlaced() == true) && (AIR2.GetPlaced() == true))
+            if ((P2.PB.GetPlaced() == true) && (P2.SUB.GetPlaced() == true) && (P2.DES.GetPlaced() == true) && (P2.BAT.GetPlaced() == true) && (P2.AIR.GetPlaced() == true))
             {
                 MessageBox.Show("TEMPORARY: SUBMITTED");
-                //pg7_GameTime_P1.Visible = true;
+                //skips COM page
+                pg7_GameTime_COM.Visible = true;
+                pg7_GameTime_P1.Visible = true;
                 P1.setTurn(true);
-                P2.setTurn(true);
+                P2.setTurn(false);
             }
 
             else
@@ -2024,19 +2029,20 @@ namespace KB_Battleship
 
             //for the Patrol Boat
             if (boatclick_P2 == 1)
-                DrawShipPlacement(x, y, PB2);
+                DrawShipPlacement(x, y, P2.PB);
 
             //do it in a method that passes the Boat name
             else if (boatclick_P2 == 2)
-                DrawShipPlacement(x, y, SUB2);
+                DrawShipPlacement(x, y, P2.SUB);
             else if (boatclick_P2 == 3)
-                DrawShipPlacement(x, y, DES2);
+                DrawShipPlacement(x, y, P2.DES);
             else if (boatclick_P2 == 4)
-                DrawShipPlacement(x, y, BAT2);
+                DrawShipPlacement(x, y, P2.BAT);
             else //boatclick_P2 == 5
-                DrawShipPlacement(x, y, AIR2);
+                DrawShipPlacement(x, y, P2.AIR);
         }
 
+        #region vs Computer
         private void pb_COM_Grid_MouseClick(object sender, MouseEventArgs e)
         {
             int x = Convert.ToInt32(Math.Floor(e.X / 30.0)) + 1;
@@ -2044,28 +2050,12 @@ namespace KB_Battleship
 
             if (P1.getTurn() == true)
             {
-                if (P2.getPlayerArray(x - 1, y - 1) > 0)
-                {
-                    P2.setPlayerArray(x - 1, y - 1, -1); //-1 = hit
-                    P1.setHitCount(P1.getHitCount() + 1);
-                }
-                else if (P2.getPlayerArray(x - 1, y - 1) == 0)
-                {
-                    P2.setPlayerArray(x - 1, y - 1, -2); //-2 = miss
-                }
-                else
-                {
-                    return;
-                }
+                P1.checkHit(P2, x, y);
 
                 pb_COM_Grid.Invalidate();
                 P1.SwitchTurn(P2);
             }
-            else
-            {
-
-            }
-
+            
             if (P1.isWinner() == true)
             {
                 pb_P1_Grid.Enabled = false;
@@ -2084,25 +2074,25 @@ namespace KB_Battleship
             while (P2.getTurn() == true)
             {
                 //Check if currently hunting specific ship
-                if (PB.getHunt() == true)
+                if (P1.PB.getHunt() == true)
                 {
-                    PB.HuntMode(P1, P2);
+                    P1.PB.HuntMode(P1, P2);
                 }
-                else if (SUB.getHunt() == true)
+                else if (P1.SUB.getHunt() == true)
                 {
-                    SUB.HuntMode(P1, P2);
+                    P1.SUB.HuntMode(P1, P2);
                 }
-                else if (DES.getHunt() == true)
+                else if (P1.DES.getHunt() == true)
                 {
-                    DES.HuntMode(P1, P2);
+                    P1.DES.HuntMode(P1, P2);
                 }
-                else if (BAT.getHunt() == true)
+                else if (P1.BAT.getHunt() == true)
                 {
-                    BAT.HuntMode(P1, P2);
+                    P1.BAT.HuntMode(P1, P2);
                 }
-                else if (AIR.getHunt() == true)
+                else if (P1.AIR.getHunt() == true)
                 {
-                    AIR.HuntMode(P1, P2);
+                    P1.AIR.HuntMode(P1, P2);
                 }
                 //if points to hit in list 
                 else if (P2.getToHitLength() == 0)
@@ -2153,102 +2143,102 @@ namespace KB_Battleship
                         //sees which type of ship is being hit and enables corresponding direction 
                         if (P1.getPlayerArray(P2.getToHitPoint()) == 1)
                         {
-                            PB.setHunt(true);
+                            P1.PB.setHunt(true);
                             if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X + 1, P2.getToHitPoint().Y) > -1)
                             {
-                                PB.setTargetModeHR(true);
+                                P1.PB.setTargetModeHR(true);
                             }
                             else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X - 1, P2.getToHitPoint().Y) > -1)
                             {
-                                PB.setTargetModeHL(true);
+                                P1.PB.setTargetModeHL(true);
                             }
                             else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y + 1) > -1)
                             {
-                                PB.setTargetModeVD(true);
+                                P1.PB.setTargetModeVD(true);
                             }
                             else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y - 1) > -1)
                             {
-                                PB.setTargetModeVU(true);
+                                P1.PB.setTargetModeVU(true);
                             }
                         }
                         else if (P1.getPlayerArray(P2.getToHitPoint()) == 2)
                         {
-                            SUB.setHunt(true);
+                            P1.SUB.setHunt(true);
                             if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X + 1, P2.getToHitPoint().Y) > -1)
                             {
-                                SUB.setTargetModeHR(true);
+                                P1.SUB.setTargetModeHR(true);
                             }
                             else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X - 1, P2.getToHitPoint().Y) > -1)
                             {
-                                SUB.setTargetModeHL(true);
+                                P1.SUB.setTargetModeHL(true);
                             }
                             else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y + 1) > -1)
                             {
-                                SUB.setTargetModeVD(true);
+                                P1.SUB.setTargetModeVD(true);
                             }
                             else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y - 1) > -1)
                             {
-                                SUB.setTargetModeVU(true);
+                                P1.SUB.setTargetModeVU(true);
                             }
                         }
                         else if (P1.getPlayerArray(P2.getToHitPoint()) == 3)
                         {
-                            DES.setHunt(true);
+                            P1.DES.setHunt(true);
                             if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X + 1, P2.getToHitPoint().Y) > -1)
                             {
-                                DES.setTargetModeHR(true);
+                                P1.DES.setTargetModeHR(true);
                             }
                             else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X - 1, P2.getToHitPoint().Y) > -1)
                             {
-                                DES.setTargetModeHL(true);
+                                P1.DES.setTargetModeHL(true);
                             }
                             else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y + 1) > -1)
                             {
-                                DES.setTargetModeVD(true);
+                                P1.DES.setTargetModeVD(true);
                             }
                             else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y - 1) > -1)
                             {
-                                DES.setTargetModeVU(true);
+                                P1.DES.setTargetModeVU(true);
                             }
                         }
                         else if (P1.getPlayerArray(P2.getToHitPoint()) == 4)
                         {
-                            BAT.setHunt(true);
+                            P1.BAT.setHunt(true);
                             if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X + 1, P2.getToHitPoint().Y) > -1)
                             {
-                                BAT.setTargetModeHR(true);
+                                P1.BAT.setTargetModeHR(true);
                             }
                             else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X - 1, P2.getToHitPoint().Y) > -1)
                             {
-                                BAT.setTargetModeHL(true);
+                                P1.BAT.setTargetModeHL(true);
                             }
                             else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y + 1) > -1)
                             {
-                                BAT.setTargetModeVD(true);
+                                P1.BAT.setTargetModeVD(true);
                             }
                             else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y - 1) > -1)
                             {
-                                BAT.setTargetModeVU(true);
+                                P1.BAT.setTargetModeVU(true);
                             }
                         }
                         else if (P1.getPlayerArray(P2.getToHitPoint()) == 5)
                         {
-                            AIR.setHunt(true);
+                            P1.AIR.setHunt(true);
                             if (P2.getFirstHit().X + 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X + 1, P2.getToHitPoint().Y) > -1)
                             {
-                                AIR.setTargetModeHR(true);
+                                P1.AIR.setTargetModeHR(true);
                             }
                             else if (P2.getFirstHit().X - 1 == P2.getToHitPoint().X && P1.getPlayerArray(P2.getToHitPoint().X - 1, P2.getToHitPoint().Y) > -1)
                             {
-                                AIR.setTargetModeHL(true);
+                                P1.AIR.setTargetModeHL(true);
                             }
                             else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y + 1) > -1)
                             {
-                                AIR.setTargetModeVD(true);
+                                P1.AIR.setTargetModeVD(true);
                             }
                             else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint().Y && P1.getPlayerArray(P2.getToHitPoint().X, P2.getToHitPoint().Y - 1) > -1)
                             {
-                                AIR.setTargetModeVU(true);
+                                P1.AIR.setTargetModeVU(true);
                             }
 
                         }
@@ -2301,60 +2291,105 @@ namespace KB_Battleship
 
         private void pb_P1_Grid_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            Pen myPen = new Pen(Color.Black, 1);
-            myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            for (int i = 0; i < 12; i++)
-            {
-                g.DrawLine(myPen, 0, 30 * i, 300, 30 * i);
-                g.DrawLine(myPen, 30 * i, 0, 30 * i, 300);
-            }
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    if (P1.getPlayerArray(i, j) == -1) //if ship is hit 
-                    {
-                        SolidBrush myBrush = new SolidBrush(Color.Crimson);
-                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
-                    }
-                    else if (P1.getPlayerArray(i, j) == -2)
-                    {
-                        SolidBrush myBrush = new SolidBrush(Color.Black);
-                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
-                    }
-                }
-            }
+            PaintGrid(P1, e.Graphics, pb_P1_Grid);
         }
 
         private void pb_COM_Grid_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            Pen myPen = new Pen(Color.Black, 1);
-            myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            for (int i = 0; i < 12; i++)
+            PaintGrid(P2, e.Graphics, pb_COM_Grid);
+        }
+        #endregion
+
+        #region 2Player
+        private void pb_P1onP1_Paint(object sender, PaintEventArgs e)
+        {
+            PaintGrid(P1, e.Graphics, pb_P1onP1);
+        }
+
+        private void pb_P2onP1_Paint(object sender, PaintEventArgs e)
+        {
+            PaintGrid(P2, e.Graphics, pb_P2onP1);
+        }
+
+        private void pb_P2onP1_MouseClick(object sender, MouseEventArgs e)
+        {
+            int x = Convert.ToInt32(Math.Floor(e.X / 30.0)) + 1;
+            int y = Convert.ToInt32(Math.Floor(e.Y / 30.0)) + 1;
+
+            if (P1.getTurn() == true)
             {
-                g.DrawLine(myPen, 0, 30 * i, 300, 30 * i);
-                g.DrawLine(myPen, 30 * i, 0, 30 * i, 300);
+                P1.checkHit(P2, x, y);
+
+                pb_P2onP1.Invalidate();
+                P1.SwitchTurn(P2);
             }
 
-
-            for (int i = 0; i < 10; i++)
+            if (P1.isWinner() == true)
             {
-                for (int j = 0; j < 10; j++)
-                {
-                    if (P2.getPlayerArray(i, j) == -1) //if ship is hit 
-                    {
-                        SolidBrush myBrush = new SolidBrush(Color.Crimson);
-                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
-                    }
-                    else if (P2.getPlayerArray(i, j) == -2)
-                    {
-                        SolidBrush myBrush = new SolidBrush(Color.Black);
-                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
-                    }
-                }
+                pb_P1onP1.Enabled = false;
+                pb_P2onP1.Enabled = false;
+                //do win stuff
+                P1.setScore(P1.getScore() + 1);
+            }
+            else
+            {
+                P1.SwitchTurn(P2);
             }
         }
+
+        private void btnNext_7_Click(object sender, EventArgs e)
+        {
+            if (P1.getTurn() == true)
+                MessageBox.Show("You have not completed your turn yet.");
+            else
+                pg8_GameTime_P2.Visible = true;
+            
+        }
+        
+        private void pb_P2onP2_Paint(object sender, PaintEventArgs e)
+        {
+            PaintGrid(P2, e.Graphics, pb_P2onP2);
+        }
+
+        private void pb_P1onP2_Paint(object sender, PaintEventArgs e)
+        {
+            PaintGrid(P1, e.Graphics, pb_P1onP2);
+        }
+
+        private void pb_P1onP2_MouseClick(object sender, MouseEventArgs e)
+        {
+            int x = Convert.ToInt32(Math.Floor(e.X / 30.0)) + 1;
+            int y = Convert.ToInt32(Math.Floor(e.Y / 30.0)) + 1;
+
+            if (P2.getTurn() == true)
+            {
+                P2.checkHit(P1, x, y);
+
+                pb_P1onP2.Invalidate();
+                P2.SwitchTurn(P1);
+            }
+
+            if (P2.isWinner() == true)
+            {
+                pb_P2onP2.Enabled = false;
+                pb_P1onP2.Enabled = false;
+                //do win stuff
+                P2.setScore(P2.getScore() + 1);
+            }
+            else
+            {
+                P2.SwitchTurn(P1);
+            }
+        }
+
+        private void btnNext_8_Click(object sender, EventArgs e)
+        {
+            if (P2.getTurn() == true)
+                MessageBox.Show("You have not completed your turn yet.");
+            else
+                pg8_GameTime_P2.Visible = false;
+        }
+#endregion
+
     }
 }
