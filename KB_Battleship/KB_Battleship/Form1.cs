@@ -316,12 +316,12 @@ namespace KB_Battleship
             protected int HitCount;
             //stores player ship information 
             protected int[,] PlayerArray = new int[10, 10];
+            public int boatclick = 0;
             protected bool TargetModeHR;
             protected bool TargetModeHL;
             protected bool TargetModeVU;
             protected bool TargetModeVD;
             protected bool Hunt;
-            public int boatclick = 0;
             public void ResetHuntMode()
             {
                 setTargetModeHL(false);
@@ -1909,23 +1909,23 @@ namespace KB_Battleship
         {
             if (index == 1)
             {
-                PB.SetHitCount(PB.GetHitCount() + 1);
+                P1.PB.SetHitCount(P1.PB.GetHitCount() + 1);
             }
             else if (index == 2)
             {
-                SUB.SetHitCount(SUB.GetHitCount() + 1);
+                P1.SUB.SetHitCount(P1.SUB.GetHitCount() + 1);
             }
             else if (index == 3)
             {
-                DES.SetHitCount(DES.GetHitCount() + 1);
+                P1.DES.SetHitCount(P1.DES.GetHitCount() + 1);
             }
             else if (index == 4)
             {
-                BAT.SetHitCount(BAT.GetHitCount() + 1);
+                P1.BAT.SetHitCount(P1.BAT.GetHitCount() + 1);
             }
             else if (index == 5)
             {
-                AIR.SetHitCount(AIR.GetHitCount() + 1);
+                P1.AIR.SetHitCount(P1.AIR.GetHitCount() + 1);
             }
             else
             {
@@ -2227,11 +2227,11 @@ namespace KB_Battleship
                     
                     
                 }
-                PB.IsDead(P2);
-                SUB.IsDead(P2);
-                DES.IsDead(P2);
-                BAT.IsDead(P2);
-                AIR.IsDead(P2);
+                P1.PB.IsDead(P2);
+                P1.SUB.IsDead(P2);
+                P1.DES.IsDead(P2);
+                P1.BAT.IsDead(P2);
+                P1.AIR.IsDead(P2);
                 
             }
 
