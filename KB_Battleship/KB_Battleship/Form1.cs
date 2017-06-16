@@ -27,10 +27,6 @@ namespace KB_Battleship
         bool slct_A1_P2 = false;
         bool slct_A2_P2 = false;
         bool slct_A3_P2 = false;
-
-        //placing ships - current boat selected
-        int boatclick_P1 = 0;
-        int boatclick_P2 = 0;
         
         Player P1 = new Player();
         Player P2 = new Player();
@@ -528,6 +524,8 @@ namespace KB_Battleship
             //stores player ship information 
             protected int[,] PlayerArray = new int[10, 10];
 
+            public int boatclick = 0;
+
             protected Point FirstHit;
             protected Point LastHit;
             protected bool Turn;
@@ -698,7 +696,7 @@ namespace KB_Battleship
             }
         }
 
-        public void DrawShipPlacement(int x, int y, Ships S)
+        public void DrawShipPlacement(int x, int y, Ships S, Player P, Control PIC)
         {
             //curent counter for size
             int i = 0;
@@ -715,12 +713,12 @@ namespace KB_Battleship
                         {
                             int EmptyChecker;
                             //EmptyChecker = P1Array[x - 1 + i, y - 1];
-                            EmptyChecker = P1.getPlayerArray(x - 1 + i, y - 1);
+                            EmptyChecker = P.getPlayerArray(x - 1 + i, y - 1);
                             if (EmptyChecker != 0)
                             {
                                 AllEmpty = false;
                                 MessageBox.Show("Temporary: YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
-                                pb_PlaceShips_P1.Invalidate();
+                                PIC.Invalidate();
                                 return;
                             }
                             i++;
@@ -731,7 +729,7 @@ namespace KB_Battleship
                     {
                         AllEmpty = false;
                         MessageBox.Show("Temporary: YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
-                        pb_PlaceShips_P1.Invalidate();
+                        PIC.Invalidate();
                         return;
                     }
 
@@ -741,13 +739,13 @@ namespace KB_Battleship
                         i = 0;
                         while (i < S.GetSize())
                         {
-                            P1.setPlayerArray(x - 1 + i, y - 1, boatclick_P1);
+                            P.setPlayerArray(x - 1 + i, y - 1, P.boatclick);
                             //P1Array[x - 1 + i, y - 1] = boatclick_P1;
                             i++;
                         }
                         S.SetPlaced(true);
                         S.SetTopLeft(x - 1, y - 1);
-                        pb_PlaceShips_P1.Invalidate();
+                        PIC.Invalidate();
                     }
 
 
@@ -764,12 +762,12 @@ namespace KB_Battleship
                         {
                             int EmptyChecker;
                             //EmptyChecker = P1Array[x - 1, y - 1 + i];
-                            EmptyChecker = P1.getPlayerArray(x - 1, y - 1 + i);
+                            EmptyChecker = P.getPlayerArray(x - 1, y - 1 + i);
                             if (EmptyChecker != 0)
                             {
                                 AllEmpty = false;
                                 MessageBox.Show("Temporary: YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
-                                pb_PlaceShips_P1.Invalidate();
+                                PIC.Invalidate();
                                 return;
                             }
                             i++;
@@ -780,7 +778,7 @@ namespace KB_Battleship
                     {
                         AllEmpty = false;
                         MessageBox.Show("Temporary: YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
-                        pb_PlaceShips_P1.Invalidate();
+                        PIC.Invalidate();
                         return;
                     }
 
@@ -790,13 +788,13 @@ namespace KB_Battleship
                         i = 0;
                         while (i < S.GetSize())
                         {
-                            P1.setPlayerArray(x - 1, y - 1 + i, boatclick_P1);
+                            P.setPlayerArray(x - 1, y - 1 + i, P.boatclick);
                             //P1Array[x - 1, y - 1 + i] = boatclick_P1;
                             i++;
                         }
                         S.SetPlaced(true);
                         S.SetTopLeft(x - 1, y - 1);
-                        pb_PlaceShips_P1.Invalidate();
+                        PIC.Invalidate();
                     }
                 }
             }
@@ -871,6 +869,30 @@ namespace KB_Battleship
             //pb.Invalidate();
         }
 
+        #region mouse graphics
+        public void PaintButton(Control btn, Graphics e)
+        {
+            ControlPaint.DrawBorder(e, btn.ClientRectangle,
+            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
+            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
+            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
+            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+        }
+        public void ButtonEnter(Control btn)
+        {
+            //btn.UseVisualStyleBackColor = false;
+            btn.BackColor = Color.Navy;
+            btn.ForeColor = Color.White;
+            btn.Invalidate();
+        }
+        public void ButtonLeave(Control btn)
+        {
+            btn.ForeColor = Color.Black;
+            btn.BackColor = Color.RoyalBlue;
+            btn.Invalidate();
+        }
+        #endregion
+
         #region btnStart graphics
         private void btnStart_Paint(object sender, PaintEventArgs e)
         {
@@ -904,26 +926,17 @@ namespace KB_Battleship
         #region btnNext_1 graphics
         private void btnNext_1_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btnNext_1.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btnNext_1, e.Graphics);
         }
 
         private void btnNext_1_MouseEnter(object sender, EventArgs e)
         {
-            btnNext_1.UseVisualStyleBackColor = false;
-            btnNext_1.BackColor = Color.Navy;
-            btnNext_1.ForeColor = Color.White;
-            btnNext_1.Invalidate();
+            ButtonEnter(btnNext_1);
         }
 
         private void btnNext_1_MouseLeave(object sender, EventArgs e)
         {
-            btnNext_1.ForeColor = Color.Black;
-            btnNext_1.BackColor = Color.RoyalBlue;
-            btnNext_1.Invalidate();
+            ButtonLeave(btnNext_1);
         }
 #endregion
 
@@ -1022,26 +1035,17 @@ namespace KB_Battleship
         #region btnBack_2 graphics
         private void btnBack_2_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btnBack_2.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btnBack_2, e.Graphics);
         }
 
         private void btnBack_2_MouseEnter(object sender, EventArgs e)
         {
-            btnBack_2.UseVisualStyleBackColor = false;
-            btnBack_2.BackColor = Color.Navy;
-            btnBack_2.ForeColor = Color.White;
-            btnBack_2.Invalidate();
+            ButtonEnter(btnBack_2);
         }
 
         private void btnBack_2_MouseLeave(object sender, EventArgs e)
         {
-            btnBack_2.ForeColor = Color.Black;
-            btnBack_2.BackColor = Color.RoyalBlue;
-            btnBack_2.Invalidate();
+            ButtonLeave(btnBack_2);
         }
         #endregion
 
@@ -1053,26 +1057,17 @@ namespace KB_Battleship
         #region btnNext_2 graphics
         private void btnNext_2_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btnNext_2.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btnNext_2, e.Graphics);
         }
 
         private void btnNext_2_MouseEnter(object sender, EventArgs e)
         {
-            btnNext_2.UseVisualStyleBackColor = false;
-            btnNext_2.BackColor = Color.Navy;
-            btnNext_2.ForeColor = Color.White;
-            btnNext_2.Invalidate();
+            ButtonEnter(btnNext_2);
         }
 
         private void btnNext_2_MouseLeave(object sender, EventArgs e)
         {
-            btnNext_2.ForeColor = Color.Black;
-            btnNext_2.BackColor = Color.RoyalBlue;
-            btnNext_2.Invalidate();
+            ButtonLeave(btnNext_2);
         }
         #endregion
 
@@ -1116,7 +1111,7 @@ namespace KB_Battleship
             lb_DES_P1.BorderStyle = BorderStyle.None;
             lb_BAT_P1.BorderStyle = BorderStyle.None;
             lb_AIR_P1.BorderStyle = BorderStyle.None;
-            boatclick_P1 = 1;
+            P1.boatclick = 1;
         }
 
         private void pb_PB_P1_Paint(object sender, PaintEventArgs e)
@@ -1170,7 +1165,7 @@ namespace KB_Battleship
             lb_DES_P1.BorderStyle = BorderStyle.None;
             lb_BAT_P1.BorderStyle = BorderStyle.None;
             lb_AIR_P1.BorderStyle = BorderStyle.None;
-            boatclick_P1 = 2;
+            P1.boatclick = 2;
         }
         
         private void pb_SUB_P1_Paint(object sender, PaintEventArgs e)
@@ -1222,7 +1217,7 @@ namespace KB_Battleship
             lb_DES_P1.BorderStyle = BorderStyle.Fixed3D;
             lb_BAT_P1.BorderStyle = BorderStyle.None;
             lb_AIR_P1.BorderStyle = BorderStyle.None;
-            boatclick_P1 = 3;
+            P1.boatclick = 3;
         }
 
         private void pb_DES_P1_Paint(object sender, PaintEventArgs e)
@@ -1275,7 +1270,7 @@ namespace KB_Battleship
             lb_DES_P1.BorderStyle = BorderStyle.None;
             lb_BAT_P1.BorderStyle = BorderStyle.Fixed3D;
             lb_AIR_P1.BorderStyle = BorderStyle.None;
-            boatclick_P1 = 4;
+            P1.boatclick = 4;
         }
 
         private void pb_BAT_P1_Paint(object sender, PaintEventArgs e)
@@ -1330,7 +1325,7 @@ namespace KB_Battleship
             lb_DES_P1.BorderStyle = BorderStyle.None;
             lb_BAT_P1.BorderStyle = BorderStyle.None;
             lb_AIR_P1.BorderStyle = BorderStyle.Fixed3D;
-            boatclick_P1 = 5;
+            P1.boatclick = 5;
         }
 
         private void pb_AIR_P1_Paint(object sender, PaintEventArgs e)
@@ -1381,9 +1376,9 @@ namespace KB_Battleship
         //place ships undo btn
         private void btnUndo_3_Click(object sender, EventArgs e)
         {
-            UndoShipPlacement(boatclick_P1, P1);
+            UndoShipPlacement(P1.boatclick, P1);
 
-            switch (boatclick_P1)
+            switch (P1.boatclick)
             {
                 case 1:
                     P1.PB.SetPlaced(false);
@@ -1438,70 +1433,52 @@ namespace KB_Battleship
             int y = Convert.ToInt32(Math.Floor(e.Y / 30.0)) + 1;
             
             //for the Patrol Boat
-            if (boatclick_P1 == 1)
-                DrawShipPlacement(x, y, P1.PB);
+            if (P1.boatclick == 1)
+                DrawShipPlacement(x, y, P1.PB, P1, pb_PlaceShips_P1);
 
             //do it in a method that passes the Boat name
-            else if (boatclick_P1 == 2)
-                DrawShipPlacement(x, y, P1.SUB);
-            else if (boatclick_P1 == 3)
-                DrawShipPlacement(x, y, P1.DES);
-            else if (boatclick_P1 == 4)
-                DrawShipPlacement(x, y, P1.BAT);
-            else //boatclick_P1 == 5
-                DrawShipPlacement(x, y, P1.AIR);
+            else if (P1.boatclick == 2)
+                DrawShipPlacement(x, y, P1.SUB, P1, pb_PlaceShips_P1);
+            else if (P1.boatclick == 3)
+                DrawShipPlacement(x, y, P1.DES, P1, pb_PlaceShips_P1);
+            else if (P1.boatclick == 4)
+                DrawShipPlacement(x, y, P1.BAT, P1, pb_PlaceShips_P1);
+            else //P1.boatclick == 5
+                DrawShipPlacement(x, y, P1.AIR, P1, pb_PlaceShips_P1);
 
         }
 
         #region btnComputer graphics
         private void btnComputer_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btnComputer.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btnComputer, e.Graphics);
         }
 
         private void btnComputer_MouseEnter(object sender, EventArgs e)
         {
-            btnComputer.UseVisualStyleBackColor = false;
-            btnComputer.ForeColor = Color.White;
-            btnComputer.BackColor = Color.Navy;
-            btnComputer.Invalidate();
+            ButtonEnter(btnComputer);
         }
 
         private void btnComputer_MouseLeave(object sender, EventArgs e)
         {
-            btnComputer.ForeColor = Color.Black;
-            btnComputer.BackColor = Color.RoyalBlue;
-            btnComputer.Invalidate();
+            ButtonLeave(btnComputer);
         }
         #endregion
 
         #region btn2Player graphics
         private void btn2Player_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btn2Player.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btn2Player, e.Graphics);
         }
 
         private void btn2Player_MouseEnter(object sender, EventArgs e)
         {
-            btn2Player.UseVisualStyleBackColor = false;
-            btn2Player.ForeColor = Color.White;
-            btn2Player.BackColor = Color.Navy;
-            btn2Player.Invalidate();
+            ButtonEnter(btn2Player);
         }
 
         private void btn2Player_MouseLeave(object sender, EventArgs e)
         {
-            btn2Player.ForeColor = Color.Black;
-            btn2Player.BackColor = Color.RoyalBlue;
-            btn2Player.Invalidate();
+            ButtonLeave(btn2Player);
         }
         #endregion
 
@@ -1610,26 +1587,17 @@ namespace KB_Battleship
         #region btnBack_5 graphics
         private void btnBack_5_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btnBack_5.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btnBack_5, e.Graphics);
         }
 
         private void btnBack_5_MouseEnter(object sender, EventArgs e)
         {
-            btnBack_5.UseVisualStyleBackColor = false;
-            btnBack_5.BackColor = Color.Navy;
-            btnBack_5.ForeColor = Color.White;
-            btnBack_5.Invalidate();
+            ButtonEnter(btnBack_5);
         }
 
         private void btnBack_5_MouseLeave(object sender, EventArgs e)
         {
-            btnBack_5.ForeColor = Color.Black;
-            btnBack_5.BackColor = Color.RoyalBlue;
-            btnBack_5.Invalidate();
+            ButtonLeave(btnBack_5);
         }
 #endregion
 
@@ -1641,26 +1609,17 @@ namespace KB_Battleship
         #region btnNext_5 graphics
         private void btnNext_5_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, btnNext_5.ClientRectangle,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset,
-            Color.DodgerBlue, 5, ButtonBorderStyle.Outset);
+            PaintButton(btnNext_5, e.Graphics);
         }
 
         private void btnNext_5_MouseEnter(object sender, EventArgs e)
         {
-            btnNext_5.UseVisualStyleBackColor = false;
-            btnNext_5.BackColor = Color.Navy;
-            btnNext_5.ForeColor = Color.White;
-            btnNext_5.Invalidate();
+            ButtonEnter(btnNext_5);
         }
 
         private void btnNext_5_MouseLeave(object sender, EventArgs e)
         {
-            btnNext_5.ForeColor = Color.Black;
-            btnNext_5.BackColor = Color.RoyalBlue;
-            btnNext_5.Invalidate();
+            ButtonLeave(btnNext_5);
         }
 #endregion
 
@@ -1704,7 +1663,7 @@ namespace KB_Battleship
             lb_DES_P2.BorderStyle = BorderStyle.None;
             lb_BAT_P2.BorderStyle = BorderStyle.None;
             lb_AIR_P2.BorderStyle = BorderStyle.None;
-            boatclick_P2 = 1;
+            P2.boatclick = 1;
         }
 
         private void pb_PB_P2_Paint(object sender, PaintEventArgs e)
@@ -1758,7 +1717,7 @@ namespace KB_Battleship
             lb_DES_P2.BorderStyle = BorderStyle.None;
             lb_BAT_P2.BorderStyle = BorderStyle.None;
             lb_AIR_P2.BorderStyle = BorderStyle.None;
-            boatclick_P2 = 2;
+            P2.boatclick = 2;
         }
 
         private void pb_SUB_P2_Paint(object sender, PaintEventArgs e)
@@ -1811,7 +1770,7 @@ namespace KB_Battleship
             lb_DES_P2.BorderStyle = BorderStyle.Fixed3D;
             lb_BAT_P2.BorderStyle = BorderStyle.None;
             lb_AIR_P2.BorderStyle = BorderStyle.None;
-            boatclick_P2 = 3;
+            P2.boatclick = 3;
         }
 
         private void pb_DES_P2_Paint(object sender, PaintEventArgs e)
@@ -1864,7 +1823,7 @@ namespace KB_Battleship
             lb_DES_P2.BorderStyle = BorderStyle.None;
             lb_BAT_P2.BorderStyle = BorderStyle.Fixed3D;
             lb_AIR_P2.BorderStyle = BorderStyle.None;
-            boatclick_P2 = 4;
+            P2.boatclick = 4;
         }
 
         private void pb_BAT_P2_Paint(object sender, PaintEventArgs e)
@@ -1919,7 +1878,7 @@ namespace KB_Battleship
             lb_DES_P2.BorderStyle = BorderStyle.None;
             lb_BAT_P2.BorderStyle = BorderStyle.None;
             lb_AIR_P2.BorderStyle = BorderStyle.Fixed3D;
-            boatclick_P2 = 5;
+            P2.boatclick = 5;
         }
 
         private void pb_AIR_P2_Paint(object sender, PaintEventArgs e)
@@ -1969,9 +1928,9 @@ namespace KB_Battleship
 
         private void btnUndo_6_Click(object sender, EventArgs e)
         {
-            UndoShipPlacement(boatclick_P2, P2);
+            UndoShipPlacement(P2.boatclick, P2);
 
-            switch (boatclick_P2)
+            switch (P2.boatclick)
             {
                 case 1:
                     P2.PB.SetPlaced(false);
@@ -2060,18 +2019,18 @@ namespace KB_Battleship
             int y = Convert.ToInt32(Math.Floor(e.Y / 30.0)) + 1;
 
             //for the Patrol Boat
-            if (boatclick_P2 == 1)
-                DrawShipPlacement(x, y, P2.PB);
+            if (P2.boatclick == 1)
+                DrawShipPlacement(x, y, P2.PB, P2, pb_PlaceShips_P2);
 
             //do it in a method that passes the Boat name
-            else if (boatclick_P2 == 2)
-                DrawShipPlacement(x, y, P2.SUB);
-            else if (boatclick_P2 == 3)
-                DrawShipPlacement(x, y, P2.DES);
-            else if (boatclick_P2 == 4)
-                DrawShipPlacement(x, y, P2.BAT);
-            else //boatclick_P2 == 5
-                DrawShipPlacement(x, y, P2.AIR);
+            else if (P2.boatclick == 2)
+                DrawShipPlacement(x, y, P2.SUB, P2, pb_PlaceShips_P2);
+            else if (P2.boatclick == 3)
+                DrawShipPlacement(x, y, P2.DES, P2, pb_PlaceShips_P2);
+            else if (P2.boatclick == 4)
+                DrawShipPlacement(x, y, P2.BAT, P2, pb_PlaceShips_P2);
+            else //P2.boatclick == 5
+                DrawShipPlacement(x, y, P2.AIR, P2, pb_PlaceShips_P2);
         }
 
         #region vs Computer
