@@ -27,10 +27,6 @@ namespace KB_Battleship
         bool slct_A1_P2 = false;
         bool slct_A2_P2 = false;
         bool slct_A3_P2 = false;
-
-        //placing ships - current boat selected
-        int boatclick_P1 = 0;
-        int boatclick_P2 = 0;
         
         Player P1 = new Player();
         Player P2 = new Player();
@@ -70,8 +66,8 @@ namespace KB_Battleship
                 topLeft.X = 0;
                 topLeft.Y = 0;
                 DirectionVertical = true;
-                Placed = false;
-                DeathMessage = false;
+                Placed = false;     //is the ship placed in the starting screen
+                DeathMessage = false;   //only one death message should be shown
             }
             public Ships(string N, int S, int HC, int Px, int Py, bool R, bool P, int I)
             {
@@ -325,6 +321,7 @@ namespace KB_Battleship
             protected bool TargetModeVU;
             protected bool TargetModeVD;
             protected bool Hunt;
+            public int boatclick = 0;
             public void ResetHuntMode()
             {
                 setTargetModeHL(false);
@@ -544,7 +541,7 @@ namespace KB_Battleship
             }
         }
 
-        public void DrawShipPlacement(int x, int y, Ships S)
+        public void DrawShipPlacement(int x, int y, Ships S, Player P, Control PIC)
         {
             //curent counter for size
             int i = 0;
@@ -561,12 +558,12 @@ namespace KB_Battleship
                         {
                             int EmptyChecker;
                             //EmptyChecker = P1Array[x - 1 + i, y - 1];
-                            EmptyChecker = P1.getPlayerArray(x - 1 + i, y - 1);
+                            EmptyChecker = P.getPlayerArray(x - 1 + i, y - 1);
                             if (EmptyChecker != 0)
                             {
                                 AllEmpty = false;
                                 MessageBox.Show("Temporary: YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
-                                pb_PlaceShips_P1.Invalidate();
+                                PIC.Invalidate();
                                 return;
                             }
                             i++;
@@ -577,7 +574,7 @@ namespace KB_Battleship
                     {
                         AllEmpty = false;
                         MessageBox.Show("Temporary: YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
-                        pb_PlaceShips_P1.Invalidate();
+                        PIC.Invalidate();
                         return;
                     }
 
@@ -587,13 +584,13 @@ namespace KB_Battleship
                         i = 0;
                         while (i < S.GetSize())
                         {
-                            P1.setPlayerArray(x - 1 + i, y - 1, boatclick_P1);
+                            P.setPlayerArray(x - 1 + i, y - 1, P.boatclick);
                             //P1Array[x - 1 + i, y - 1] = boatclick_P1;
                             i++;
                         }
                         S.SetPlaced(true);
                         S.SetTopLeft(x - 1, y - 1);
-                        pb_PlaceShips_P1.Invalidate();
+                        PIC.Invalidate();
                     }
 
 
@@ -610,12 +607,12 @@ namespace KB_Battleship
                         {
                             int EmptyChecker;
                             //EmptyChecker = P1Array[x - 1, y - 1 + i];
-                            EmptyChecker = P1.getPlayerArray(x - 1, y - 1 + i);
+                            EmptyChecker = P.getPlayerArray(x - 1, y - 1 + i);
                             if (EmptyChecker != 0)
                             {
                                 AllEmpty = false;
                                 MessageBox.Show("Temporary: YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
-                                pb_PlaceShips_P1.Invalidate();
+                                PIC.Invalidate();
                                 return;
                             }
                             i++;
@@ -626,7 +623,7 @@ namespace KB_Battleship
                     {
                         AllEmpty = false;
                         MessageBox.Show("Temporary: YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
-                        pb_PlaceShips_P1.Invalidate();
+                        PIC.Invalidate();
                         return;
                     }
 
@@ -636,13 +633,13 @@ namespace KB_Battleship
                         i = 0;
                         while (i < S.GetSize())
                         {
-                            P1.setPlayerArray(x - 1, y - 1 + i, boatclick_P1);
+                            P.setPlayerArray(x - 1, y - 1 + i, P.boatclick);
                             //P1Array[x - 1, y - 1 + i] = boatclick_P1;
                             i++;
                         }
                         S.SetPlaced(true);
                         S.SetTopLeft(x - 1, y - 1);
-                        pb_PlaceShips_P1.Invalidate();
+                        PIC.Invalidate();
                     }
                 }
             }
@@ -959,7 +956,7 @@ namespace KB_Battleship
             lb_DES_P1.BorderStyle = BorderStyle.None;
             lb_BAT_P1.BorderStyle = BorderStyle.None;
             lb_AIR_P1.BorderStyle = BorderStyle.None;
-            boatclick_P1 = 1;
+            P1.boatclick = 1;
         }
 
         private void pb_PB_P1_Paint(object sender, PaintEventArgs e)
@@ -1013,7 +1010,7 @@ namespace KB_Battleship
             lb_DES_P1.BorderStyle = BorderStyle.None;
             lb_BAT_P1.BorderStyle = BorderStyle.None;
             lb_AIR_P1.BorderStyle = BorderStyle.None;
-            boatclick_P1 = 2;
+            P1.boatclick = 2;
         }
         
         private void pb_SUB_P1_Paint(object sender, PaintEventArgs e)
@@ -1065,7 +1062,7 @@ namespace KB_Battleship
             lb_DES_P1.BorderStyle = BorderStyle.Fixed3D;
             lb_BAT_P1.BorderStyle = BorderStyle.None;
             lb_AIR_P1.BorderStyle = BorderStyle.None;
-            boatclick_P1 = 3;
+            P1.boatclick = 3;
         }
 
         private void pb_DES_P1_Paint(object sender, PaintEventArgs e)
@@ -1118,7 +1115,7 @@ namespace KB_Battleship
             lb_DES_P1.BorderStyle = BorderStyle.None;
             lb_BAT_P1.BorderStyle = BorderStyle.Fixed3D;
             lb_AIR_P1.BorderStyle = BorderStyle.None;
-            boatclick_P1 = 4;
+            P1.boatclick = 4;
         }
 
         private void pb_BAT_P1_Paint(object sender, PaintEventArgs e)
@@ -1173,7 +1170,7 @@ namespace KB_Battleship
             lb_DES_P1.BorderStyle = BorderStyle.None;
             lb_BAT_P1.BorderStyle = BorderStyle.None;
             lb_AIR_P1.BorderStyle = BorderStyle.Fixed3D;
-            boatclick_P1 = 5;
+            P1.boatclick = 5;
         }
 
         private void pb_AIR_P1_Paint(object sender, PaintEventArgs e)
@@ -1224,9 +1221,9 @@ namespace KB_Battleship
         //place ships undo btn
         private void btnUndo_3_Click(object sender, EventArgs e)
         {
-            UndoShipPlacement(boatclick_P1, P1);
+            UndoShipPlacement(P1.boatclick, P1);
 
-            switch (boatclick_P1)
+            switch (P1.boatclick)
             {
                 case 1:
                     P1.PB.SetPlaced(false);
@@ -1281,18 +1278,18 @@ namespace KB_Battleship
             int y = Convert.ToInt32(Math.Floor(e.Y / 30.0)) + 1;
             
             //for the Patrol Boat
-            if (boatclick_P1 == 1)
-                DrawShipPlacement(x, y, P1.PB);
+            if (P1.boatclick == 1)
+                DrawShipPlacement(x, y, P1.PB, P1, pb_PlaceShips_P1);
 
             //do it in a method that passes the Boat name
-            else if (boatclick_P1 == 2)
-                DrawShipPlacement(x, y, P1.SUB);
-            else if (boatclick_P1 == 3)
-                DrawShipPlacement(x, y, P1.DES);
-            else if (boatclick_P1 == 4)
-                DrawShipPlacement(x, y, P1.BAT);
-            else //boatclick_P1 == 5
-                DrawShipPlacement(x, y, P1.AIR);
+            else if (P1.boatclick == 2)
+                DrawShipPlacement(x, y, P1.SUB, P1, pb_PlaceShips_P1);
+            else if (P1.boatclick == 3)
+                DrawShipPlacement(x, y, P1.DES, P1, pb_PlaceShips_P1);
+            else if (P1.boatclick == 4)
+                DrawShipPlacement(x, y, P1.BAT, P1, pb_PlaceShips_P1);
+            else //P1.boatclick == 5
+                DrawShipPlacement(x, y, P1.AIR, P1, pb_PlaceShips_P1);
 
         }
 
@@ -1511,7 +1508,7 @@ namespace KB_Battleship
             lb_DES_P2.BorderStyle = BorderStyle.None;
             lb_BAT_P2.BorderStyle = BorderStyle.None;
             lb_AIR_P2.BorderStyle = BorderStyle.None;
-            boatclick_P2 = 1;
+            P2.boatclick = 1;
         }
 
         private void pb_PB_P2_Paint(object sender, PaintEventArgs e)
@@ -1565,7 +1562,7 @@ namespace KB_Battleship
             lb_DES_P2.BorderStyle = BorderStyle.None;
             lb_BAT_P2.BorderStyle = BorderStyle.None;
             lb_AIR_P2.BorderStyle = BorderStyle.None;
-            boatclick_P2 = 2;
+            P2.boatclick = 2;
         }
 
         private void pb_SUB_P2_Paint(object sender, PaintEventArgs e)
@@ -1618,7 +1615,7 @@ namespace KB_Battleship
             lb_DES_P2.BorderStyle = BorderStyle.Fixed3D;
             lb_BAT_P2.BorderStyle = BorderStyle.None;
             lb_AIR_P2.BorderStyle = BorderStyle.None;
-            boatclick_P2 = 3;
+            P2.boatclick = 3;
         }
 
         private void pb_DES_P2_Paint(object sender, PaintEventArgs e)
@@ -1671,7 +1668,7 @@ namespace KB_Battleship
             lb_DES_P2.BorderStyle = BorderStyle.None;
             lb_BAT_P2.BorderStyle = BorderStyle.Fixed3D;
             lb_AIR_P2.BorderStyle = BorderStyle.None;
-            boatclick_P2 = 4;
+            P2.boatclick = 4;
         }
 
         private void pb_BAT_P2_Paint(object sender, PaintEventArgs e)
@@ -1726,7 +1723,7 @@ namespace KB_Battleship
             lb_DES_P2.BorderStyle = BorderStyle.None;
             lb_BAT_P2.BorderStyle = BorderStyle.None;
             lb_AIR_P2.BorderStyle = BorderStyle.Fixed3D;
-            boatclick_P2 = 5;
+            P2.boatclick = 5;
         }
 
         private void pb_AIR_P2_Paint(object sender, PaintEventArgs e)
@@ -1776,9 +1773,9 @@ namespace KB_Battleship
 
         private void btnUndo_6_Click(object sender, EventArgs e)
         {
-            UndoShipPlacement(boatclick_P2, P2);
+            UndoShipPlacement(P2.boatclick, P2);
 
-            switch (boatclick_P2)
+            switch (P2.boatclick)
             {
                 case 1:
                     P2.PB.SetPlaced(false);
@@ -1810,6 +1807,38 @@ namespace KB_Battleship
                 //skips COM page
                 pg7_GameTime_COM.Visible = true;
                 pg7_GameTime_P1.Visible = true;
+
+                int avatar = P1.getAvatar();
+                int avatar2 = P2.getAvatar();
+                switch (avatar)
+                {
+                    case 1:
+                        pb_MA1_P1.Visible = true;
+                        break;
+                    case 2:
+                        pb_MA2_P1.Visible = true;
+                        break;
+                    case 3:
+                        pb_MA3_P1.Visible = true;
+                        break;
+                    default:
+                        break;
+                }
+                switch (avatar2)
+                {
+                    case 4:
+                        pb_MA4_P2.Visible = true;
+                        break;
+                    case 5:
+                        pb_MA4_P2.Visible = true;
+                        break;
+                    case 6:
+                        pb_MA6_P2.Visible = true;
+                        break;
+                    default:
+                        break;
+                }
+                
                 P1.setTurn(true);
                 P2.setTurn(false);
             }
@@ -1835,18 +1864,18 @@ namespace KB_Battleship
             int y = Convert.ToInt32(Math.Floor(e.Y / 30.0)) + 1;
 
             //for the Patrol Boat
-            if (boatclick_P2 == 1)
-                DrawShipPlacement(x, y, P2.PB);
+            if (P2.boatclick == 1)
+                DrawShipPlacement(x, y, P2.PB, P2, pb_PlaceShips_P2);
 
             //do it in a method that passes the Boat name
-            else if (boatclick_P2 == 2)
-                DrawShipPlacement(x, y, P2.SUB);
-            else if (boatclick_P2 == 3)
-                DrawShipPlacement(x, y, P2.DES);
-            else if (boatclick_P2 == 4)
-                DrawShipPlacement(x, y, P2.BAT);
-            else //boatclick_P2 == 5
-                DrawShipPlacement(x, y, P2.AIR);
+            else if (P2.boatclick == 2)
+                DrawShipPlacement(x, y, P2.SUB, P2, pb_PlaceShips_P2);
+            else if (P2.boatclick == 3)
+                DrawShipPlacement(x, y, P2.DES, P2, pb_PlaceShips_P2);
+            else if (P2.boatclick == 4)
+                DrawShipPlacement(x, y, P2.BAT, P2, pb_PlaceShips_P2);
+            else //P2.boatclick == 5
+                DrawShipPlacement(x, y, P2.AIR, P2, pb_PlaceShips_P2);
         }
 
         #region vs Computer
