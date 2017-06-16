@@ -32,7 +32,6 @@ namespace KB_Battleship
         int boatclick_P1 = 0;
         int boatclick_P2 = 0;
         
-
         Player P1 = new Player();
         Player P2 = new Player();
         #endregion
