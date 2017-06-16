@@ -198,7 +198,7 @@ namespace KB_Battleship
                 else
                     DirectionVertical = true;
             }
-            public void Randomize(Random rnd, int[,] PlayerArray
+            public void Randomize(Random rnd, int[,] PlayerArray)
             {
                 int i, x, y, Orientation, EmptyCounter;
 
@@ -669,6 +669,7 @@ namespace KB_Battleship
                 return PlayerArray;
             }
             //-------------------------------------------------//
+
             public bool isWinner()
             {
                 //needs win condition 
