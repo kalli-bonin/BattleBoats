@@ -1966,6 +1966,7 @@ namespace KB_Battleship
                 {
                     if (P2.getTargetModeHR() == true)
                     {
+                        //checks if point is out of bounds 
                         if (P2.getLastHit().X + 1 <= 9)
                         {
                             if (P1.getPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y) > 0)
