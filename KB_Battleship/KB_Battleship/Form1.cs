@@ -37,7 +37,7 @@ namespace KB_Battleship
         bool slct_A3_P2 = false;
         
         Player P1 = new Player();
-        Player P2 = new Player();
+        Player P2 = new Player("Player2");
         #endregion
         
         private void Form1_Load(object sender, EventArgs e)
@@ -165,7 +165,7 @@ namespace KB_Battleship
             {
                 if ((HitCount == Size) && (DeathMessage == false))
                 {
-                    MessageBox.Show("Your" + Name + "is dead.");
+                    MessageBox.Show (P.getName() + "'s " + Name + " is dead.");
                     DeathMessage = true;
                     P.ResetHuntMode();
                     return true;
@@ -315,6 +315,14 @@ namespace KB_Battleship
         {
             public Player()
             {
+                Name = "Player1";
+                iScore = 0;
+                iAvatar = 1;
+                HitCount = 0;
+            }
+            public Player(string s)
+            {
+                Name = s;
                 iScore = 0;
                 iAvatar = 1;
                 HitCount = 0;
@@ -326,9 +334,19 @@ namespace KB_Battleship
             public Ships BAT = new Ships("Battleship", 4, 0, 0, 0, false, false, 4);
             public Ships AIR = new Ships("Aircraft", 5, 0, 0, 0, false, false, 5);
 
+            protected string Name;
             protected int iScore;
             protected int iAvatar;
             protected int HitCount;
+
+            public void setName(string s)
+            {
+                Name = s;
+            }
+            public string getName()
+            {
+                return Name;
+            }
 
             //stores player ship information///////////////
             protected int[,] PlayerArray = new int[10, 10];
@@ -400,7 +418,6 @@ namespace KB_Battleship
             public void ClearToHitPoints()
             {
                 ToHit.Clear();
-                ToHit.TrimExcess();
             }
             //---------------------------------------------//
 
@@ -1954,6 +1971,11 @@ namespace KB_Battleship
                 if (P1.checkHit(P2, x, y) == 1)
                 {
                     P1.SwitchTurn(P2);
+                    P2.PB.IsDead(P1);
+                    P2.SUB.IsDead(P1);
+                    P2.DES.IsDead(P1);
+                    P2.BAT.IsDead(P1);
+                    P2.AIR.IsDead(P1);
                 }
                 else
                 {
