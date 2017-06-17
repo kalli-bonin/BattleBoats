@@ -502,22 +502,23 @@ namespace KB_Battleship
                 }
             }
 
-            public void checkHit(Player other, int x, int y)
+            public int checkHit(Player other, int x, int y)
             {
                 if (other.getPlayerArray(x - 1, y - 1) > 0)
                 {
                     other.setPlayerArray(x - 1, y - 1, -1); //-1 = hit
                     other.setHitCount(this.getHitCount() + 1);
-                    this.SwitchTurn(other);
+                    return 1;
+
                 }
                 else if (other.getPlayerArray(x - 1, y - 1) == 0)
                 {
                     other.setPlayerArray(x - 1, y - 1, -2); //-2 = miss
-                    this.SwitchTurn(other);
+                    return 1;
                 }
                 else
                 {
-                    return;
+                    return 2; //spot already hit, nothing happens
                 }
             }
 
@@ -1920,10 +1921,17 @@ namespace KB_Battleship
 
             if (P1.getTurn() == true)
             {
-                P1.checkHit(P2, x, y);
-                pb_COM_Grid.Invalidate();
+                if (P1.checkHit(P2, x, y) == 1)
+                {
+                    P1.SwitchTurn(P2);
+                }
+                else
+                {
+                    return;
+                }
+                
             }
-            
+            pb_COM_Grid.Invalidate();
             if (P1.isWinner() == true)
             {
                 pb_P1_Grid.Enabled = false;
