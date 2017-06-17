@@ -460,6 +460,34 @@ namespace KB_Battleship
             {
                 return HitCount;
             }
+            public void ShipHitCounter(Player P, int index)
+            {
+                if (index == 1)
+                {
+                    PB.SetHitCount(PB.GetHitCount() + 1);
+                }
+                else if (index == 2)
+                {
+                    SUB.SetHitCount(SUB.GetHitCount() + 1);
+                }
+                else if (index == 3)
+                {
+                    DES.SetHitCount(DES.GetHitCount() + 1);
+                }
+                else if (index == 4)
+                {
+                    BAT.SetHitCount(BAT.GetHitCount() + 1);
+                }
+                else if (index == 5)
+                {
+                    AIR.SetHitCount(AIR.GetHitCount() + 1);
+                }
+                else
+                {
+
+                }
+                P.setHitCount(P.getHitCount() + 1);
+            }
 
             //playerArray
             public int getPlayerArray(int x, int y)
@@ -506,8 +534,9 @@ namespace KB_Battleship
             {
                 if (other.getPlayerArray(x - 1, y - 1) > 0)
                 {
+                    other.ShipHitCounter(this, other.getPlayerArray(x-1, y-1));
                     other.setPlayerArray(x - 1, y - 1, -1); //-1 = hit
-                    other.setHitCount(this.getHitCount() + 1);
+                    //other.setHitCount(this.getHitCount() + 1);
                     return 1;
 
                 }
@@ -1945,35 +1974,6 @@ namespace KB_Battleship
             }
         }
 
-        private void ShipHitCounter(int index)
-        {
-            if (index == 1)
-            {
-                P1.PB.SetHitCount(P1.PB.GetHitCount() + 1);
-            }
-            else if (index == 2)
-            {
-                P1.SUB.SetHitCount(P1.SUB.GetHitCount() + 1);
-            }
-            else if (index == 3)
-            {
-                P1.DES.SetHitCount(P1.DES.GetHitCount() + 1);
-            }
-            else if (index == 4)
-            {
-                P1.BAT.SetHitCount(P1.BAT.GetHitCount() + 1);
-            }
-            else if (index == 5)
-            {
-                P1.AIR.SetHitCount(P1.AIR.GetHitCount() + 1);
-            }
-            else
-            {
-
-            }
-            P2.setHitCount(P2.getHitCount() + 1);
-        }
-
         private void TurnCOM()
         {
             while (P2.getTurn() == true)
@@ -1988,7 +1988,7 @@ namespace KB_Battleship
                         {
                             if (P1.getPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y) > 0)
                             {
-                                ShipHitCounter(P1.getPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y));
+                                P1.ShipHitCounter(P2,P1.getPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y));
                                 P1.setPlayerArray(P2.getLastHit().X + 1, P2.getLastHit().Y, -1);
                                 P2.setLastHit(P2.getLastHit().X + 1, P2.getLastHit().Y);
                                 P1.SwitchTurn(P2);
@@ -2025,7 +2025,7 @@ namespace KB_Battleship
                         {
                             if (P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y) > 0)
                             {
-                                ShipHitCounter(P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y));
+                                P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y));
                                 P1.setPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y, -1);
                                 P2.setLastHit(P2.getLastHit().X - 1, P2.getLastHit().Y);
                                 P1.SwitchTurn(P2);
@@ -2062,7 +2062,7 @@ namespace KB_Battleship
                             if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1) > 0)
                             {
 
-                                ShipHitCounter(P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1));
+                                P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1));
                                 P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1, -1);
                                 P2.setLastHit(P2.getLastHit().X, P2.getLastHit().Y - 1);
                                 P1.SwitchTurn(P2);
@@ -2098,7 +2098,7 @@ namespace KB_Battleship
                         {
                             if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1) > 0)
                             {
-                                ShipHitCounter(P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1));
+                                P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1));
                                 P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1, -1);
                                 P2.setLastHit(P2.getLastHit().X, P2.getLastHit().Y + 1);
                                 P1.SwitchTurn(P2);
@@ -2143,7 +2143,7 @@ namespace KB_Battleship
                         //if random hits ship 
                         if (P1.getPlayerArray(x, y) > 0)
                         {
-                            ShipHitCounter(P1.getPlayerArray(x, y));
+                            P1.ShipHitCounter(P2, P1.getPlayerArray(x, y));
                             //store first point hit of a ship
                             P2.setFirstHit(x, y);
                             P1.setPlayerArray(x, y, -1);
@@ -2194,7 +2194,7 @@ namespace KB_Battleship
                                 //Future hits go right
                                 P2.setTargetModeHR(true);
                                 P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
-                                ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
+                                P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getToHitPoint()));
                                 P1.setPlayerArray(P2.getToHitPoint(), -1);
                                 P2.ClearToHitPoints();
                                 P2.setHunt(true);
@@ -2212,7 +2212,7 @@ namespace KB_Battleship
                                 //Future hits go left
                                 P2.setTargetModeHL(true);
                                 P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
-                                ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
+                                P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getToHitPoint()));
                                 P1.setPlayerArray(P2.getToHitPoint(), -1);
                                 P2.ClearToHitPoints();
                                 P2.setHunt(true);
@@ -2231,7 +2231,7 @@ namespace KB_Battleship
                                 //Future hits go down
                                 P2.setTargetModeVD(true);
                                 P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
-                                ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
+                                P1.ShipHitCounter(P2,P1.getPlayerArray(P2.getToHitPoint()));
                                 P1.setPlayerArray(P2.getToHitPoint(), -1);
                                 P2.ClearToHitPoints();
                                 P2.setHunt(true);
@@ -2250,7 +2250,7 @@ namespace KB_Battleship
                                 //Future hits go up
                                 P2.setTargetModeVU(true);
                                 P2.setLastHit(P2.getToHitPoint().X, P2.getToHitPoint().Y);
-                                ShipHitCounter(P1.getPlayerArray(P2.getToHitPoint()));
+                                P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getToHitPoint()));
                                 P1.setPlayerArray(P2.getToHitPoint(), -1);
                                 P2.ClearToHitPoints();
                                 P2.setHunt(true);
