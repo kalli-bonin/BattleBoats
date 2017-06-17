@@ -15,17 +15,24 @@ namespace KB_Battleship
     public partial class Form1 : Form
     {
         
+
         public Form1()
         {
+            
+
             InitializeComponent();
 
             //plays bgm
-            System.Media.SoundPlayer mymusic = new System.Media.SoundPlayer();
-            mymusic.SoundLocation = "BGM_1.wav";
-            mymusic.Play();
-        }
-        
+            System.Media.SoundPlayer bgm_music = new System.Media.SoundPlayer();
+            bgm_music.SoundLocation = "BGM_1.wav";
+            bgm_music.PlayLooping();
 
+            
+
+
+        }
+
+      
         #region declarations
         //mouse graphics for selected avatar - player 1
         bool slct_A1_P1 = false;
@@ -819,6 +826,7 @@ namespace KB_Battleship
         private void btnStart_Click(object sender, EventArgs e)
         {
             pg1_Instructions.Visible = true;
+            
         }
 
         #region btnNext_1 graphics
@@ -1380,6 +1388,26 @@ namespace KB_Battleship
             pg5_Avatar_P2.Visible = true;
             pg6_SetBoard_P2.Visible = true;
             pg7_GameTime_COM.Visible = true;
+            int avatar = P1.getAvatar();
+            {
+                switch (avatar)
+                {
+                    case 1:
+                        pb_MA1_P1.Visible = true;
+                        break;
+                    case 2:
+                        pb_MA2_P1.Visible = true;
+                        break;
+                    case 3:
+                        pb_MA3_P1.Visible = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+
+
             randomizeGrid(P2);
         }
 
