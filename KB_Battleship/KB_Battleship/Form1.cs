@@ -500,10 +500,12 @@ namespace KB_Battleship
                 {
                     other.setPlayerArray(x - 1, y - 1, -1); //-1 = hit
                     other.setHitCount(this.getHitCount() + 1);
+                    this.SwitchTurn(other);
                 }
                 else if (other.getPlayerArray(x - 1, y - 1) == 0)
                 {
                     other.setPlayerArray(x - 1, y - 1, -2); //-2 = miss
+                    this.SwitchTurn(other);
                 }
                 else
                 {
@@ -1894,9 +1896,7 @@ namespace KB_Battleship
             if (P1.getTurn() == true)
             {
                 P1.checkHit(P2, x, y);
-
                 pb_COM_Grid.Invalidate();
-                P1.SwitchTurn(P2);
             }
             
             if (P1.isWinner() == true)
@@ -2256,9 +2256,7 @@ namespace KB_Battleship
 
             }
         }
-
-
-
+        
         private void pb_P1_Grid_Paint(object sender, PaintEventArgs e)
         {
             PaintGrid(P1, e.Graphics, pb_P1_Grid);
