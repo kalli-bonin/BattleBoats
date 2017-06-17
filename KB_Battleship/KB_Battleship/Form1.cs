@@ -44,7 +44,7 @@ namespace KB_Battleship
         bool slct_A3_P2 = false;
         
         Player P1 = new Player();
-        Player P2 = new Player();
+        Player P2 = new Player();       //COM or actualy player two
         #endregion
         
         private void Form1_Load(object sender, EventArgs e)
@@ -168,23 +168,25 @@ namespace KB_Battleship
             {
                 Placed = P;
             }
-            public bool IsDead(Player P)
+            
+            public int IsDead(Player P)
             {
                 if ((HitCount == Size) && (DeathMessage == false))
                 {
-                    MessageBox.Show("Your" + Name + "is dead.");
+                    
+                    //MessageBox.Show("Your " +  Name + " is dead.");
                     DeathMessage = true;
                     P.ResetHuntMode();
-                    return true;
+                    return 1;
                 }
                 else if ((HitCount == Size) && (DeathMessage == true))
                 {
-                    return true;
+                    return -1;
                 }
 
                 else
                 {
-                    return false;
+                    return 0;
                 }
 
             }
@@ -472,23 +474,24 @@ namespace KB_Battleship
             {
                 if (index == 1)
                 {
-                    PB.SetHitCount(PB.GetHitCount() + 1);
+                    PB.Hit();
                 }
                 else if (index == 2)
                 {
-                    SUB.SetHitCount(SUB.GetHitCount() + 1);
+                    SUB.Hit();
                 }
                 else if (index == 3)
                 {
-                    DES.SetHitCount(DES.GetHitCount() + 1);
+                    DES.Hit();
                 }
                 else if (index == 4)
                 {
-                    BAT.SetHitCount(BAT.GetHitCount() + 1);
+                    BAT.Hit();
+                    
                 }
                 else if (index == 5)
                 {
-                    AIR.SetHitCount(AIR.GetHitCount() + 1);
+                    AIR.Hit();
                 }
                 else
                 {
@@ -805,6 +808,29 @@ namespace KB_Battleship
                 }
             }
             //pb.Invalidate();
+        }
+        public void SendDeathMessage(Ships S, Player P2, int Index )
+        {
+            int dead = 0;
+
+            dead = S.IsDead(P2);
+            
+            if (dead == 1)
+            {
+                if(Index==1)
+                {
+                    txtP1_COM.Text = "Our " + S.GetName() + " has been sunk!";
+                    txtCOM_COM.Text = "Ha! Take That!";
+                }
+                else if (Index==2)
+                {
+                    txtCOM_COM.Text= "You killed our " + S.GetName() + "!";
+                    txtP1_COM.Text = "Good Job!";
+
+                }
+                
+            }
+
         }
 
         #region mouse graphics
@@ -1421,6 +1447,7 @@ namespace KB_Battleship
             pg5_Avatar_P2.Visible = true;
             pg6_SetBoard_P2.Visible = true;
             pg7_GameTime_COM.Visible = true;
+
             int avatar = P1.getAvatar();
             {
                 switch (avatar)
@@ -1982,6 +2009,15 @@ namespace KB_Battleship
                 if (P1.checkHit(P2, x, y) == 1)
                 {
                     P1.SwitchTurn(P2);
+
+                    
+                    SendDeathMessage(P2.PB, P2, 2);
+                    SendDeathMessage(P2.SUB, P2, 2);
+                    SendDeathMessage(P2.DES, P2, 2);
+                    SendDeathMessage(P2.BAT, P2, 2);
+                    SendDeathMessage(P2.AIR, P2, 2);
+
+                    
                 }
                 else
                 {
@@ -2299,12 +2335,12 @@ namespace KB_Battleship
                     
                     
                 }
-                P1.PB.IsDead(P2);
-                P1.SUB.IsDead(P2);
-                P1.DES.IsDead(P2);
-                P1.BAT.IsDead(P2);
-                P1.AIR.IsDead(P2);
-                
+
+                SendDeathMessage(P1.PB, P2,1);
+                SendDeathMessage(P1.SUB, P2, 1);
+                SendDeathMessage(P1.DES, P2, 1);
+                SendDeathMessage(P1.BAT, P2, 1);
+                SendDeathMessage(P1.AIR, P2, 1);
             }
 
             pb_P1_Grid.Invalidate();
