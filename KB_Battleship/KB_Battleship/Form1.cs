@@ -329,7 +329,7 @@ namespace KB_Battleship
                 HitCount = 0;
             }
 
-            public Ships PB = new Ships("PatrolBoat", 2, 0, 0, 0, false, false, 1);
+            public Ships PB = new Ships("Patrol Boat", 2, 0, 0, 0, false, false, 1);
             public Ships SUB = new Ships("Submarine", 3, 0, 0, 0, false, false, 2);
             public Ships DES = new Ships("Destroyer", 3, 0, 0, 0, false, false, 3);
             public Ships BAT = new Ships("Battleship", 4, 0, 0, 0, false, false, 4);
@@ -814,21 +814,48 @@ namespace KB_Battleship
             int dead = 0;
 
             dead = S.IsDead(P2);
-            
+
             if (dead == 1)
             {
-                if(Index==1)
+                switch (Index)
                 {
-                    txtP1_COM.Text = "Our " + S.GetName() + " has been sunk!";
-                    txtCOM_COM.Text = "Ha! Take That!";
-                }
-                else if (Index==2)
-                {
-                    txtCOM_COM.Text= "You killed our " + S.GetName() + "!";
-                    txtP1_COM.Text = "Good Job!";
 
+
+                    case 1:
+                        
+                            txtP1_COM.Text = "Our " + S.GetName() + " has been sunk!";
+                            txtCOM_COM.Text = "Ha! Take That!";
+                            break;
+                        
+                    case 2:
+                        
+                            txtCOM_COM.Text = "You killed our " + S.GetName() + "!";
+                            txtP1_COM.Text = "Good Job!";
+                            break;
+
+                        
+                    case 3:
+                        
+                            txtP1onP1.Text = "Good Job! You killed their " + S.GetName() + "!";
+                            txtP2onP1.Text = "No! Our " + S.GetName() + "!";
+
+                            txtP1onP2.Text = "Good Job! Their " + S.GetName() + " is sunk!";
+                            txtP2onP2.Text = "No! Our " + S.GetName() + " was sunk!";
+
+                            break;
+                        
+                    case 4:
+                        
+                            txtP1onP2.Text = "Oh no, our " + S.GetName() + " is sunk!";
+                            txtP2onP2.Text = "Good Job! You sunk their " + S.GetName() + " !";
+
+                            txtP1onP1.Text = "Your " + S.GetName() + " was sunk!";
+                            txtP2onP1.Text = "Nice going! Their " + S.GetName() + " is done for!";
+                            break;
+                        
+                    default:
+                        break;
                 }
-                
             }
 
         }
@@ -2391,6 +2418,12 @@ namespace KB_Battleship
 
                 pb_P2onP1.Invalidate();
                 P1.SwitchTurn(P2);
+
+                SendDeathMessage(P2.PB, P2, 3);
+                SendDeathMessage(P2.SUB, P2, 3);
+                SendDeathMessage(P2.DES, P2, 3);
+                SendDeathMessage(P2.BAT, P2, 3);
+                SendDeathMessage(P2.AIR, P2, 3);
             }
 
             if (P1.isWinner() == true)
@@ -2469,6 +2502,12 @@ namespace KB_Battleship
 
                 pb_P1onP2.Invalidate();
                 P2.SwitchTurn(P1);
+
+                SendDeathMessage(P1.PB, P2, 4);
+                SendDeathMessage(P1.SUB, P2, 4);
+                SendDeathMessage(P1.DES, P2, 4);
+                SendDeathMessage(P1.BAT, P2, 4);
+                SendDeathMessage(P1.AIR, P2, 4);
             }
 
             if (P2.isWinner() == true)

@@ -287,6 +287,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCOM_COM = new System.Windows.Forms.TextBox();
+            this.txtP1onP1 = new System.Windows.Forms.TextBox();
+            this.txtP2onP1 = new System.Windows.Forms.TextBox();
+            this.txtP2onP2 = new System.Windows.Forms.TextBox();
+            this.txtP1onP2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHomescreen)).BeginInit();
             this.pg1_Instructions.SuspendLayout();
             this.pg2_Avatar_P1.SuspendLayout();
@@ -518,9 +522,9 @@
             // 
             // pg7_GameTime_COM
             // 
+            this.pg7_GameTime_COM.Controls.Add(this.pg7_GameTime_P1);
             this.pg7_GameTime_COM.Controls.Add(this.txtCOM_COM);
             this.pg7_GameTime_COM.Controls.Add(this.txtP1_COM);
-            this.pg7_GameTime_COM.Controls.Add(this.pg7_GameTime_P1);
             this.pg7_GameTime_COM.Controls.Add(this.pb_MA_P2);
             this.pg7_GameTime_COM.Controls.Add(this.pb_MA3_P1);
             this.pg7_GameTime_COM.Controls.Add(this.pb_MA2_P1);
@@ -575,7 +579,7 @@
             // 
             // txtP1_COM
             // 
-            this.txtP1_COM.Location = new System.Drawing.Point(163, 18);
+            this.txtP1_COM.Location = new System.Drawing.Point(161, 18);
             this.txtP1_COM.Multiline = true;
             this.txtP1_COM.Name = "txtP1_COM";
             this.txtP1_COM.Size = new System.Drawing.Size(183, 89);
@@ -584,6 +588,8 @@
             // pg7_GameTime_P1
             // 
             this.pg7_GameTime_P1.Controls.Add(this.pg8_GameTime_P2);
+            this.pg7_GameTime_P1.Controls.Add(this.txtP1onP1);
+            this.pg7_GameTime_P1.Controls.Add(this.txtP2onP1);
             this.pg7_GameTime_P1.Controls.Add(this.pb_MA6_P2onP1);
             this.pg7_GameTime_P1.Controls.Add(this.pb_MA5_P2onP1);
             this.pg7_GameTime_P1.Controls.Add(this.pb_MA3_P1onP1);
@@ -634,13 +640,16 @@
             this.pg7_GameTime_P1.Controls.Add(this.label128);
             this.pg7_GameTime_P1.Controls.Add(this.label129);
             this.pg7_GameTime_P1.Controls.Add(this.pb_P1onP1);
-            this.pg7_GameTime_P1.Location = new System.Drawing.Point(3, 230);
+            this.pg7_GameTime_P1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pg7_GameTime_P1.Location = new System.Drawing.Point(0, 0);
             this.pg7_GameTime_P1.Name = "pg7_GameTime_P1";
             this.pg7_GameTime_P1.Size = new System.Drawing.Size(796, 459);
             this.pg7_GameTime_P1.TabIndex = 113;
             // 
             // pg8_GameTime_P2
             // 
+            this.pg8_GameTime_P2.Controls.Add(this.txtP1onP2);
+            this.pg8_GameTime_P2.Controls.Add(this.txtP2onP2);
             this.pg8_GameTime_P2.Controls.Add(this.btnNext_8);
             this.pg8_GameTime_P2.Controls.Add(this.pb_MA2_P1onP2);
             this.pg8_GameTime_P2.Controls.Add(this.pb_MA1_P1onP2);
@@ -691,7 +700,8 @@
             this.pg8_GameTime_P2.Controls.Add(this.pb_MA6_P2onP2);
             this.pg8_GameTime_P2.Controls.Add(this.pb_MA5_P2onP2);
             this.pg8_GameTime_P2.Controls.Add(this.pb_MA3_P1onP2);
-            this.pg8_GameTime_P2.Location = new System.Drawing.Point(3, 339);
+            this.pg8_GameTime_P2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pg8_GameTime_P2.Location = new System.Drawing.Point(0, 0);
             this.pg8_GameTime_P2.Name = "pg8_GameTime_P2";
             this.pg8_GameTime_P2.Size = new System.Drawing.Size(796, 459);
             this.pg8_GameTime_P2.TabIndex = 119;
@@ -3101,11 +3111,43 @@
             // 
             // txtCOM_COM
             // 
-            this.txtCOM_COM.Location = new System.Drawing.Point(565, 17);
+            this.txtCOM_COM.Location = new System.Drawing.Point(572, 18);
             this.txtCOM_COM.Multiline = true;
             this.txtCOM_COM.Name = "txtCOM_COM";
             this.txtCOM_COM.Size = new System.Drawing.Size(183, 89);
             this.txtCOM_COM.TabIndex = 115;
+            // 
+            // txtP1onP1
+            // 
+            this.txtP1onP1.Location = new System.Drawing.Point(161, 18);
+            this.txtP1onP1.Multiline = true;
+            this.txtP1onP1.Name = "txtP1onP1";
+            this.txtP1onP1.Size = new System.Drawing.Size(183, 89);
+            this.txtP1onP1.TabIndex = 120;
+            // 
+            // txtP2onP1
+            // 
+            this.txtP2onP1.Location = new System.Drawing.Point(572, 18);
+            this.txtP2onP1.Multiline = true;
+            this.txtP2onP1.Name = "txtP2onP1";
+            this.txtP2onP1.Size = new System.Drawing.Size(183, 89);
+            this.txtP2onP1.TabIndex = 121;
+            // 
+            // txtP2onP2
+            // 
+            this.txtP2onP2.Location = new System.Drawing.Point(161, 18);
+            this.txtP2onP2.Multiline = true;
+            this.txtP2onP2.Name = "txtP2onP2";
+            this.txtP2onP2.Size = new System.Drawing.Size(183, 89);
+            this.txtP2onP2.TabIndex = 120;
+            // 
+            // txtP1onP2
+            // 
+            this.txtP1onP2.Location = new System.Drawing.Point(572, 18);
+            this.txtP1onP2.Multiline = true;
+            this.txtP1onP2.Name = "txtP1onP2";
+            this.txtP1onP2.Size = new System.Drawing.Size(183, 89);
+            this.txtP1onP2.TabIndex = 120;
             // 
             // Form1
             // 
@@ -3442,6 +3484,10 @@
         private System.Windows.Forms.PictureBox pb_MA2_P1;
         private System.Windows.Forms.TextBox txtP1_COM;
         private System.Windows.Forms.TextBox txtCOM_COM;
+        private System.Windows.Forms.TextBox txtP2onP1;
+        private System.Windows.Forms.TextBox txtP1onP1;
+        private System.Windows.Forms.TextBox txtP1onP2;
+        private System.Windows.Forms.TextBox txtP2onP2;
     }
 }
 
