@@ -43,7 +43,7 @@ namespace KB_Battleship
         bool slct_A3_P2 = false;
         
         Player P1 = new Player();
-        Player P2 = new Player("Player2");
+        Player P2 = new Player();       //COM or actualy player two
         #endregion
         
         private void Form1_Load(object sender, EventArgs e)
@@ -167,23 +167,25 @@ namespace KB_Battleship
             {
                 Placed = P;
             }
-            public bool IsDead(Player P)
+            
+            public int IsDead(Player P)
             {
                 if ((HitCount == Size) && (DeathMessage == false))
                 {
-                    MessageBox.Show (P.getName() + "'s " + Name + " is dead.");
+                    
+                    //MessageBox.Show("Your " +  Name + " is dead.");
                     DeathMessage = true;
                     P.ResetHuntMode();
-                    return true;
+                    return 1;
                 }
                 else if ((HitCount == Size) && (DeathMessage == true))
                 {
-                    return true;
+                    return -1;
                 }
 
                 else
                 {
-                    return false;
+                    return 0;
                 }
 
             }
@@ -321,38 +323,20 @@ namespace KB_Battleship
         {
             public Player()
             {
-                Name = "Player1";
-                iScore = 0;
-                iAvatar = 1;
-                HitCount = 0;
-            }
-            public Player(string s)
-            {
-                Name = s;
                 iScore = 0;
                 iAvatar = 1;
                 HitCount = 0;
             }
 
-            public Ships PB = new Ships("PatrolBoat", 2, 0, 0, 0, false, false, 1);
+            public Ships PB = new Ships("Patrol Boat", 2, 0, 0, 0, false, false, 1);
             public Ships SUB = new Ships("Submarine", 3, 0, 0, 0, false, false, 2);
             public Ships DES = new Ships("Destroyer", 3, 0, 0, 0, false, false, 3);
             public Ships BAT = new Ships("Battleship", 4, 0, 0, 0, false, false, 4);
             public Ships AIR = new Ships("Aircraft", 5, 0, 0, 0, false, false, 5);
 
-            protected string Name;
             protected int iScore;
             protected int iAvatar;
             protected int HitCount;
-
-            public void setName(string s)
-            {
-                Name = s;
-            }
-            public string getName()
-            {
-                return Name;
-            }
 
             //stores player ship information///////////////
             protected int[,] PlayerArray = new int[10, 10];
@@ -424,6 +408,7 @@ namespace KB_Battleship
             public void ClearToHitPoints()
             {
                 ToHit.Clear();
+                ToHit.TrimExcess();
             }
             //---------------------------------------------//
 
@@ -488,23 +473,24 @@ namespace KB_Battleship
             {
                 if (index == 1)
                 {
-                    PB.SetHitCount(PB.GetHitCount() + 1);
+                    PB.Hit();
                 }
                 else if (index == 2)
                 {
-                    SUB.SetHitCount(SUB.GetHitCount() + 1);
+                    SUB.Hit();
                 }
                 else if (index == 3)
                 {
-                    DES.SetHitCount(DES.GetHitCount() + 1);
+                    DES.Hit();
                 }
                 else if (index == 4)
                 {
-                    BAT.SetHitCount(BAT.GetHitCount() + 1);
+                    BAT.Hit();
+                    
                 }
                 else if (index == 5)
                 {
-                    AIR.SetHitCount(AIR.GetHitCount() + 1);
+                    AIR.Hit();
                 }
                 else
                 {
@@ -821,6 +807,56 @@ namespace KB_Battleship
                 }
             }
             //pb.Invalidate();
+        }
+        public void SendDeathMessage(Ships S, Player P2, int Index )
+        {
+            int dead = 0;
+
+            dead = S.IsDead(P2);
+
+            if (dead == 1)
+            {
+                switch (Index)
+                {
+
+
+                    case 1:
+                        
+                            txtP1_COM.Text = "Our " + S.GetName() + " has been sunk!";
+                            txtCOM_COM.Text = "Ha! Take That!";
+                            break;
+                        
+                    case 2:
+                        
+                            txtCOM_COM.Text = "You killed our " + S.GetName() + "!";
+                            txtP1_COM.Text = "Good Job!";
+                            break;
+
+                        
+                    case 3:
+                        
+                            txtP1onP1.Text = "Good Job! You killed their " + S.GetName() + "!";
+                            txtP2onP1.Text = "No! Our " + S.GetName() + "!";
+
+                            txtP1onP2.Text = "Good Job! Their " + S.GetName() + " is sunk!";
+                            txtP2onP2.Text = "No! Our " + S.GetName() + " was sunk!";
+
+                            break;
+                        
+                    case 4:
+                        
+                            txtP1onP2.Text = "Oh no, our " + S.GetName() + " is sunk!";
+                            txtP2onP2.Text = "Good Job! You sunk their " + S.GetName() + " !";
+
+                            txtP1onP1.Text = "Your " + S.GetName() + " was sunk!";
+                            txtP2onP1.Text = "Nice going! Their " + S.GetName() + " is done for!";
+                            break;
+                        
+                    default:
+                        break;
+                }
+            }
+
         }
 
         #region mouse graphics
@@ -1437,6 +1473,7 @@ namespace KB_Battleship
             pg5_Avatar_P2.Visible = true;
             pg6_SetBoard_P2.Visible = true;
             pg7_GameTime_COM.Visible = true;
+
             int avatar = P1.getAvatar();
             {
                 switch (avatar)
@@ -1998,11 +2035,15 @@ namespace KB_Battleship
                 if (P1.checkHit(P2, x, y) == 1)
                 {
                     P1.SwitchTurn(P2);
-                    P2.PB.IsDead(P1);
-                    P2.SUB.IsDead(P1);
-                    P2.DES.IsDead(P1);
-                    P2.BAT.IsDead(P1);
-                    P2.AIR.IsDead(P1);
+
+                    
+                    SendDeathMessage(P2.PB, P2, 2);
+                    SendDeathMessage(P2.SUB, P2, 2);
+                    SendDeathMessage(P2.DES, P2, 2);
+                    SendDeathMessage(P2.BAT, P2, 2);
+                    SendDeathMessage(P2.AIR, P2, 2);
+
+                    
                 }
                 else
                 {
@@ -2320,12 +2361,12 @@ namespace KB_Battleship
                     
                     
                 }
-                P1.PB.IsDead(P2);
-                P1.SUB.IsDead(P2);
-                P1.DES.IsDead(P2);
-                P1.BAT.IsDead(P2);
-                P1.AIR.IsDead(P2);
-                
+
+                SendDeathMessage(P1.PB, P2,1);
+                SendDeathMessage(P1.SUB, P2, 1);
+                SendDeathMessage(P1.DES, P2, 1);
+                SendDeathMessage(P1.BAT, P2, 1);
+                SendDeathMessage(P1.AIR, P2, 1);
             }
 
             pb_P1_Grid.Invalidate();
@@ -2376,6 +2417,12 @@ namespace KB_Battleship
 
                 pb_P2onP1.Invalidate();
                 P1.SwitchTurn(P2);
+
+                SendDeathMessage(P2.PB, P2, 3);
+                SendDeathMessage(P2.SUB, P2, 3);
+                SendDeathMessage(P2.DES, P2, 3);
+                SendDeathMessage(P2.BAT, P2, 3);
+                SendDeathMessage(P2.AIR, P2, 3);
             }
 
             if (P1.isWinner() == true)
@@ -2454,6 +2501,12 @@ namespace KB_Battleship
 
                 pb_P1onP2.Invalidate();
                 P2.SwitchTurn(P1);
+
+                SendDeathMessage(P1.PB, P2, 4);
+                SendDeathMessage(P1.SUB, P2, 4);
+                SendDeathMessage(P1.DES, P2, 4);
+                SendDeathMessage(P1.BAT, P2, 4);
+                SendDeathMessage(P1.AIR, P2, 4);
             }
 
             if (P2.isWinner() == true)
