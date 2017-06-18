@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.IO;
 
 
 namespace KB_Battleship
@@ -20,15 +21,12 @@ namespace KB_Battleship
             
 
             InitializeComponent();
-
+            //load save data
+            LoadData();
             //plays bgm
             System.Media.SoundPlayer bgm_music = new System.Media.SoundPlayer();
             bgm_music.SoundLocation = "BGM_1.wav";
             bgm_music.PlayLooping();
-
-            
-
-
         }
 
       
@@ -64,11 +62,52 @@ namespace KB_Battleship
 
         private void SaveData()
         {
+            try
+            {
+                //writer and open/create file
+                //saves file to bin folder 
+                FileStream fs = new FileStream(".\\Save.bin", FileMode.OpenOrCreate);
+                BinaryWriter binWriter = new BinaryWriter(fs);
 
+                binWriter.Write(P1.getScore());
+                binWriter.Write(P2.getScore());
+
+                binWriter.Flush();
+                binWriter.Close();
+            }
+            catch
+            {
+                MessageBox.Show("File error!");
+            }
         }
         private void LoadData()
         {
+            try
+            {
+                //check if save file exists
+                if (File.Exists(".\\Save.bin") == true)
+                {
+                    //create binary reader
+                    FileStream fs = new FileStream(".\\Save.bin", FileMode.Open);
+                    BinaryReader binReader = new BinaryReader(fs);
+                    long length = binReader.BaseStream.Length;
 
+                    while (fs.Position < length)
+                    {
+                        P1.setScore(binReader.ReadInt32());
+                        P2.setScore(binReader.ReadInt32());
+                    }
+                }
+                else
+                {
+
+                }
+                
+            }
+            catch
+            {
+
+            }
         }
         public class Ships
         {
@@ -2084,6 +2123,19 @@ namespace KB_Battleship
                 DrawShipPlacement(x, y, P2.AIR, P2, pb_PlaceShips_P2);
         }
 
+        private void LoadStatistics()
+        {
+            //P1
+            lbl_P1_Won.Text = ("Games Won: " + P1.getScore());
+            lbl_P1_Lost.Text = ("Games Lost: " + P2.getScore());
+            lbl_P1_Percentage.Text = ("Win Percentage: " + (P1.getScore() / (P1.getScore() + P2.getScore())));
+
+            //P2
+            lbl_P2_Won.Text = ("Games Won: " + P2.getScore());
+            lbl_P2_Lost.Text = ("Games Lost: " + P1.getScore());
+            lbl_P2_Percentage.Text = ("Win Percentage: " + (P2.getScore() / (P1.getScore() + P2.getScore())));
+        }
+
         #region vs Computer
         private void pb_COM_Grid_MouseClick(object sender, MouseEventArgs e)
         {
@@ -2117,6 +2169,7 @@ namespace KB_Battleship
                 pb_P1_Grid.Enabled = false;
                 pb_COM_Grid.Enabled = false;
                 P1.setScore(P1.getScore() + 1);
+                SaveData();
                 MessageBox.Show("You win!!!");
                 //skip pages
                 pg7_GameTime_P1.Visible = true;
@@ -2484,13 +2537,15 @@ namespace KB_Battleship
                 pb_P1_Grid.Enabled = false;
                 pb_COM_Grid.Enabled = false;
                 P2.setScore(P2.getScore() + 1);
+                SaveData();
                 MessageBox.Show("Player 2 wins!!!!");
                 //skip pages
                 pg7_GameTime_P1.Visible = true;
                 pg8_GameTime_P2.Visible = true;
                 //show page
                 pg9_GameOver.Visible = true;
-                lblWhoWon.Text = ("COM wins!");
+                lblWhoWon.Text = ("Player 2 wins!");
+                
             }
             else
             {

@@ -294,7 +294,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblWhoWon = new System.Windows.Forms.Label();
             this.lbl_P1_Won = new System.Windows.Forms.Label();
-            this.label172 = new System.Windows.Forms.Label();
+            this.lbl_P1_Lost = new System.Windows.Forms.Label();
             this.label171 = new System.Windows.Forms.Label();
             this.lbl_P1_Percentage = new System.Windows.Forms.Label();
             this.lbl_P2_Percentage = new System.Windows.Forms.Label();
@@ -719,7 +719,7 @@
             this.pg9_GameOver.Controls.Add(this.lbl_P2_Won);
             this.pg9_GameOver.Controls.Add(this.lbl_P1_Percentage);
             this.pg9_GameOver.Controls.Add(this.label171);
-            this.pg9_GameOver.Controls.Add(this.label172);
+            this.pg9_GameOver.Controls.Add(this.lbl_P1_Lost);
             this.pg9_GameOver.Controls.Add(this.lbl_P1_Won);
             this.pg9_GameOver.Controls.Add(this.lblWhoWon);
             this.pg9_GameOver.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -3199,15 +3199,15 @@
             this.lbl_P1_Won.TabIndex = 1;
             this.lbl_P1_Won.Text = "Won:";
             // 
-            // label172
+            // lbl_P1_Lost
             // 
-            this.label172.AutoSize = true;
-            this.label172.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label172.Location = new System.Drawing.Point(90, 221);
-            this.label172.Name = "label172";
-            this.label172.Size = new System.Drawing.Size(36, 16);
-            this.label172.TabIndex = 2;
-            this.label172.Text = "Lost:";
+            this.lbl_P1_Lost.AutoSize = true;
+            this.lbl_P1_Lost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_P1_Lost.Location = new System.Drawing.Point(90, 221);
+            this.lbl_P1_Lost.Name = "lbl_P1_Lost";
+            this.lbl_P1_Lost.Size = new System.Drawing.Size(36, 16);
+            this.lbl_P1_Lost.TabIndex = 2;
+            this.lbl_P1_Lost.Text = "Lost:";
             // 
             // label171
             // 
@@ -3612,7 +3612,7 @@
         private System.Windows.Forms.TextBox txtP2onP2;
         private System.Windows.Forms.Panel pg9_GameOver;
         private System.Windows.Forms.Label lblWhoWon;
-        private System.Windows.Forms.Label label172;
+        private System.Windows.Forms.Label lbl_P1_Lost;
         private System.Windows.Forms.Label lbl_P1_Won;
         private System.Windows.Forms.Label label171;
         private System.Windows.Forms.Label lbl_P2_Percentage;
