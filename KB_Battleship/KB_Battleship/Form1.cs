@@ -8,28 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.IO;
 
 
 namespace KB_Battleship
 {
     public partial class Form1 : Form
     {
-        
 
         public Form1()
         {
             
 
             InitializeComponent();
-
             //plays bgm
             System.Media.SoundPlayer bgm_music = new System.Media.SoundPlayer();
             bgm_music.SoundLocation = "BGM_1.wav";
             bgm_music.PlayLooping();
-
-            
-
-
         }
 
       
@@ -45,6 +40,8 @@ namespace KB_Battleship
         
         Player P1 = new Player();
         Player P2 = new Player();       //COM or actualy player two
+
+        bool GameStarted = false;
         #endregion
         
         private void Form1_Load(object sender, EventArgs e)
@@ -58,7 +55,106 @@ namespace KB_Battleship
             pg7_GameTime_COM.Visible = false;
             pg7_GameTime_P1.Visible  = false;
             pg8_GameTime_P2.Visible  = false;
-            //pg9_GameOver.Visible    = false;
+            pg9_GameOver.Visible = false;
+        }
+
+        private void SaveData2Player()
+        {
+            try
+            {
+                //writer and open/create file
+                //saves file to bin folder 
+                FileStream fs = new FileStream(".\\Save2Player.bin", FileMode.OpenOrCreate);
+                BinaryWriter binWriter = new BinaryWriter(fs);
+
+                binWriter.Write(P1.getScore());
+                binWriter.Write(P2.getScore());
+
+                binWriter.Flush();
+                binWriter.Close();
+            }
+            catch
+            {
+                MessageBox.Show("File error!");
+            }
+        }
+        private void SaveDataCOM()
+        {
+            try
+            {
+                //writer and open/create file
+                //saves file to bin folder 
+                FileStream fs = new FileStream(".\\SaveCOM.bin", FileMode.OpenOrCreate);
+                BinaryWriter binWriter = new BinaryWriter(fs);
+
+                binWriter.Write(P1.getScore());
+                binWriter.Write(P2.getScore());
+
+                binWriter.Flush();
+                binWriter.Close();
+            }
+            catch
+            {
+                MessageBox.Show("File error!");
+            }
+        }
+        private void LoadData2Player()
+        {
+            try
+            {
+                //check if save file exists
+                if (File.Exists(".\\Save2Player.bin") == true)
+                {
+                    //create binary reader
+                    FileStream fs = new FileStream(".\\Save2Player.bin", FileMode.Open);
+                    BinaryReader binReader = new BinaryReader(fs);
+                    long length = binReader.BaseStream.Length;
+
+                    while (fs.Position < length)
+                    {
+                        P1.setScore(binReader.ReadInt32());
+                        P2.setScore(binReader.ReadInt32());
+                    }
+                }
+                else
+                {
+
+                }
+
+            }
+            catch
+            {
+
+            }
+        }
+        private void LoadDataCOM()
+        {
+            try
+            {
+                //check if save file exists
+                if (File.Exists(".\\SaveCOM.bin") == true)
+                {
+                    //create binary reader
+                    FileStream fs = new FileStream(".\\SaveCOM.bin", FileMode.Open);
+                    BinaryReader binReader = new BinaryReader(fs);
+                    long length = binReader.BaseStream.Length;
+
+                    while (fs.Position < length)
+                    {
+                        P1.setScore(binReader.ReadInt32());
+                        P2.setScore(binReader.ReadInt32());
+                    }
+                }
+                else
+                {
+
+                }
+                
+            }
+            catch
+            {
+
+            }
         }
 
         public class Ships
@@ -176,7 +272,7 @@ namespace KB_Battleship
                     
                     //MessageBox.Show("Your " +  Name + " is dead.");
                     DeathMessage = true;
-                    P.ResetHuntMode();
+                    P.ResetTargetMode();
                     return 1;
                 }
                 else if ((HitCount == Size) && (DeathMessage == true))
@@ -217,8 +313,8 @@ namespace KB_Battleship
                     {
                         i = 0;
                         EmptyCounter = 0;
-                        x = rnd.Next(0, 9 - Size);
-                        y = rnd.Next(0, 9);
+                        x = rnd.Next(0, 10 - Size);
+                        y = rnd.Next(0, 10);
                         if (x - 1 + Size - 1 < 10)
                         {
                             while (i < Size)
@@ -259,6 +355,7 @@ namespace KB_Battleship
                                 PlayerArray[x + i, y] = Index;
                                 i++;
                             }
+                            SetPlaced(true);
                         }
                         else
                         {
@@ -276,9 +373,9 @@ namespace KB_Battleship
                     {
                         i = 0;
                         EmptyCounter = 0;
-                        x = rnd.Next(0, 9);
-                        y = rnd.Next(0, 9 - Size);
-                        if (x - 1 + Size - 1 < 10)
+                        x = rnd.Next(0, 10);
+                        y = rnd.Next(0, 10 - Size);
+                        if (y - 1 + Size - 1 < 10)
                         {
                             while (i < Size)
                             {
@@ -309,6 +406,7 @@ namespace KB_Battleship
                                 PlayerArray[x, y + i] = Index;
                                 i++;
                             }
+                            SetPlaced(true);
                         }
                         else
                         {
@@ -324,8 +422,8 @@ namespace KB_Battleship
         {
             public Player()
             {
-                iScore = 0;
-                iAvatar = 1;
+                Score = 0;
+                Avatar = 1;
                 HitCount = 0;
             }
 
@@ -335,8 +433,8 @@ namespace KB_Battleship
             public Ships BAT = new Ships("Battleship", 4, 0, 0, 0, false, false, 4);
             public Ships AIR = new Ships("Aircraft", 5, 0, 0, 0, false, false, 5);
 
-            protected int iScore;
-            protected int iAvatar;
+            protected int Score;
+            protected int Avatar;
             protected int HitCount;
 
             //stores player ship information///////////////
@@ -346,19 +444,20 @@ namespace KB_Battleship
 
             //confirming placing all ships and which ships are placed
             public bool allPlaced = false;
+            public bool randomized = false;
             public int boatclick = 0;
             protected bool TargetModeHR;
             protected bool TargetModeHL;
             protected bool TargetModeVU;
             protected bool TargetModeVD;
-            protected bool Hunt;
-            public void ResetHuntMode()
+            protected bool Target;
+            public void ResetTargetMode()
             {
                 setTargetModeHL(false);
                 setTargetModeHR(false);
                 setTargetModeVD(false);
                 setTargetModeVU(false);
-                setHunt(false);
+                setTarget(false);
             }
             protected Point FirstHit;
             protected Point LastHit;
@@ -388,7 +487,7 @@ namespace KB_Battleship
             }
             //------------------------------------//
 
-            //list of points for COM to hit//////////////////
+            //COM related//////////////////
             protected List<Point> ToHit = new List<Point>(4);
             public void AddToHit(int x, int y)
             {
@@ -411,9 +510,6 @@ namespace KB_Battleship
                 ToHit.Clear();
                 ToHit.TrimExcess();
             }
-            //---------------------------------------------//
-
-            //setters and getters for //////////////////////
             public void setFirstHit(int x, int y)
             {
                 FirstHit.X = x;
@@ -432,33 +528,92 @@ namespace KB_Battleship
             {
                 return LastHit;
             }
-
-            public void setHunt(bool b)
+            public void setTarget(bool b)
             {
-                Hunt = b;
+                Target = b;
             }
-            public bool getHunt()
+            public bool getTarget()
             {
-                return Hunt;
+                return Target;
             }
+            public void setTargetModeHR(bool b)
+            {
+                TargetModeHR = b;
+            }
+            public bool getTargetModeHR()
+            {
+                return TargetModeHR;
+            }
+            public void setTargetModeHL(bool b)
+            {
+                TargetModeHL = b;
+            }
+            public bool getTargetModeHL()
+            {
+                return TargetModeHL;
+            }
+            public void setTargetModeVU(bool b)
+            {
+                TargetModeVU = b;
+            }
+            public bool getTargetModeVU()
+            {
+                return TargetModeVU;
+            }
+            public void setTargetModeVD(bool b)
+            {
+                TargetModeVD = b;
+            }
+            public bool getTargetModeVD()
+            {
+                return TargetModeVD;
+            }
+            protected int DirectionCounter;
+            public void setDirectionCounter(int i)
+            {
+                DirectionCounter = i;
+            }
+            public int getDirectionCounter()
+            {
+                return DirectionCounter;
+            }
+            public void DirectionSwitcher()
+            {
+                if (DirectionCounter == 2)
+                {
+                    if (TargetModeHR == true || TargetModeHL == true)
+                    {
+                        TargetModeVU = true;
+                    }
+                    else if (TargetModeVU == true || TargetModeVD == true)
+                    {
+                        TargetModeHL = true;
+                    }
+                }
+                else if (DirectionCounter == 4)
+                {
+                    ResetTargetMode();
+                }
+            }
+            //-------------------------------------------------//
 
             public void setScore(int score)
             {
-                iScore = score;
+                Score = score;
             }
             public int getScore()
             {
-                return iScore;
+                return Score;
             }
 
             //avatar
             public void setAvatar(int avatar)
             {
-                iAvatar = avatar;
+                Avatar = avatar;
             }
             public int getAvatar()
             {
-                return iAvatar;
+                return Avatar;
             }
 
             //hitcount
@@ -527,6 +682,16 @@ namespace KB_Battleship
             {
                 return PlayerArray;
             }
+            public void ResetPlayerArray()
+            {
+                for (int i = 0; i <= 9; i++)
+                {
+                    for (int j = 0; j <= 9; j++)
+                    {
+                        PlayerArray[i, j] = 0;
+                    }
+                }
+            }
             //-------------------------------------------------//
 
             public bool isWinner()
@@ -549,7 +714,6 @@ namespace KB_Battleship
                     other.setPlayerArray(x - 1, y - 1, -1); //-1 = hit
                     //other.setHitCount(this.getHitCount() + 1);
                     return 1;
-
                 }
                 else if (other.getPlayerArray(x - 1, y - 1) == 0)
                 {
@@ -561,39 +725,7 @@ namespace KB_Battleship
                     return 2; //spot already hit, nothing happens
                 }
             }
-
-            public void setTargetModeHR(bool b)
-            {
-                TargetModeHR = b;
-            }
-            public bool getTargetModeHR()
-            {
-                return TargetModeHR;
-            }
-            public void setTargetModeHL(bool b)
-            {
-                TargetModeHL = b;
-            }
-            public bool getTargetModeHL()
-            {
-                return TargetModeHL;
-            }
-            public void setTargetModeVU(bool b)
-            {
-                TargetModeVU = b;
-            }
-            public bool getTargetModeVU()
-            {
-                return TargetModeVU;
-            }
-            public void setTargetModeVD(bool b)
-            {
-                TargetModeVD = b;
-            }
-            public bool getTargetModeVD()
-            {
-                return TargetModeVD;
-            }
+            
         }
 
         public void DrawShipPlacement(int x, int y, Ships S, Player P, Control PIC)
@@ -725,22 +857,32 @@ namespace KB_Battleship
                 case 1:
                     P.PB.SetPlaced(false);
                     P.allPlaced = false;
+                    if (P.randomized == true)
+                        P.randomized = false;
                     break;
                 case 2:
                     P.SUB.SetPlaced(false);
                     P.allPlaced = false;
+                    if (P.randomized == true)
+                        P.randomized = false;
                     break;
                 case 3:
                     P.DES.SetPlaced(false);
                     P.allPlaced = false;
+                    if (P.randomized == true)
+                        P.randomized = false;
                     break;
                 case 4:
                     P.BAT.SetPlaced(false);
                     P.allPlaced = false;
+                    if (P.randomized == true)
+                        P.randomized = false;
                     break;
                 case 5:
                     P.AIR.SetPlaced(false);
                     P.allPlaced = false;
+                    if (P.randomized == true)
+                        P.randomized = false;
                     break;
                 default:
                     break;
@@ -751,29 +893,31 @@ namespace KB_Battleship
         {
             Random rnd = new Random();
             //puts the random number into r
-
+            P.ResetPlayerArray();
             P.PB.Randomize (rnd, P.getPlayerArrayAll());
             P.SUB.Randomize(rnd, P.getPlayerArrayAll());
             P.DES.Randomize(rnd, P.getPlayerArrayAll());
             P.BAT.Randomize(rnd, P.getPlayerArrayAll());
             P.AIR.Randomize(rnd, P.getPlayerArrayAll());
 
-            P.allPlaced = true;
+            P.randomized = true;
         }
         public void randomizeGrid(Player P, Control PIC)
         {
             Random rnd = new Random();
             //puts the random number into r
 
+            P.ResetPlayerArray();
             P.PB. Randomize(rnd, P.getPlayerArrayAll());
             P.SUB.Randomize(rnd, P.getPlayerArrayAll());
             P.DES.Randomize(rnd, P.getPlayerArrayAll());
             P.BAT.Randomize(rnd, P.getPlayerArrayAll());
             P.AIR.Randomize(rnd, P.getPlayerArrayAll());
 
-            P.allPlaced = true;
+            P.randomized = true;
             PIC.Invalidate();
         }
+       
         public void PaintGrid(Player P, Graphics g, Control pb)
         {
             Pen myPen = new Pen(Color.Black, 1);
@@ -789,6 +933,7 @@ namespace KB_Battleship
             {
                 for (int j = 0; j < 10; j++)
                 {
+
                     if (P.getPlayerArray(i, j) == -1) //if ship is hit 
                     {
                         SolidBrush myBrush = new SolidBrush(Color.Crimson);
@@ -800,7 +945,7 @@ namespace KB_Battleship
                         g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
                     }
                     //placing ships
-                    else if (P.getPlayerArray(i, j) > 0 && P.allPlaced != true)
+                    else if (P.getPlayerArray(i, j) > 0 && (P.allPlaced != true || P.randomized == true) && GameStarted == false)
                     {
                         SolidBrush myBrush = new SolidBrush(Color.RoyalBlue);
                         g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
@@ -1387,7 +1532,7 @@ namespace KB_Battleship
                 pg4_PlayerChoice.Visible = true;
                 P1.setTurn(true);
                 P2.setTurn(false);
-                P1.allPlaced = true;
+                P1.allPlaced = false;
             }
 
             else if (P1.allPlaced == true)
@@ -1396,7 +1541,7 @@ namespace KB_Battleship
                 pg4_PlayerChoice.Visible = true;
                 P1.setTurn(true);
                 P2.setTurn(false);
-                P1.allPlaced = true;
+                P1.allPlaced = false;
             }
 
             else
@@ -1475,6 +1620,8 @@ namespace KB_Battleship
             pg5_Avatar_P2.Visible = true;
             pg6_SetBoard_P2.Visible = true;
             pg7_GameTime_COM.Visible = true;
+            GameStarted = true;
+            LoadDataCOM();
 
             int avatar = P1.getAvatar();
             {
@@ -1493,14 +1640,14 @@ namespace KB_Battleship
                         break;
                 }
             }
-
-
-
+            
             randomizeGrid(P2);
+            P2.allPlaced = false;
         }
 
         private void btn2Player_Click(object sender, EventArgs e)
         {
+            LoadData2Player();
             pg5_Avatar_P2.Visible = true;
 
             bkgd_A1_P2.Visible = false;
@@ -1954,6 +2101,7 @@ namespace KB_Battleship
                 //skips COM page
                 pg7_GameTime_COM.Visible = true;
                 pg7_GameTime_P1.Visible = true;
+                GameStarted = true;
 
                 int avatar = P1.getAvatar();
                 int avatar2 = P2.getAvatar();
@@ -1988,7 +2136,7 @@ namespace KB_Battleship
                 
                 P1.setTurn(true);
                 P2.setTurn(false);
-                P2.allPlaced = true;
+                P2.allPlaced = false;
             }
 
             else
@@ -2026,6 +2174,19 @@ namespace KB_Battleship
                 DrawShipPlacement(x, y, P2.AIR, P2, pb_PlaceShips_P2);
         }
 
+        private void LoadStatistics()
+        {
+            //P1
+            lbl_P1_Won.Text = ("Games Won: " + P1.getScore());
+            lbl_P1_Lost.Text = ("Games Lost: " + P2.getScore());
+            lbl_P1_Percentage.Text = ("Win Percentage: " + (P1.getScore() / (P1.getScore() + P2.getScore()))*100 + "%");
+
+            //P2
+            lbl_P2_Won.Text = ("Games Won: " + P2.getScore());
+            lbl_P2_Lost.Text = ("Games Lost: " + P1.getScore());
+            lbl_P2_Percentage.Text = ("Win Percentage: " + (P2.getScore() / (P1.getScore() + P2.getScore()))*100 + "%");
+        }
+
         #region vs Computer
         private void pb_COM_Grid_MouseClick(object sender, MouseEventArgs e)
         {
@@ -2059,7 +2220,15 @@ namespace KB_Battleship
                 pb_P1_Grid.Enabled = false;
                 pb_COM_Grid.Enabled = false;
                 P1.setScore(P1.getScore() + 1);
+                SaveDataCOM();
                 MessageBox.Show("You win!!!");
+                //skip pages
+                pg7_GameTime_P1.Visible = true;
+                pg8_GameTime_P2.Visible = true;
+                //show page
+                pg9_GameOver.Visible = true;
+                lblWhoWon.Text = ("You win!");
+                LoadStatistics();
             }
             else
             {
@@ -2072,8 +2241,9 @@ namespace KB_Battleship
             while (P2.getTurn() == true)
             {
                 //COM targeting direction 
-                if (P2.getHunt() == true)
+                if (P2.getTarget() == true)
                 {
+                    //COM targeting right
                     if (P2.getTargetModeHR() == true)
                     {
                         //checks if point is out of bounds 
@@ -2095,6 +2265,8 @@ namespace KB_Battleship
                                 P2.setTargetModeHR(false);
                                 P2.setTargetModeHL(true);
                                 P1.SwitchTurn(P2);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
                             //if spot has already been hit
                             else
@@ -2103,6 +2275,8 @@ namespace KB_Battleship
                                 //reverse direction to hit from firsthit point
                                 P2.setTargetModeHR(false);
                                 P2.setTargetModeHL(true);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
                         }
                         else //if hit will be out of bounds 
@@ -2110,12 +2284,17 @@ namespace KB_Battleship
                             P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                             P2.setTargetModeHR(false);
                             P2.setTargetModeHL(true);
+                            P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                            P2.DirectionSwitcher();
                         }
                     }
+                    //COM targetting left
                     else if (P2.getTargetModeHL() == true)
                     {
+                        //checks if point will be out of bounds
                         if (P2.getLastHit().X - 1 >= 0)
                         {
+                            //hit
                             if (P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y) > 0)
                             {
                                 P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y));
@@ -2123,6 +2302,7 @@ namespace KB_Battleship
                                 P2.setLastHit(P2.getLastHit().X - 1, P2.getLastHit().Y);
                                 P1.SwitchTurn(P2);
                             }
+                            //miss
                             else if (P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y) == 0)
                             {
                                 P1.setPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y, -2);
@@ -2131,13 +2311,18 @@ namespace KB_Battleship
                                 P2.setTargetModeHR(true);
                                 P2.setTargetModeHL(false);
                                 P1.SwitchTurn(P2);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
+                            //point already hit 
                             else
                             {
                                 //reverse direction to hit from first point 
                                 P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                                 P2.setTargetModeHR(true);
                                 P2.setTargetModeHL(false);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
                         }
                         else
@@ -2146,12 +2331,16 @@ namespace KB_Battleship
                             P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                             P2.setTargetModeHR(true);
                             P2.setTargetModeHL(false);
+                            P2.DirectionSwitcher();
                         }
                     }
+                    //COM targetting up
                     else if (P2.getTargetModeVU() == true)
                     {
+                        //checks if point will be out of bounds 
                         if (P2.getLastHit().Y - 1 >= 0)
                         {
+                            //hit 
                             if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1) > 0)
                             {
 
@@ -2160,6 +2349,7 @@ namespace KB_Battleship
                                 P2.setLastHit(P2.getLastHit().X, P2.getLastHit().Y - 1);
                                 P1.SwitchTurn(P2);
                             }
+                            //miss
                             else if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1) == 0)
                             {
                                 P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1, -2);
@@ -2168,13 +2358,18 @@ namespace KB_Battleship
                                 P2.setTargetModeVU(false);
                                 P2.setTargetModeVD(true);
                                 P1.SwitchTurn(P2);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
+                            //point already hit
                             else
                             {
                                 //reverse direction to hit from first point 
                                 P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                                 P2.setTargetModeVU(false);
                                 P2.setTargetModeVD(true);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
                         }
                         else
@@ -2183,12 +2378,17 @@ namespace KB_Battleship
                             P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                             P2.setTargetModeVU(false);
                             P2.setTargetModeVD(true);
+                            P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                            P2.DirectionSwitcher();
                         }
                     }
+                    //COM targetting down
                     else if (P2.getTargetModeVD() == true)
                     {
+                        //checks if point will be out of bounds
                         if (P2.getLastHit().Y + 1 <= 9)
                         {
+                            //hit
                             if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1) > 0)
                             {
                                 P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1));
@@ -2196,6 +2396,7 @@ namespace KB_Battleship
                                 P2.setLastHit(P2.getLastHit().X, P2.getLastHit().Y + 1);
                                 P1.SwitchTurn(P2);
                             }
+                            //miss
                             else if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1) == 0)
                             {
                                 P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1, -2);
@@ -2204,13 +2405,18 @@ namespace KB_Battleship
                                 P2.setTargetModeVU(true);
                                 P2.setTargetModeVD(false);
                                 P1.SwitchTurn(P2);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
+                            //point already hit
                             else
                             {
                                 //reverse direction to hit from first point 
                                 P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                                 P2.setTargetModeVU(true);
                                 P2.setTargetModeVD(false);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
                         }
                         else
@@ -2219,6 +2425,8 @@ namespace KB_Battleship
                             P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                             P2.setTargetModeVU(true);
                             P2.setTargetModeVD(false);
+                            P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                            P2.DirectionSwitcher();
                         }
                     }
                     
@@ -2226,7 +2434,7 @@ namespace KB_Battleship
                 //COM not targetting direction 
                 else
                 {
-                    //if no points in to hit list
+                    //if no points in tohit list, COM has no first hit 
                     if (P2.getToHitLength() == 0)
                     {
                         Random rnd = new Random();
@@ -2276,7 +2484,7 @@ namespace KB_Battleship
 
                         }
                     }
-                    //Points in ToHit list, searching for hit direction i.e. 2 hits in a column/row
+                    //Points in ToHit list, searching for hit direction after hitting a ship i.e. 2 hits in a column/row
                     else
                     {
                         Random rnd = new Random();
@@ -2293,7 +2501,7 @@ namespace KB_Battleship
                                 P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getToHitPoint(i)));
                                 P1.setPlayerArray(P2.getToHitPoint(i), -1);
                                 P2.ClearToHitPoints();
-                                P2.setHunt(true);
+                                P2.setTarget(true);
                             }
                             else
                             {
@@ -2301,6 +2509,7 @@ namespace KB_Battleship
                                 P2.RemoveToHitPoint(i);
                             }
                         }
+                        //hit to left of first hit
                         else if (P2.getFirstHit().X - 1 == P2.getToHitPoint(i).X)
                         {
                             if (P1.getPlayerArray(P2.getFirstHit().X - 1, P2.getFirstHit().Y) > 0)
@@ -2311,7 +2520,7 @@ namespace KB_Battleship
                                 P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getToHitPoint(i)));
                                 P1.setPlayerArray(P2.getToHitPoint(i), -1);
                                 P2.ClearToHitPoints();
-                                P2.setHunt(true);
+                                P2.setTarget(true);
                             }
                             else
                             {
@@ -2320,6 +2529,7 @@ namespace KB_Battleship
                             }
                             
                         }
+                        //hit down of first hit
                         else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint(i).Y)
                         {
                             if (P1.getPlayerArray(P2.getFirstHit().X, P2.getFirstHit().Y + 1) > 0)
@@ -2330,7 +2540,7 @@ namespace KB_Battleship
                                 P1.ShipHitCounter(P2,P1.getPlayerArray(P2.getToHitPoint(i)));
                                 P1.setPlayerArray(P2.getToHitPoint(i), -1);
                                 P2.ClearToHitPoints();
-                                P2.setHunt(true);
+                                P2.setTarget(true);
                             }
                             else
                             {
@@ -2339,6 +2549,7 @@ namespace KB_Battleship
                             }
                             
                         }
+                        //hit up of first hit
                         else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint(i).Y)
                         {
                             if (P1.getPlayerArray(P2.getFirstHit().X, P2.getFirstHit().Y - 1) > 0)
@@ -2349,7 +2560,7 @@ namespace KB_Battleship
                                 P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getToHitPoint(i)));
                                 P1.setPlayerArray(P2.getToHitPoint(i), -1);
                                 P2.ClearToHitPoints();
-                                P2.setHunt(true);
+                                P2.setTarget(true);
                             }
                             else
                             {
@@ -2378,7 +2589,16 @@ namespace KB_Battleship
                 pb_P1_Grid.Enabled = false;
                 pb_COM_Grid.Enabled = false;
                 P2.setScore(P2.getScore() + 1);
+                SaveDataCOM();
                 MessageBox.Show("Player 2 wins!!!!");
+                //skip pages
+                pg7_GameTime_P1.Visible = true;
+                pg8_GameTime_P2.Visible = true;
+                //show page
+                pg9_GameOver.Visible = true;
+                lblWhoWon.Text = ("Player 2 wins!");
+                LoadStatistics();
+                
             }
             else
             {
@@ -2415,16 +2635,21 @@ namespace KB_Battleship
 
             if (P1.getTurn() == true)
             {
-                P1.checkHit(P2, x, y);
+                if (P1.checkHit(P2, x, y) == 1)
+                {
+                    pb_P2onP1.Invalidate();
+                    P1.SwitchTurn(P2);
 
-                pb_P2onP1.Invalidate();
-                P1.SwitchTurn(P2);
-
-                SendDeathMessage(P2.PB, P2, 3);
-                SendDeathMessage(P2.SUB, P2, 3);
-                SendDeathMessage(P2.DES, P2, 3);
-                SendDeathMessage(P2.BAT, P2, 3);
-                SendDeathMessage(P2.AIR, P2, 3);
+                    SendDeathMessage(P2.PB, P2, 3);
+                    SendDeathMessage(P2.SUB, P2, 3);
+                    SendDeathMessage(P2.DES, P2, 3);
+                    SendDeathMessage(P2.BAT, P2, 3);
+                    SendDeathMessage(P2.AIR, P2, 3);
+                }
+                else
+                {
+                    return;
+                }
             }
 
             if (P1.isWinner() == true)
@@ -2433,6 +2658,8 @@ namespace KB_Battleship
                 pb_P2onP1.Enabled = false;
                 //do win stuff
                 P1.setScore(P1.getScore() + 1);
+                SaveData2Player();
+                pg9_GameOver.Visible = true;
             }
            
         }
@@ -2499,24 +2726,31 @@ namespace KB_Battleship
 
             if (P2.getTurn() == true)
             {
-                P2.checkHit(P1, x, y);
+                if(P2.checkHit(P1, x, y) == 1)
+                {
+                    pb_P1onP2.Invalidate();
+                    P2.SwitchTurn(P1);
 
-                pb_P1onP2.Invalidate();
-                P2.SwitchTurn(P1);
-
-                SendDeathMessage(P1.PB, P2, 4);
-                SendDeathMessage(P1.SUB, P2, 4);
-                SendDeathMessage(P1.DES, P2, 4);
-                SendDeathMessage(P1.BAT, P2, 4);
-                SendDeathMessage(P1.AIR, P2, 4);
+                    SendDeathMessage(P1.PB, P2, 4);
+                    SendDeathMessage(P1.SUB, P2, 4);
+                    SendDeathMessage(P1.DES, P2, 4);
+                    SendDeathMessage(P1.BAT, P2, 4);
+                    SendDeathMessage(P1.AIR, P2, 4);
+                }
+                else
+                {
+                    return;
+                }
+                
             }
 
             if (P2.isWinner() == true)
             {
                 pb_P2onP2.Enabled = false;
                 pb_P1onP2.Enabled = false;
-                //do win stuff
                 P2.setScore(P2.getScore() + 1);
+                SaveData2Player();
+                pg9_GameOver.Visible = true;
             }
         }
 
