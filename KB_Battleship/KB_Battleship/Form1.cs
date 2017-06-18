@@ -216,8 +216,8 @@ namespace KB_Battleship
                     {
                         i = 0;
                         EmptyCounter = 0;
-                        x = rnd.Next(0, 9 - Size);
-                        y = rnd.Next(0, 9);
+                        x = rnd.Next(0, 10 - Size);
+                        y = rnd.Next(0, 10);
                         if (x - 1 + Size - 1 < 10)
                         {
                             while (i < Size)
@@ -276,8 +276,8 @@ namespace KB_Battleship
                     {
                         i = 0;
                         EmptyCounter = 0;
-                        x = rnd.Next(0, 9);
-                        y = rnd.Next(0, 9 - Size);
+                        x = rnd.Next(0, 10);
+                        y = rnd.Next(0, 10 - Size);
                         if (x - 1 + Size - 1 < 10)
                         {
                             while (i < Size)
@@ -528,6 +528,16 @@ namespace KB_Battleship
             {
                 return PlayerArray;
             }
+            public void ResetPlayerArray()
+            {
+                for (int i = 0; i <= 9; i++)
+                {
+                    for (int j = 0; j <= 9; j++)
+                    {
+                        PlayerArray[i, j] = 0;
+                    }
+                }
+            }
             //-------------------------------------------------//
 
             public bool isWinner()
@@ -595,6 +605,7 @@ namespace KB_Battleship
             {
                 return TargetModeVD;
             }
+            
         }
 
         public void DrawShipPlacement(int x, int y, Ships S, Player P, Control PIC)
@@ -752,7 +763,7 @@ namespace KB_Battleship
         {
             Random rnd = new Random();
             //puts the random number into r
-
+            P.ResetPlayerArray();
             P.PB.Randomize (rnd, P.getPlayerArrayAll());
             P.SUB.Randomize(rnd, P.getPlayerArrayAll());
             P.DES.Randomize(rnd, P.getPlayerArrayAll());
@@ -766,6 +777,7 @@ namespace KB_Battleship
             Random rnd = new Random();
             //puts the random number into r
 
+            P.ResetPlayerArray();
             P.PB. Randomize(rnd, P.getPlayerArrayAll());
             P.SUB.Randomize(rnd, P.getPlayerArrayAll());
             P.DES.Randomize(rnd, P.getPlayerArrayAll());
