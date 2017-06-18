@@ -62,6 +62,14 @@ namespace KB_Battleship
             pg9_GameOver.Visible = false;
         }
 
+        private void SaveData()
+        {
+
+        }
+        private void LoadData()
+        {
+
+        }
         public class Ships
         {
             protected string Name;
@@ -619,7 +627,6 @@ namespace KB_Battleship
                     other.setPlayerArray(x - 1, y - 1, -1); //-1 = hit
                     //other.setHitCount(this.getHitCount() + 1);
                     return 1;
-
                 }
                 else if (other.getPlayerArray(x - 1, y - 1) == 0)
                 {
@@ -2116,6 +2123,7 @@ namespace KB_Battleship
                 pg8_GameTime_P2.Visible = true;
                 //show page
                 pg9_GameOver.Visible = true;
+                lblWhoWon.Text = ("You win!");
             }
             else
             {
@@ -2482,6 +2490,7 @@ namespace KB_Battleship
                 pg8_GameTime_P2.Visible = true;
                 //show page
                 pg9_GameOver.Visible = true;
+                lblWhoWon.Text = ("COM wins!");
             }
             else
             {
