@@ -389,7 +389,7 @@ namespace KB_Battleship
             }
             //------------------------------------//
 
-            //list of points for COM to hit//////////////////
+            //COM related//////////////////
             protected List<Point> ToHit = new List<Point>(4);
             public void AddToHit(int x, int y)
             {
@@ -412,9 +412,6 @@ namespace KB_Battleship
                 ToHit.Clear();
                 ToHit.TrimExcess();
             }
-            //---------------------------------------------//
-
-            //setters and getters for //////////////////////
             public void setFirstHit(int x, int y)
             {
                 FirstHit.X = x;
@@ -433,7 +430,6 @@ namespace KB_Battleship
             {
                 return LastHit;
             }
-
             public void setTarget(bool b)
             {
                 Target = b;
@@ -442,6 +438,39 @@ namespace KB_Battleship
             {
                 return Target;
             }
+            public void setTargetModeHR(bool b)
+            {
+                TargetModeHR = b;
+            }
+            public bool getTargetModeHR()
+            {
+                return TargetModeHR;
+            }
+            public void setTargetModeHL(bool b)
+            {
+                TargetModeHL = b;
+            }
+            public bool getTargetModeHL()
+            {
+                return TargetModeHL;
+            }
+            public void setTargetModeVU(bool b)
+            {
+                TargetModeVU = b;
+            }
+            public bool getTargetModeVU()
+            {
+                return TargetModeVU;
+            }
+            public void setTargetModeVD(bool b)
+            {
+                TargetModeVD = b;
+            }
+            public bool getTargetModeVD()
+            {
+                return TargetModeVD;
+            }
+            //-------------------------------------------------//
 
             public void setScore(int score)
             {
@@ -571,39 +600,6 @@ namespace KB_Battleship
                 {
                     return 2; //spot already hit, nothing happens
                 }
-            }
-
-            public void setTargetModeHR(bool b)
-            {
-                TargetModeHR = b;
-            }
-            public bool getTargetModeHR()
-            {
-                return TargetModeHR;
-            }
-            public void setTargetModeHL(bool b)
-            {
-                TargetModeHL = b;
-            }
-            public bool getTargetModeHL()
-            {
-                return TargetModeHL;
-            }
-            public void setTargetModeVU(bool b)
-            {
-                TargetModeVU = b;
-            }
-            public bool getTargetModeVU()
-            {
-                return TargetModeVU;
-            }
-            public void setTargetModeVD(bool b)
-            {
-                TargetModeVD = b;
-            }
-            public bool getTargetModeVD()
-            {
-                return TargetModeVD;
             }
             
         }
@@ -1533,10 +1529,9 @@ namespace KB_Battleship
                         break;
                 }
             }
-
-
-
+            
             randomizeGrid(P2);
+            P2.allPlaced = false;
         }
 
         private void btn2Player_Click(object sender, EventArgs e)
