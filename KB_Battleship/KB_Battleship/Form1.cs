@@ -2462,16 +2462,21 @@ namespace KB_Battleship
 
             if (P1.getTurn() == true)
             {
-                P1.checkHit(P2, x, y);
+                if (P1.checkHit(P2, x, y) == 1)
+                {
+                    pb_P2onP1.Invalidate();
+                    P1.SwitchTurn(P2);
 
-                pb_P2onP1.Invalidate();
-                P1.SwitchTurn(P2);
-
-                SendDeathMessage(P2.PB, P2, 3);
-                SendDeathMessage(P2.SUB, P2, 3);
-                SendDeathMessage(P2.DES, P2, 3);
-                SendDeathMessage(P2.BAT, P2, 3);
-                SendDeathMessage(P2.AIR, P2, 3);
+                    SendDeathMessage(P2.PB, P2, 3);
+                    SendDeathMessage(P2.SUB, P2, 3);
+                    SendDeathMessage(P2.DES, P2, 3);
+                    SendDeathMessage(P2.BAT, P2, 3);
+                    SendDeathMessage(P2.AIR, P2, 3);
+                }
+                else
+                {
+                    return;
+                }
             }
 
             if (P1.isWinner() == true)
@@ -2546,16 +2551,22 @@ namespace KB_Battleship
 
             if (P2.getTurn() == true)
             {
-                P2.checkHit(P1, x, y);
+                if(P2.checkHit(P1, x, y) == 1)
+                {
+                    pb_P1onP2.Invalidate();
+                    P2.SwitchTurn(P1);
 
-                pb_P1onP2.Invalidate();
-                P2.SwitchTurn(P1);
-
-                SendDeathMessage(P1.PB, P2, 4);
-                SendDeathMessage(P1.SUB, P2, 4);
-                SendDeathMessage(P1.DES, P2, 4);
-                SendDeathMessage(P1.BAT, P2, 4);
-                SendDeathMessage(P1.AIR, P2, 4);
+                    SendDeathMessage(P1.PB, P2, 4);
+                    SendDeathMessage(P1.SUB, P2, 4);
+                    SendDeathMessage(P1.DES, P2, 4);
+                    SendDeathMessage(P1.BAT, P2, 4);
+                    SendDeathMessage(P1.AIR, P2, 4);
+                }
+                else
+                {
+                    return;
+                }
+                
             }
 
             if (P2.isWinner() == true)
