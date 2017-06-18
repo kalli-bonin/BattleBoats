@@ -258,6 +258,7 @@ namespace KB_Battleship
                                 PlayerArray[x + i, y] = Index;
                                 i++;
                             }
+                            SetPlaced(true);
                         }
                         else
                         {
@@ -308,6 +309,7 @@ namespace KB_Battleship
                                 PlayerArray[x, y + i] = Index;
                                 i++;
                             }
+                            SetPlaced(true);
                         }
                         else
                         {
@@ -773,6 +775,33 @@ namespace KB_Battleship
             P.allPlaced = true;
             PIC.Invalidate();
         }
+        public void PaintShipPlacementGrid(Player P, Graphics g, Control pb)
+        {
+            Pen myPen = new Pen(Color.Black, 1);
+            myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            //draw grid
+            for (int i = 0; i < 12; i++)
+            {
+                g.DrawLine(myPen, 0, 30 * i, 300, 30 * i);
+                g.DrawLine(myPen, 30 * i, 0, 30 * i, 300);
+            }
+            //fill in boxes
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (P.getPlayerArray(i, j) > 0 && P.allPlaced == true)
+                    {
+                        SolidBrush myBrush = new SolidBrush(Color.RoyalBlue);
+                        g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
+        }
         public void PaintGrid(Player P, Graphics g, Control pb)
         {
             Pen myPen = new Pen(Color.Black, 1);
@@ -788,6 +817,7 @@ namespace KB_Battleship
             {
                 for (int j = 0; j < 10; j++)
                 {
+
                     if (P.getPlayerArray(i, j) == -1) //if ship is hit 
                     {
                         SolidBrush myBrush = new SolidBrush(Color.Crimson);
@@ -799,7 +829,7 @@ namespace KB_Battleship
                         g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
                     }
                     //placing ships
-                    else if (P.getPlayerArray(i, j) > 0 && P.allPlaced != true)
+                    else if (P.getPlayerArray(i, j) > 0 && P.allPlaced == true)
                     {
                         SolidBrush myBrush = new SolidBrush(Color.RoyalBlue);
                         g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
@@ -1385,7 +1415,7 @@ namespace KB_Battleship
                 pg4_PlayerChoice.Visible = true;
                 P1.setTurn(true);
                 P2.setTurn(false);
-                P1.allPlaced = true;
+                P1.allPlaced = false;
             }
 
             else if (P1.allPlaced == true)
@@ -1394,7 +1424,7 @@ namespace KB_Battleship
                 pg4_PlayerChoice.Visible = true;
                 P1.setTurn(true);
                 P2.setTurn(false);
-                P1.allPlaced = true;
+                P1.allPlaced = false;
             }
 
             else
@@ -1986,7 +2016,7 @@ namespace KB_Battleship
                 
                 P1.setTurn(true);
                 P2.setTurn(false);
-                P2.allPlaced = true;
+                P2.allPlaced = false;
             }
 
             else
