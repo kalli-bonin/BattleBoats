@@ -38,9 +38,11 @@
             this.pg5_Avatar_P2 = new System.Windows.Forms.Panel();
             this.pg6_SetBoard_P2 = new System.Windows.Forms.Panel();
             this.pg7_GameTime_COM = new System.Windows.Forms.Panel();
-            this.txtP1_COM = new System.Windows.Forms.TextBox();
             this.pg7_GameTime_P1 = new System.Windows.Forms.Panel();
             this.pg8_GameTime_P2 = new System.Windows.Forms.Panel();
+            this.pg9_GameOver = new System.Windows.Forms.Panel();
+            this.txtP1onP2 = new System.Windows.Forms.TextBox();
+            this.txtP2onP2 = new System.Windows.Forms.TextBox();
             this.btnNext_8 = new System.Windows.Forms.Button();
             this.pb_MA2_P1onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA1_P1onP2 = new System.Windows.Forms.PictureBox();
@@ -91,6 +93,8 @@
             this.pb_MA6_P2onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA5_P2onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA3_P1onP2 = new System.Windows.Forms.PictureBox();
+            this.txtP1onP1 = new System.Windows.Forms.TextBox();
+            this.txtP2onP1 = new System.Windows.Forms.TextBox();
             this.pb_MA6_P2onP1 = new System.Windows.Forms.PictureBox();
             this.pb_MA5_P2onP1 = new System.Windows.Forms.PictureBox();
             this.pb_MA3_P1onP1 = new System.Windows.Forms.PictureBox();
@@ -141,6 +145,8 @@
             this.label128 = new System.Windows.Forms.Label();
             this.label129 = new System.Windows.Forms.Label();
             this.pb_P1onP1 = new System.Windows.Forms.PictureBox();
+            this.txtCOM_COM = new System.Windows.Forms.TextBox();
+            this.txtP1_COM = new System.Windows.Forms.TextBox();
             this.pb_MA_P2 = new System.Windows.Forms.PictureBox();
             this.pb_MA3_P1 = new System.Windows.Forms.PictureBox();
             this.pb_MA2_P1 = new System.Windows.Forms.PictureBox();
@@ -286,11 +292,6 @@
             this.btnNext_1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCOM_COM = new System.Windows.Forms.TextBox();
-            this.txtP1onP1 = new System.Windows.Forms.TextBox();
-            this.txtP2onP1 = new System.Windows.Forms.TextBox();
-            this.txtP2onP2 = new System.Windows.Forms.TextBox();
-            this.txtP1onP2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHomescreen)).BeginInit();
             this.pg1_Instructions.SuspendLayout();
             this.pg2_Avatar_P1.SuspendLayout();
@@ -572,18 +573,11 @@
             this.pg7_GameTime_COM.Controls.Add(this.label88);
             this.pg7_GameTime_COM.Controls.Add(this.label89);
             this.pg7_GameTime_COM.Controls.Add(this.pb_P1_Grid);
+            this.pg7_GameTime_COM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pg7_GameTime_COM.Location = new System.Drawing.Point(0, 0);
             this.pg7_GameTime_COM.Name = "pg7_GameTime_COM";
             this.pg7_GameTime_COM.Size = new System.Drawing.Size(796, 459);
             this.pg7_GameTime_COM.TabIndex = 67;
-            // 
-            // txtP1_COM
-            // 
-            this.txtP1_COM.Location = new System.Drawing.Point(161, 18);
-            this.txtP1_COM.Multiline = true;
-            this.txtP1_COM.Name = "txtP1_COM";
-            this.txtP1_COM.Size = new System.Drawing.Size(183, 89);
-            this.txtP1_COM.TabIndex = 114;
             // 
             // pg7_GameTime_P1
             // 
@@ -648,6 +642,7 @@
             // 
             // pg8_GameTime_P2
             // 
+            this.pg8_GameTime_P2.Controls.Add(this.pg9_GameOver);
             this.pg8_GameTime_P2.Controls.Add(this.txtP1onP2);
             this.pg8_GameTime_P2.Controls.Add(this.txtP2onP2);
             this.pg8_GameTime_P2.Controls.Add(this.btnNext_8);
@@ -705,6 +700,30 @@
             this.pg8_GameTime_P2.Name = "pg8_GameTime_P2";
             this.pg8_GameTime_P2.Size = new System.Drawing.Size(796, 459);
             this.pg8_GameTime_P2.TabIndex = 119;
+            // 
+            // pg9_GameOver
+            // 
+            this.pg9_GameOver.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pg9_GameOver.Location = new System.Drawing.Point(0, 0);
+            this.pg9_GameOver.Name = "pg9_GameOver";
+            this.pg9_GameOver.Size = new System.Drawing.Size(796, 459);
+            this.pg9_GameOver.TabIndex = 121;
+            // 
+            // txtP1onP2
+            // 
+            this.txtP1onP2.Location = new System.Drawing.Point(572, 18);
+            this.txtP1onP2.Multiline = true;
+            this.txtP1onP2.Name = "txtP1onP2";
+            this.txtP1onP2.Size = new System.Drawing.Size(183, 89);
+            this.txtP1onP2.TabIndex = 120;
+            // 
+            // txtP2onP2
+            // 
+            this.txtP2onP2.Location = new System.Drawing.Point(161, 18);
+            this.txtP2onP2.Multiline = true;
+            this.txtP2onP2.Name = "txtP2onP2";
+            this.txtP2onP2.Size = new System.Drawing.Size(183, 89);
+            this.txtP2onP2.TabIndex = 120;
             // 
             // btnNext_8
             // 
@@ -1169,6 +1188,22 @@
             this.pb_MA3_P1onP2.TabStop = false;
             this.pb_MA3_P1onP2.Visible = false;
             // 
+            // txtP1onP1
+            // 
+            this.txtP1onP1.Location = new System.Drawing.Point(161, 18);
+            this.txtP1onP1.Multiline = true;
+            this.txtP1onP1.Name = "txtP1onP1";
+            this.txtP1onP1.Size = new System.Drawing.Size(183, 89);
+            this.txtP1onP1.TabIndex = 120;
+            // 
+            // txtP2onP1
+            // 
+            this.txtP2onP1.Location = new System.Drawing.Point(572, 18);
+            this.txtP2onP1.Multiline = true;
+            this.txtP2onP1.Name = "txtP2onP1";
+            this.txtP2onP1.Size = new System.Drawing.Size(183, 89);
+            this.txtP2onP1.TabIndex = 121;
+            // 
             // pb_MA6_P2onP1
             // 
             this.pb_MA6_P2onP1.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA6_P2onP1.Image")));
@@ -1631,6 +1666,22 @@
             this.pb_P1onP1.TabIndex = 68;
             this.pb_P1onP1.TabStop = false;
             this.pb_P1onP1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_P1onP1_Paint);
+            // 
+            // txtCOM_COM
+            // 
+            this.txtCOM_COM.Location = new System.Drawing.Point(572, 18);
+            this.txtCOM_COM.Multiline = true;
+            this.txtCOM_COM.Name = "txtCOM_COM";
+            this.txtCOM_COM.Size = new System.Drawing.Size(183, 89);
+            this.txtCOM_COM.TabIndex = 115;
+            // 
+            // txtP1_COM
+            // 
+            this.txtP1_COM.Location = new System.Drawing.Point(161, 18);
+            this.txtP1_COM.Multiline = true;
+            this.txtP1_COM.Name = "txtP1_COM";
+            this.txtP1_COM.Size = new System.Drawing.Size(183, 89);
+            this.txtP1_COM.TabIndex = 114;
             // 
             // pb_MA_P2
             // 
@@ -3109,46 +3160,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "INSTRUCTIONS";
             // 
-            // txtCOM_COM
-            // 
-            this.txtCOM_COM.Location = new System.Drawing.Point(572, 18);
-            this.txtCOM_COM.Multiline = true;
-            this.txtCOM_COM.Name = "txtCOM_COM";
-            this.txtCOM_COM.Size = new System.Drawing.Size(183, 89);
-            this.txtCOM_COM.TabIndex = 115;
-            // 
-            // txtP1onP1
-            // 
-            this.txtP1onP1.Location = new System.Drawing.Point(161, 18);
-            this.txtP1onP1.Multiline = true;
-            this.txtP1onP1.Name = "txtP1onP1";
-            this.txtP1onP1.Size = new System.Drawing.Size(183, 89);
-            this.txtP1onP1.TabIndex = 120;
-            // 
-            // txtP2onP1
-            // 
-            this.txtP2onP1.Location = new System.Drawing.Point(572, 18);
-            this.txtP2onP1.Multiline = true;
-            this.txtP2onP1.Name = "txtP2onP1";
-            this.txtP2onP1.Size = new System.Drawing.Size(183, 89);
-            this.txtP2onP1.TabIndex = 121;
-            // 
-            // txtP2onP2
-            // 
-            this.txtP2onP2.Location = new System.Drawing.Point(161, 18);
-            this.txtP2onP2.Multiline = true;
-            this.txtP2onP2.Name = "txtP2onP2";
-            this.txtP2onP2.Size = new System.Drawing.Size(183, 89);
-            this.txtP2onP2.TabIndex = 120;
-            // 
-            // txtP1onP2
-            // 
-            this.txtP1onP2.Location = new System.Drawing.Point(572, 18);
-            this.txtP1onP2.Multiline = true;
-            this.txtP1onP2.Name = "txtP1onP2";
-            this.txtP1onP2.Size = new System.Drawing.Size(183, 89);
-            this.txtP1onP2.TabIndex = 120;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3488,6 +3499,7 @@
         private System.Windows.Forms.TextBox txtP1onP1;
         private System.Windows.Forms.TextBox txtP1onP2;
         private System.Windows.Forms.TextBox txtP2onP2;
+        private System.Windows.Forms.Panel pg9_GameOver;
     }
 }
 
