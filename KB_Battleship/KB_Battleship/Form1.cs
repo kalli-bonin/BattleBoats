@@ -278,7 +278,7 @@ namespace KB_Battleship
                         EmptyCounter = 0;
                         x = rnd.Next(0, 10);
                         y = rnd.Next(0, 10 - Size);
-                        if (x - 1 + Size - 1 < 10)
+                        if (y - 1 + Size - 1 < 10)
                         {
                             while (i < Size)
                             {
