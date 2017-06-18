@@ -470,6 +470,33 @@ namespace KB_Battleship
             {
                 return TargetModeVD;
             }
+            protected int DirectionCounter;
+            public void setDirectionCounter(int i)
+            {
+                DirectionCounter = i;
+            }
+            public int getDirectionCounter()
+            {
+                return DirectionCounter;
+            }
+            public void DirectionSwitcher()
+            {
+                if (DirectionCounter == 2)
+                {
+                    if (TargetModeHR == true || TargetModeHL == true)
+                    {
+                        TargetModeVU = true;
+                    }
+                    else if (TargetModeVU == true || TargetModeVD == true)
+                    {
+                        TargetModeHL = true;
+                    }
+                }
+                else if (DirectionCounter == 4)
+                {
+                    ResetTargetMode();
+                }
+            }
             //-------------------------------------------------//
 
             public void setScore(int score)
@@ -837,7 +864,7 @@ namespace KB_Battleship
                         g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
                     }
                     //placing ships
-                    else if (P.getPlayerArray(i, j) > 0 && P.allPlaced == true)
+                    else if (P.getPlayerArray(i, j) > 0 && P.allPlaced != true)
                     {
                         SolidBrush myBrush = new SolidBrush(Color.RoyalBlue);
                         g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
@@ -2131,6 +2158,8 @@ namespace KB_Battleship
                                 P2.setTargetModeHR(false);
                                 P2.setTargetModeHL(true);
                                 P1.SwitchTurn(P2);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
                             //if spot has already been hit
                             else
@@ -2139,6 +2168,8 @@ namespace KB_Battleship
                                 //reverse direction to hit from firsthit point
                                 P2.setTargetModeHR(false);
                                 P2.setTargetModeHL(true);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
                         }
                         else //if hit will be out of bounds 
@@ -2146,6 +2177,8 @@ namespace KB_Battleship
                             P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                             P2.setTargetModeHR(false);
                             P2.setTargetModeHL(true);
+                            P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                            P2.DirectionSwitcher();
                         }
                     }
                     //COM targetting left
@@ -2171,6 +2204,8 @@ namespace KB_Battleship
                                 P2.setTargetModeHR(true);
                                 P2.setTargetModeHL(false);
                                 P1.SwitchTurn(P2);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
                             //point already hit 
                             else
@@ -2179,6 +2214,8 @@ namespace KB_Battleship
                                 P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                                 P2.setTargetModeHR(true);
                                 P2.setTargetModeHL(false);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
                         }
                         else
@@ -2187,6 +2224,7 @@ namespace KB_Battleship
                             P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                             P2.setTargetModeHR(true);
                             P2.setTargetModeHL(false);
+                            P2.DirectionSwitcher();
                         }
                     }
                     //COM targetting up
@@ -2213,6 +2251,8 @@ namespace KB_Battleship
                                 P2.setTargetModeVU(false);
                                 P2.setTargetModeVD(true);
                                 P1.SwitchTurn(P2);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
                             //point already hit
                             else
@@ -2221,6 +2261,8 @@ namespace KB_Battleship
                                 P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                                 P2.setTargetModeVU(false);
                                 P2.setTargetModeVD(true);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
                         }
                         else
@@ -2229,6 +2271,8 @@ namespace KB_Battleship
                             P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                             P2.setTargetModeVU(false);
                             P2.setTargetModeVD(true);
+                            P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                            P2.DirectionSwitcher();
                         }
                     }
                     //COM targetting down
@@ -2254,6 +2298,8 @@ namespace KB_Battleship
                                 P2.setTargetModeVU(true);
                                 P2.setTargetModeVD(false);
                                 P1.SwitchTurn(P2);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
                             //point already hit
                             else
@@ -2262,6 +2308,8 @@ namespace KB_Battleship
                                 P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                                 P2.setTargetModeVU(true);
                                 P2.setTargetModeVD(false);
+                                P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                                P2.DirectionSwitcher();
                             }
                         }
                         else
@@ -2270,6 +2318,8 @@ namespace KB_Battleship
                             P2.setLastHit(P2.getFirstHit().X, P2.getFirstHit().Y);
                             P2.setTargetModeVU(true);
                             P2.setTargetModeVD(false);
+                            P2.setDirectionCounter(P2.getDirectionCounter() + 1);
+                            P2.DirectionSwitcher();
                         }
                     }
                     
