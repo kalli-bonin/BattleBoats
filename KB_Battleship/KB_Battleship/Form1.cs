@@ -175,7 +175,7 @@ namespace KB_Battleship
                     
                     //MessageBox.Show("Your " +  Name + " is dead.");
                     DeathMessage = true;
-                    P.ResetHuntMode();
+                    P.ResetTargetMode();
                     return 1;
                 }
                 else if ((HitCount == Size) && (DeathMessage == true))
@@ -323,8 +323,8 @@ namespace KB_Battleship
         {
             public Player()
             {
-                iScore = 0;
-                iAvatar = 1;
+                Score = 0;
+                Avatar = 1;
                 HitCount = 0;
             }
 
@@ -334,8 +334,8 @@ namespace KB_Battleship
             public Ships BAT = new Ships("Battleship", 4, 0, 0, 0, false, false, 4);
             public Ships AIR = new Ships("Aircraft", 5, 0, 0, 0, false, false, 5);
 
-            protected int iScore;
-            protected int iAvatar;
+            protected int Score;
+            protected int Avatar;
             protected int HitCount;
 
             //stores player ship information///////////////
@@ -350,14 +350,14 @@ namespace KB_Battleship
             protected bool TargetModeHL;
             protected bool TargetModeVU;
             protected bool TargetModeVD;
-            protected bool Hunt;
-            public void ResetHuntMode()
+            protected bool Target;
+            public void ResetTargetMode()
             {
                 setTargetModeHL(false);
                 setTargetModeHR(false);
                 setTargetModeVD(false);
                 setTargetModeVU(false);
-                setHunt(false);
+                setTarget(false);
             }
             protected Point FirstHit;
             protected Point LastHit;
@@ -432,32 +432,32 @@ namespace KB_Battleship
                 return LastHit;
             }
 
-            public void setHunt(bool b)
+            public void setTarget(bool b)
             {
-                Hunt = b;
+                Target = b;
             }
-            public bool getHunt()
+            public bool getTarget()
             {
-                return Hunt;
+                return Target;
             }
 
             public void setScore(int score)
             {
-                iScore = score;
+                Score = score;
             }
             public int getScore()
             {
-                return iScore;
+                return Score;
             }
 
             //avatar
             public void setAvatar(int avatar)
             {
-                iAvatar = avatar;
+                Avatar = avatar;
             }
             public int getAvatar()
             {
-                return iAvatar;
+                return Avatar;
             }
 
             //hitcount
@@ -2070,8 +2070,9 @@ namespace KB_Battleship
             while (P2.getTurn() == true)
             {
                 //COM targeting direction 
-                if (P2.getHunt() == true)
+                if (P2.getTarget() == true)
                 {
+                    //COM targeting right
                     if (P2.getTargetModeHR() == true)
                     {
                         //checks if point is out of bounds 
@@ -2110,10 +2111,13 @@ namespace KB_Battleship
                             P2.setTargetModeHL(true);
                         }
                     }
+                    //COM targetting left
                     else if (P2.getTargetModeHL() == true)
                     {
+                        //checks if point will be out of bounds
                         if (P2.getLastHit().X - 1 >= 0)
                         {
+                            //hit
                             if (P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y) > 0)
                             {
                                 P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y));
@@ -2121,6 +2125,7 @@ namespace KB_Battleship
                                 P2.setLastHit(P2.getLastHit().X - 1, P2.getLastHit().Y);
                                 P1.SwitchTurn(P2);
                             }
+                            //miss
                             else if (P1.getPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y) == 0)
                             {
                                 P1.setPlayerArray(P2.getLastHit().X - 1, P2.getLastHit().Y, -2);
@@ -2130,6 +2135,7 @@ namespace KB_Battleship
                                 P2.setTargetModeHL(false);
                                 P1.SwitchTurn(P2);
                             }
+                            //point already hit 
                             else
                             {
                                 //reverse direction to hit from first point 
@@ -2146,10 +2152,13 @@ namespace KB_Battleship
                             P2.setTargetModeHL(false);
                         }
                     }
+                    //COM targetting up
                     else if (P2.getTargetModeVU() == true)
                     {
+                        //checks if point will be out of bounds 
                         if (P2.getLastHit().Y - 1 >= 0)
                         {
+                            //hit 
                             if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1) > 0)
                             {
 
@@ -2158,6 +2167,7 @@ namespace KB_Battleship
                                 P2.setLastHit(P2.getLastHit().X, P2.getLastHit().Y - 1);
                                 P1.SwitchTurn(P2);
                             }
+                            //miss
                             else if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1) == 0)
                             {
                                 P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y - 1, -2);
@@ -2167,6 +2177,7 @@ namespace KB_Battleship
                                 P2.setTargetModeVD(true);
                                 P1.SwitchTurn(P2);
                             }
+                            //point already hit
                             else
                             {
                                 //reverse direction to hit from first point 
@@ -2183,10 +2194,13 @@ namespace KB_Battleship
                             P2.setTargetModeVD(true);
                         }
                     }
+                    //COM targetting down
                     else if (P2.getTargetModeVD() == true)
                     {
+                        //checks if point will be out of bounds
                         if (P2.getLastHit().Y + 1 <= 9)
                         {
+                            //hit
                             if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1) > 0)
                             {
                                 P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1));
@@ -2194,6 +2208,7 @@ namespace KB_Battleship
                                 P2.setLastHit(P2.getLastHit().X, P2.getLastHit().Y + 1);
                                 P1.SwitchTurn(P2);
                             }
+                            //miss
                             else if (P1.getPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1) == 0)
                             {
                                 P1.setPlayerArray(P2.getLastHit().X, P2.getLastHit().Y + 1, -2);
@@ -2203,6 +2218,7 @@ namespace KB_Battleship
                                 P2.setTargetModeVD(false);
                                 P1.SwitchTurn(P2);
                             }
+                            //point already hit
                             else
                             {
                                 //reverse direction to hit from first point 
@@ -2224,7 +2240,7 @@ namespace KB_Battleship
                 //COM not targetting direction 
                 else
                 {
-                    //if no points in to hit list
+                    //if no points in tohit list, COM has no first hit 
                     if (P2.getToHitLength() == 0)
                     {
                         Random rnd = new Random();
@@ -2274,7 +2290,7 @@ namespace KB_Battleship
 
                         }
                     }
-                    //Points in ToHit list, searching for hit direction i.e. 2 hits in a column/row
+                    //Points in ToHit list, searching for hit direction after hitting a ship i.e. 2 hits in a column/row
                     else
                     {
                         Random rnd = new Random();
@@ -2291,7 +2307,7 @@ namespace KB_Battleship
                                 P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getToHitPoint(i)));
                                 P1.setPlayerArray(P2.getToHitPoint(i), -1);
                                 P2.ClearToHitPoints();
-                                P2.setHunt(true);
+                                P2.setTarget(true);
                             }
                             else
                             {
@@ -2299,6 +2315,7 @@ namespace KB_Battleship
                                 P2.RemoveToHitPoint(i);
                             }
                         }
+                        //hit to left of first hit
                         else if (P2.getFirstHit().X - 1 == P2.getToHitPoint(i).X)
                         {
                             if (P1.getPlayerArray(P2.getFirstHit().X - 1, P2.getFirstHit().Y) > 0)
@@ -2309,7 +2326,7 @@ namespace KB_Battleship
                                 P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getToHitPoint(i)));
                                 P1.setPlayerArray(P2.getToHitPoint(i), -1);
                                 P2.ClearToHitPoints();
-                                P2.setHunt(true);
+                                P2.setTarget(true);
                             }
                             else
                             {
@@ -2318,6 +2335,7 @@ namespace KB_Battleship
                             }
                             
                         }
+                        //hit down of first hit
                         else if (P2.getFirstHit().Y + 1 == P2.getToHitPoint(i).Y)
                         {
                             if (P1.getPlayerArray(P2.getFirstHit().X, P2.getFirstHit().Y + 1) > 0)
@@ -2328,7 +2346,7 @@ namespace KB_Battleship
                                 P1.ShipHitCounter(P2,P1.getPlayerArray(P2.getToHitPoint(i)));
                                 P1.setPlayerArray(P2.getToHitPoint(i), -1);
                                 P2.ClearToHitPoints();
-                                P2.setHunt(true);
+                                P2.setTarget(true);
                             }
                             else
                             {
@@ -2337,6 +2355,7 @@ namespace KB_Battleship
                             }
                             
                         }
+                        //hit up of first hit
                         else if (P2.getFirstHit().Y - 1 == P2.getToHitPoint(i).Y)
                         {
                             if (P1.getPlayerArray(P2.getFirstHit().X, P2.getFirstHit().Y - 1) > 0)
@@ -2347,7 +2366,7 @@ namespace KB_Battleship
                                 P1.ShipHitCounter(P2, P1.getPlayerArray(P2.getToHitPoint(i)));
                                 P1.setPlayerArray(P2.getToHitPoint(i), -1);
                                 P2.ClearToHitPoints();
-                                P2.setHunt(true);
+                                P2.setTarget(true);
                             }
                             else
                             {
