@@ -59,7 +59,7 @@ namespace KB_Battleship
             pg7_GameTime_COM.Visible = false;
             pg7_GameTime_P1.Visible  = false;
             pg8_GameTime_P2.Visible  = false;
-            //pg9_GameOver.Visible    = false;
+            pg9_GameOver.Visible = false;
         }
 
         public class Ships
@@ -2111,6 +2111,11 @@ namespace KB_Battleship
                 pb_COM_Grid.Enabled = false;
                 P1.setScore(P1.getScore() + 1);
                 MessageBox.Show("You win!!!");
+                //skip pages
+                pg7_GameTime_P1.Visible = true;
+                pg8_GameTime_P2.Visible = true;
+                //show page
+                pg9_GameOver.Visible = true;
             }
             else
             {
@@ -2472,6 +2477,11 @@ namespace KB_Battleship
                 pb_COM_Grid.Enabled = false;
                 P2.setScore(P2.getScore() + 1);
                 MessageBox.Show("Player 2 wins!!!!");
+                //skip pages
+                pg7_GameTime_P1.Visible = true;
+                pg8_GameTime_P2.Visible = true;
+                //show page
+                pg9_GameOver.Visible = true;
             }
             else
             {
@@ -2531,6 +2541,7 @@ namespace KB_Battleship
                 pb_P2onP1.Enabled = false;
                 //do win stuff
                 P1.setScore(P1.getScore() + 1);
+                pg9_GameOver.Visible = true;
             }
            
         }
@@ -2621,6 +2632,7 @@ namespace KB_Battleship
                 pb_P1onP2.Enabled = false;
                 //do win stuff
                 P2.setScore(P2.getScore() + 1);
+                pg9_GameOver.Visible = true;
             }
         }
 
