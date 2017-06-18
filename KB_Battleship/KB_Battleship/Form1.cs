@@ -1368,6 +1368,7 @@ namespace KB_Battleship
         private void btnRandomize_3_Click(object sender, EventArgs e)
         {
             randomizeGrid(P1, pb_PlaceShips_P1);
+            pb_PlaceShips_P1.Invalidate();
         }
 
         //place ships undo btn
