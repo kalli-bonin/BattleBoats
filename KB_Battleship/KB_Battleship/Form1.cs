@@ -44,6 +44,8 @@ namespace KB_Battleship
         
         Player P1 = new Player();
         Player P2 = new Player();       //COM or actualy player two
+
+        bool GameStarted = false;
         #endregion
         
         private void Form1_Load(object sender, EventArgs e)
@@ -347,6 +349,7 @@ namespace KB_Battleship
 
             //confirming placing all ships and which ships are placed
             public bool allPlaced = false;
+            public bool randomized = false;
             public int boatclick = 0;
             protected bool TargetModeHR;
             protected bool TargetModeHL;
@@ -760,22 +763,32 @@ namespace KB_Battleship
                 case 1:
                     P.PB.SetPlaced(false);
                     P.allPlaced = false;
+                    if (P.randomized == true)
+                        P.randomized = false;
                     break;
                 case 2:
                     P.SUB.SetPlaced(false);
                     P.allPlaced = false;
+                    if (P.randomized == true)
+                        P.randomized = false;
                     break;
                 case 3:
                     P.DES.SetPlaced(false);
                     P.allPlaced = false;
+                    if (P.randomized == true)
+                        P.randomized = false;
                     break;
                 case 4:
                     P.BAT.SetPlaced(false);
                     P.allPlaced = false;
+                    if (P.randomized == true)
+                        P.randomized = false;
                     break;
                 case 5:
                     P.AIR.SetPlaced(false);
                     P.allPlaced = false;
+                    if (P.randomized == true)
+                        P.randomized = false;
                     break;
                 default:
                     break;
@@ -793,7 +806,7 @@ namespace KB_Battleship
             P.BAT.Randomize(rnd, P.getPlayerArrayAll());
             P.AIR.Randomize(rnd, P.getPlayerArrayAll());
 
-            P.allPlaced = true;
+            P.randomized = true;
         }
         public void randomizeGrid(Player P, Control PIC)
         {
@@ -807,9 +820,10 @@ namespace KB_Battleship
             P.BAT.Randomize(rnd, P.getPlayerArrayAll());
             P.AIR.Randomize(rnd, P.getPlayerArrayAll());
 
-            P.allPlaced = true;
+            P.randomized = true;
             PIC.Invalidate();
         }
+       
         public void PaintGrid(Player P, Graphics g, Control pb)
         {
             Pen myPen = new Pen(Color.Black, 1);
@@ -837,7 +851,7 @@ namespace KB_Battleship
                         g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
                     }
                     //placing ships
-                    else if (P.getPlayerArray(i, j) > 0 && P.allPlaced != true)
+                    else if (P.getPlayerArray(i, j) > 0 && (P.allPlaced != true || P.randomized == true) && GameStarted == false)
                     {
                         SolidBrush myBrush = new SolidBrush(Color.RoyalBlue);
                         g.FillRectangle(myBrush, i * 30, j * 30, 30, 30);
@@ -1511,6 +1525,7 @@ namespace KB_Battleship
             pg5_Avatar_P2.Visible = true;
             pg6_SetBoard_P2.Visible = true;
             pg7_GameTime_COM.Visible = true;
+            GameStarted = true;
 
             int avatar = P1.getAvatar();
             {
@@ -1989,6 +2004,7 @@ namespace KB_Battleship
                 //skips COM page
                 pg7_GameTime_COM.Visible = true;
                 pg7_GameTime_P1.Visible = true;
+                GameStarted = true;
 
                 int avatar = P1.getAvatar();
                 int avatar2 = P2.getAvatar();
