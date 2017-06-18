@@ -21,8 +21,6 @@ namespace KB_Battleship
             
 
             InitializeComponent();
-            //load save data
-            LoadData();
             //plays bgm
             System.Media.SoundPlayer bgm_music = new System.Media.SoundPlayer();
             bgm_music.SoundLocation = "BGM_1.wav";
@@ -60,13 +58,13 @@ namespace KB_Battleship
             pg9_GameOver.Visible = false;
         }
 
-        private void SaveData()
+        private void SaveData2Player()
         {
             try
             {
                 //writer and open/create file
                 //saves file to bin folder 
-                FileStream fs = new FileStream(".\\Save.bin", FileMode.OpenOrCreate);
+                FileStream fs = new FileStream(".\\Save2Player.bin", FileMode.OpenOrCreate);
                 BinaryWriter binWriter = new BinaryWriter(fs);
 
                 binWriter.Write(P1.getScore());
@@ -80,15 +78,64 @@ namespace KB_Battleship
                 MessageBox.Show("File error!");
             }
         }
-        private void LoadData()
+        private void SaveDataCOM()
+        {
+            try
+            {
+                //writer and open/create file
+                //saves file to bin folder 
+                FileStream fs = new FileStream(".\\SaveCOM.bin", FileMode.OpenOrCreate);
+                BinaryWriter binWriter = new BinaryWriter(fs);
+
+                binWriter.Write(P1.getScore());
+                binWriter.Write(P2.getScore());
+
+                binWriter.Flush();
+                binWriter.Close();
+            }
+            catch
+            {
+                MessageBox.Show("File error!");
+            }
+        }
+        private void LoadData2Player()
         {
             try
             {
                 //check if save file exists
-                if (File.Exists(".\\Save.bin") == true)
+                if (File.Exists(".\\Save2Player.bin") == true)
                 {
                     //create binary reader
-                    FileStream fs = new FileStream(".\\Save.bin", FileMode.Open);
+                    FileStream fs = new FileStream(".\\Save2Player.bin", FileMode.Open);
+                    BinaryReader binReader = new BinaryReader(fs);
+                    long length = binReader.BaseStream.Length;
+
+                    while (fs.Position < length)
+                    {
+                        P1.setScore(binReader.ReadInt32());
+                        P2.setScore(binReader.ReadInt32());
+                    }
+                }
+                else
+                {
+
+                }
+
+            }
+            catch
+            {
+
+            }
+        }
+        private void LoadDataCOM()
+        {
+            try
+            {
+                //check if save file exists
+                if (File.Exists(".\\SaveCOM.bin") == true)
+                {
+                    //create binary reader
+                    FileStream fs = new FileStream(".\\SaveCOM.bin", FileMode.Open);
                     BinaryReader binReader = new BinaryReader(fs);
                     long length = binReader.BaseStream.Length;
 
@@ -1573,6 +1620,7 @@ namespace KB_Battleship
             pg6_SetBoard_P2.Visible = true;
             pg7_GameTime_COM.Visible = true;
             GameStarted = true;
+            LoadDataCOM();
 
             int avatar = P1.getAvatar();
             {
@@ -1598,6 +1646,7 @@ namespace KB_Battleship
 
         private void btn2Player_Click(object sender, EventArgs e)
         {
+            LoadData2Player();
             pg5_Avatar_P2.Visible = true;
 
             bkgd_A1_P2.Visible = false;
@@ -2170,7 +2219,7 @@ namespace KB_Battleship
                 pb_P1_Grid.Enabled = false;
                 pb_COM_Grid.Enabled = false;
                 P1.setScore(P1.getScore() + 1);
-                SaveData();
+                SaveDataCOM();
                 MessageBox.Show("You win!!!");
                 //skip pages
                 pg7_GameTime_P1.Visible = true;
@@ -2539,7 +2588,7 @@ namespace KB_Battleship
                 pb_P1_Grid.Enabled = false;
                 pb_COM_Grid.Enabled = false;
                 P2.setScore(P2.getScore() + 1);
-                SaveData();
+                SaveDataCOM();
                 MessageBox.Show("Player 2 wins!!!!");
                 //skip pages
                 pg7_GameTime_P1.Visible = true;
@@ -2608,6 +2657,7 @@ namespace KB_Battleship
                 pb_P2onP1.Enabled = false;
                 //do win stuff
                 P1.setScore(P1.getScore() + 1);
+                SaveData2Player();
                 pg9_GameOver.Visible = true;
             }
            
@@ -2697,8 +2747,8 @@ namespace KB_Battleship
             {
                 pb_P2onP2.Enabled = false;
                 pb_P1onP2.Enabled = false;
-                //do win stuff
                 P2.setScore(P2.getScore() + 1);
+                SaveData2Player();
                 pg9_GameOver.Visible = true;
             }
         }
