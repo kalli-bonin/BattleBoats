@@ -2175,15 +2175,20 @@ namespace KB_Battleship
 
         private void LoadStatistics()
         {
+            double dPercentP1, dPercentP2;
+
+            dPercentP1 = Convert.ToDouble(P1.getScore()) / Convert.ToDouble(P1.getScore() + P2.getScore()) * 100;
+            dPercentP2 = Convert.ToDouble(P2.getScore()) / Convert.ToDouble(P1.getScore() + P2.getScore()) * 100;
+
             //P1
             lbl_P1_Won.Text = ("Games Won: " + P1.getScore());
             lbl_P1_Lost.Text = ("Games Lost: " + P2.getScore());
-            lbl_P1_Percentage.Text = ("Win Percentage: " + (P1.getScore() / (P1.getScore() + P2.getScore()))*100 + "%");
+            lbl_P1_Percentage.Text = ("Win Percentage: " + Math.Round(dPercentP1) + "%");
 
             //P2
             lbl_P2_Won.Text = ("Games Won: " + P2.getScore());
             lbl_P2_Lost.Text = ("Games Lost: " + P1.getScore());
-            lbl_P2_Percentage.Text = ("Win Percentage: " + (P2.getScore() / (P1.getScore() + P2.getScore()))*100 + "%");
+            lbl_P2_Percentage.Text = ("Win Percentage: " + Math.Round(dPercentP2) + "%");
         }
 
         #region vs Computer
