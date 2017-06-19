@@ -41,6 +41,8 @@
             this.pg7_GameTime_P1 = new System.Windows.Forms.Panel();
             this.pg8_GameTime_P2 = new System.Windows.Forms.Panel();
             this.pg9_GameOver = new System.Windows.Forms.Panel();
+            this.btnResetScore = new System.Windows.Forms.Button();
+            this.btnPlayAgain = new System.Windows.Forms.Button();
             this.lbl_P2GameStats = new System.Windows.Forms.Label();
             this.lbl_P2_Percentage = new System.Windows.Forms.Label();
             this.lbl_P2_Lost = new System.Windows.Forms.Label();
@@ -304,8 +306,6 @@
             this.btnNext_1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnPlayAgain = new System.Windows.Forms.Button();
-            this.btnResetScore = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbHomescreen)).BeginInit();
             this.pg1_Instructions.SuspendLayout();
             this.pg2_Avatar_P1.SuspendLayout();
@@ -602,10 +602,6 @@
             this.pg7_GameTime_P1.Controls.Add(this.label173);
             this.pg7_GameTime_P1.Controls.Add(this.txtP1onP1);
             this.pg7_GameTime_P1.Controls.Add(this.txtP2onP1);
-            this.pg7_GameTime_P1.Controls.Add(this.pb_MA6_P2onP1);
-            this.pg7_GameTime_P1.Controls.Add(this.pb_MA5_P2onP1);
-            this.pg7_GameTime_P1.Controls.Add(this.pb_MA3_P1onP1);
-            this.pg7_GameTime_P1.Controls.Add(this.pb_MA2_P1onP1);
             this.pg7_GameTime_P1.Controls.Add(this.btnNext_7);
             this.pg7_GameTime_P1.Controls.Add(this.pb_MA4_P2onP1);
             this.pg7_GameTime_P1.Controls.Add(this.pb_MA1_P1onP1);
@@ -651,6 +647,10 @@
             this.pg7_GameTime_P1.Controls.Add(this.label128);
             this.pg7_GameTime_P1.Controls.Add(this.label129);
             this.pg7_GameTime_P1.Controls.Add(this.pb_P1onP1);
+            this.pg7_GameTime_P1.Controls.Add(this.pb_MA3_P1onP1);
+            this.pg7_GameTime_P1.Controls.Add(this.pb_MA2_P1onP1);
+            this.pg7_GameTime_P1.Controls.Add(this.pb_MA6_P2onP1);
+            this.pg7_GameTime_P1.Controls.Add(this.pb_MA5_P2onP1);
             this.pg7_GameTime_P1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pg7_GameTime_P1.Location = new System.Drawing.Point(0, 0);
             this.pg7_GameTime_P1.Name = "pg7_GameTime_P1";
@@ -664,8 +664,6 @@
             this.pg8_GameTime_P2.Controls.Add(this.label130);
             this.pg8_GameTime_P2.Controls.Add(this.txtP2onP2);
             this.pg8_GameTime_P2.Controls.Add(this.btnNext_8);
-            this.pg8_GameTime_P2.Controls.Add(this.pb_MA1_P1onP2);
-            this.pg8_GameTime_P2.Controls.Add(this.pb_MA4_P2onP2);
             this.pg8_GameTime_P2.Controls.Add(this.label131);
             this.pg8_GameTime_P2.Controls.Add(this.label132);
             this.pg8_GameTime_P2.Controls.Add(this.label133);
@@ -707,12 +705,14 @@
             this.pg8_GameTime_P2.Controls.Add(this.label169);
             this.pg8_GameTime_P2.Controls.Add(this.label170);
             this.pg8_GameTime_P2.Controls.Add(this.pb_P2onP2);
-            this.pg8_GameTime_P2.Controls.Add(this.pb_MA5_P2onP2);
-            this.pg8_GameTime_P2.Controls.Add(this.pb_MA3_P1onP2);
             this.pg8_GameTime_P2.Controls.Add(this.pb_P1onP2);
             this.pg8_GameTime_P2.Controls.Add(this.txtP1onP2);
-            this.pg8_GameTime_P2.Controls.Add(this.pb_MA2_P1onP2);
             this.pg8_GameTime_P2.Controls.Add(this.pb_MA6_P2onP2);
+            this.pg8_GameTime_P2.Controls.Add(this.pb_MA4_P2onP2);
+            this.pg8_GameTime_P2.Controls.Add(this.pb_MA5_P2onP2);
+            this.pg8_GameTime_P2.Controls.Add(this.pb_MA1_P1onP2);
+            this.pg8_GameTime_P2.Controls.Add(this.pb_MA3_P1onP2);
+            this.pg8_GameTime_P2.Controls.Add(this.pb_MA2_P1onP2);
             this.pg8_GameTime_P2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pg8_GameTime_P2.Location = new System.Drawing.Point(0, 0);
             this.pg8_GameTime_P2.Name = "pg8_GameTime_P2";
@@ -737,6 +737,26 @@
             this.pg9_GameOver.Name = "pg9_GameOver";
             this.pg9_GameOver.Size = new System.Drawing.Size(796, 459);
             this.pg9_GameOver.TabIndex = 121;
+            // 
+            // btnResetScore
+            // 
+            this.btnResetScore.Location = new System.Drawing.Point(305, 310);
+            this.btnResetScore.Name = "btnResetScore";
+            this.btnResetScore.Size = new System.Drawing.Size(75, 23);
+            this.btnResetScore.TabIndex = 11;
+            this.btnResetScore.Text = "Reset";
+            this.btnResetScore.UseVisualStyleBackColor = true;
+            this.btnResetScore.Click += new System.EventHandler(this.btnResetScore_Click);
+            // 
+            // btnPlayAgain
+            // 
+            this.btnPlayAgain.Location = new System.Drawing.Point(429, 309);
+            this.btnPlayAgain.Name = "btnPlayAgain";
+            this.btnPlayAgain.Size = new System.Drawing.Size(75, 23);
+            this.btnPlayAgain.TabIndex = 10;
+            this.btnPlayAgain.Text = "Play Again";
+            this.btnPlayAgain.UseVisualStyleBackColor = true;
+            this.btnPlayAgain.Click += new System.EventHandler(this.btnPlayAgain_Click);
             // 
             // lbl_P2GameStats
             // 
@@ -848,7 +868,7 @@
             // 
             // txtP2onP2
             // 
-            this.txtP2onP2.Location = new System.Drawing.Point(573, 18);
+            this.txtP2onP2.Location = new System.Drawing.Point(572, 18);
             this.txtP2onP2.Multiline = true;
             this.txtP2onP2.Name = "txtP2onP2";
             this.txtP2onP2.ReadOnly = true;
@@ -874,7 +894,7 @@
             // pb_MA1_P1onP2
             // 
             this.pb_MA1_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA1_P1onP2.Image")));
-            this.pb_MA1_P1onP2.Location = new System.Drawing.Point(58, 17);
+            this.pb_MA1_P1onP2.Location = new System.Drawing.Point(57, 18);
             this.pb_MA1_P1onP2.Name = "pb_MA1_P1onP2";
             this.pb_MA1_P1onP2.Size = new System.Drawing.Size(89, 89);
             this.pb_MA1_P1onP2.TabIndex = 112;
@@ -3311,26 +3331,6 @@
             this.label1.Size = new System.Drawing.Size(396, 55);
             this.label1.TabIndex = 0;
             this.label1.Text = "INSTRUCTIONS";
-            // 
-            // btnPlayAgain
-            // 
-            this.btnPlayAgain.Location = new System.Drawing.Point(429, 309);
-            this.btnPlayAgain.Name = "btnPlayAgain";
-            this.btnPlayAgain.Size = new System.Drawing.Size(75, 23);
-            this.btnPlayAgain.TabIndex = 10;
-            this.btnPlayAgain.Text = "Play Again";
-            this.btnPlayAgain.UseVisualStyleBackColor = true;
-            this.btnPlayAgain.Click += new System.EventHandler(this.btnPlayAgain_Click);
-            // 
-            // btnResetScore
-            // 
-            this.btnResetScore.Location = new System.Drawing.Point(305, 310);
-            this.btnResetScore.Name = "btnResetScore";
-            this.btnResetScore.Size = new System.Drawing.Size(75, 23);
-            this.btnResetScore.TabIndex = 11;
-            this.btnResetScore.Text = "Reset";
-            this.btnResetScore.UseVisualStyleBackColor = true;
-            this.btnResetScore.Click += new System.EventHandler(this.btnResetScore_Click);
             // 
             // Form1
             // 
