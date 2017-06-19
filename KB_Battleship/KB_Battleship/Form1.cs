@@ -2232,7 +2232,7 @@ namespace KB_Battleship
                 pg8_GameTime_P2.Visible = true;
                 //show page
                 pg9_GameOver.Visible = true;
-                lblWhoWon.Text = ("You win!");
+                lbl_WhoWon.Text = ("You win!");
                 LoadStatistics();
             }
             else
@@ -2601,7 +2601,8 @@ namespace KB_Battleship
                 pg8_GameTime_P2.Visible = true;
                 //show page
                 pg9_GameOver.Visible = true;
-                lblWhoWon.Text = ("Player 2 wins!");
+                lbl_WhoWon.Text = ("Player 2 wins!");
+                lbl_P2GameStats.Text = ("COM Game Statistics");
                 LoadStatistics();
                 
             }
@@ -2664,6 +2665,7 @@ namespace KB_Battleship
                 //do win stuff
                 P1.setScore(P1.getScore() + 1);
                 SaveData2Player();
+                lbl_WhoWon.Text = ("Player 1 wins!");
                 pg9_GameOver.Visible = true;
             }
            
@@ -2756,6 +2758,9 @@ namespace KB_Battleship
                 P2.setScore(P2.getScore() + 1);
                 SaveData2Player();
                 pg9_GameOver.Visible = true;
+                LoadStatistics();
+                lbl_WhoWon.Text = ("Player 2 wins!");
+                lbl_P2GameStats.Text = ("Player 2 Game Statistics");
             }
         }
 
