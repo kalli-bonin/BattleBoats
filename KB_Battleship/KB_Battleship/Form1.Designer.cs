@@ -304,6 +304,8 @@
             this.label174 = new System.Windows.Forms.Label();
             this.label175 = new System.Windows.Forms.Label();
             this.label176 = new System.Windows.Forms.Label();
+            this.btnPlayAgain = new System.Windows.Forms.Button();
+            this.btnResetStats = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbHomescreen)).BeginInit();
             this.pg1_Instructions.SuspendLayout();
             this.pg2_Avatar_P1.SuspendLayout();
@@ -719,6 +721,8 @@
             // 
             // pg9_GameOver
             // 
+            this.pg9_GameOver.Controls.Add(this.btnResetStats);
+            this.pg9_GameOver.Controls.Add(this.btnPlayAgain);
             this.pg9_GameOver.Controls.Add(this.lbl_P2GameStats);
             this.pg9_GameOver.Controls.Add(this.lbl_P2_Percentage);
             this.pg9_GameOver.Controls.Add(this.lbl_P2_Lost);
@@ -3308,6 +3312,25 @@
             this.label176.TabIndex = 125;
             this.label176.Text = "COM";
             // 
+            // btnPlayAgain
+            // 
+            this.btnPlayAgain.Location = new System.Drawing.Point(361, 249);
+            this.btnPlayAgain.Name = "btnPlayAgain";
+            this.btnPlayAgain.Size = new System.Drawing.Size(75, 23);
+            this.btnPlayAgain.TabIndex = 10;
+            this.btnPlayAgain.Text = "Play Again";
+            this.btnPlayAgain.UseVisualStyleBackColor = true;
+            this.btnPlayAgain.Click += new System.EventHandler(this.btnPlayAgain_Click);
+            // 
+            // btnResetStats
+            // 
+            this.btnResetStats.Location = new System.Drawing.Point(361, 154);
+            this.btnResetStats.Name = "btnResetStats";
+            this.btnResetStats.Size = new System.Drawing.Size(75, 23);
+            this.btnResetStats.TabIndex = 10;
+            this.btnResetStats.Text = "Reset";
+            this.btnResetStats.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3662,6 +3685,8 @@
         private System.Windows.Forms.Label label173;
         private System.Windows.Forms.Label label176;
         private System.Windows.Forms.Label label175;
+        private System.Windows.Forms.Button btnResetStats;
+        private System.Windows.Forms.Button btnPlayAgain;
     }
 }
 

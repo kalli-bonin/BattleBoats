@@ -176,7 +176,7 @@ namespace KB_Battleship
                 HitCount = 0;
                 topLeft.X = 0;
                 topLeft.Y = 0;
-                DirectionVertical = true;
+                DirectionVertical = false;
                 Placed = false;     //is the ship placed in the starting screen
                 DeathMessage = false;   //only one death message should be shown
             }
@@ -414,6 +414,15 @@ namespace KB_Battleship
                         }
                     }
                 }
+            }
+            public void Reset()
+            {
+                HitCount = 0;
+                topLeft.X = 0;
+                topLeft.Y = 0;
+                DirectionVertical = false;
+                Placed = false;  
+                DeathMessage = false;
             }
             
         }
@@ -724,6 +733,12 @@ namespace KB_Battleship
                 {
                     return 2; //spot already hit, nothing happens
                 }
+            }
+            public void Reset()
+            {
+                HitCount = 0;
+                allPlaced = false;
+                randomized = false;
             }
             
         }
@@ -2774,6 +2789,37 @@ namespace KB_Battleship
 
 
         #endregion
-        
+
+        private void btnPlayAgain_Click(object sender, EventArgs e)
+        {
+            P1.ResetPlayerArray();
+            P2.ResetPlayerArray();
+
+            P1.Reset();
+            P2.Reset();
+
+            P1.PB.Reset();
+            P1.SUB.Reset();
+            P1.DES.Reset();
+            P1.BAT.Reset();
+            P1.AIR.Reset();
+
+            P2.PB.Reset();
+            P2.SUB.Reset();
+            P2.DES.Reset();
+            P2.BAT.Reset();
+            P2.AIR.Reset();
+
+            pg9_GameOver.Visible = false;
+            pg8_GameTime_P2.Visible = false;
+            pg7_GameTime_P1.Visible = false;
+            pg7_GameTime_COM.Visible = false;
+            pg6_SetBoard_P2.Visible = false;
+            pg5_Avatar_P2.Visible = false;
+            pg4_PlayerChoice.Visible = false;
+
+            pg3_SetBoard_P1.Visible = true;
+            
+        }
     }
 }
