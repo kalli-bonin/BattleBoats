@@ -733,6 +733,7 @@
             this.txtP1onP2.Location = new System.Drawing.Point(572, 18);
             this.txtP1onP2.Multiline = true;
             this.txtP1onP2.Name = "txtP1onP2";
+            this.txtP1onP2.ReadOnly = true;
             this.txtP1onP2.Size = new System.Drawing.Size(183, 89);
             this.txtP1onP2.TabIndex = 120;
             // 
@@ -741,6 +742,7 @@
             this.txtP2onP2.Location = new System.Drawing.Point(161, 18);
             this.txtP2onP2.Multiline = true;
             this.txtP2onP2.Name = "txtP2onP2";
+            this.txtP2onP2.ReadOnly = true;
             this.txtP2onP2.Size = new System.Drawing.Size(183, 89);
             this.txtP2onP2.TabIndex = 120;
             // 
@@ -1212,6 +1214,7 @@
             this.txtP1onP1.Location = new System.Drawing.Point(161, 18);
             this.txtP1onP1.Multiline = true;
             this.txtP1onP1.Name = "txtP1onP1";
+            this.txtP1onP1.ReadOnly = true;
             this.txtP1onP1.Size = new System.Drawing.Size(183, 89);
             this.txtP1onP1.TabIndex = 120;
             // 
@@ -1220,6 +1223,7 @@
             this.txtP2onP1.Location = new System.Drawing.Point(572, 18);
             this.txtP2onP1.Multiline = true;
             this.txtP2onP1.Name = "txtP2onP1";
+            this.txtP2onP1.ReadOnly = true;
             this.txtP2onP1.Size = new System.Drawing.Size(183, 89);
             this.txtP2onP1.TabIndex = 121;
             // 
@@ -1691,6 +1695,7 @@
             this.txtCOM_COM.Location = new System.Drawing.Point(572, 18);
             this.txtCOM_COM.Multiline = true;
             this.txtCOM_COM.Name = "txtCOM_COM";
+            this.txtCOM_COM.ReadOnly = true;
             this.txtCOM_COM.Size = new System.Drawing.Size(183, 89);
             this.txtCOM_COM.TabIndex = 115;
             // 
@@ -1699,6 +1704,7 @@
             this.txtP1_COM.Location = new System.Drawing.Point(161, 18);
             this.txtP1_COM.Multiline = true;
             this.txtP1_COM.Name = "txtP1_COM";
+            this.txtP1_COM.ReadOnly = true;
             this.txtP1_COM.Size = new System.Drawing.Size(183, 89);
             this.txtP1_COM.TabIndex = 114;
             // 
