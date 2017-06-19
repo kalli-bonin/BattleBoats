@@ -2176,15 +2176,20 @@ namespace KB_Battleship
 
         private void LoadStatistics()
         {
+            double dPercentP1, dPercentP2;
+
+            dPercentP1 = Convert.ToDouble(P1.getScore()) / Convert.ToDouble(P1.getScore() + P2.getScore()) * 100;
+            dPercentP2 = Convert.ToDouble(P2.getScore()) / Convert.ToDouble(P1.getScore() + P2.getScore()) * 100;
+
             //P1
             lbl_P1_Won.Text = ("Games Won: " + P1.getScore());
             lbl_P1_Lost.Text = ("Games Lost: " + P2.getScore());
-            lbl_P1_Percentage.Text = ("Win Percentage: " + (P1.getScore() / (P1.getScore() + P2.getScore()))*100 + "%");
+            lbl_P1_Percentage.Text = ("Win Percentage: " + Math.Round(dPercentP1) + "%");
 
             //P2
             lbl_P2_Won.Text = ("Games Won: " + P2.getScore());
             lbl_P2_Lost.Text = ("Games Lost: " + P1.getScore());
-            lbl_P2_Percentage.Text = ("Win Percentage: " + (P2.getScore() / (P1.getScore() + P2.getScore()))*100 + "%");
+            lbl_P2_Percentage.Text = ("Win Percentage: " + Math.Round(dPercentP2) + "%");
         }
 
         #region vs Computer
@@ -2227,7 +2232,7 @@ namespace KB_Battleship
                 pg8_GameTime_P2.Visible = true;
                 //show page
                 pg9_GameOver.Visible = true;
-                lblWhoWon.Text = ("You win!");
+                lbl_WhoWon.Text = ("You win!");
                 LoadStatistics();
             }
             else
@@ -2596,7 +2601,8 @@ namespace KB_Battleship
                 pg8_GameTime_P2.Visible = true;
                 //show page
                 pg9_GameOver.Visible = true;
-                lblWhoWon.Text = ("Player 2 wins!");
+                lbl_WhoWon.Text = ("Player 2 wins!");
+                lbl_P2GameStats.Text = ("COM Game Statistics");
                 LoadStatistics();
                 
             }
@@ -2659,6 +2665,7 @@ namespace KB_Battleship
                 //do win stuff
                 P1.setScore(P1.getScore() + 1);
                 SaveData2Player();
+                lbl_WhoWon.Text = ("Player 1 wins!");
                 pg9_GameOver.Visible = true;
             }
            
@@ -2751,6 +2758,9 @@ namespace KB_Battleship
                 P2.setScore(P2.getScore() + 1);
                 SaveData2Player();
                 pg9_GameOver.Visible = true;
+                LoadStatistics();
+                lbl_WhoWon.Text = ("Player 2 wins!");
+                lbl_P2GameStats.Text = ("Player 2 Game Statistics");
             }
         }
 
