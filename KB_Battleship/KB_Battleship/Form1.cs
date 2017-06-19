@@ -765,7 +765,7 @@ namespace KB_Battleship
                             if (EmptyChecker != 0)
                             {
                                 AllEmpty = false;
-                                MessageBox.Show("Temporary: YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
+                                MessageBox.Show("YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
                                 PIC.Invalidate();
                                 return;
                             }
@@ -776,7 +776,7 @@ namespace KB_Battleship
                     else
                     {
                         AllEmpty = false;
-                        MessageBox.Show("Temporary: YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
+                        MessageBox.Show("YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
                         PIC.Invalidate();
                         return;
                     }
@@ -814,7 +814,7 @@ namespace KB_Battleship
                             if (EmptyChecker != 0)
                             {
                                 AllEmpty = false;
-                                MessageBox.Show("Temporary: YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
+                                MessageBox.Show("YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
                                 PIC.Invalidate();
                                 return;
                             }
@@ -825,7 +825,7 @@ namespace KB_Battleship
                     else
                     {
                         AllEmpty = false;
-                        MessageBox.Show("Temporary: YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
+                        MessageBox.Show("YOU CAN'T DO THAT. THE SHIP IS NOT IN A VALID SPOT.");
                         PIC.Invalidate();
                         return;
                     }
@@ -1543,7 +1543,7 @@ namespace KB_Battleship
             //when all ships placed, can submit and move onto game
             if ((P1.PB.GetPlaced() == true) && (P1.SUB.GetPlaced() == true) && (P1.DES.GetPlaced() == true) && (P1.BAT.GetPlaced() == true) && (P1.AIR.GetPlaced() == true))
             {
-                MessageBox.Show("TEMPORARY: SUBMITTED");
+                
                 pg4_PlayerChoice.Visible = true;
                 P1.setTurn(true);
                 P2.setTurn(false);
@@ -1552,7 +1552,6 @@ namespace KB_Battleship
 
             else if (P1.allPlaced == true)
             {
-                MessageBox.Show("TEMPORARY: SUBMITTED");
                 pg4_PlayerChoice.Visible = true;
                 P1.setTurn(true);
                 P2.setTurn(false);
@@ -2115,7 +2114,6 @@ namespace KB_Battleship
             //when all ships placed, can submit and move onto game
             if ((P2.PB.GetPlaced() == true) && (P2.SUB.GetPlaced() == true) && (P2.DES.GetPlaced() == true) && (P2.BAT.GetPlaced() == true) && (P2.AIR.GetPlaced() == true))
             {
-                MessageBox.Show("TEMPORARY: SUBMITTED");
                 //skips COM page
                 pg7_GameTime_COM.Visible = true;
                 pg7_GameTime_P1.Visible = true;
@@ -2824,6 +2822,13 @@ namespace KB_Battleship
             txtP1onP2.Clear();
             txtP2onP1.Clear();
             txtP2onP2.Clear();
+
+            txtCOM_COM.Text="";
+            txtP1_COM.Text="";
+            txtP1onP1.Text="";
+            txtP1onP2.Text="";
+            txtP2onP1.Text="";
+            txtP2onP2.Text="";
         }
         private void btnResetScore_Click(object sender, EventArgs e)
         {
