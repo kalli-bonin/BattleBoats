@@ -415,6 +415,15 @@ namespace KB_Battleship
                     }
                 }
             }
+            public void Reset()
+            {
+                HitCount = 0;
+                topLeft.X = 0;
+                topLeft.Y = 0;
+                DirectionVertical = true;
+                Placed = false;     //is the ship placed in the starting screen
+                DeathMessage = false;   //only one death message should be shown
+            }
             
         }
 
@@ -437,6 +446,13 @@ namespace KB_Battleship
             protected int Avatar;
             protected int HitCount;
 
+
+            public void Reset()
+            {
+                allPlaced = false;
+                HitCount = 0;
+                randomized = false;
+            }
             //stores player ship information///////////////
             protected int[,] PlayerArray = new int[10, 10];
             //--------------------------------------------//
@@ -2177,9 +2193,17 @@ namespace KB_Battleship
         private void LoadStatistics()
         {
             double dPercentP1, dPercentP2;
-
-            dPercentP1 = Convert.ToDouble(P1.getScore()) / Convert.ToDouble(P1.getScore() + P2.getScore()) * 100;
-            dPercentP2 = Convert.ToDouble(P2.getScore()) / Convert.ToDouble(P1.getScore() + P2.getScore()) * 100;
+            if (P1.getScore() == 0 && P1.getScore() == 0)
+            {
+                dPercentP1 = 0;
+                dPercentP2 = 0;
+            }
+            else
+            {
+                dPercentP1 = Convert.ToDouble(P1.getScore()) / Convert.ToDouble(P1.getScore() + P2.getScore()) * 100;
+                dPercentP2 = Convert.ToDouble(P2.getScore()) / Convert.ToDouble(P1.getScore() + P2.getScore()) * 100;
+            }
+            
 
             //P1
             lbl_P1_Won.Text = ("Games Won: " + P1.getScore());
@@ -2774,6 +2798,43 @@ namespace KB_Battleship
 
 
         #endregion
-        
+        private void ResetShips(Player P)
+        {
+            P.PB.Reset();
+            P.SUB.Reset();
+            P.DES.Reset();
+            P.AIR.Reset();
+            P.BAT.Reset();
+        }
+
+        private void btnResetScore_Click(object sender, EventArgs e)
+        {
+            P1.setScore(0);
+            P2.setScore(0);
+            LoadStatistics();
+        }
+
+        private void btnPlayAgain_Click(object sender, EventArgs e)
+        {
+            //go back to pg 3
+            pg9_GameOver.Visible = false;
+            pg8_GameTime_P2.Visible = false;
+            pg7_GameTime_P1.Visible = false;
+            pg7_GameTime_COM.Visible = false;
+            pg6_SetBoard_P2.Visible = false;
+            pg5_Avatar_P2.Visible = false;
+            pg4_PlayerChoice.Visible = false;
+            pg3_SetBoard_P1.Visible = true;
+
+            //Reset player stuff
+            P1.ResetPlayerArray();
+            P2.ResetPlayerArray();
+            P1.Reset();
+            P2.Reset();
+
+            //Reset ships
+            ResetShips(P1);
+            ResetShips(P2);
+        }
     }
 }
