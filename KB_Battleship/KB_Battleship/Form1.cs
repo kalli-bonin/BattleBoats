@@ -176,7 +176,7 @@ namespace KB_Battleship
                 HitCount = 0;
                 topLeft.X = 0;
                 topLeft.Y = 0;
-                DirectionVertical = true;
+                DirectionVertical = false;
                 Placed = false;     //is the ship placed in the starting screen
                 DeathMessage = false;   //only one death message should be shown
             }
@@ -420,7 +420,7 @@ namespace KB_Battleship
                 HitCount = 0;
                 topLeft.X = 0;
                 topLeft.Y = 0;
-                DirectionVertical = true;
+                DirectionVertical = false;
                 Placed = false;     //is the ship placed in the starting screen
                 DeathMessage = false;   //only one death message should be shown
             }
@@ -949,7 +949,6 @@ namespace KB_Battleship
             {
                 for (int j = 0; j < 10; j++)
                 {
-
                     if (P.getPlayerArray(i, j) == -1) //if ship is hit 
                     {
                         SolidBrush myBrush = new SolidBrush(Color.Crimson);
@@ -2812,10 +2811,14 @@ namespace KB_Battleship
             P1.setScore(0);
             P2.setScore(0);
             LoadStatistics();
+            SaveDataCOM();
+            SaveData2Player();
+
         }
 
         private void btnPlayAgain_Click(object sender, EventArgs e)
         {
+            GameStarted = false;
             //go back to pg 3
             pg9_GameOver.Visible = false;
             pg8_GameTime_P2.Visible = false;
@@ -2835,6 +2838,7 @@ namespace KB_Battleship
             //Reset ships
             ResetShips(P1);
             ResetShips(P2);
+
         }
     }
 }
