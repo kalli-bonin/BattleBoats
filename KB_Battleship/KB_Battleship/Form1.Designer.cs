@@ -41,6 +41,15 @@
             this.pg7_GameTime_P1 = new System.Windows.Forms.Panel();
             this.pg8_GameTime_P2 = new System.Windows.Forms.Panel();
             this.pg9_GameOver = new System.Windows.Forms.Panel();
+            this.lbl_P2GameStats = new System.Windows.Forms.Label();
+            this.lbl_P2_Percentage = new System.Windows.Forms.Label();
+            this.lbl_P2_Lost = new System.Windows.Forms.Label();
+            this.lbl_P2_Won = new System.Windows.Forms.Label();
+            this.lbl_P1_Percentage = new System.Windows.Forms.Label();
+            this.label171 = new System.Windows.Forms.Label();
+            this.lbl_P1_Lost = new System.Windows.Forms.Label();
+            this.lbl_P1_Won = new System.Windows.Forms.Label();
+            this.lbl_WhoWon = new System.Windows.Forms.Label();
             this.txtP1onP2 = new System.Windows.Forms.TextBox();
             this.txtP2onP2 = new System.Windows.Forms.TextBox();
             this.btnNext_8 = new System.Windows.Forms.Button();
@@ -289,15 +298,6 @@
             this.btnNext_1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbl_WhoWon = new System.Windows.Forms.Label();
-            this.lbl_P1_Won = new System.Windows.Forms.Label();
-            this.lbl_P1_Lost = new System.Windows.Forms.Label();
-            this.label171 = new System.Windows.Forms.Label();
-            this.lbl_P1_Percentage = new System.Windows.Forms.Label();
-            this.lbl_P2_Percentage = new System.Windows.Forms.Label();
-            this.lbl_P2_Lost = new System.Windows.Forms.Label();
-            this.lbl_P2_Won = new System.Windows.Forms.Label();
-            this.lbl_P2GameStats = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHomescreen)).BeginInit();
             this.pg1_Instructions.SuspendLayout();
             this.pg2_Avatar_P1.SuspendLayout();
@@ -721,6 +721,96 @@
             this.pg9_GameOver.Name = "pg9_GameOver";
             this.pg9_GameOver.Size = new System.Drawing.Size(796, 459);
             this.pg9_GameOver.TabIndex = 121;
+            // 
+            // lbl_P2GameStats
+            // 
+            this.lbl_P2GameStats.AutoSize = true;
+            this.lbl_P2GameStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_P2GameStats.Location = new System.Drawing.Point(529, 161);
+            this.lbl_P2GameStats.Name = "lbl_P2GameStats";
+            this.lbl_P2GameStats.Size = new System.Drawing.Size(163, 24);
+            this.lbl_P2GameStats.TabIndex = 9;
+            this.lbl_P2GameStats.Text = "P1 Game Statistics";
+            // 
+            // lbl_P2_Percentage
+            // 
+            this.lbl_P2_Percentage.AutoSize = true;
+            this.lbl_P2_Percentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_P2_Percentage.Location = new System.Drawing.Point(530, 245);
+            this.lbl_P2_Percentage.Name = "lbl_P2_Percentage";
+            this.lbl_P2_Percentage.Size = new System.Drawing.Size(129, 16);
+            this.lbl_P2_Percentage.TabIndex = 8;
+            this.lbl_P2_Percentage.Text = "Win Percentage: 0%";
+            // 
+            // lbl_P2_Lost
+            // 
+            this.lbl_P2_Lost.AutoSize = true;
+            this.lbl_P2_Lost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_P2_Lost.Location = new System.Drawing.Point(530, 221);
+            this.lbl_P2_Lost.Name = "lbl_P2_Lost";
+            this.lbl_P2_Lost.Size = new System.Drawing.Size(46, 16);
+            this.lbl_P2_Lost.TabIndex = 6;
+            this.lbl_P2_Lost.Text = "Lost: 0";
+            // 
+            // lbl_P2_Won
+            // 
+            this.lbl_P2_Won.AutoSize = true;
+            this.lbl_P2_Won.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_P2_Won.Location = new System.Drawing.Point(530, 197);
+            this.lbl_P2_Won.Name = "lbl_P2_Won";
+            this.lbl_P2_Won.Size = new System.Drawing.Size(49, 16);
+            this.lbl_P2_Won.TabIndex = 5;
+            this.lbl_P2_Won.Text = "Won: 0";
+            // 
+            // lbl_P1_Percentage
+            // 
+            this.lbl_P1_Percentage.AutoSize = true;
+            this.lbl_P1_Percentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_P1_Percentage.Location = new System.Drawing.Point(90, 245);
+            this.lbl_P1_Percentage.Name = "lbl_P1_Percentage";
+            this.lbl_P1_Percentage.Size = new System.Drawing.Size(129, 16);
+            this.lbl_P1_Percentage.TabIndex = 4;
+            this.lbl_P1_Percentage.Text = "Win Percentage: 0%";
+            // 
+            // label171
+            // 
+            this.label171.AutoSize = true;
+            this.label171.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label171.Location = new System.Drawing.Point(92, 161);
+            this.label171.Name = "label171";
+            this.label171.Size = new System.Drawing.Size(163, 24);
+            this.label171.TabIndex = 3;
+            this.label171.Text = "P1 Game Statistics";
+            // 
+            // lbl_P1_Lost
+            // 
+            this.lbl_P1_Lost.AutoSize = true;
+            this.lbl_P1_Lost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_P1_Lost.Location = new System.Drawing.Point(90, 221);
+            this.lbl_P1_Lost.Name = "lbl_P1_Lost";
+            this.lbl_P1_Lost.Size = new System.Drawing.Size(46, 16);
+            this.lbl_P1_Lost.TabIndex = 2;
+            this.lbl_P1_Lost.Text = "Lost: 0";
+            // 
+            // lbl_P1_Won
+            // 
+            this.lbl_P1_Won.AutoSize = true;
+            this.lbl_P1_Won.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_P1_Won.Location = new System.Drawing.Point(90, 197);
+            this.lbl_P1_Won.Name = "lbl_P1_Won";
+            this.lbl_P1_Won.Size = new System.Drawing.Size(49, 16);
+            this.lbl_P1_Won.TabIndex = 1;
+            this.lbl_P1_Won.Text = "Won: 0";
+            // 
+            // lbl_WhoWon
+            // 
+            this.lbl_WhoWon.AutoSize = true;
+            this.lbl_WhoWon.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_WhoWon.Location = new System.Drawing.Point(350, 59);
+            this.lbl_WhoWon.Name = "lbl_WhoWon";
+            this.lbl_WhoWon.Size = new System.Drawing.Size(125, 33);
+            this.lbl_WhoWon.TabIndex = 0;
+            this.lbl_WhoWon.Text = "label171";
             // 
             // txtP1onP2
             // 
@@ -3151,96 +3241,6 @@
             this.label1.Size = new System.Drawing.Size(396, 55);
             this.label1.TabIndex = 0;
             this.label1.Text = "INSTRUCTIONS";
-            // 
-            // lbl_WhoWon
-            // 
-            this.lbl_WhoWon.AutoSize = true;
-            this.lbl_WhoWon.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_WhoWon.Location = new System.Drawing.Point(350, 59);
-            this.lbl_WhoWon.Name = "lbl_WhoWon";
-            this.lbl_WhoWon.Size = new System.Drawing.Size(125, 33);
-            this.lbl_WhoWon.TabIndex = 0;
-            this.lbl_WhoWon.Text = "label171";
-            // 
-            // lbl_P1_Won
-            // 
-            this.lbl_P1_Won.AutoSize = true;
-            this.lbl_P1_Won.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_P1_Won.Location = new System.Drawing.Point(90, 197);
-            this.lbl_P1_Won.Name = "lbl_P1_Won";
-            this.lbl_P1_Won.Size = new System.Drawing.Size(39, 16);
-            this.lbl_P1_Won.TabIndex = 1;
-            this.lbl_P1_Won.Text = "Won:";
-            // 
-            // lbl_P1_Lost
-            // 
-            this.lbl_P1_Lost.AutoSize = true;
-            this.lbl_P1_Lost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_P1_Lost.Location = new System.Drawing.Point(90, 221);
-            this.lbl_P1_Lost.Name = "lbl_P1_Lost";
-            this.lbl_P1_Lost.Size = new System.Drawing.Size(36, 16);
-            this.lbl_P1_Lost.TabIndex = 2;
-            this.lbl_P1_Lost.Text = "Lost:";
-            // 
-            // label171
-            // 
-            this.label171.AutoSize = true;
-            this.label171.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label171.Location = new System.Drawing.Point(92, 161);
-            this.label171.Name = "label171";
-            this.label171.Size = new System.Drawing.Size(163, 24);
-            this.label171.TabIndex = 3;
-            this.label171.Text = "P1 Game Statistics";
-            // 
-            // lbl_P1_Percentage
-            // 
-            this.lbl_P1_Percentage.AutoSize = true;
-            this.lbl_P1_Percentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_P1_Percentage.Location = new System.Drawing.Point(90, 245);
-            this.lbl_P1_Percentage.Name = "lbl_P1_Percentage";
-            this.lbl_P1_Percentage.Size = new System.Drawing.Size(107, 16);
-            this.lbl_P1_Percentage.TabIndex = 4;
-            this.lbl_P1_Percentage.Text = "Win Percentage:";
-            // 
-            // lbl_P2_Percentage
-            // 
-            this.lbl_P2_Percentage.AutoSize = true;
-            this.lbl_P2_Percentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_P2_Percentage.Location = new System.Drawing.Point(530, 245);
-            this.lbl_P2_Percentage.Name = "lbl_P2_Percentage";
-            this.lbl_P2_Percentage.Size = new System.Drawing.Size(107, 16);
-            this.lbl_P2_Percentage.TabIndex = 8;
-            this.lbl_P2_Percentage.Text = "Win Percentage:";
-            // 
-            // lbl_P2_Lost
-            // 
-            this.lbl_P2_Lost.AutoSize = true;
-            this.lbl_P2_Lost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_P2_Lost.Location = new System.Drawing.Point(530, 221);
-            this.lbl_P2_Lost.Name = "lbl_P2_Lost";
-            this.lbl_P2_Lost.Size = new System.Drawing.Size(36, 16);
-            this.lbl_P2_Lost.TabIndex = 6;
-            this.lbl_P2_Lost.Text = "Lost:";
-            // 
-            // lbl_P2_Won
-            // 
-            this.lbl_P2_Won.AutoSize = true;
-            this.lbl_P2_Won.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_P2_Won.Location = new System.Drawing.Point(530, 197);
-            this.lbl_P2_Won.Name = "lbl_P2_Won";
-            this.lbl_P2_Won.Size = new System.Drawing.Size(39, 16);
-            this.lbl_P2_Won.TabIndex = 5;
-            this.lbl_P2_Won.Text = "Won:";
-            // 
-            // lbl_P2GameStats
-            // 
-            this.lbl_P2GameStats.AutoSize = true;
-            this.lbl_P2GameStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_P2GameStats.Location = new System.Drawing.Point(529, 161);
-            this.lbl_P2GameStats.Name = "lbl_P2GameStats";
-            this.lbl_P2GameStats.Size = new System.Drawing.Size(163, 24);
-            this.lbl_P2GameStats.TabIndex = 9;
-            this.lbl_P2GameStats.Text = "P1 Game Statistics";
             // 
             // Form1
             // 
