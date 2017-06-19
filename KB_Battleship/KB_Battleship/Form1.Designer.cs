@@ -50,10 +50,10 @@
             this.lbl_P1_Lost = new System.Windows.Forms.Label();
             this.lbl_P1_Won = new System.Windows.Forms.Label();
             this.lbl_WhoWon = new System.Windows.Forms.Label();
-            this.txtP1onP2 = new System.Windows.Forms.TextBox();
+            this.label172 = new System.Windows.Forms.Label();
+            this.label130 = new System.Windows.Forms.Label();
             this.txtP2onP2 = new System.Windows.Forms.TextBox();
             this.btnNext_8 = new System.Windows.Forms.Button();
-            this.pb_MA2_P1onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA1_P1onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA4_P2onP2 = new System.Windows.Forms.PictureBox();
             this.label131 = new System.Windows.Forms.Label();
@@ -76,7 +76,6 @@
             this.label148 = new System.Windows.Forms.Label();
             this.label149 = new System.Windows.Forms.Label();
             this.label150 = new System.Windows.Forms.Label();
-            this.pb_P1onP2 = new System.Windows.Forms.PictureBox();
             this.label151 = new System.Windows.Forms.Label();
             this.label152 = new System.Windows.Forms.Label();
             this.label153 = new System.Windows.Forms.Label();
@@ -98,9 +97,14 @@
             this.label169 = new System.Windows.Forms.Label();
             this.label170 = new System.Windows.Forms.Label();
             this.pb_P2onP2 = new System.Windows.Forms.PictureBox();
-            this.pb_MA6_P2onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA5_P2onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA3_P1onP2 = new System.Windows.Forms.PictureBox();
+            this.pb_P1onP2 = new System.Windows.Forms.PictureBox();
+            this.txtP1onP2 = new System.Windows.Forms.TextBox();
+            this.pb_MA2_P1onP2 = new System.Windows.Forms.PictureBox();
+            this.pb_MA6_P2onP2 = new System.Windows.Forms.PictureBox();
+            this.label174 = new System.Windows.Forms.Label();
+            this.label173 = new System.Windows.Forms.Label();
             this.txtP1onP1 = new System.Windows.Forms.TextBox();
             this.txtP2onP1 = new System.Windows.Forms.TextBox();
             this.pb_MA6_P2onP1 = new System.Windows.Forms.PictureBox();
@@ -152,6 +156,8 @@
             this.label128 = new System.Windows.Forms.Label();
             this.label129 = new System.Windows.Forms.Label();
             this.pb_P1onP1 = new System.Windows.Forms.PictureBox();
+            this.label176 = new System.Windows.Forms.Label();
+            this.label175 = new System.Windows.Forms.Label();
             this.txtCOM_COM = new System.Windows.Forms.TextBox();
             this.txtP1_COM = new System.Windows.Forms.TextBox();
             this.pb_MA_P2 = new System.Windows.Forms.PictureBox();
@@ -298,14 +304,8 @@
             this.btnNext_1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label130 = new System.Windows.Forms.Label();
-            this.label172 = new System.Windows.Forms.Label();
-            this.label173 = new System.Windows.Forms.Label();
-            this.label174 = new System.Windows.Forms.Label();
-            this.label175 = new System.Windows.Forms.Label();
-            this.label176 = new System.Windows.Forms.Label();
             this.btnPlayAgain = new System.Windows.Forms.Button();
-            this.btnResetStats = new System.Windows.Forms.Button();
+            this.btnResetScore = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbHomescreen)).BeginInit();
             this.pg1_Instructions.SuspendLayout();
             this.pg2_Avatar_P1.SuspendLayout();
@@ -317,14 +317,14 @@
             this.pg7_GameTime_P1.SuspendLayout();
             this.pg8_GameTime_P2.SuspendLayout();
             this.pg9_GameOver.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA1_P1onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2onP2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_P1onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P2onP2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_P1onP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP1)).BeginInit();
@@ -721,7 +721,7 @@
             // 
             // pg9_GameOver
             // 
-            this.pg9_GameOver.Controls.Add(this.btnResetStats);
+            this.pg9_GameOver.Controls.Add(this.btnResetScore);
             this.pg9_GameOver.Controls.Add(this.btnPlayAgain);
             this.pg9_GameOver.Controls.Add(this.lbl_P2GameStats);
             this.pg9_GameOver.Controls.Add(this.lbl_P2_Percentage);
@@ -828,14 +828,23 @@
             this.lbl_WhoWon.TabIndex = 0;
             this.lbl_WhoWon.Text = "label171";
             // 
-            // txtP1onP2
+            // label172
             // 
-            this.txtP1onP2.Location = new System.Drawing.Point(161, 18);
-            this.txtP1onP2.Multiline = true;
-            this.txtP1onP2.Name = "txtP1onP2";
-            this.txtP1onP2.ReadOnly = true;
-            this.txtP1onP2.Size = new System.Drawing.Size(183, 89);
-            this.txtP1onP2.TabIndex = 120;
+            this.label172.AutoSize = true;
+            this.label172.Location = new System.Drawing.Point(31, 17);
+            this.label172.Name = "label172";
+            this.label172.Size = new System.Drawing.Size(20, 13);
+            this.label172.TabIndex = 123;
+            this.label172.Text = "P1";
+            // 
+            // label130
+            // 
+            this.label130.AutoSize = true;
+            this.label130.Location = new System.Drawing.Point(446, 17);
+            this.label130.Name = "label130";
+            this.label130.Size = new System.Drawing.Size(20, 13);
+            this.label130.TabIndex = 122;
+            this.label130.Text = "P2";
             // 
             // txtP2onP2
             // 
@@ -861,16 +870,6 @@
             this.btnNext_8.Text = "NEXT";
             this.btnNext_8.UseVisualStyleBackColor = false;
             this.btnNext_8.Click += new System.EventHandler(this.btnNext_8_Click_1);
-            // 
-            // pb_MA2_P1onP2
-            // 
-            this.pb_MA2_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA2_P1onP2.Image")));
-            this.pb_MA2_P1onP2.Location = new System.Drawing.Point(57, 18);
-            this.pb_MA2_P1onP2.Name = "pb_MA2_P1onP2";
-            this.pb_MA2_P1onP2.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA2_P1onP2.TabIndex = 112;
-            this.pb_MA2_P1onP2.TabStop = false;
-            this.pb_MA2_P1onP2.Visible = false;
             // 
             // pb_MA1_P1onP2
             // 
@@ -1072,16 +1071,6 @@
             this.label150.TabIndex = 90;
             this.label150.Text = "A";
             // 
-            // pb_P1onP2
-            // 
-            this.pb_P1onP2.Location = new System.Drawing.Point(47, 140);
-            this.pb_P1onP2.Name = "pb_P1onP2";
-            this.pb_P1onP2.Size = new System.Drawing.Size(301, 301);
-            this.pb_P1onP2.TabIndex = 89;
-            this.pb_P1onP2.TabStop = false;
-            this.pb_P1onP2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_P1onP2_Paint_1);
-            this.pb_P1onP2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pb_P1onP2_MouseClick_1);
-            // 
             // label151
             // 
             this.label151.AutoSize = true;
@@ -1271,16 +1260,6 @@
             this.pb_P2onP2.TabStop = false;
             this.pb_P2onP2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_P2onP2_Paint_1);
             // 
-            // pb_MA6_P2onP2
-            // 
-            this.pb_MA6_P2onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA6_P2onP2.Image")));
-            this.pb_MA6_P2onP2.Location = new System.Drawing.Point(472, 18);
-            this.pb_MA6_P2onP2.Name = "pb_MA6_P2onP2";
-            this.pb_MA6_P2onP2.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA6_P2onP2.TabIndex = 115;
-            this.pb_MA6_P2onP2.TabStop = false;
-            this.pb_MA6_P2onP2.Visible = false;
-            // 
             // pb_MA5_P2onP2
             // 
             this.pb_MA5_P2onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA5_P2onP2.Image")));
@@ -1299,6 +1278,63 @@
             this.pb_MA3_P1onP2.TabIndex = 112;
             this.pb_MA3_P1onP2.TabStop = false;
             this.pb_MA3_P1onP2.Visible = false;
+            // 
+            // pb_P1onP2
+            // 
+            this.pb_P1onP2.Location = new System.Drawing.Point(47, 140);
+            this.pb_P1onP2.Name = "pb_P1onP2";
+            this.pb_P1onP2.Size = new System.Drawing.Size(301, 301);
+            this.pb_P1onP2.TabIndex = 89;
+            this.pb_P1onP2.TabStop = false;
+            this.pb_P1onP2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_P1onP2_Paint_1);
+            this.pb_P1onP2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pb_P1onP2_MouseClick_1);
+            // 
+            // txtP1onP2
+            // 
+            this.txtP1onP2.Location = new System.Drawing.Point(161, 18);
+            this.txtP1onP2.Multiline = true;
+            this.txtP1onP2.Name = "txtP1onP2";
+            this.txtP1onP2.ReadOnly = true;
+            this.txtP1onP2.Size = new System.Drawing.Size(183, 89);
+            this.txtP1onP2.TabIndex = 120;
+            // 
+            // pb_MA2_P1onP2
+            // 
+            this.pb_MA2_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA2_P1onP2.Image")));
+            this.pb_MA2_P1onP2.Location = new System.Drawing.Point(57, 18);
+            this.pb_MA2_P1onP2.Name = "pb_MA2_P1onP2";
+            this.pb_MA2_P1onP2.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA2_P1onP2.TabIndex = 112;
+            this.pb_MA2_P1onP2.TabStop = false;
+            this.pb_MA2_P1onP2.Visible = false;
+            // 
+            // pb_MA6_P2onP2
+            // 
+            this.pb_MA6_P2onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA6_P2onP2.Image")));
+            this.pb_MA6_P2onP2.Location = new System.Drawing.Point(472, 18);
+            this.pb_MA6_P2onP2.Name = "pb_MA6_P2onP2";
+            this.pb_MA6_P2onP2.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA6_P2onP2.TabIndex = 115;
+            this.pb_MA6_P2onP2.TabStop = false;
+            this.pb_MA6_P2onP2.Visible = false;
+            // 
+            // label174
+            // 
+            this.label174.AutoSize = true;
+            this.label174.Location = new System.Drawing.Point(446, 17);
+            this.label174.Name = "label174";
+            this.label174.Size = new System.Drawing.Size(20, 13);
+            this.label174.TabIndex = 124;
+            this.label174.Text = "P2";
+            // 
+            // label173
+            // 
+            this.label173.AutoSize = true;
+            this.label173.Location = new System.Drawing.Point(31, 17);
+            this.label173.Name = "label173";
+            this.label173.Size = new System.Drawing.Size(20, 13);
+            this.label173.TabIndex = 124;
+            this.label173.Text = "P1";
             // 
             // txtP1onP1
             // 
@@ -1771,6 +1807,24 @@
             this.pb_P1onP1.TabIndex = 68;
             this.pb_P1onP1.TabStop = false;
             this.pb_P1onP1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_P1onP1_Paint);
+            // 
+            // label176
+            // 
+            this.label176.AutoSize = true;
+            this.label176.Location = new System.Drawing.Point(431, 17);
+            this.label176.Name = "label176";
+            this.label176.Size = new System.Drawing.Size(31, 13);
+            this.label176.TabIndex = 125;
+            this.label176.Text = "COM";
+            // 
+            // label175
+            // 
+            this.label175.AutoSize = true;
+            this.label175.Location = new System.Drawing.Point(31, 17);
+            this.label175.Name = "label175";
+            this.label175.Size = new System.Drawing.Size(20, 13);
+            this.label175.TabIndex = 125;
+            this.label175.Text = "P1";
             // 
             // txtCOM_COM
             // 
@@ -3258,63 +3312,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "INSTRUCTIONS";
             // 
-            // label130
-            // 
-            this.label130.AutoSize = true;
-            this.label130.Location = new System.Drawing.Point(446, 17);
-            this.label130.Name = "label130";
-            this.label130.Size = new System.Drawing.Size(20, 13);
-            this.label130.TabIndex = 122;
-            this.label130.Text = "P2";
-            // 
-            // label172
-            // 
-            this.label172.AutoSize = true;
-            this.label172.Location = new System.Drawing.Point(31, 17);
-            this.label172.Name = "label172";
-            this.label172.Size = new System.Drawing.Size(20, 13);
-            this.label172.TabIndex = 123;
-            this.label172.Text = "P1";
-            // 
-            // label173
-            // 
-            this.label173.AutoSize = true;
-            this.label173.Location = new System.Drawing.Point(31, 17);
-            this.label173.Name = "label173";
-            this.label173.Size = new System.Drawing.Size(20, 13);
-            this.label173.TabIndex = 124;
-            this.label173.Text = "P1";
-            // 
-            // label174
-            // 
-            this.label174.AutoSize = true;
-            this.label174.Location = new System.Drawing.Point(446, 17);
-            this.label174.Name = "label174";
-            this.label174.Size = new System.Drawing.Size(20, 13);
-            this.label174.TabIndex = 124;
-            this.label174.Text = "P2";
-            // 
-            // label175
-            // 
-            this.label175.AutoSize = true;
-            this.label175.Location = new System.Drawing.Point(31, 17);
-            this.label175.Name = "label175";
-            this.label175.Size = new System.Drawing.Size(20, 13);
-            this.label175.TabIndex = 125;
-            this.label175.Text = "P1";
-            // 
-            // label176
-            // 
-            this.label176.AutoSize = true;
-            this.label176.Location = new System.Drawing.Point(431, 17);
-            this.label176.Name = "label176";
-            this.label176.Size = new System.Drawing.Size(31, 13);
-            this.label176.TabIndex = 125;
-            this.label176.Text = "COM";
-            // 
             // btnPlayAgain
             // 
-            this.btnPlayAgain.Location = new System.Drawing.Point(361, 249);
+            this.btnPlayAgain.Location = new System.Drawing.Point(429, 309);
             this.btnPlayAgain.Name = "btnPlayAgain";
             this.btnPlayAgain.Size = new System.Drawing.Size(75, 23);
             this.btnPlayAgain.TabIndex = 10;
@@ -3322,14 +3322,15 @@
             this.btnPlayAgain.UseVisualStyleBackColor = true;
             this.btnPlayAgain.Click += new System.EventHandler(this.btnPlayAgain_Click);
             // 
-            // btnResetStats
+            // btnResetScore
             // 
-            this.btnResetStats.Location = new System.Drawing.Point(361, 154);
-            this.btnResetStats.Name = "btnResetStats";
-            this.btnResetStats.Size = new System.Drawing.Size(75, 23);
-            this.btnResetStats.TabIndex = 10;
-            this.btnResetStats.Text = "Reset";
-            this.btnResetStats.UseVisualStyleBackColor = true;
+            this.btnResetScore.Location = new System.Drawing.Point(305, 310);
+            this.btnResetScore.Name = "btnResetScore";
+            this.btnResetScore.Size = new System.Drawing.Size(75, 23);
+            this.btnResetScore.TabIndex = 11;
+            this.btnResetScore.Text = "Reset";
+            this.btnResetScore.UseVisualStyleBackColor = true;
+            this.btnResetScore.Click += new System.EventHandler(this.btnResetScore_Click);
             // 
             // Form1
             // 
@@ -3364,14 +3365,14 @@
             this.pg8_GameTime_P2.PerformLayout();
             this.pg9_GameOver.ResumeLayout(false);
             this.pg9_GameOver.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA1_P1onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2onP2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_P1onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P2onP2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_P1onP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP1)).EndInit();
@@ -3685,7 +3686,7 @@
         private System.Windows.Forms.Label label173;
         private System.Windows.Forms.Label label176;
         private System.Windows.Forms.Label label175;
-        private System.Windows.Forms.Button btnResetStats;
+        private System.Windows.Forms.Button btnResetScore;
         private System.Windows.Forms.Button btnPlayAgain;
     }
 }

@@ -421,8 +421,8 @@ namespace KB_Battleship
                 topLeft.X = 0;
                 topLeft.Y = 0;
                 DirectionVertical = false;
-                Placed = false;  
-                DeathMessage = false;
+                Placed = false;     //is the ship placed in the starting screen
+                DeathMessage = false;   //only one death message should be shown
             }
             
         }
@@ -446,6 +446,13 @@ namespace KB_Battleship
             protected int Avatar;
             protected int HitCount;
 
+
+            public void Reset()
+            {
+                allPlaced = false;
+                HitCount = 0;
+                randomized = false;
+            }
             //stores player ship information///////////////
             protected int[,] PlayerArray = new int[10, 10];
             //--------------------------------------------//
@@ -734,12 +741,6 @@ namespace KB_Battleship
                     return 2; //spot already hit, nothing happens
                 }
             }
-            public void Reset()
-            {
-                HitCount = 0;
-                allPlaced = false;
-                randomized = false;
-            }
             
         }
 
@@ -948,7 +949,6 @@ namespace KB_Battleship
             {
                 for (int j = 0; j < 10; j++)
                 {
-
                     if (P.getPlayerArray(i, j) == -1) //if ship is hit 
                     {
                         SolidBrush myBrush = new SolidBrush(Color.Crimson);
@@ -2192,9 +2192,17 @@ namespace KB_Battleship
         private void LoadStatistics()
         {
             double dPercentP1, dPercentP2;
-
-            dPercentP1 = Convert.ToDouble(P1.getScore()) / Convert.ToDouble(P1.getScore() + P2.getScore()) * 100;
-            dPercentP2 = Convert.ToDouble(P2.getScore()) / Convert.ToDouble(P1.getScore() + P2.getScore()) * 100;
+            if (P1.getScore() == 0 && P1.getScore() == 0)
+            {
+                dPercentP1 = 0;
+                dPercentP2 = 0;
+            }
+            else
+            {
+                dPercentP1 = Convert.ToDouble(P1.getScore()) / Convert.ToDouble(P1.getScore() + P2.getScore()) * 100;
+                dPercentP2 = Convert.ToDouble(P2.getScore()) / Convert.ToDouble(P1.getScore() + P2.getScore()) * 100;
+            }
+            
 
             //P1
             lbl_P1_Won.Text = ("Games Won: " + P1.getScore());
@@ -2789,27 +2797,29 @@ namespace KB_Battleship
 
 
         #endregion
+        private void ResetShips(Player P)
+        {
+            P.PB.Reset();
+            P.SUB.Reset();
+            P.DES.Reset();
+            P.AIR.Reset();
+            P.BAT.Reset();
+        }
+
+        private void btnResetScore_Click(object sender, EventArgs e)
+        {
+            P1.setScore(0);
+            P2.setScore(0);
+            LoadStatistics();
+            SaveDataCOM();
+            SaveData2Player();
+
+        }
 
         private void btnPlayAgain_Click(object sender, EventArgs e)
         {
-            P1.ResetPlayerArray();
-            P2.ResetPlayerArray();
-
-            P1.Reset();
-            P2.Reset();
-
-            P1.PB.Reset();
-            P1.SUB.Reset();
-            P1.DES.Reset();
-            P1.BAT.Reset();
-            P1.AIR.Reset();
-
-            P2.PB.Reset();
-            P2.SUB.Reset();
-            P2.DES.Reset();
-            P2.BAT.Reset();
-            P2.AIR.Reset();
-
+            GameStarted = false;
+            //go back to pg 3
             pg9_GameOver.Visible = false;
             pg8_GameTime_P2.Visible = false;
             pg7_GameTime_P1.Visible = false;
@@ -2817,9 +2827,18 @@ namespace KB_Battleship
             pg6_SetBoard_P2.Visible = false;
             pg5_Avatar_P2.Visible = false;
             pg4_PlayerChoice.Visible = false;
-
             pg3_SetBoard_P1.Visible = true;
-            
+
+            //Reset player stuff
+            P1.ResetPlayerArray();
+            P2.ResetPlayerArray();
+            P1.Reset();
+            P2.Reset();
+
+            //Reset ships
+            ResetShips(P1);
+            ResetShips(P2);
+
         }
     }
 }
