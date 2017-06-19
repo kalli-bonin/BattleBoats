@@ -298,6 +298,12 @@
             this.btnNext_1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label130 = new System.Windows.Forms.Label();
+            this.label172 = new System.Windows.Forms.Label();
+            this.label173 = new System.Windows.Forms.Label();
+            this.label174 = new System.Windows.Forms.Label();
+            this.label175 = new System.Windows.Forms.Label();
+            this.label176 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHomescreen)).BeginInit();
             this.pg1_Instructions.SuspendLayout();
             this.pg2_Avatar_P1.SuspendLayout();
@@ -531,6 +537,8 @@
             // pg7_GameTime_COM
             // 
             this.pg7_GameTime_COM.Controls.Add(this.pg7_GameTime_P1);
+            this.pg7_GameTime_COM.Controls.Add(this.label176);
+            this.pg7_GameTime_COM.Controls.Add(this.label175);
             this.pg7_GameTime_COM.Controls.Add(this.txtCOM_COM);
             this.pg7_GameTime_COM.Controls.Add(this.txtP1_COM);
             this.pg7_GameTime_COM.Controls.Add(this.pb_MA_P2);
@@ -588,6 +596,8 @@
             // pg7_GameTime_P1
             // 
             this.pg7_GameTime_P1.Controls.Add(this.pg8_GameTime_P2);
+            this.pg7_GameTime_P1.Controls.Add(this.label174);
+            this.pg7_GameTime_P1.Controls.Add(this.label173);
             this.pg7_GameTime_P1.Controls.Add(this.txtP1onP1);
             this.pg7_GameTime_P1.Controls.Add(this.txtP2onP1);
             this.pg7_GameTime_P1.Controls.Add(this.pb_MA6_P2onP1);
@@ -648,10 +658,10 @@
             // pg8_GameTime_P2
             // 
             this.pg8_GameTime_P2.Controls.Add(this.pg9_GameOver);
-            this.pg8_GameTime_P2.Controls.Add(this.txtP1onP2);
+            this.pg8_GameTime_P2.Controls.Add(this.label172);
+            this.pg8_GameTime_P2.Controls.Add(this.label130);
             this.pg8_GameTime_P2.Controls.Add(this.txtP2onP2);
             this.pg8_GameTime_P2.Controls.Add(this.btnNext_8);
-            this.pg8_GameTime_P2.Controls.Add(this.pb_MA2_P1onP2);
             this.pg8_GameTime_P2.Controls.Add(this.pb_MA1_P1onP2);
             this.pg8_GameTime_P2.Controls.Add(this.pb_MA4_P2onP2);
             this.pg8_GameTime_P2.Controls.Add(this.label131);
@@ -674,7 +684,6 @@
             this.pg8_GameTime_P2.Controls.Add(this.label148);
             this.pg8_GameTime_P2.Controls.Add(this.label149);
             this.pg8_GameTime_P2.Controls.Add(this.label150);
-            this.pg8_GameTime_P2.Controls.Add(this.pb_P1onP2);
             this.pg8_GameTime_P2.Controls.Add(this.label151);
             this.pg8_GameTime_P2.Controls.Add(this.label152);
             this.pg8_GameTime_P2.Controls.Add(this.label153);
@@ -696,9 +705,12 @@
             this.pg8_GameTime_P2.Controls.Add(this.label169);
             this.pg8_GameTime_P2.Controls.Add(this.label170);
             this.pg8_GameTime_P2.Controls.Add(this.pb_P2onP2);
-            this.pg8_GameTime_P2.Controls.Add(this.pb_MA6_P2onP2);
             this.pg8_GameTime_P2.Controls.Add(this.pb_MA5_P2onP2);
             this.pg8_GameTime_P2.Controls.Add(this.pb_MA3_P1onP2);
+            this.pg8_GameTime_P2.Controls.Add(this.pb_P1onP2);
+            this.pg8_GameTime_P2.Controls.Add(this.txtP1onP2);
+            this.pg8_GameTime_P2.Controls.Add(this.pb_MA2_P1onP2);
+            this.pg8_GameTime_P2.Controls.Add(this.pb_MA6_P2onP2);
             this.pg8_GameTime_P2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pg8_GameTime_P2.Location = new System.Drawing.Point(0, 0);
             this.pg8_GameTime_P2.Name = "pg8_GameTime_P2";
@@ -814,7 +826,7 @@
             // 
             // txtP1onP2
             // 
-            this.txtP1onP2.Location = new System.Drawing.Point(572, 18);
+            this.txtP1onP2.Location = new System.Drawing.Point(161, 18);
             this.txtP1onP2.Multiline = true;
             this.txtP1onP2.Name = "txtP1onP2";
             this.txtP1onP2.ReadOnly = true;
@@ -823,7 +835,7 @@
             // 
             // txtP2onP2
             // 
-            this.txtP2onP2.Location = new System.Drawing.Point(161, 18);
+            this.txtP2onP2.Location = new System.Drawing.Point(573, 18);
             this.txtP2onP2.Multiline = true;
             this.txtP2onP2.Name = "txtP2onP2";
             this.txtP2onP2.ReadOnly = true;
@@ -838,7 +850,7 @@
             this.btnNext_8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext_8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNext_8.Location = new System.Drawing.Point(371, 19);
+            this.btnNext_8.Location = new System.Drawing.Point(365, 75);
             this.btnNext_8.Name = "btnNext_8";
             this.btnNext_8.Size = new System.Drawing.Size(87, 32);
             this.btnNext_8.TabIndex = 113;
@@ -849,7 +861,7 @@
             // pb_MA2_P1onP2
             // 
             this.pb_MA2_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA2_P1onP2.Image")));
-            this.pb_MA2_P1onP2.Location = new System.Drawing.Point(472, 18);
+            this.pb_MA2_P1onP2.Location = new System.Drawing.Point(57, 18);
             this.pb_MA2_P1onP2.Name = "pb_MA2_P1onP2";
             this.pb_MA2_P1onP2.Size = new System.Drawing.Size(89, 89);
             this.pb_MA2_P1onP2.TabIndex = 112;
@@ -859,7 +871,7 @@
             // pb_MA1_P1onP2
             // 
             this.pb_MA1_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA1_P1onP2.Image")));
-            this.pb_MA1_P1onP2.Location = new System.Drawing.Point(472, 18);
+            this.pb_MA1_P1onP2.Location = new System.Drawing.Point(58, 17);
             this.pb_MA1_P1onP2.Name = "pb_MA1_P1onP2";
             this.pb_MA1_P1onP2.Size = new System.Drawing.Size(89, 89);
             this.pb_MA1_P1onP2.TabIndex = 112;
@@ -869,7 +881,7 @@
             // pb_MA4_P2onP2
             // 
             this.pb_MA4_P2onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA4_P2onP2.Image")));
-            this.pb_MA4_P2onP2.Location = new System.Drawing.Point(57, 18);
+            this.pb_MA4_P2onP2.Location = new System.Drawing.Point(472, 18);
             this.pb_MA4_P2onP2.Name = "pb_MA4_P2onP2";
             this.pb_MA4_P2onP2.Size = new System.Drawing.Size(89, 89);
             this.pb_MA4_P2onP2.TabIndex = 111;
@@ -1058,7 +1070,7 @@
             // 
             // pb_P1onP2
             // 
-            this.pb_P1onP2.Location = new System.Drawing.Point(472, 140);
+            this.pb_P1onP2.Location = new System.Drawing.Point(47, 140);
             this.pb_P1onP2.Name = "pb_P1onP2";
             this.pb_P1onP2.Size = new System.Drawing.Size(301, 301);
             this.pb_P1onP2.TabIndex = 89;
@@ -1248,7 +1260,7 @@
             // 
             // pb_P2onP2
             // 
-            this.pb_P2onP2.Location = new System.Drawing.Point(47, 140);
+            this.pb_P2onP2.Location = new System.Drawing.Point(472, 140);
             this.pb_P2onP2.Name = "pb_P2onP2";
             this.pb_P2onP2.Size = new System.Drawing.Size(301, 301);
             this.pb_P2onP2.TabIndex = 68;
@@ -1258,7 +1270,7 @@
             // pb_MA6_P2onP2
             // 
             this.pb_MA6_P2onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA6_P2onP2.Image")));
-            this.pb_MA6_P2onP2.Location = new System.Drawing.Point(57, 18);
+            this.pb_MA6_P2onP2.Location = new System.Drawing.Point(472, 18);
             this.pb_MA6_P2onP2.Name = "pb_MA6_P2onP2";
             this.pb_MA6_P2onP2.Size = new System.Drawing.Size(89, 89);
             this.pb_MA6_P2onP2.TabIndex = 115;
@@ -1268,7 +1280,7 @@
             // pb_MA5_P2onP2
             // 
             this.pb_MA5_P2onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA5_P2onP2.Image")));
-            this.pb_MA5_P2onP2.Location = new System.Drawing.Point(57, 18);
+            this.pb_MA5_P2onP2.Location = new System.Drawing.Point(472, 18);
             this.pb_MA5_P2onP2.Name = "pb_MA5_P2onP2";
             this.pb_MA5_P2onP2.Size = new System.Drawing.Size(89, 89);
             this.pb_MA5_P2onP2.TabIndex = 114;
@@ -1277,7 +1289,7 @@
             // pb_MA3_P1onP2
             // 
             this.pb_MA3_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA3_P1onP2.Image")));
-            this.pb_MA3_P1onP2.Location = new System.Drawing.Point(472, 18);
+            this.pb_MA3_P1onP2.Location = new System.Drawing.Point(57, 18);
             this.pb_MA3_P1onP2.Name = "pb_MA3_P1onP2";
             this.pb_MA3_P1onP2.Size = new System.Drawing.Size(89, 89);
             this.pb_MA3_P1onP2.TabIndex = 112;
@@ -1350,7 +1362,7 @@
             this.btnNext_7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext_7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNext_7.Location = new System.Drawing.Point(371, 19);
+            this.btnNext_7.Location = new System.Drawing.Point(365, 75);
             this.btnNext_7.Name = "btnNext_7";
             this.btnNext_7.Size = new System.Drawing.Size(87, 32);
             this.btnNext_7.TabIndex = 113;
@@ -3242,6 +3254,60 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "INSTRUCTIONS";
             // 
+            // label130
+            // 
+            this.label130.AutoSize = true;
+            this.label130.Location = new System.Drawing.Point(446, 17);
+            this.label130.Name = "label130";
+            this.label130.Size = new System.Drawing.Size(20, 13);
+            this.label130.TabIndex = 122;
+            this.label130.Text = "P2";
+            // 
+            // label172
+            // 
+            this.label172.AutoSize = true;
+            this.label172.Location = new System.Drawing.Point(31, 17);
+            this.label172.Name = "label172";
+            this.label172.Size = new System.Drawing.Size(20, 13);
+            this.label172.TabIndex = 123;
+            this.label172.Text = "P1";
+            // 
+            // label173
+            // 
+            this.label173.AutoSize = true;
+            this.label173.Location = new System.Drawing.Point(31, 17);
+            this.label173.Name = "label173";
+            this.label173.Size = new System.Drawing.Size(20, 13);
+            this.label173.TabIndex = 124;
+            this.label173.Text = "P1";
+            // 
+            // label174
+            // 
+            this.label174.AutoSize = true;
+            this.label174.Location = new System.Drawing.Point(446, 17);
+            this.label174.Name = "label174";
+            this.label174.Size = new System.Drawing.Size(20, 13);
+            this.label174.TabIndex = 124;
+            this.label174.Text = "P2";
+            // 
+            // label175
+            // 
+            this.label175.AutoSize = true;
+            this.label175.Location = new System.Drawing.Point(31, 17);
+            this.label175.Name = "label175";
+            this.label175.Size = new System.Drawing.Size(20, 13);
+            this.label175.TabIndex = 125;
+            this.label175.Text = "P1";
+            // 
+            // label176
+            // 
+            this.label176.AutoSize = true;
+            this.label176.Location = new System.Drawing.Point(431, 17);
+            this.label176.Name = "label176";
+            this.label176.Size = new System.Drawing.Size(31, 13);
+            this.label176.TabIndex = 125;
+            this.label176.Text = "COM";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3590,6 +3656,12 @@
         private System.Windows.Forms.Label lbl_P2_Won;
         private System.Windows.Forms.Label lbl_P1_Percentage;
         private System.Windows.Forms.Label lbl_P2GameStats;
+        private System.Windows.Forms.Label label172;
+        private System.Windows.Forms.Label label130;
+        private System.Windows.Forms.Label label174;
+        private System.Windows.Forms.Label label173;
+        private System.Windows.Forms.Label label176;
+        private System.Windows.Forms.Label label175;
     }
 }
 
