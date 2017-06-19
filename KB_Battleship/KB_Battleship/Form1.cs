@@ -26,7 +26,6 @@ namespace KB_Battleship
             bgm_music.SoundLocation = "BGM_1.wav";
             bgm_music.PlayLooping();
         }
-
       
         #region declarations
         //mouse graphics for selected avatar - player 1
@@ -39,9 +38,10 @@ namespace KB_Battleship
         bool slct_A3_P2 = false;
         
         Player P1 = new Player();
-        Player P2 = new Player();       //COM or actualy player two
+        Player P2 = new Player();       //COM or player two
 
         bool GameStarted = false;
+        bool GameMode; //true = 2-Player, false = COM
         #endregion
         
         private void Form1_Load(object sender, EventArgs e)
@@ -1632,10 +1632,12 @@ namespace KB_Battleship
         private void btnComputer_Click(object sender, EventArgs e)
         {
             //skips two pages
+            GameMode = false;
             pg5_Avatar_P2.Visible = true;
             pg6_SetBoard_P2.Visible = true;
             pg7_GameTime_COM.Visible = true;
             GameStarted = true;
+            //load com save file
             LoadDataCOM();
 
             int avatar = P1.getAvatar();
@@ -1662,6 +1664,7 @@ namespace KB_Battleship
 
         private void btn2Player_Click(object sender, EventArgs e)
         {
+            GameMode = true;
             LoadData2Player();
             pg5_Avatar_P2.Visible = true;
 
@@ -2805,20 +2808,44 @@ namespace KB_Battleship
             P.AIR.Reset();
             P.BAT.Reset();
         }
-
+        private void EnableGrids()
+        {
+            pb_COM_Grid.Enabled = true;
+            pb_P1_Grid.Enabled = true;
+            pb_P1onP1.Enabled = true;
+            pb_P2onP1.Enabled = true;
+            pb_P2onP2.Enabled = true;
+        }
+        private void ClearText()
+        {
+            txtCOM_COM.Clear();
+            txtP1_COM.Clear();
+            txtP1onP1.Clear();
+            txtP1onP2.Clear();
+            txtP2onP1.Clear();
+            txtP2onP2.Clear();
+        }
         private void btnResetScore_Click(object sender, EventArgs e)
         {
             P1.setScore(0);
             P2.setScore(0);
+            if (GameMode == true)
+            {
+                SaveData2Player();
+            }
+            else
+            {
+                SaveDataCOM();
+            }
             LoadStatistics();
-            SaveDataCOM();
-            SaveData2Player();
 
         }
 
         private void btnPlayAgain_Click(object sender, EventArgs e)
         {
             GameStarted = false;
+            ClearText();
+            EnableGrids();
             //go back to pg 3
             pg9_GameOver.Visible = false;
             pg8_GameTime_P2.Visible = false;
@@ -2834,6 +2861,8 @@ namespace KB_Battleship
             P2.ResetPlayerArray();
             P1.Reset();
             P2.Reset();
+            P1.setTurn(true);
+            P2.setTurn(false);
 
             //Reset ships
             ResetShips(P1);
