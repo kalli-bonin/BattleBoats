@@ -3319,9 +3319,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(16, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(202, 13);
+            this.label2.Size = new System.Drawing.Size(144, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "write out instructions here when complete";
+            this.label2.Text = "Please see attached manual.";
             // 
             // label1
             // 
