@@ -56,8 +56,6 @@
             this.label130 = new System.Windows.Forms.Label();
             this.txtP2onP2 = new System.Windows.Forms.TextBox();
             this.btnNext_8 = new System.Windows.Forms.Button();
-            this.pb_MA1_P1onP2 = new System.Windows.Forms.PictureBox();
-            this.pb_MA4_P2onP2 = new System.Windows.Forms.PictureBox();
             this.label131 = new System.Windows.Forms.Label();
             this.label132 = new System.Windows.Forms.Label();
             this.label133 = new System.Windows.Forms.Label();
@@ -99,20 +97,18 @@
             this.label169 = new System.Windows.Forms.Label();
             this.label170 = new System.Windows.Forms.Label();
             this.pb_P2onP2 = new System.Windows.Forms.PictureBox();
-            this.pb_MA5_P2onP2 = new System.Windows.Forms.PictureBox();
-            this.pb_MA3_P1onP2 = new System.Windows.Forms.PictureBox();
             this.pb_P1onP2 = new System.Windows.Forms.PictureBox();
             this.txtP1onP2 = new System.Windows.Forms.TextBox();
-            this.pb_MA2_P1onP2 = new System.Windows.Forms.PictureBox();
             this.pb_MA6_P2onP2 = new System.Windows.Forms.PictureBox();
+            this.pb_MA4_P2onP2 = new System.Windows.Forms.PictureBox();
+            this.pb_MA5_P2onP2 = new System.Windows.Forms.PictureBox();
+            this.pb_MA1_P1onP2 = new System.Windows.Forms.PictureBox();
+            this.pb_MA3_P1onP2 = new System.Windows.Forms.PictureBox();
+            this.pb_MA2_P1onP2 = new System.Windows.Forms.PictureBox();
             this.label174 = new System.Windows.Forms.Label();
             this.label173 = new System.Windows.Forms.Label();
             this.txtP1onP1 = new System.Windows.Forms.TextBox();
             this.txtP2onP1 = new System.Windows.Forms.TextBox();
-            this.pb_MA6_P2onP1 = new System.Windows.Forms.PictureBox();
-            this.pb_MA5_P2onP1 = new System.Windows.Forms.PictureBox();
-            this.pb_MA3_P1onP1 = new System.Windows.Forms.PictureBox();
-            this.pb_MA2_P1onP1 = new System.Windows.Forms.PictureBox();
             this.btnNext_7 = new System.Windows.Forms.Button();
             this.pb_MA4_P2onP1 = new System.Windows.Forms.PictureBox();
             this.pb_MA1_P1onP1 = new System.Windows.Forms.PictureBox();
@@ -158,6 +154,10 @@
             this.label128 = new System.Windows.Forms.Label();
             this.label129 = new System.Windows.Forms.Label();
             this.pb_P1onP1 = new System.Windows.Forms.PictureBox();
+            this.pb_MA3_P1onP1 = new System.Windows.Forms.PictureBox();
+            this.pb_MA2_P1onP1 = new System.Windows.Forms.PictureBox();
+            this.pb_MA6_P2onP1 = new System.Windows.Forms.PictureBox();
+            this.pb_MA5_P2onP1 = new System.Windows.Forms.PictureBox();
             this.label176 = new System.Windows.Forms.Label();
             this.label175 = new System.Windows.Forms.Label();
             this.txtCOM_COM = new System.Windows.Forms.TextBox();
@@ -317,22 +317,22 @@
             this.pg7_GameTime_P1.SuspendLayout();
             this.pg8_GameTime_P2.SuspendLayout();
             this.pg9_GameOver.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA1_P1onP2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P2onP2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P1onP2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2onP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA1_P1onP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2onP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA1_P1onP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P2onP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P1onP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA_P2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1)).BeginInit();
@@ -891,26 +891,6 @@
             this.btnNext_8.UseVisualStyleBackColor = false;
             this.btnNext_8.Click += new System.EventHandler(this.btnNext_8_Click_1);
             // 
-            // pb_MA1_P1onP2
-            // 
-            this.pb_MA1_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA1_P1onP2.Image")));
-            this.pb_MA1_P1onP2.Location = new System.Drawing.Point(57, 18);
-            this.pb_MA1_P1onP2.Name = "pb_MA1_P1onP2";
-            this.pb_MA1_P1onP2.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA1_P1onP2.TabIndex = 112;
-            this.pb_MA1_P1onP2.TabStop = false;
-            this.pb_MA1_P1onP2.Visible = false;
-            // 
-            // pb_MA4_P2onP2
-            // 
-            this.pb_MA4_P2onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA4_P2onP2.Image")));
-            this.pb_MA4_P2onP2.Location = new System.Drawing.Point(472, 18);
-            this.pb_MA4_P2onP2.Name = "pb_MA4_P2onP2";
-            this.pb_MA4_P2onP2.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA4_P2onP2.TabIndex = 111;
-            this.pb_MA4_P2onP2.TabStop = false;
-            this.pb_MA4_P2onP2.Visible = false;
-            // 
             // label131
             // 
             this.label131.AutoSize = true;
@@ -1280,25 +1260,6 @@
             this.pb_P2onP2.TabStop = false;
             this.pb_P2onP2.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_P2onP2_Paint_1);
             // 
-            // pb_MA5_P2onP2
-            // 
-            this.pb_MA5_P2onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA5_P2onP2.Image")));
-            this.pb_MA5_P2onP2.Location = new System.Drawing.Point(472, 18);
-            this.pb_MA5_P2onP2.Name = "pb_MA5_P2onP2";
-            this.pb_MA5_P2onP2.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA5_P2onP2.TabIndex = 114;
-            this.pb_MA5_P2onP2.TabStop = false;
-            // 
-            // pb_MA3_P1onP2
-            // 
-            this.pb_MA3_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA3_P1onP2.Image")));
-            this.pb_MA3_P1onP2.Location = new System.Drawing.Point(57, 18);
-            this.pb_MA3_P1onP2.Name = "pb_MA3_P1onP2";
-            this.pb_MA3_P1onP2.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA3_P1onP2.TabIndex = 112;
-            this.pb_MA3_P1onP2.TabStop = false;
-            this.pb_MA3_P1onP2.Visible = false;
-            // 
             // pb_P1onP2
             // 
             this.pb_P1onP2.Location = new System.Drawing.Point(47, 140);
@@ -1318,16 +1279,6 @@
             this.txtP1onP2.Size = new System.Drawing.Size(183, 89);
             this.txtP1onP2.TabIndex = 120;
             // 
-            // pb_MA2_P1onP2
-            // 
-            this.pb_MA2_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA2_P1onP2.Image")));
-            this.pb_MA2_P1onP2.Location = new System.Drawing.Point(57, 18);
-            this.pb_MA2_P1onP2.Name = "pb_MA2_P1onP2";
-            this.pb_MA2_P1onP2.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA2_P1onP2.TabIndex = 112;
-            this.pb_MA2_P1onP2.TabStop = false;
-            this.pb_MA2_P1onP2.Visible = false;
-            // 
             // pb_MA6_P2onP2
             // 
             this.pb_MA6_P2onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA6_P2onP2.Image")));
@@ -1337,6 +1288,55 @@
             this.pb_MA6_P2onP2.TabIndex = 115;
             this.pb_MA6_P2onP2.TabStop = false;
             this.pb_MA6_P2onP2.Visible = false;
+            // 
+            // pb_MA4_P2onP2
+            // 
+            this.pb_MA4_P2onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA4_P2onP2.Image")));
+            this.pb_MA4_P2onP2.Location = new System.Drawing.Point(472, 18);
+            this.pb_MA4_P2onP2.Name = "pb_MA4_P2onP2";
+            this.pb_MA4_P2onP2.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA4_P2onP2.TabIndex = 111;
+            this.pb_MA4_P2onP2.TabStop = false;
+            this.pb_MA4_P2onP2.Visible = false;
+            // 
+            // pb_MA5_P2onP2
+            // 
+            this.pb_MA5_P2onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA5_P2onP2.Image")));
+            this.pb_MA5_P2onP2.Location = new System.Drawing.Point(472, 18);
+            this.pb_MA5_P2onP2.Name = "pb_MA5_P2onP2";
+            this.pb_MA5_P2onP2.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA5_P2onP2.TabIndex = 114;
+            this.pb_MA5_P2onP2.TabStop = false;
+            // 
+            // pb_MA1_P1onP2
+            // 
+            this.pb_MA1_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA1_P1onP2.Image")));
+            this.pb_MA1_P1onP2.Location = new System.Drawing.Point(57, 18);
+            this.pb_MA1_P1onP2.Name = "pb_MA1_P1onP2";
+            this.pb_MA1_P1onP2.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA1_P1onP2.TabIndex = 112;
+            this.pb_MA1_P1onP2.TabStop = false;
+            this.pb_MA1_P1onP2.Visible = false;
+            // 
+            // pb_MA3_P1onP2
+            // 
+            this.pb_MA3_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA3_P1onP2.Image")));
+            this.pb_MA3_P1onP2.Location = new System.Drawing.Point(57, 18);
+            this.pb_MA3_P1onP2.Name = "pb_MA3_P1onP2";
+            this.pb_MA3_P1onP2.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA3_P1onP2.TabIndex = 112;
+            this.pb_MA3_P1onP2.TabStop = false;
+            this.pb_MA3_P1onP2.Visible = false;
+            // 
+            // pb_MA2_P1onP2
+            // 
+            this.pb_MA2_P1onP2.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA2_P1onP2.Image")));
+            this.pb_MA2_P1onP2.Location = new System.Drawing.Point(57, 18);
+            this.pb_MA2_P1onP2.Name = "pb_MA2_P1onP2";
+            this.pb_MA2_P1onP2.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA2_P1onP2.TabIndex = 112;
+            this.pb_MA2_P1onP2.TabStop = false;
+            this.pb_MA2_P1onP2.Visible = false;
             // 
             // label174
             // 
@@ -1374,46 +1374,6 @@
             this.txtP2onP1.Size = new System.Drawing.Size(183, 89);
             this.txtP2onP1.TabIndex = 121;
             // 
-            // pb_MA6_P2onP1
-            // 
-            this.pb_MA6_P2onP1.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA6_P2onP1.Image")));
-            this.pb_MA6_P2onP1.Location = new System.Drawing.Point(472, 18);
-            this.pb_MA6_P2onP1.Name = "pb_MA6_P2onP1";
-            this.pb_MA6_P2onP1.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA6_P2onP1.TabIndex = 118;
-            this.pb_MA6_P2onP1.TabStop = false;
-            this.pb_MA6_P2onP1.Visible = false;
-            // 
-            // pb_MA5_P2onP1
-            // 
-            this.pb_MA5_P2onP1.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA5_P2onP1.Image")));
-            this.pb_MA5_P2onP1.Location = new System.Drawing.Point(472, 18);
-            this.pb_MA5_P2onP1.Name = "pb_MA5_P2onP1";
-            this.pb_MA5_P2onP1.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA5_P2onP1.TabIndex = 117;
-            this.pb_MA5_P2onP1.TabStop = false;
-            this.pb_MA5_P2onP1.Visible = false;
-            // 
-            // pb_MA3_P1onP1
-            // 
-            this.pb_MA3_P1onP1.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA3_P1onP1.Image")));
-            this.pb_MA3_P1onP1.Location = new System.Drawing.Point(57, 18);
-            this.pb_MA3_P1onP1.Name = "pb_MA3_P1onP1";
-            this.pb_MA3_P1onP1.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA3_P1onP1.TabIndex = 116;
-            this.pb_MA3_P1onP1.TabStop = false;
-            this.pb_MA3_P1onP1.Visible = false;
-            // 
-            // pb_MA2_P1onP1
-            // 
-            this.pb_MA2_P1onP1.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA2_P1onP1.Image")));
-            this.pb_MA2_P1onP1.Location = new System.Drawing.Point(57, 18);
-            this.pb_MA2_P1onP1.Name = "pb_MA2_P1onP1";
-            this.pb_MA2_P1onP1.Size = new System.Drawing.Size(89, 89);
-            this.pb_MA2_P1onP1.TabIndex = 115;
-            this.pb_MA2_P1onP1.TabStop = false;
-            this.pb_MA2_P1onP1.Visible = false;
-            // 
             // btnNext_7
             // 
             this.btnNext_7.BackColor = System.Drawing.Color.RoyalBlue;
@@ -1448,6 +1408,7 @@
             this.pb_MA1_P1onP1.Size = new System.Drawing.Size(89, 89);
             this.pb_MA1_P1onP1.TabIndex = 111;
             this.pb_MA1_P1onP1.TabStop = false;
+            this.pb_MA1_P1onP1.Visible = false;
             // 
             // label90
             // 
@@ -1827,6 +1788,46 @@
             this.pb_P1onP1.TabIndex = 68;
             this.pb_P1onP1.TabStop = false;
             this.pb_P1onP1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_P1onP1_Paint);
+            // 
+            // pb_MA3_P1onP1
+            // 
+            this.pb_MA3_P1onP1.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA3_P1onP1.Image")));
+            this.pb_MA3_P1onP1.Location = new System.Drawing.Point(57, 18);
+            this.pb_MA3_P1onP1.Name = "pb_MA3_P1onP1";
+            this.pb_MA3_P1onP1.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA3_P1onP1.TabIndex = 116;
+            this.pb_MA3_P1onP1.TabStop = false;
+            this.pb_MA3_P1onP1.Visible = false;
+            // 
+            // pb_MA2_P1onP1
+            // 
+            this.pb_MA2_P1onP1.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA2_P1onP1.Image")));
+            this.pb_MA2_P1onP1.Location = new System.Drawing.Point(57, 18);
+            this.pb_MA2_P1onP1.Name = "pb_MA2_P1onP1";
+            this.pb_MA2_P1onP1.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA2_P1onP1.TabIndex = 115;
+            this.pb_MA2_P1onP1.TabStop = false;
+            this.pb_MA2_P1onP1.Visible = false;
+            // 
+            // pb_MA6_P2onP1
+            // 
+            this.pb_MA6_P2onP1.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA6_P2onP1.Image")));
+            this.pb_MA6_P2onP1.Location = new System.Drawing.Point(472, 18);
+            this.pb_MA6_P2onP1.Name = "pb_MA6_P2onP1";
+            this.pb_MA6_P2onP1.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA6_P2onP1.TabIndex = 118;
+            this.pb_MA6_P2onP1.TabStop = false;
+            this.pb_MA6_P2onP1.Visible = false;
+            // 
+            // pb_MA5_P2onP1
+            // 
+            this.pb_MA5_P2onP1.Image = ((System.Drawing.Image)(resources.GetObject("pb_MA5_P2onP1.Image")));
+            this.pb_MA5_P2onP1.Location = new System.Drawing.Point(472, 18);
+            this.pb_MA5_P2onP1.Name = "pb_MA5_P2onP1";
+            this.pb_MA5_P2onP1.Size = new System.Drawing.Size(89, 89);
+            this.pb_MA5_P2onP1.TabIndex = 117;
+            this.pb_MA5_P2onP1.TabStop = false;
+            this.pb_MA5_P2onP1.Visible = false;
             // 
             // label176
             // 
@@ -3365,22 +3366,22 @@
             this.pg8_GameTime_P2.PerformLayout();
             this.pg9_GameOver.ResumeLayout(false);
             this.pg9_GameOver.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA1_P1onP2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P2onP2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P1onP2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2onP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA1_P1onP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA4_P2onP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA1_P1onP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P2onP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P1onP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1onP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1onP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA6_P2onP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_MA5_P2onP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA_P2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA3_P1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_MA2_P1)).EndInit();
